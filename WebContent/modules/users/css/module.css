@@ -1,0 +1,314 @@
+
+/*--search1 start profile--*/
+/*--web-forms--*/
+
+.first-one-inner {
+    background: #ffe;
+    padding: 3em;
+    padding-top : 2em;
+    padding-bottom : 1.5em;
+    border-top-left-radius: 0.3em;
+    -o-border-top-left-radius: 0.3em;
+    -moz-border-top-left-radius: 0.3em;
+    -webkit-border-top-right-radius: 0.3em;
+    border-top-right-radius: 0.3em;
+    -o-border-top-right-radius: 0.3em;
+    -moz-border-top-right-radius: 0.3em;
+    -webkit-border-top-right-radius: 0.3em;
+    border: 1px solid #dff9ff;
+}
+h3.tittle {
+    text-align: center;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    color: #171819;
+    text-shadow: 1px 0px #000000;
+    font-size: 1.6em;
+}
+/*--first-one--*/
+.first-one{
+    border-top-left-radius: 0.3em;
+    -o-border-top-left-radius: 0.3em;
+    -moz-border-top-left-radius: 0.3em;
+    -webkit-border-top-right-radius: 0.3em;
+    border-top-right-radius: 0.3em;
+    -o-border-top-right-radius: 0.3em;
+    -moz-border-top-right-radius: 0.3em;
+    -webkit-border-top-right-radius: 0.3em;
+	}
+.first-one input[type="password"]{
+   width: 100%;
+    padding: 1em 4em 1em 1em;
+    color: #858282;
+    font-size: 16px;
+    outline: none;
+    font-weight: 500;
+    border: 2px solid #05d2ff;
+    border-radius: 0.3em;
+    -o-border-radius: 0.3em;
+    -moz-border-radius: 0.3em;
+    margin: 0.7em 0;
+		transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+}
+  .first-one input[type="password"]:hover{
+   border: 2px solid #05d2ff;
+  }
+.submit {
+    text-align: center;
+    margin-top: 10px;
+}
+.first-one input[type="submit"]{
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    padding: 15px 15px;
+    width: 48%;
+    background: #212121;
+    border-radius: 0.3em;
+    -o-border-radius: 0.3em;
+    -webkit-border-radius: 0.3em;
+    -moz-border-radius: 0.3em;
+    text-transform: uppercase;
+}
+.first-one input[type="submit"]:hover{
+  background:#05d2ff;
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+
+}
+/* Bounce To Bottom */
+/*--//first-one--*/
+/*--/second-one--*/
+/*--social--*/
+/*--social--*/
+/*--//second-one--*/
+/*--profile--*/
+
+.profile-edition {
+	display : none;
+}
+
+.profile-edition input[type=text], .profile-edition input[type=email] {
+	padding: 3.4px;
+	width : 50%;
+}
+
+.first-one .profile-edition input[type="submit"] {
+	margin-top : 5px;
+}
+
+.first-one .profile-edition input[type="submit"]:hover {
+	background : #fff;
+	color : #212121;
+}
+
+.profile {
+    text-align: center;
+}
+.profile a {
+	position: relative;
+    top: 12px;
+    font-weight: bold;
+    color: #fff;
+    cursor : pointer;
+}
+.first-one-inner.lost{
+  background:#05d2ff;
+  
+}
+.profile-bottom img {
+	border:4px solid #fff;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+	-ms-border-radius: 50%;
+	padding: 30px;
+    margin-bottom: 20px;
+    margin-top: -20px;
+}
+.profile-bottom h4 {
+	color: #fff;
+	font-size: 20px;
+	 margin-top:-10px;
+}
+.profile-bottom h6{
+	color: #fff;
+    font-size: 14px;
+    margin-top: 9px;
+}
+
+@media (max-width:1366px){
+	h3.tittle {
+		margin-bottom: 1em;
+		font-size: 1.4em;
+		font-weight : bold;
+	}
+}
+@media (max-width:1280px){
+	.profile a {
+    	top: 10px;
+    	font-size: 13px;
+	}
+	.first-one input[type="password"] {
+       margin: 0.5em 0;
+	}
+}
+@media (max-width:1024px){
+   .first-one-inner {
+      padding: 2em 1em;
+	}
+	.first-one input[type="submit"] {
+		font-size: 15px;
+		padding: 11px 15px;
+		width: 48%;
+	}
+	.first-one input[type="password"] {
+		width: 100%;
+		padding: 0.8em 4em 0.8em 1em;
+		color: #858282;
+		font-size: 15px;
+	}
+}
+@media (max-width:991px){
+	.profile-edition input[type=text], .profile-edition input[type=email] {
+      width: 100%;
+      text-align: left;
+     }
+	.first-one {
+		width: 71%;
+		padding: 0;
+		margin: 0 auto 4%;
+	}
+	.first-one-inner.lost {
+		margin-top: 2em;
+	}
+	.first-one-inner {
+		padding: 2em 2em;
+	}
+	.first-one input[type="password"] {
+		width: 100%;
+		padding: 0.8em 4em 0.8em 1em;
+		color: #858282;
+		font-size: 15px;
+	}
+	.first-one input[type="submit"] {
+		font-size: 15px;
+		padding: 14px 15px;
+		width: 32%;
+	}
+}
+@media (max-width:768px){
+	.first-one {
+		width: 71%;
+		padding: 0;
+		margin: 0 auto 4%;
+	}
+	.first-one-inner.lost {
+		margin-top: 2em;
+	}
+	.first-one-inner {
+		padding: 2em 2em;
+	}
+	.first-one input[type="password"] {
+		width: 100%;
+		padding: 0.8em 4em 0.8em 1em;
+		color: #858282;
+		font-size: 15px;
+	}
+}
+@media (max-width:736px){
+	.first-one input[type="password"] {
+		width: 100%;
+		padding: 0.8em 4em 0.8em 1em;
+		color: #858282;
+		font-size: 15px;
+	}
+}
+@media (max-width:667px){
+	.first-one input[type="password"] {
+		width: 100%;
+		padding: 0.8em 4em 0.8em 1em;
+	}
+}
+@media (max-width:640px){
+	.first-one input[type="password"] {
+		width: 100%;
+		padding: 0.8em 4em 0.8em 1em;
+		color: #858282;
+		font-size: 15px;
+	}
+}
+@media (max-width:600px){
+	.first-one {
+		width: 100%;
+		padding: 0;
+		margin: 0 auto 4%;
+	}
+}
+@media (max-width:568px){
+	.first-one {
+		width: 100%;
+		padding: 0;
+		margin: 0 auto 4%;
+	}
+	.first-one input[type="password"] {
+		width: 100%;
+		padding: 0.8em 4em 0.8em 1em;
+		color: #858282;
+		font-size: 15px;
+	}
+}
+@media (max-width:480px){
+	.first-one {
+		width: 100%;
+		padding: 0;
+		margin: 0 auto 4%;
+	}
+	.first-one input[type="password"] {
+		width: 100%;
+		padding: 0.8em 4em 0.8em 1em;
+		color: #858282;
+		font-size: 15px;
+	}
+}
+@media (max-width:414px){
+	.first-one input[type="password"] {
+		width: 100%;
+		padding: 0.6em 4em 0.6em 1em;
+		color: #858282;
+		font-size: 15px;
+	}
+	.first-one input[type="submit"] {
+		font-size: 12px;
+		padding: 11px 15px;
+		width: 48%;
+	}
+	h3.tittle {
+		margin-bottom: 1em;
+		font-size: 1.2em;
+	}
+}
+@media (max-width:320px){
+	.first-one-inner {
+		padding: 1em 1em;
+	}
+	.first-one input[type="password"] {
+		width: 100%;
+		padding: 0.6em 4em 0.6em 1em;
+		color: #858282;
+		font-size: 15px;
+	}
+	.first-one input[type="submit"] {
+		font-size: 13px;
+		padding: 10px 15px;
+	}
+    
+}

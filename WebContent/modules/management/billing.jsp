@@ -1,0 +1,97 @@
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<div class="inner-block">
+ <div class="logo-name">
+		<h1><i class="fa fa-money" aria-hidden="true"></i>Facturation</h1> 								
+ </div>
+<!--info updates updates-->
+	 <div class="info-updates">
+			<div class="col-md-4 info-update-gd">
+				<div class="info-update-block clr-block-6">
+					<div class="col-md-8 info-update-left">
+						<h3>${total}</h3>
+						<h4>factures</h4>
+					</div>
+					<div class="col-md-4 info-update-right">
+						<i class="fa fa-money"> </i>
+					</div>
+				  <div class="clearfix"> </div>
+				</div>
+			</div>
+			<div class="col-md-4 info-update-gd">
+				<div class="info-update-block clr-block-3">
+					<div class="col-md-8 info-update-left">
+						<h3>${unpayed}</h3>
+						<h4>factures impayées</h4>
+					</div>
+					<div class="col-md-4 info-update-right">
+						<i class="fa fa-money"> </i>
+					</div>
+				  <div class="clearfix"> </div>
+				</div>
+			</div>
+		   <div class="clearfix"> </div>
+		</div>
+<!--info updates end here-->
+<!--mainpage chit-chating-->
+<div class="chit-chat-layer1">
+	<div class="col-md-12 chit-chat-layer1-left">
+               <div class="work-progres">
+                            <div class="chit-chat-heading">
+                                  <h3 class="tlt"><i class="fa fa-money" aria-hidden="true"></i> Vos Factures</h3>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="billing table table-hover">
+                                  <thead>
+                                    <tr class="clr-block-6">
+                                      <th></th>
+                                      <th>Frais</th>
+                                      <th>Service</th>
+                                      <th>Date</th>  
+                                      <th>Montant</th>                                                           
+                                      <th>Paiement</th>
+                                      <th><i class="fa fa-money"></i></th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                               <s:iterator value="#request.bills" var="bill" status="status">
+	                                <tr class="${bill.properties['status']=='finished' ? 'paid' : ''}">
+	                                  <td><span class="number">${status.index+1}</span></td>
+	                                  <td><i class="fa fa-money" aria-hidden="true"></i> ${bill.properties['fee']}</td>
+	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${bill.properties['service']}</td>
+                                  	  <td>17/09/2017</td>
+                                  	  <td>${bill.properties['amount']} F</td>                                        
+	                                  <td><span class="label ${bill.properties['status']=='in progress' ? 'label-danger' : '' } ${bill.properties['status']=='finished' ? 'label-success' : '' } ${bill.properties['status']=='stand by' ? 'label-info' : '' }">
+	                                  ${bill.properties['status']=='in progress' ? 'en cours' : '' } ${bill.properties['status']=='finished' ? 'terminé' : '' } ${bill.properties['status']=='stand by' ? 'en attente' : '' }
+	                                  </span></td>
+	                                  <td>&nbsp;<a class="pay" style="display : ${bill.properties['status']=='finished' ? 'none' : 'inline-block'}"><i class="fa fa-money"> </i></a></td>
+	                              </tr>
+	                          </s:iterator>
+                          </tbody>
+                      </table>
+                  </div>
+             </div>
+      </div>
+      
+     <div class="clearfix"> </div>
+</div>
+<div class="window form">
+		<span title="fermer" class="close">X</span>
+		<h1><i class="fa fa-money" aria-hidden="true"></i>Facture #1</h1>
+		<fieldset>
+			<span class="text-right">Frais </span> <span>hébergement</span>
+			<span class="text-right">Service </span> <span>site web</span>
+			<span class="text-right">Date </span> <span>17/09/2017</span>
+			<span class="text-right">Montant </span> <span>20 000 F</span>
+			<div class="details">
+			    <span class="text-right">Paiement </span> <span class="label label-success">terminé</span><br>
+			    <span class="text-right">Effectué le </span> <span>17/09/2017</span>
+			    <span class="text-right">Par </span> <span>carte Visa</span>
+			</div>
+		</fieldset>
+		<div class="submit">
+		   <input type="submit" value="Payer">
+		   <input type="button" value="Annuler">
+		</div>
+</div>
+</div>
+<script src="${js}/billing.js" defer></script>

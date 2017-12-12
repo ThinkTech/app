@@ -1,0 +1,110 @@
+<div id="checkout-wizard" style="display:none;position:absolute">
+		<div class="checkout-wizard-content">
+			<h4 class="wizard-title"><i class="fa fa-money" aria-hidden="true"></i> Effectuer le paiement</h4>
+			<span title="fermer" class="close">X</span>
+			<div class="checkout-wizard-steps">
+				<form action="payment/pay" method="post">
+					<section class="step" data-step-title="Paiement">
+						<fieldset>
+							<p>Choisisser le mode de paiement le plus ad&edot;quat pour r&edot;gler
+								votre facture du 17/09/2017 pour le service <b>site web</b>.</p>
+							<div>
+								<span>
+									<label><i class="fa fa-money" aria-hidden="true"></i> Payer avec</label> <select name="method">
+										<option value="visa">Visa</option>
+										<option value="mastercard">MasterCard</option>
+										<option value="express">American Express</option>
+										<option value="discover">Discover</option>
+										<option value="paypal">PayPal</option>
+										<option value="tigo">Tigo Cash</option>
+										<option value="orange">Orange Money</option>
+								</select>
+								</span>
+							</div>
+						</fieldset>
+
+					</section>
+					<section class="step" data-step-title="Confirmation">
+						<fieldset>
+							<div class="shopping-payment">
+								<div class="payment visa-payment">
+									<h4><b>Paiement Visa</b>
+									</h4>
+									<ol>
+										<li>Cliquer sur terminer ou sur le bouton Visa Checkout.</li>
+										<li>Effectuer le paiement de votre facture.</li>
+									</ol>
+									<img alt="Visa Checkout" class="v-button img-responsive" role="button"
+										 src="https://sandbox.secure.checkout.visa.com/wallet-services-web/xo/button.png"/>
+								</div>
+								<div class="payment mastercard-payment">
+									<h4><b>Paiement MasterCard</b>
+									</h4>
+									<ol>
+										<li>Cliquer sur le bouton Visa Checkout.</li>
+										<li>Effectuer le paiement de votre facture.</li>
+									</ol>
+									<img alt="Visa Checkout" class="v-button img-responsive" role="button"
+										src="https://sandbox.secure.checkout.visa.com/wallet-services-web/xo/button.png" />
+								</div>
+								<div class="payment express-payment">
+									<h4><b>Paiement American Express</b>
+									</h4>
+									<ol>
+										<li>Cliquer sur le bouton Visa Checkout.</li>
+										<li>Effectuer le paiement de votre facture.</li>
+									</ol>
+									<img alt="Visa Checkout" class="v-button img-responsive" role="button"
+										src="https://sandbox.secure.checkout.visa.com/wallet-services-web/xo/button.png" />
+								</div>
+								<div class="payment discover-payment">
+									<h4><b>Paiement Discover</b>
+									</h4>
+									<ol>
+										<li>Cliquer sur le bouton Visa Checkout.</li>
+										<li>Effectuer le paiement de votre facture.</li>
+									</ol>
+									<img alt="Visa Checkout" class="v-button img-responsive" role="button"
+										src="https://sandbox.secure.checkout.visa.com/wallet-services-web/xo/button.png" />
+								</div>
+								<div class="payment orange-payment">
+									<h4><b>Paiement Orange Money</b>
+									</h4>
+									<ol>
+										<li>Composer le #144#391#.</li>
+										<li>Choisisser l'option 1-G&edot;n&edot;ration d'un code.</li>
+										<li>Entrer votre code secret Orange Money.</li>
+										<li>Conserver le code re&ccedil;u par SMS pour r&edot;gler votre facture.</li>
+									</ol>
+								</div>
+								<div class="payment tigo-payment">
+									<h4><b>Paiement Tigo Cash</b>
+									</h4>
+									<ol>
+										<li>Entrer votre num&edot;ro de t&edot;l&edot;phone Tigo.</li>
+										<li>R&edot;ception SMS de la requ&ecirc;te de paiement.</li>
+										<li>Taper #150#, puis entrer le code PIN Tigo Cash.</li>
+										<li>R&edot;ception SMS de la confirmation de paiement.</li>
+									</ol>
+								</div>
+								<div class="payment paypal-payment">
+									<h4><b>Paiement PayPal</b>
+									</h4>
+									<ol>
+										<li>Cliquer sur le bouton PayPal Express Checkout.</li>
+										<li>Effectuer le paiement de votre facture.</li>
+									</ol>
+									<div id="paypal-button"></div>
+									
+								</div>
+								<div class="shopping-amount">
+								    <span><span>Frais : </span><span><b id="order-amount">h&edot;bergement</b></span></span> 
+									<span><span>Montant : </span><span><b id="order-amount">20 000 F</b></span></span> 
+								</div>
+							</div>
+						</fieldset>
+					</section>
+				</form>
+			</div>
+		</div>
+</div>

@@ -1,0 +1,18 @@
+<module>
+  <name>dashboard</name>
+  <url>dashboard</url>
+  <type>back-end</type>
+  <actions>
+    <action url="projects" page="projects" method="showProjects"/>
+    <action url="projects/create"  method="createProject" />
+    <action url="projects/description/update"  method="updateProjectDescription" />
+    <action url="projects/comments/create"  method="addComment" />
+    <action url="messages" page="messages" method="showMessages"/>
+    <action url="support"  page="support" method="showTickets"/>
+    <action url="support/tickets/create"  method="createTicket" />
+    <action url="support/messages/create"  method="addTicketMessage" />
+    <action url="billing"  page="billing" method="showBills"/>
+    <action url="services" page="services" method="showServices"/>
+  </actions>
+  
+</module>
