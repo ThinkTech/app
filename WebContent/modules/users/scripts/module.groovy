@@ -16,6 +16,10 @@ class ModuleAction extends ActionSupport {
 	   response.writer.write(json([status: 1]))
 	}
 	
+	def updateProfil() {
+	   response.writer.write(json([status: 1]))
+	}
+	
 	def logout() {
 	    session.invalidate()
 		def url = request.contextPath+"/"

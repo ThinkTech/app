@@ -60,7 +60,7 @@ h3.tittle {
     text-align: center;
     margin-top: 10px;
 }
-.first-one input[type="submit"]{
+.first-one input[type="submit"],.first-one input[type="button"]{
     font-size: 17px;
     font-weight: 600;
     color: #fff;
@@ -75,8 +75,9 @@ h3.tittle {
     -moz-border-radius: 0.3em;
     text-transform: uppercase;
 }
-.first-one input[type="submit"]:hover{
-  background:#05d2ff;
+.first-one input[type="submit"]:hover,.first-one input[type="button"]:hover{
+  background:#fff;
+  color : #212121;
   transition: 0.5s all;
   -webkit-transition: 0.5s all;
   -moz-transition: 0.5s all;
@@ -165,7 +166,7 @@ h3.tittle {
    .first-one-inner {
       padding: 2em 1em;
 	}
-	.first-one input[type="submit"] {
+	.first-one input[type="submit"],.first-one input[type="button"] {
 		font-size: 15px;
 		padding: 11px 15px;
 		width: 48%;
@@ -199,7 +200,7 @@ h3.tittle {
 		color: #858282;
 		font-size: 15px;
 	}
-	.first-one input[type="submit"] {
+	.first-one input[type="submit"],.first-one input[type="button"] {
 		font-size: 15px;
 		padding: 14px 15px;
 		width: 32%;
@@ -286,7 +287,7 @@ h3.tittle {
 		color: #858282;
 		font-size: 15px;
 	}
-	.first-one input[type="submit"] {
+	.first-one input[type="submit"],.first-one input[type="button"] {
 		font-size: 12px;
 		padding: 11px 15px;
 		width: 48%;
@@ -306,7 +307,7 @@ h3.tittle {
 		color: #858282;
 		font-size: 15px;
 	}
-	.first-one input[type="submit"] {
+	.first-one input[type="submit"],.first-one input[type="button"] {
 		font-size: 13px;
 		padding: 10px 15px;
 	}

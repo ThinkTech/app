@@ -12,6 +12,7 @@
 		<action  url="login"  method="login" />
 		<action  url="account" page="account"/>
 		<action  url="password/change"  method="changePassword" />
+		<action  url="profile/update"  method="updateProfil" />
 		<action  url="logout"  method="logout"/>
 	</actions>
 </module>
