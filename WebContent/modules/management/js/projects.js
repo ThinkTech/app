@@ -26,6 +26,10 @@ jQuery(document).ready(function($) {
 			$(".window .terms").show();
 		});
 		
+		$(".project-wizard input[type=button]").click(function(event) {
+			$(".project-wizard").hide();
+		});
+		
 		$(".window > form").submit(function(event){
 			const form = $(this);
 			const project = {};
@@ -52,7 +56,9 @@ jQuery(document).ready(function($) {
 										return false;
 									});
 							  });
-							  alert("votre projet a &edot;t&edot; bien cr&edot;&edot;");
+							  alert("votre projet a &edot;t&edot; bien cr&edot;&edot;",function(){
+								  $(".project-wizard").fadeIn(100);
+							  });
 						  }
 						  page.release();
 					  },

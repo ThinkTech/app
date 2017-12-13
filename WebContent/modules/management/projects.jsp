@@ -117,10 +117,10 @@
 			<div class="content3">
 				<div class="shipment">
 					<div class="confirm">
-						<div class="imgcircle">
+						<div class="imgcircle active">
 							<img src="${images}/confirm.png" alt="confirm order">
 						</div>
-						<span class="line"></span>
+						<span class="line active"></span>
 						<p>Contrat et Caution</p>
 					</div>
 					<div class="process">
@@ -269,6 +269,68 @@
 		</div>
 	
 	</form>
+</div>
+<div class="window project-wizard">
+  <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Création Projet Reussie</h1>
+  <section>
+    <div>
+		<h5>
+			<span><b>Structure</b> : Sesame</span>
+		</h5>
+		<h5>
+			<span><b>Ninea</b> : ninea</span>
+		</h5>
+		<span>Merci pour votre souscription au plan business</span>
+	</div>
+	<h2><span class="number">1</span> Etape 1 : Contrat et Caution</h2>
+	<div class="col-md-12">
+		  <div class="content-process">
+			<div class="content3">
+				<div class="shipment">
+					<div class="confirm">
+						<div class="imgcircle active">
+							<img src="${images}/confirm.png" alt="confirm order">
+						</div>
+						<span class="line"></span>
+						<p>Contrat et Caution</p>
+					</div>
+					<div class="process">
+						<div class="imgcircle">
+							<img src="${images}/process.png" alt="process order">
+						</div>
+						<span class="line"></span>
+						<p>Développement</p>
+					</div>
+					<div class="quality">
+						<div class="imgcircle">
+							<img src="${images}/quality.png" alt="quality check">
+						</div>
+						<span class="line"></span>
+						<p>Tests et Validation</p>
+					</div>
+					<div class="delivery">
+						<div class="imgcircle">
+							<img src="${images}/delivery.png" alt="delivery">
+						</div>
+						<p>Livraison Produit</p>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		   </div>	
+	   </div>
+	   <p>
+	    Vos informations personnelles (nom, prénom) ainsi que celles de la structure (nom, ninea) seront utilisées
+	    pour générer le contrat liant les deux parties. Veuillez vous assurer de leur exactitude. Une facture pour le paiement de la caution a été générée. Vous pouvez choisir d'effectuer le paiement maintenant
+	    en cliquant sur le bouton Terminer afin que votre projet soit traité au plus vite par notre équipe de développement. 
+	    <span class="terms-agreement">
+	      <input type="checkbox" checked> Payer la caution
+	    </span>
+	   </p>
+	   <div class="submit">
+		 <input type="button" value="Terminer">
+	</div>
+  </section>
 </div>
 </div>
 <script src="${js}/projects.js" defer></script>

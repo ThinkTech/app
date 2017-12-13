@@ -77,7 +77,7 @@ legend {
     font-size: 82%;
     position: relative;
     top: 1px;
-    display: block;
+    display: inline-block;
     width: 25px;
     height: 22px;
     padding-right: 1px;

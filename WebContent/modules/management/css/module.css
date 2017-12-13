@@ -74,12 +74,14 @@
 }
 
 .window .terms-agreement {
-	font-size : 14px;
+	font-size: 14px;
+    display: block;
+    margin-top: 10px;
 }
 
 .window .terms-agreement input{
 	position : relative;
-	top : 3px;
+	top : 2px;
 }
 
 .window .submit {
@@ -235,6 +237,48 @@ legend a i.fa {
     margin-bottom: 0px;
 }
 
+.project-wizard h2 {
+	margin-left : 10px;
+	margin-bottom : 10px;
+	margin-top : 20px;
+}
+
+.project-wizard p {
+	width: 90%;
+    margin: auto;
+    text-align: justify;
+    line-height: 1.5em;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size : 15px;
+}
+
+.project-wizard .number {
+    top: -1px;
+    width: 34px;
+    height: 38px;
+    text-align: center;
+}
+
+.project-wizard h5 {
+	font-size: 120%; 
+	margin-bottom: 5px;
+}
+
+.project-wizard section {
+	width: 90%; 
+	margin: auto; 
+	margin-top: 20px;
+}
+
+.project-wizard input[type="button"] {
+    float: right;
+}
+
+.project-wizard .content-process {
+    margin-top: -20px;
+}
+
 @media (max-width:1280px){
 	.window {width: 75%}
 	.message {font-size : 80%}
@@ -296,6 +340,8 @@ legend a i.fa {
 	.window h1 i.fa-briefcase {top: 1px;}
 	.window .terms p {font-size: 11px;width: 94%;}
 	.window .terms h2, .window .terms h1 {font-size: 1em;}
+	.project-wizard .number {top: -1px;width: 30px;height: 27px;}
+	.project-wizard h2 {font-size: 18px;margin-left: 0;}
 }
 
 .content-process{
@@ -361,9 +407,15 @@ span.line {
 .confirm .imgcircle , .process .imgcircle, .quality .imgcircle {
 	background-color:#212121;
 }
+
 .confirm span.line, .process span.line {
 	background-color:#212121; 
 }
+
+.imgcircle.active, span.line.active{
+	background-color : #5cb85c;
+}
+
 .content3 p {
 	font-size: 13px;
     font-weight: 600;
