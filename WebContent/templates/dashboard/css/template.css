@@ -1184,6 +1184,7 @@ canvas#bar {
 }
 }
 @media (max-width:768px){
+
 .info-update-block img {
     left: 0%;
     width : 35%;
@@ -1196,8 +1197,8 @@ fieldset span {
 }
 .buttons {
     position: relative;
-    margin-top: -10px;
-    right: 0px;
+    margin-top: 0px;
+    left: 0px;
     top: 3px;
     padding-left: 8px;
 }

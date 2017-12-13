@@ -128,8 +128,12 @@ class ModuleAction extends ActionSupport {
     }
 	
 	def showServices(){
-	   request.setAttribute("services",1)
+	   request.setAttribute("total",1)
        request.setAttribute("subscribed",1)
+       def services = []
+       def service = new Expando(name : 'site web',icon : 'siteweb-service.png')
+       services << service
+       request.setAttribute("services",services)
        SUCCESS
     }
 	

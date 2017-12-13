@@ -21,6 +21,11 @@ jQuery(document).ready(function($) {
 			}
 			return false;
 		});
+		
+		$(".window a.read-terms").click(function(event) {
+			$(".window .terms").show();
+		});
+		
 		$(".window > form").submit(function(event){
 			const form = $(this);
 			const project = {};

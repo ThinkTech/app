@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <div class="inner-block">
 <div class="logo-name">
 	<h1><i class="fa fa-ticket" aria-hidden="true"></i>Nos Services</h1>							
@@ -7,7 +8,7 @@
 	        <div class="col-md-4 info-update-gd">
 				<div class="info-update-block clr-block-3">
 					<div class="col-md-8 info-update-left">
-						<h3>${services}</h3>
+						<h3>${total}</h3>
 						<h4>services</h4>
 					</div>
 					<div class="col-md-4 info-update-right">
@@ -40,14 +41,16 @@
                             </div>
                             <div class="info-updates">
 	        <div class="col-md-3 info-update-gd">
+	           <s:iterator value="#request.services" var="service">
 				<div class="info-update-block clr-block-1">
 				    <i class="fa fa-check" aria-hidden="true"></i>
 					<div class="col-md-12 info-update-left">
-					    <img src="${images}/siteweb-service.png"/>
-						<h3>site web</h3>
+					    <img src="${images}/${service.properties['icon']}"/>
+						<h3>${service.properties['name']}</h3>
 					</div>
 				  <div class="clearfix"> </div>
 				</div>
+			  </s:iterator>
 			</div>
 		   <div class="clearfix"> </div>
 		</div>

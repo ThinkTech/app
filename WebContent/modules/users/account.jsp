@@ -51,7 +51,7 @@
 										<span class="text-right">Role </span>
    										<span>administrateur</span>
 										<span class="text-right">Structure </span>
-   										<input type="text">
+   										<span>Sesame</span>
    										<span class="text-right">Ninea </span>
    										<input type="text">
    								    <div class="submit">

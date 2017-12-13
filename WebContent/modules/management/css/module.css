@@ -23,9 +23,69 @@
     font-weight: bold;
 }
 
+.window .terms {
+	display : none;
+}
+
+.window .terms {
+	position: absolute;
+    background: #ffe;
+    height: 95%;
+    overflow-y: auto;
+    top: 0;
+    display : none;
+    width: 99%;
+    margin-left: 0;
+}
+
+.window .terms .close {
+	top : 2px;
+}
+
+.window .read-terms {
+	color : #05d2ff;
+	cursor : pointer;
+}
+
+.window .terms h2 {
+	font-weight : bold;
+	line-height: 2em;
+}
+
+.window .terms i {
+	margin-right : 5px;
+}
+
+.window .terms p {
+	color: #212121;
+    line-height: 2em;
+    font-size: 15px;
+    display: block;
+    margin: 5px;
+    padding-bottom: 0px;
+    width: 98%;
+    text-align : justify;
+}
+
+.window .terms h1 {
+    color: #212121;
+    margin-top: 10px;
+    font-size : 2em;
+}
+
+.window .terms-agreement {
+	font-size : 14px;
+}
+
+.window .terms-agreement input{
+	position : relative;
+	top : 3px;
+}
+
 .window .submit {
 	width: 90%;
     margin: auto;
+    margin-top : 10px;
     padding-left: 10%;
 }
 
@@ -204,7 +264,7 @@ legend a i.fa {
 }
 
 @media (max-width:768px){
-	.window {width: 90%;height: 419px;}
+	.window {width: 90%;}
 	.message {font-size : 70%}
 	.window input[type="submit"],.window input[type="button"] {
 	   font-size: 13px;
@@ -234,6 +294,8 @@ legend a i.fa {
 	.window h1 {padding-left: 0;}
 	.window h1 i.fa {top: 0px;}
 	.window h1 i.fa-briefcase {top: 1px;}
+	.window .terms p {font-size: 11px;width: 94%;}
+	.window .terms h2, .window .terms h1 {font-size: 1em;}
 }
 
 .content-process{
