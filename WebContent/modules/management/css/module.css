@@ -42,7 +42,7 @@
 	top : 2px;
 }
 
-.window .read-terms {
+.window a {
 	color : #05d2ff;
 	cursor : pointer;
 }
@@ -54,6 +54,10 @@
 
 .window .terms i {
 	margin-right : 5px;
+}
+
+.window .terms h1 i.fa {
+    color : #212121;
 }
 
 .window .terms p {
@@ -237,10 +241,15 @@ legend a i.fa {
     margin-bottom: 0px;
 }
 
+.window hr {
+	margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .project-wizard h2 {
 	margin-left : 10px;
 	margin-bottom : 10px;
-	margin-top : 20px;
+	margin-top : 10px;
 }
 
 .project-wizard p {
@@ -342,6 +351,7 @@ legend a i.fa {
 	.window .terms h2, .window .terms h1 {font-size: 1em;}
 	.project-wizard .number {top: -1px;width: 30px;height: 27px;}
 	.project-wizard h2 {font-size: 18px;margin-left: 0;}
+	.window .terms h1 i.fa {top: 2px;}
 }
 
 .content-process{

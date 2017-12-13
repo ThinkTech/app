@@ -54,10 +54,10 @@ jQuery(document).ready(function($) {
 								  row.click(function(event) {
 										const div = $(".details").show();
 										return false;
-									});
-							  });
-							  alert("votre projet a &edot;t&edot; bien cr&edot;&edot;",function(){
-								  $(".project-wizard").fadeIn(100);
+								  });
+								  alert("votre projet a &edot;t&edot; bien cr&edot;&edot;",function(){
+									  $(".project-wizard").fadeIn(100);
+								  });
 							  });
 						  }
 						  page.release();

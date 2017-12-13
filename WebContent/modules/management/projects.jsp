@@ -252,7 +252,7 @@
 			 </p> 
 			 <h2 class="text-center"><i class="fa fa-commenting"></i><span>Nos garanties et décharges</span></h2>
 			 <p>
-			   Nous fournissons nos Services avec un niveau de compétences et de soins commercialement raisonnable et nous espérons que vous apprécierez l'utilisation. Mais il y a certaines choses que nous ne promettons pas à propos de nos Services. AUTRE QUE CE SOIT EXPRESSÉMENT CONFORMÉ EN CES CONDITIONS OU TERMES SUPPLÉMENTAIRES, NI THINKTECH, NI SES FOURNISSEURS OU DISTRIBUTEURS, NE FONT DES PROMESSES SPÉCIFIQUES SUR LES SERVICES. PAR EXEMPLE, NOUS NE FAISONS PAS D'ENGAGEMENTS SUR LE CONTENU DANS LES SERVICES, LES FONCTIONS SPÉCIFIQUES DES SERVICES OU LEUR FIABILITÉ, LA DISPONIBILITÉ OU LA CAPACITÉ DE RÉPONDRE A VOS BESOINS. Nous fournissons les Services tels quels. CERTAINES JURIDICTIONS PRÉSENTENT CERTAINES GARANTIES, COMME LA GARANTIE IMPLICITE DE QUALITÉ MARCHANDE, L'ADAPTATION À UN USAGE PARTICULIER ET LA NON-CONTREFAÇON. DANS LA MESURE PERMISE PAR LA LOI, NOUS EXCLUONT TOUTES LES GARANTIES.
+			   Nous fournissons nos Services avec un niveau de compétences et de soins commercialement raisonnable et nous espérons que vous apprécierez l'utilisation. Mais il y'a certaines choses que nous ne promettons pas à propos de nos Services. AUTRE QUE CE SOIT EXPRESSÉMENT CONFORMÉ EN CES CONDITIONS OU TERMES SUPPLÉMENTAIRES, NI THINKTECH, NI SES FOURNISSEURS OU DISTRIBUTEURS, NE FONT DES PROMESSES SPÉCIFIQUES SUR LES SERVICES. PAR EXEMPLE, NOUS NE FAISONS PAS D'ENGAGEMENTS SUR LE CONTENU DANS LES SERVICES, LES FONCTIONS SPÉCIFIQUES DES SERVICES OU LEUR FIABILITÉ, LA DISPONIBILITÉ OU LA CAPACITÉ DE RÉPONDRE A VOS BESOINS. Nous fournissons les Services tels quels. CERTAINES JURIDICTIONS PRÉSENTENT CERTAINES GARANTIES, COMME LA GARANTIE IMPLICITE DE QUALITÉ MARCHANDE, L'ADAPTATION À UN USAGE PARTICULIER ET LA NON-CONTREFAÇON. DANS LA MESURE PERMISE PAR LA LOI, NOUS EXCLUONT TOUTES LES GARANTIES.
 			 </p>
 			 <h2 class="text-center"><i class="fa fa-commenting"></i><span>Nos Responsabilités</span></h2>
 			 <p>
@@ -280,6 +280,7 @@
 		<h5>
 			<span><b>Ninea</b> : ninea</span>
 		</h5>
+		<hr/>
 		<span>Merci pour votre souscription au plan business</span>
 	</div>
 	<h2><span class="number">1</span> Etape 1 : Contrat et Caution</h2>
@@ -320,8 +321,8 @@
 		   </div>	
 	   </div>
 	   <p>
-	    Vos informations personnelles (nom, prénom) ainsi que celles de la structure (nom, ninea) seront utilisées
-	    pour générer le contrat liant les deux parties. Veuillez vous assurer de leur exactitude. Une facture pour le paiement de la caution a été générée. Vous pouvez choisir d'effectuer le paiement maintenant
+	    Vos informations personnelles (nom, prénom, fonction) ainsi que celles de votre structure (nom, ninea) seront utilisées
+	    pour générer le <a href="https://www.thinktech.sn/documents/contrat-business.pdf" target="_blank" rel="nofollow">contrat</a> vous liant à ThinkTech. Veuillez vous assurer de leur exactitude. Une facture pour le paiement de la caution a été générée. Vous pouvez choisir d'effectuer le paiement maintenant
 	    en cliquant sur le bouton Terminer afin que votre projet soit traité au plus vite par notre équipe de développement. 
 	    <span class="terms-agreement">
 	      <input type="checkbox" checked> Payer la caution

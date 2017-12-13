@@ -134,10 +134,10 @@
 			<div class="content3">
 				<div class="shipment">
 					<div class="confirm">
-						<div class="imgcircle">
+						<div class="imgcircle active">
 							<img src="${images}/confirm.png" alt="confirm order">
 						</div>
-						<span class="line"></span>
+						<span class="line active"></span>
 						<p>Contrat et Caution</p>
 					</div>
 					<div class="process">

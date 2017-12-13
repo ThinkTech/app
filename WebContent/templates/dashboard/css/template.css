@@ -210,7 +210,7 @@ fieldset span {
 fieldset span.text-right {
 	width: 40%;
     background: #ffe;
-    margin-top: 15px;
+    margin-top: 8px;
     padding-right: 6px;
 }
 
@@ -346,7 +346,7 @@ fieldset span.text-right.full {
     font-size: 2em;
     color: #171819;
     margin: 0em;
-    top: -30px;
+    top: -27px;
     position: relative;
     font-weight: bold;
     white-space: nowrap;

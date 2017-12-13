@@ -34,6 +34,8 @@
 										<span>téléphone</span>
 										<span class="text-right">Role </span>
    										<span>administrateur</span>
+   										<span class="text-right">Fonction </span>
+   										<span>fonction</span>
 										<span class="text-right">Structure </span>
    										<span>Sesame</span>
    										<span class="text-right">Ninea </span>
@@ -43,17 +45,19 @@
    								 <fieldset class="profile-edition">
    								   <form action="${url}/profile/update">
    								    <span class="text-right">Prénom et Nom </span>
-										<input type="text">
+										<input type="text" required>
 									    <span class="text-right">Email </span>
-										<input type="email">
+										<input type="email" required>
 										<span class="text-right">Téléphone </span>
 										<input type="text">
 										<span class="text-right">Role </span>
    										<span>administrateur</span>
+   										<span class="text-right">Fonction </span>
+   										<input type="text" required>
 										<span class="text-right">Structure </span>
    										<span>Sesame</span>
    										<span class="text-right">Ninea </span>
-   										<input type="text">
+   										<input type="text" required>
    								    <div class="submit">
    								      <input type="submit" value="Modifier">
    								      <input type="button" value="Annuler">
