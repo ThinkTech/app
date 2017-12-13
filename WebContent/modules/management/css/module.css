@@ -257,9 +257,9 @@ legend a i.fa {
     margin: auto;
     text-align: justify;
     line-height: 1.5em;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    font-size : 15px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    font-size: 15px;
 }
 
 .project-wizard .number {
@@ -277,7 +277,7 @@ legend a i.fa {
 .project-wizard section {
 	width: 90%; 
 	margin: auto; 
-	margin-top: 20px;
+	margin-top: 0px;
 }
 
 .project-wizard input[type="button"] {

@@ -322,7 +322,7 @@
 	   </div>
 	   <p>
 	    Vos informations personnelles (nom, prénom, fonction) ainsi que celles de votre structure (nom, ninea) seront utilisées
-	    pour générer le <a href="https://www.thinktech.sn/documents/contrat-business.pdf" target="_blank" rel="nofollow">contrat</a> vous liant à ThinkTech. Veuillez vous assurer de leur exactitude. Une facture pour le paiement de la caution a été générée. Vous pouvez choisir d'effectuer le paiement maintenant
+	    pour générer le <a href="https://www.thinktech.sn/documents/contrat-business.pdf" target="_blank" rel="nofollow">contrat</a> vous liant à ThinkTech et qui sera ajouté aux documents du projet. Veuillez vous assurer de leur exactitude. Une facture pour le paiement de la caution a été générée. Vous pouvez choisir d'effectuer le paiement maintenant
 	    en cliquant sur le bouton Terminer afin que votre projet soit traité au plus vite par notre équipe de développement. 
 	    <span class="terms-agreement">
 	      <input type="checkbox" checked> Payer la caution
