@@ -17,6 +17,10 @@
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
+.window .label, .window .badge {
+     width: auto;
+}
+
 .window h1 {
 	font-size: 1.5em;
     padding: 5px;
@@ -272,7 +276,7 @@ legend a i.fa {
 }
 
 .project-wizard h5 {
-	font-size: 120%; 
+	font-size: 115%; 
 	margin-bottom: 5px;
 }
 

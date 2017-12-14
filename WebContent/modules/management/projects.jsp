@@ -109,7 +109,7 @@
 		<span class="text-right">Plan </span> <span>plan business</span>
 		<span class="text-right">Structure </span> <span>Sesame</span>
 		<span class="text-right">Date </span> <span>17/09/2017</span>
-		<span class="text-right">Traitement </span> <span class="label label-info">en attente</span><br>
+		<span class="text-right">Traitement </span> <span class="label label-info">en attente</span> <span class="label label-info">paiement caution</span><br>
 		<span class="text-right">Progression </span> <span class="badge badge-info">0%</span>
 	</fieldset>
 	<div class="col-md-12">
@@ -117,10 +117,10 @@
 			<div class="content3">
 				<div class="shipment">
 					<div class="confirm">
-						<div class="imgcircle active">
+						<div class="imgcircle">
 							<img src="${images}/confirm.png" alt="confirm order">
 						</div>
-						<span class="line active"></span>
+						<span class="line"></span>
 						<p>Contrat et Caution</p>
 					</div>
 					<div class="process">
