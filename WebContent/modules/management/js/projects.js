@@ -34,8 +34,7 @@ jQuery(document).ready(function($) {
 			project.description =  form.find("textarea[name=description]").val();
 			project.structure =  form.find("input[name=structure]").val();
 			project.ninea = 1454545;
-			const date = new Date();
-			project.date = date.getDay()+"/"+date.getMonth()+"/"+date.getFullYear();
+			project.date ="14/12/2017";
 			confirm("&ecirc;tes vous s&ucirc;r de vouloir cr&edot;&edot;r ce projet?",function(){
 				$(".window").hide();
 				page.wait({top : form.offset().top});
