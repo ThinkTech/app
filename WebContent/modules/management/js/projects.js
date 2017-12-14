@@ -26,19 +26,6 @@ jQuery(document).ready(function($) {
 			$(".window .terms").show();
 		});
 		
-		$(".project-wizard input[type=button]").click(function(event) {
-			const wizard = $(".project-wizard");
-			const input = $("input[type=checkbox]",wizard);
-			if(input.is(":checked")){
-				const top = input.offset().top-300;
-				page.wait({top : top});
-				head.load("modules/payment/js/wizard.js",function() {
-				    page.wizard.show(null,top);
-				});
-			}
-			wizard.hide();
-		});
-		
 		$(".window > form").submit(function(event){
 			const form = $(this);
 			const project = {};
@@ -46,6 +33,7 @@ jQuery(document).ready(function($) {
 			project.plan =  form.find("select[name=plan]").val();
 			project.description =  form.find("textarea[name=description]").val();
 			project.structure =  form.find("input[name=structure]").val();
+			project.ninea = 1454545;
 			const date = new Date();
 			project.date = date.getDay()+"/"+date.getMonth()+"/"+date.getFullYear();
 			confirm("&ecirc;tes vous s&ucirc;r de vouloir cr&edot;&edot;r ce projet?",function(){
@@ -58,14 +46,28 @@ jQuery(document).ready(function($) {
 					  contentType : "application/json",
 					  success: function(response) {
 						  if(response.status){
-							  $("input[type=text],textarea",form).val("");
+							  $("textarea",form).val("");
 							  page.table.addRow(project,function(row){
 								  row.click(function(event) {
 										const div = $(".details").show();
 										return false;
 								  });
 								  alert("votre projet a &edot;t&edot; bien cr&edot;&edot;",function(){
-									  $(".project-wizard").fadeIn(100);
+									  const wizard = $(".project-wizard");
+									  page.render(wizard, project, false, function(div) {
+										  wizard.fadeIn(100);
+										  $("input[type=button]",wizard).click(function(event) {
+												const input = $("input[type=checkbox]",wizard);
+												if(input.is(":checked")){
+													const top = input.offset().top-300;
+													page.wait({top : top});
+													head.load("modules/payment/js/wizard.js",function() {
+													    page.wizard.show(null,top);
+													});
+												}
+												wizard.hide();
+										});
+									 });
 								  });
 							  });
 						  }

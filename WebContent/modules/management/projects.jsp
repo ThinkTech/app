@@ -230,9 +230,7 @@
 		  <option value="plan social">plan social</option>
 		</select>
 		<span class="text-right">Structure </span>
-	    <select name="structure">
-		  <option value="Sesame">Sesame</option>
-		</select>
+	    <input name="structure" type="text" value="Sesame" readonly>
 		<span class="text-right full">Description du projet</span>
 		<textarea name="description" placeholder="entrer votre description" required></textarea>
 	</fieldset>
@@ -271,17 +269,18 @@
 	</form>
 </div>
 <div class="window project-wizard">
-  <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Création Projet Reussie</h1>
+  <template type="text/x-dust-template">
+   <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Création Projet Reussie</h1>
   <section>
     <div>
 		<h5>
-			<span><b>Structure</b> : Sesame</span>
+			<span><b>Structure</b> : {structure}</span>
 		</h5>
 		<h5>
-			<span><b>Ninea</b> : ninea</span>
+			<span><b>Ninea</b> : {ninea}</span>
 		</h5>
 		<hr/>
-		<span>Merci pour votre souscription au plan business</span>
+		<span>Merci pour votre souscription au {plan}</span>
 	</div>
 	<h2><span class="number">1</span> Etape 1 : Contrat et Caution</h2>
 	<div class="col-md-12">
@@ -321,9 +320,7 @@
 		   </div>	
 	   </div>
 	   <p>
-	    Vos informations personnelles (nom, prénom, fonction) ainsi que celles de votre structure (nom, ninea) seront utilisées
-	    pour générer le <a href="https://www.thinktech.sn/documents/contrat-business.pdf" target="_blank" rel="nofollow">contrat</a> vous liant à ThinkTech et qui sera ajouté aux documents du projet. Veuillez vous assurer de leur exactitude. Une facture pour le paiement de la caution a été générée. Vous pouvez choisir d'effectuer le paiement maintenant
-	    en cliquant sur le bouton Terminer afin que votre projet soit traité au plus vite par notre équipe de développement. 
+	    Vos informations personnelles (nom, prénom, fonction) ainsi que celles de votre structure (nom, ninea) seront utilisées pour générer le contrat vous liant à ThinkTech et qui sera ajouté aux documents du projet. Une facture pour le paiement de la caution a été générée. Vous pouvez choisir d'effectuer le paiement maintenant en cliquant sur le bouton Terminer afin que votre projet soit traité au plus vite par notre équipe de développement. 
 	    <span class="terms-agreement">
 	      <input type="checkbox" checked> Payer la caution
 	    </span>
@@ -332,6 +329,7 @@
 		 <input type="button" value="Terminer">
 	</div>
   </section>
+  </template>
 </div>
 </div>
 <script src="${js}/projects.js" defer></script>

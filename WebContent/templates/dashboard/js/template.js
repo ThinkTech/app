@@ -34,7 +34,7 @@ page.table.paginate = function() {
 
 page.table.addRow = function(entity,callback) {
 	const tbody = $(".table tbody");
-	page.render(tbody, [entity], true, row => {
+	page.render(tbody, [entity], true, function(row) {
 		$("td:first-child span.number",row).html($("tr",tbody).removeClass("active").length);
 		page.table.paginate();
 		row.attr("id","1455555").click(function(event) {
