@@ -52,9 +52,11 @@ jQuery(document).ready(function($) {
 										const div = $(".details").show();
 										return false;
 								  });
+								  page.release();
 								  alert("votre projet a &edot;t&edot; bien cr&edot;&edot;",function(){
 									  const wizard = $(".project-wizard");
 									  page.render(wizard, project, false, function(div) {
+										  if(!project.structure) $(".structure-info",wizard).hide()
 										  wizard.fadeIn(100);
 										  $("input[type=button]",wizard).click(function(event) {
 												const input = $("input[type=checkbox]",wizard);
@@ -71,7 +73,6 @@ jQuery(document).ready(function($) {
 								  });
 							  });
 						  }
-						  page.release();
 					  },
 					  dataType: "json"
 				});

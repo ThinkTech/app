@@ -67,6 +67,10 @@ legend {
     font-size: 10px;
 }
 
+.pager {
+	margin : 0;
+}
+
 .number {
 	background: #52defd;
     color: #fff;

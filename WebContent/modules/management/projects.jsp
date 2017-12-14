@@ -272,16 +272,16 @@
   <template type="text/x-dust-template">
    <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Création Projet Reussie</h1>
   <section>
-    <div>
+    <div class="structure-info">
 		<h5>
 			<span><b>Structure</b> : {structure}</span>
 		</h5>
 		<h5>
 			<span><b>Ninea</b> : {ninea}</span>
 		</h5>
-		<hr/>
-		<span>Merci pour votre souscription au {plan}</span>
 	</div>
+	<hr/>
+	<span>Merci pour votre souscription au {plan}</span>
 	<h2><span class="number">1</span> Etape 1 : Contrat et Caution</h2>
 	<div class="col-md-12">
 		  <div class="content-process">
@@ -320,7 +320,7 @@
 		   </div>	
 	   </div>
 	   <p>
-	    Vos informations personnelles (nom, prénom, fonction) ainsi que celles de votre structure (nom, ninea) seront utilisées pour générer le contrat vous liant à ThinkTech et qui sera ajouté aux documents du projet. Une facture pour le paiement de la caution a été générée. Vous pouvez choisir d'effectuer le paiement maintenant en cliquant sur le bouton Terminer afin que votre projet soit traité au plus vite par notre équipe de développement. 
+	    Les informations fournies seront utilisées pour générer le contrat vous liant à ThinkTech et ce dernier sera ajouté aux documents du projet. Une facture pour le paiement de la caution a été générée. Vous pouvez choisir d'effectuer le paiement maintenant en cliquant sur le bouton Terminer afin que votre projet soit traité au plus vite par notre équipe de développement. 
 	    <span class="terms-agreement">
 	      <input type="checkbox" checked> Payer la caution
 	    </span>
