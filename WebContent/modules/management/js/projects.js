@@ -55,7 +55,7 @@ jQuery(document).ready(function($) {
 								  page.release();
 								  alert("votre projet a &edot;t&edot; bien cr&edot;&edot;",function(){
 									  const wizard = $(".project-wizard");
-									  page.render(wizard, project, false, function(div) {
+									  page.render(wizard, project, false, function() {
 										  if(!project.structure) $(".structure-info",wizard).hide()
 										  wizard.fadeIn(100);
 										  $("input[type=button]",wizard).click(function(event) {
@@ -64,7 +64,12 @@ jQuery(document).ready(function($) {
 													const top = input.offset().top-300;
 													page.wait({top : top});
 													head.load("modules/payment/js/wizard.js",function() {
-													    page.wizard.show(null,top);
+														const bill = {};
+														bill.service = "site web";
+														bill.amount = "60 000";
+														bill.fee = "caution"
+														bill.date = project.date;
+													    page.wizard.show(bill,top);
 													});
 												}
 												wizard.hide();

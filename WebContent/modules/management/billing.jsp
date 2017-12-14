@@ -63,7 +63,7 @@
 	                                  <td><span class="label ${bill.properties['status']=='in progress' ? 'label-danger' : '' } ${bill.properties['status']=='finished' ? 'label-success' : '' } ${bill.properties['status']=='stand by' ? 'label-info' : '' }">
 	                                  ${bill.properties['status']=='in progress' ? 'en cours' : '' } ${bill.properties['status']=='finished' ? 'terminé' : '' } ${bill.properties['status']=='stand by' ? 'en attente' : '' }
 	                                  </span></td>
-	                                  <td>&nbsp;<a class="pay" style="display : ${bill.properties['status']=='finished' ? 'none' : 'inline-block'}"><i class="fa fa-money"> </i></a></td>
+	                                  <td>&nbsp;<i class="fa fa-money" style="display : ${bill.properties['status']=='finished' ? 'none' : 'inline-block'}"></i></td>
 	                              </tr>
 	                          </s:iterator>
                           </tbody>

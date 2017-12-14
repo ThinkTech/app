@@ -61,17 +61,22 @@ page.wizard.show = function(bill,top){
 		if(!page.wizard.loaded){
 			const container = $("<div id='wizard-container'/>").appendTo($("body"));
 			container.load("modules/payment/wizard.html", function() {
-				page.wizard.init();
-				page.wizard.loaded = true;
-				page.release();
 				const wizard = $("#checkout-wizard");
-				wizard.show();
+				page.render(wizard, bill, false, function() {
+					page.wizard.init();
+					page.wizard.loaded = true;
+					page.release();
+					wizard.show();
+				});
 			});
 		}
 		if(page.wizard.loaded){
-			page.release();
 			const wizard = $("#checkout-wizard");
-			wizard.show();
+			page.render(wizard, bill, false, function() {
+				page.wizard.init();
+				page.release();
+				wizard.show();
+			});
 		}
 		
     });
