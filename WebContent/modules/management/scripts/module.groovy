@@ -37,7 +37,6 @@ class ModuleAction extends ActionSupport {
 
    def createProject() {
 	   def project = new JsonSlurper().parse(request.inputStream) 
-	   generateContract(project)
 	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
 	   def mailSender = new MailSender(mailConfig)
 	   def mail = new Mail("Mamadou Lamine Ba","lamine.ba@thinktech.sn","Projet : ${project.subject}",getProjectTemplate(project))
