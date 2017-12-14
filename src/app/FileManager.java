@@ -20,4 +20,8 @@ public class FileManager {
     		client.files().uploadBuilder("/sesame/"+item.getName()).uploadAndFinish(in);
     	}
     }
+    
+    public void upload(String name,InputStream in) throws Exception {
+    	client.files().uploadBuilder("/sesame/"+name).uploadAndFinish(in);
+    }
 }

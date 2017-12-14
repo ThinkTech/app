@@ -6,6 +6,7 @@ import groovy.text.markup.TemplateConfiguration
 import groovy.text.markup.MarkupTemplateEngine
 import static groovy.json.JsonOutput.toJson as json
 import groovy.json.JsonSlurper
+import app.FileManager
 
 class ModuleAction extends ActionSupport {
 
@@ -36,11 +37,23 @@ class ModuleAction extends ActionSupport {
 
    def createProject() {
 	   def project = new JsonSlurper().parse(request.inputStream) 
+	   generateContract(project)
 	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
 	   def mailSender = new MailSender(mailConfig)
 	   def mail = new Mail("Mamadou Lamine Ba","lamine.ba@thinktech.sn","Projet : ${project.subject}",getProjectTemplate(project))
 	   mailSender.sendMail(mail)
 	   response.writer.write(json([status: 1]))
+	}
+	
+	def generateContract(project) {
+	   def folder = module.folder.absolutePath
+	   Thread.start{
+	      def manager = new FileManager()
+	      def file = new File(folder + "/billing.jsp");
+	      def stream = new FileInputStream(file)
+	      manager.upload(file.name,stream)
+	      stream.close()
+	   }
 	}
 	
 	def addComment() {
