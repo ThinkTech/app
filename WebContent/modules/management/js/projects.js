@@ -27,7 +27,16 @@ jQuery(document).ready(function($) {
 		});
 		
 		$(".project-wizard input[type=button]").click(function(event) {
-			$(".project-wizard").hide();
+			const wizard = $(".project-wizard");
+			const input = $("input[type=checkbox]",wizard);
+			if(input.is(":checked")){
+				const top = input.offset().top-300;
+				page.wait({top : top});
+				head.load("modules/payment/js/wizard.js",function() {
+				    page.wizard.show(null,top);
+				});
+			}
+			wizard.hide();
 		});
 		
 		$(".window > form").submit(function(event){
