@@ -379,7 +379,7 @@ legend a i.fa {
 	.window > div .terms h2, .window > div .terms h1 {font-size: 1em;}
 	.project-wizard .number {top: -1px;width: 30px;height: 27px;}
 	.project-wizard h2 {font-size: 18px;margin-left: 0;}
-	.window > div .terms h1 i.fa {top: 2px;}
+	.window > div .terms h1 i.fa {top: 0px;}
 }
 
 .content-process{
