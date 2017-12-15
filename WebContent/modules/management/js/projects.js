@@ -17,7 +17,7 @@ jQuery(document).ready(function($) {
 			const div = $(this).parent().next();
 			const list = div.find(".message-list");
 			if(list.is(":visible")) {
-				div.find(".message-edition textarea").val($("> div p",list).html());
+				div.find(".message-edition.description textarea").val($("> div p",list).html());
 			}
 			return false;
 		});
@@ -103,7 +103,7 @@ jQuery(document).ready(function($) {
 						  const list = $(".message-list",div);
 						  list.find("h6").hide();
 						  $("> div",list).html($("<p/>").html(project.description));
-						  alert("votre description a &edot;t&edot; bien modifi&edot;");
+						  alert("votre description a &edot;t&edot; bien modifi&edot;e");
 					  }
 				  },
 				  dataType: "json"
@@ -123,29 +123,31 @@ jQuery(document).ready(function($) {
 				  cache: false,
 				  processData:false,
 				  success: function(response) {
-					  page.release();
 					  form.find("input[type=button]").click();
 					  const div = form.parent().parent();
 					  const list = $(".document-list",div);
 					  list.find("h6").hide();
-					  list.append($("<ol/>"));
 					  var count = 0;
+					  const files = new Array();
 					  $.each($("input[type=file]",form),function(i,node){
 						  const input = $(node);
-						  const link = $("<a></a>");
-						  const name = input.val();
-						  if(name) {
-						  	link.html(name.split(/(\\|\/)/g).pop());
-						  	$("ol",list).append($("<li/>").append(link));
+						  const file = {};
+						  file.name = input.val();
+						  if(file.name) {
+							file.name = file.name.split(/(\\|\/)/g).pop();
+						  	files.push(file);
 						  	input.val(""); 
 						  	count++;
 						  }
 					  });
-					  if(count>1){
-						  alert("vos documents ont &edot;t&edot; bien envoy&edot;s");
-					  }else {
-						  alert("votre document a &edot;t&edot; bien envoy&edot;");
-					  }
+					  page.render($("ol",list).addClass("not-empty"), files, true, function() {
+						  page.release();
+						  if(count>1){
+							  alert("vos documents ont &edot;t&edot; bien envoy&edot;s");
+						  }else {
+							  alert("votre document a &edot;t&edot; bien envoy&edot;");
+						  }
+					  });
 				  },
 				  dataType : "json"
 			});
@@ -163,15 +165,16 @@ jQuery(document).ready(function($) {
 				  data: JSON.stringify(comment),
 				  contentType : "application/json",
 				  success: function(response) {
-					  page.release();
 					  if(response.status){
 						  $("textarea",form).val("");
 						  form.find("input[type=button]").click();
 						  const div = form.parent().parent();
 						  const list = $(".message-list",div);
 						  list.find("h6").hide();
-						  $("> div",list).append($("<p/>").html(comment.message));
-						  alert("votre commentaire a &edot;t&edot; bien ajout&edot;");
+						  page.render($("> div",list), comment, true, function() {
+							  page.release();
+							  alert("votre commentaire a &edot;t&edot; bien ajout&edot;");
+						  });
 					  }
 				  },
 				  dataType: "json"

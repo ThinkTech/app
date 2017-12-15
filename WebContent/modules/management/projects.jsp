@@ -158,7 +158,7 @@
    		 		<h6>pas de description</h6>
    		 		<div></div>
    		 	</div>
-   		 	<div class="message-edition">
+   		 	<div class="message-edition description">
    		 	    <form action="${url}/projects/description/update">
    		 		<textarea name="description" placeholder="entrer votre description" required></textarea>
    		 		<div class="submit">
@@ -176,6 +176,13 @@
 	   <div class="documents">
 	        <div class="document-list">
    		 		<h6>pas de documents</h6>
+   		 		<ol>
+   		 		   <template type="text/x-dust-template">
+					  {#.}
+					    <li><a>{name}</a></li>
+					  {/.}
+				   </template>
+   		 		</ol>
    		 	</div>
    		 	<div class="document-upload">
    		 	  <form method="POST" enctype="multipart/form-data" action="documents/upload.html">
@@ -199,7 +206,12 @@
    		 <div class="comments messages">
    		    <div class="message-list">
    		 		<h6>pas de commentaires</h6>
-   		 		<div></div>
+   		 		<div>
+   		 		  <template type="text/x-dust-template">
+   		 		     <p class="message">{message}</p>
+   		 		     <hr/>
+   		 		  </template>
+   		 		</div>
    		 	</div>
    		 	<div class="message-edition">
    		 	   <form action="${url}/projects/comments/create">

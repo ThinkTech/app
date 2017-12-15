@@ -134,7 +134,12 @@
 	   		 <div class="messages">
 	   		    <div class="message-list">
    		 		 <h6>pas de messages</h6>
-   		 		 <div></div>
+   		 		 <div>
+   		 		  <template type="text/x-dust-template">
+   		 		     <p class="message">{message}</p>
+   		 		     <hr/>
+   		 		  </template>
+   		 		</div>
    		 		</div>
 	   		 	<div class="message-edition">
 	   		 	   <form action="${url}/support/messages/create">

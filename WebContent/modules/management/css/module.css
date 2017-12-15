@@ -136,9 +136,12 @@
 }
 
 .window ul, .window ol {
-	margin-top: -10px;
     background: #ffe;
     margin-bottom: 0;
+}
+
+.window ul.not-empty, .window ol.not-empty {
+	margin-top : -10px;
 }
 
 .window ul a, .window ol a {
@@ -361,7 +364,7 @@ legend a i.fa {
 }
 
 .content-process{
-	margin-top: -37px;
+	margin-top: -30px;
 	min-height: 90px;
 	background : #ffe;
 	margin-left: -10px;

@@ -10,13 +10,13 @@ jQuery(document).ready(function($) {
 		
 		$(".window .messages form").submit(function(event){
 			const form = $(this);
-			const ticket = {};
-			ticket.message =  form.find("textarea[name=message]").val();
+			const comment = {};
+			comment.message =  form.find("textarea[name=message]").val();
 			page.wait({top : form.offset().top});
 			$.ajax({
 				  type: "POST",
 				  url: form.attr("action"),
-				  data: JSON.stringify(ticket),
+				  data: JSON.stringify(comment),
 				  contentType : "application/json",
 				  success: function(response) {
 					  page.release();
@@ -26,8 +26,10 @@ jQuery(document).ready(function($) {
 						  const div = form.parent().parent();
 						  const list = $(".message-list",div);
 						  list.find("h6").hide();
-						  $("> div",list).append($("<p class='message'/>").html(ticket.message));
-						  alert("votre message a &edot;t&edot; bien ajout&edot;");
+						  page.render($("> div",list), comment, true, function() {
+							  page.release();
+							  alert("votre message a &edot;t&edot; bien ajout&edot;");
+						  });
 					  }
 				  },
 				  dataType: "json"
