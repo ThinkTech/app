@@ -123,7 +123,7 @@
 		    <span class="text-right">Service </span> <span>site web</span>
 		    <span class="text-right">Auteur </span> <span>malorum</span>
 			<span class="text-right">Date </span> <span>17/09/2017</span>
-			<span class="text-right">Traitement </span> <span class="label label-info">en attente</span><br>
+			<span class="text-right">Traitement </span> <span class="label label-info">en attente</span> <span class="label label-info">staff technique</span><br>
 			<span class="text-right">Progression </span> <span class="badge badge-info">0%</span>
 		</fieldset>
 		<fieldset>
