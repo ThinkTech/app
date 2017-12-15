@@ -121,12 +121,12 @@
 <div class="window details">
    <div>
 	<span title="fermer" class="close">X</span>
-	<h1><i class="fa fa-briefcase" aria-hidden="true"></i>Projet #1</h1>
+	<h1><i class="fa fa-briefcase" aria-hidden="true"></i>Projet : création site web</h1>
 	<fieldset>
-	    <span class="text-right">Objet </span> <span>création site web</span>
 		<span class="text-right">Plan </span> <span>plan business</span>
 		<span class="text-right">Structure </span> <span>Sesame</span>
 		<span class="text-right">Date </span> <span>17/09/2017</span>
+		<span class="text-right">Durée </span> <span>3 mois</span>
 		<span class="text-right">Traitement </span> <span class="label label-info">en attente</span> <span class="label label-info">paiement caution</span> <a class="pay"><i class="fa fa-money"></i></a><br>
 		<span class="text-right">Progression </span> <span class="badge badge-info">0%</span>
 	</fieldset>
