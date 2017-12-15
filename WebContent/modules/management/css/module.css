@@ -51,6 +51,10 @@
 	cursor : pointer;
 }
 
+.window a.pay {
+	color : #5cb85c;
+}
+
 .window .terms h2 {
 	font-weight : bold;
 	line-height: 2em;

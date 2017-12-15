@@ -13,6 +13,19 @@ jQuery(document).ready(function($) {
 			$(".form").show();
 			return false;
 		});
+		
+		$(".window a.pay").click(function(event) {
+			page.wait();
+			head.load("modules/payment/js/wizard.js",function() {
+				const bill = {};
+				bill.service = "site web";
+				bill.amount = "60 000";
+				bill.fee = "caution"
+				bill.date = "17/09/2017";
+			    page.wizard.show(bill);
+			});
+		});
+		
 		$(".window a.message-add").click(function(event) {
 			const div = $(this).parent().next();
 			const list = div.find(".message-list");

@@ -54,7 +54,7 @@ page.wizard.init = function(){
 };
 page.wizard.show = function(bill,top){
 	payment.done = false;
-	page.wizard.top = top;
+	page.wizard.top = top ? top : "15%";
 	page.wait({top : top});
 	head.load("modules/payment/js/jquery.easyWizard.js","modules/payment/css/wizard.css",
 	  function() {
