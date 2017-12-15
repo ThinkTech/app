@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.fileupload.FileItemIterator;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-
 @SuppressWarnings("serial")
 @WebServlet("/documents/upload.html")
 public class UploadServlet extends HttpServlet {
