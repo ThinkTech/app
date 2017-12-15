@@ -106,6 +106,10 @@
 		  <option value="medium">moyen</option>
 		  <option value="high">élévé</option>
 		</select>
+		<span class="text-right">Structure </span>
+	    <input name="structure" type="text" value="Sesame" readonly>
+	    <span class="text-right">Auteur </span>
+	    <input name="author" type="text" value="malorum" readonly>
 		<span class="text-right full">Description du probléme</span>
 		<textarea name="message" placeholder="entrer votre description" required></textarea>
 	</fieldset>
