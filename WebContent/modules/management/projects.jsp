@@ -247,7 +247,7 @@
 		<span class="text-right">Structure </span>
 	    <input name="structure" type="text" value="Sesame" readonly>
 	    <span class="text-right">Auteur </span>
-	    <input name="author" type="text" value="malorum" readonly>
+	    <input name="author" type="text" value="Malorum" readonly>
 		<span class="text-right full">Description du projet</span>
 		<textarea name="description" placeholder="entrer votre description" required></textarea>
 	</fieldset>

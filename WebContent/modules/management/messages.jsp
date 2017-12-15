@@ -48,6 +48,7 @@
 								<th></th>
 								<th>Objet</th>
 								<th>Auteur</th>
+								<th>Destinataire</th>
 								<th>Date</th>
 							</tr>
 						</thead>
@@ -57,6 +58,7 @@
 	                                <td><span class="number">${status.index+1}</span></td>
 	                                <td><i class="fa fa-envelope-o" aria-hidden="true"></i> ${message.properties['subject']}</td>
 								    <td><i class="fa fa-user" aria-hidden="true"></i> ${message.properties['author']}</td>
+								    <td><i class="fa fa-user" aria-hidden="true"></i> Malorum</td>
 								    <td>17/09/2017</td>
 	                            </tr>
 	                      </s:iterator>
@@ -71,10 +73,10 @@
 	<div class="window">
 	   <div>
 		<span title="fermer" class="close">X</span>
-		<h1><i class="fa fa-envelope-o" aria-hidden="true"></i>Message #1</h1>
+		<h1><i class="fa fa-envelope-o" aria-hidden="true"></i>Message : création site web</h1>
 		<fieldset>
-		    <span class="text-right">Objet </span> <span>création site web</span>
 			<span class="text-right">Auteur </span> <span>ThinkTech</span> 
+			<span class="text-right">Destinataire </span> <span>Malorum</span>
 			<span class="text-right">Date </span> <span>17/09/2017</span>
 		</fieldset>
 		<div class="message">

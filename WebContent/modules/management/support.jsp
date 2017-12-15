@@ -75,7 +75,7 @@
 							            <td><span class="number"></span></td>
 							   	        <td><i class="fa fa-question-circle-o" aria-hidden="true"></i> {subject}</td>
                                   		<td><i class="fa fa-ticket" aria-hidden="true"></i> {service}</td>
-                                  		<td><i class="fa fa-user" aria-hidden="true"></i> malorum</td>
+                                  		<td><i class="fa fa-user" aria-hidden="true"></i> Malorum</td>
                                   		<td>{date}</td>          
                                   		<td><span class="label label-info">en attente</span></td>
                                   		<td><span class="badge badge-info">0%</span></td>
@@ -110,7 +110,7 @@
 		<span class="text-right">Structure </span>
 	    <input name="structure" type="text" value="Sesame" readonly>
 	    <span class="text-right">Auteur </span>
-	    <input name="author" type="text" value="malorum" readonly>
+	    <input name="author" type="text" value="Malorum" readonly>
 		<span class="text-right full">Description du probléme</span>
 		<textarea name="message" placeholder="entrer votre description" required></textarea>
 	</fieldset>
@@ -128,7 +128,7 @@
 		<fieldset>
 		    <span class="text-right">Objet </span> <span>site web down</span>
 		    <span class="text-right">Service </span> <span>site web</span>
-		    <span class="text-right">Auteur </span> <span>malorum</span>
+		    <span class="text-right">Auteur </span> <span>Malorum</span>
 			<span class="text-right">Date </span> <span>17/09/2017</span>
 			<span class="text-right">Traitement </span> <span class="label label-info">en attente</span> <span class="label label-info">staff technique</span><br>
 			<span class="text-right">Progression </span> <span class="badge badge-info">0%</span>

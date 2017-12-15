@@ -69,17 +69,17 @@ class ModuleAction extends ActionSupport {
 	   request.setAttribute("total",6)
        request.setAttribute("unsolved",5)
        def tickets = []
-       def ticket = new Expando(subject: 'site web down',service : 'site web',author : 'malorum',status : "in progress",progression : '50')
+       def ticket = new Expando(subject: 'site web down',service : 'site web',author : 'Malorum',status : "in progress",progression : '50')
        tickets << ticket
-       ticket = new Expando(subject: 'site web down',service : 'site web',author : 'malorum',status : "finished",progression : '100')
+       ticket = new Expando(subject: 'site web down',service : 'site web',author : 'Malorum',status : "finished",progression : '100')
        tickets << ticket
-       ticket = new Expando(subject: 'site web down',service : 'site web',author : 'malorum',status : "stand by",progression : '0')
+       ticket = new Expando(subject: 'site web down',service : 'site web',author : 'Malorum',status : "stand by",progression : '0')
        tickets << ticket
-       ticket = new Expando(subject: 'site web down',service : 'site web',author : 'malorum',status : "stand by",progression : '0')
+       ticket = new Expando(subject: 'site web down',service : 'site web',author : 'Malorum',status : "stand by",progression : '0')
        tickets << ticket
-       ticket = new Expando(subject: 'site web down',service : 'site web',author : 'malorum',status : "stand by",progression : '0')
+       ticket = new Expando(subject: 'site web down',service : 'site web',author : 'Malorum',status : "stand by",progression : '0')
        tickets << ticket
-       ticket = new Expando(subject: 'site web down',service : 'site web',author : 'malorum',status : "stand by",progression : '0')
+       ticket = new Expando(subject: 'site web down',service : 'site web',author : 'Malorum',status : "stand by",progression : '0')
        tickets << ticket
        request.setAttribute("tickets",tickets)
        SUCCESS
