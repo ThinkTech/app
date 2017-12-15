@@ -1,74 +1,83 @@
-.window {
-	width : 60%;
+.window  {
 	position : absolute;
+	width: 100%;
+    z-index: 9999;
+    display: none;
+    top: 0;
+    bottom: 0;
+    left : 0;
+    background: rgba(100, 100, 100, 0.5);
+    padding-top: 4%;
+}
+
+.window > div {
+	width : 60%;
 	border : 1px solid #05d2ff;
 	border-radius : 5px;
 	height: 570px;
 	overflow-x : hidden; 
 	overflow-y : auto;
-	top : 9%;
-	left : 0;
-	right : 0;
 	margin : auto;
 	background : #fff;
-	display : none;
 	padding : 5px;
 	z-index: 9999;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-.window .label, .window .badge {
+.window > div .label, .window > div .badge {
      width: auto;
 }
 
-.window h1 {
+.window > div h1 {
 	font-size: 1.5em;
     padding: 5px;
     font-weight: bold;
 }
 
-.window .terms {
+.window > div .terms {
 	display : none;
 }
 
-.window .terms {
+.window > div .terms {
 	position: absolute;
     background: #ffe;
-    height: 95%;
+    height: 92%;
     overflow-y: auto;
-    top: 0;
+    top: 5%;
     display : none;
-    width: 99%;
-    margin-left: 0;
+    width: 61%;
+    margin-left: -10px;
+    border : 1px solid #05d2ff;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-.window .terms .close {
+.window > div .terms .close {
 	top : 2px;
 }
 
-.window a {
+.window > div a {
 	color : #05d2ff;
 	cursor : pointer;
 }
 
-.window a.pay {
+.window > div a.pay {
 	color : #5cb85c;
 }
 
-.window .terms h2 {
+.window > div .terms h2 {
 	font-weight : bold;
 	line-height: 2em;
 }
 
-.window .terms i {
+.window > div .terms i {
 	margin-right : 5px;
 }
 
-.window .terms h1 i.fa {
+.window > div .terms h1 i.fa {
     color : #212121;
 }
 
-.window .terms p {
+.window > div .terms p {
 	color: #212121;
     line-height: 2em;
     font-size: 15px;
@@ -79,31 +88,31 @@
     text-align : justify;
 }
 
-.window .terms h1 {
+.window > div .terms h1 {
     color: #212121;
     margin-top: 10px;
     font-size : 2em;
 }
 
-.window .terms-agreement {
+.window > div .terms-agreement {
 	font-size: 14px;
     display: block;
     margin-top: 10px;
 }
 
-.window .terms-agreement input{
+.window > div .terms-agreement input{
 	position : relative;
 	top : 2px;
 }
 
-.window .submit {
+.window > div .submit {
 	width: 90%;
     margin: auto;
     margin-top : 10px;
     padding-left: 10%;
 }
 
-.window input[type="submit"],.window input[type="button"]{
+.window > div input[type="submit"],.window > div input[type="button"]{
     font-size: 14px;
     font-weight: 600;
     color: #fff;
@@ -122,7 +131,7 @@
     text-transform: uppercase;
 }
 
-.window input[type="submit"]:hover,.window input[type="button"]:hover{
+.window > div input[type="submit"]:hover,.window > div input[type="button"]:hover{
   background:#05d2ff;
   transition: 0.5s all;
   -webkit-transition: 0.5s all;
@@ -131,7 +140,7 @@
 }
 
 
-.window fieldset input[type=file] {
+.window > div fieldset input[type=file] {
     display: inline-block;
     font-weight: 600;
     background: #dcf5fb;
@@ -139,50 +148,50 @@
     border : none;
 }
 
-.window ul, .window ol {
+.window > div ul, .window > div ol {
     background: #ffe;
     margin-bottom: 0;
 }
 
-.window ul.not-empty, .window ol.not-empty {
+.window > div ul.not-empty, .window > div ol.not-empty {
 	margin-top : -10px;
 }
 
-.window ul a, .window ol a {
+.window > div ul a, .window > div ol a {
 	color : #212121;
 	cursor : pointer;
 	font-size: 13px;
     font-weight: 500;
 }
 
-.window textarea { 
+.window > div textarea { 
 	width : 100%;
 	height : 150px;
 	margin-top : 7px;
 }
 
-.window .message-list > div  p.message:first-of-type {
+.window > div .message-list > div  p.message:first-of-type {
 	margin-top : -10px;
 }
 
-.window .message-list > div  p.message {
+.window > div .message-list > div  p.message {
 	margin-top : 0px;
 }
 
-.window h1 i.fa {
+.window > div h1 i.fa {
 	top: 0px;
     position: relative;
     margin-right: 3px;
     color : #05d2ff;
 }
 
-.window h1 i.fa-briefcase {
+.window > div h1 i.fa-briefcase {
     top: 2px;
 }
 
-.window h1 i.fa-money {top: 1px;}
+.window > div h1 i.fa-money {top: 1px;}
 
-.window fieldset {
+.window > div fieldset {
 	padding: 0px;
 	padding-left: 5px;
     width: 100%;
@@ -211,48 +220,48 @@ legend a i.fa {
     margin-left: 2px;
 }
 
-.window .message-edition, .window .document-upload {
+.window > div .message-edition, .window > div .document-upload {
 	display : none;
 	margin-top: -22px;
 }
 
-.window .message-list > div p , .window .document-list > div p {
+.window > div .message-list > div p , .window > div .document-list > div p {
 	margin-top: -10px;
     font-size: 13px;
 }
 
-.window .message-edition {
+.window > div .message-edition {
 	margin-top: -28px;
 }
 
-.window .document-upload {
+.window > div .document-upload {
 	margin-top: -26px;
 }
 
-.window .document-upload fieldset {
+.window > div .document-upload fieldset {
 	padding-left : 0;
 	margin-bottom: 5px;
 }
 
-.window fieldset span.text-right {
+.window > div fieldset span.text-right {
     margin-top: 5px;
 }
 
-.window input[type=text], .window select {
+.window > div input[type=text], .window > div select {
 	padding: 3.4px;
 	width : 50%;
 }
 
-.window .badge {
+.window > div .badge {
 	width: 75px;
 }
 
-.window h6 {
+.window > div h6 {
 	margin-top: -10px;
     margin-bottom: 0px;
 }
 
-.window hr {
+.window > div hr {
 	margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -302,69 +311,79 @@ legend a i.fa {
 }
 
 @media (max-width:1280px){
-	.window {width: 75%}
+	.window > div {width: 75%}
 	.message {font-size : 80%}
+	.window > div .terms {
+    	top: 2%;
+    	width: 79%;
+    	margin: auto;
+    	left: auto;
+    	right: auto;
+    	margin-left : -10px;
+	}
 }
 
 @media (max-width:1024px){
-	.window .message-edition {
+	.window > div .message-edition {
 		margin-top: -23px;
 	}
-	.window .document-upload {
+	.window > div .document-upload {
 		margin-top: -26px;
 	}
 }
 
 @media (max-width:991px){
-	.window input[type=text],.window select, .window input[type=file] {
+	.window > div input[type=text],.window > div select, .window > div input[type=file] {
       width: 100%;
       text-align: left;
      }
-     .window textarea {
+     .window > div textarea {
       margin-top: 2px;
      }
-     .window .label, .window .badge {
+     .window > div .label, .window > div .badge {
       top: -3px;
       position: relative;
      }
 }
 
 @media (max-width:768px){
-	.window {width: 90%;}
+	.window > div {width: 90%;}
 	.message {font-size : 70%}
-	.window input[type="submit"],.window input[type="button"] {
+	.window > div input[type="submit"],.window > div input[type="button"] {
 	   font-size: 13px;
 	   padding: 10px 15px;
 	   width: 45%;
 	   border: none;
 	}
-	.window input[type=text], .window select, .window input[type=file] {
+	.window > div input[type=text], .window > div select, .window > div input[type=file] {
        font-size: 12px;
 	}
-	.window input[type=file] {
+	.window > div input[type=file] {
        position : relative;
        top : -3px;
 	}
-	.window textarea { 
+	.window > div textarea { 
 		height : 110px;
 		font-size: 12px;
 	}
 }
 
 @media (max-width:640px){
-	.window {width: 100%;top: 0px;border-radius: 0px;height: 100%;}
-	.window img {width : 80%}
+	.window > div .terms {top:0px;height: 100%;width: 100%;margin-left: 0px;}
+	.window {padding-top: 0px;}
+	.window > div {width: 100%;border-radius: 0px;height: 100%;}
+	.window > div img {width : 50%}
 	.message {font-size : 60%}
-	.window h1 {font-size: 1em;}
-	.window fieldset {padding-left: 0px;}
-	.window h1 {padding-left: 0;}
-	.window h1 i.fa {top: 0px;}
-	.window h1 i.fa-briefcase {top: 1px;}
-	.window .terms p {font-size: 11px;width: 94%;}
-	.window .terms h2, .window .terms h1 {font-size: 1em;}
+	.window > div h1 {font-size: 1em;}
+	.window > div fieldset {padding-left: 0px;}
+	.window > div h1 {padding-left: 0;}
+	.window > div h1 i.fa {top: 0px;}
+	.window > div h1 i.fa-briefcase {top: 1px;}
+	.window > div .terms p {font-size: 11px;width: 94%;}
+	.window > div .terms h2, .window > div .terms h1 {font-size: 1em;}
 	.project-wizard .number {top: -1px;width: 30px;height: 27px;}
 	.project-wizard h2 {font-size: 18px;margin-left: 0;}
-	.window .terms h1 i.fa {top: 2px;}
+	.window > div .terms h1 i.fa {top: 2px;}
 }
 
 .content-process{

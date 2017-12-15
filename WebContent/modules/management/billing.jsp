@@ -75,6 +75,7 @@
      <div class="clearfix"> </div>
 </div>
 <div class="window form">
+     <div>
 		<span title="fermer" class="close">X</span>
 		<h1><i class="fa fa-money" aria-hidden="true"></i>Facture #1</h1>
 		<fieldset>
@@ -92,6 +93,7 @@
 		   <input type="submit" value="Payer">
 		   <input type="button" value="Annuler">
 		</div>
+	</div>
 </div>
 </div>
 <script src="${js}/billing.js" defer></script>

@@ -69,6 +69,7 @@
 		<div class="clearfix"></div>
 	</div>
 	<div class="window">
+	   <div>
 		<span title="fermer" class="close">X</span>
 		<h1><i class="fa fa-envelope-o" aria-hidden="true"></i>Message #1</h1>
 		<fieldset>
@@ -111,6 +112,7 @@
 					cet email)</p>
 				<p>a créé un projet en utilisant cette adresse</p>
 			</div>
+		</div>
 		</div>
 		</div>
 	</div>

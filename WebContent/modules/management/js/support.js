@@ -37,7 +37,7 @@ jQuery(document).ready(function($) {
 			return false;
 		});
 		
-		$(".window > form").submit(function(event){
+		$(".window > div > form").submit(function(event){
 			const form = $(this);
 			const ticket = {};
 			ticket.subject = form.find("input[name=subject]").val();

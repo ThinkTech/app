@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
 			$(".window .terms").show();
 		});
 		
-		$(".window > form").submit(function(event){
+		$(".window > div > form").submit(function(event){
 			const form = $(this);
 			const project = {};
 			project.subject = form.find("select[name=subject]").val();

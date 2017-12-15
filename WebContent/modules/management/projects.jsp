@@ -102,6 +102,7 @@
 		<div class="clearfix"></div>
 	</div>
 	<div class="window details">
+    <div>
 	<span title="fermer" class="close">X</span>
 	<h1><i class="fa fa-briefcase" aria-hidden="true"></i>Projet #1</h1>
 	<fieldset>
@@ -224,8 +225,10 @@
    		 	</div>
    		 </div>
   </fieldset>
+  </div>
 </div>
 <div class="window form">
+ <div>
    <span title="fermer" class="close">X</span>
 	<h1><i class="fa fa-briefcase" aria-hidden="true"></i>Nouveau Projet</h1>
    <form action="${url}/projects/create">
@@ -257,6 +260,7 @@
 	</div>
 	
 	   <div class="terms">
+	       <div>
 		     <span class="close">X</span>
 			 <h1 class="text-center"><i class="fa fa-sticky-note-o"></i><span>Termes</span></h1>
 			 <p>
@@ -279,11 +283,13 @@
 			   Nous pouvons modifier ces termes ou tous les termes supplémentaires qui s'appliquent à un Service, par exemple, reflèter les modifications apportées à la loi ou les modifications apportées à nos Services. Vous devriez consulter les termes régulièrement. Nous signalerons les modifications apportées à ces termes sur cette page. Nous ferons parvenir un avis de conditions supplémentaires modifiées dans le service applicable. Les changements ne s'appliqueront pas rétroactivement et entreront en vigueur au plus tard quatorze jours après leur publication. Cependant, les modifications apportées aux nouvelles fonctions pour un service ou les modifications apportées pour des raisons légales entreront en vigueur immédiatement. Si vous n'acceptez pas les termes modifiés pour un service, vous devez interrompre votre utilisation de ce service. S'il y a un conflit entre ces termes et les termes supplémentaires, les termes supplémentaires contrôleront ce conflit. Ces termes contrôlent la relation entre ThinkTech et vous. Ils ne créent aucun droit de bénéficiaire tiers. Si vous ne respectez pas ces termes et que nous n'agissons pas immédiatement, cela ne signifie pas que nous renonçons à des droits que nous pourrions avoir (par exemple, prendre des mesures à l'avenir).
 			 </p>
 		</div>
-	
+	  </div>
 	</form>
+	</div>
 </div>
 <div class="window project-wizard">
   <template type="text/x-dust-template">
+  <div>
    <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Création Projet Reussie</h1>
   <section>
     <div class="structure-info">
@@ -343,6 +349,7 @@
 		 <input type="button" value="Terminer">
 	</div>
   </section>
+  </div>
   </template>
 </div>
 </div>

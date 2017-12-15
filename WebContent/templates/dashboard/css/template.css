@@ -58,6 +58,10 @@ input[type=submit],input[type="button"] {
 	font-family: 'Work Sans';
 }
 
+input[readonly]{
+   background : #fafafa;	
+}
+
 legend {
 	border-bottom : 1px solid #05d2ff;
 }

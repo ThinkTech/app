@@ -62,7 +62,7 @@ $(document).ready(function(){
 		return false;
 	});
 	$(".window .close").click(function(event) {
-		const div = $(this).parent().hide();
+		const div = $(this).parent().parent().hide();
 		div.find(".document-list,.message-list").show();
 		div.find(".message-edition,.document-upload").hide();
 	});

@@ -119,6 +119,7 @@
      <div class="clearfix"> </div>
 </div>
 <div class="window details">
+   <div>
 	<span title="fermer" class="close">X</span>
 	<h1><i class="fa fa-briefcase" aria-hidden="true"></i>Projet #1</h1>
 	<fieldset>
@@ -241,6 +242,7 @@
    		 	</div>
    		 </div>
   </fieldset>
+  </div>
 </div>
 </div>
 <script src="${js}/projects.js" defer></script>
