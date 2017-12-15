@@ -51,10 +51,6 @@
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-.window > div .terms .close {
-	top : 2px;
-}
-
 .window > div a {
 	color : #05d2ff;
 	cursor : pointer;
@@ -369,7 +365,7 @@ legend a i.fa {
 }
 
 @media (max-width:640px){
-	.window > div .terms {top:0px;height: 100%;width: 100%;margin-left: 0px;}
+	.window > div .terms {top:0px;height: 100%;width: 100%;margin-left: 0px;margin-left: -8px;}
 	.window {padding-top: 0px;}
 	.window > div {width: 100%;border-radius: 0px;height: 100%;}
 	.window > div img {width : 50%}
