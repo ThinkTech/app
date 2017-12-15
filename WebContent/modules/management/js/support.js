@@ -1,13 +1,4 @@
-jQuery(document).ready(function($) {
-		$("tbody tr").click(function(event) {
-			$(".details").show();
-			return false;
-		});
-		$(".buttons a").click(function(event) {
-			$(".form").show();
-			return false;
-		});
-		
+jQuery(document).ready(function($) {		
 		$(".window .messages form").submit(function(event){
 			const form = $(this);
 			const comment = {};

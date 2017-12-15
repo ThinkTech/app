@@ -1,3 +1,14 @@
+page.form = {};
+
+page.form.show = function(){
+	$(".window.form").show();
+};
+
+page.details = {};
+
+page.details.show = function() {
+	$(".window.details").show();
+};
 
 page.table = {};
 
@@ -8,17 +19,22 @@ page.table.paginate = function() {
 		$(".pager").remove();
 	    var currentPage = 0;
 	    var numPerPage = 5;
+	    const rows = $table.find('tbody tr').click(function(event) {
+			page.details.show();
+			rows.removeClass("active");
+			$(this).addClass("active");
+	    });
 	    $table.bind('repaginate', function() {
-	        $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
+	        rows.hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
 	    });
 	    $table.trigger('repaginate');
-	    var numRows = $table.find('tbody tr').length;
+	    var numRows = rows.length;
 	    if(numRows > numPerPage) {
 		    var numPages = Math.ceil(numRows / numPerPage);
 		    var $pager = $('<div class="pager"></div>').attr("id","pager");
-		    for (var page = 0; page < numPages; page++) {
-		        $('<span class="page-number"></span>').text(page + 1).bind('click', {
-		            newPage: page
+		    for (var i = 0; i < numPages; i++) {
+		        $('<span class="page-number"></span>').text(i+ 1).bind('click', {
+		            newPage: i
 		        }, function(event) {
 		            currentPage = event.data['newPage'];
 		            $table.trigger('repaginate');
@@ -38,7 +54,7 @@ page.table.addRow = function(entity,callback) {
 		$("td:first-child span.number",row).html($("tr",tbody).removeClass("active").length);
 		page.table.paginate();
 		row.attr("id","1455555").click(function(event) {
-			$(".table tbody tr").removeClass("active");
+			$("tr",tbody).removeClass("active");
 			$(this).addClass("active");
 			return false;
 		}).addClass("active");
@@ -48,28 +64,28 @@ page.table.addRow = function(entity,callback) {
 };
 
 $(document).ready(function(){
-	 $.each($(".menu a"),function(i,element){
+	$.each($(".menu a"),function(i,element){
 		 const link = $(element);
 		 const href = link.attr("href");
 		 if(location.href.endsWith(href)){
 			 link.addClass("active");
 			 return false;
 	     };
-	 });
-	 $(".table tbody tr").click(function(event) {
-		$(".table tbody tr").removeClass("active");
-		$(this).addClass("active");
-		return false;
 	});
 	$(".window .close").click(function(event) {
 		const div = $(this).parent().parent().hide();
 		div.find(".document-list,.message-list").show();
 		div.find(".message-edition,.document-upload").hide();
 	});
-	$(".window.form input[type=button]").click(function(event) {
+	$(".window.form > div > form .submit input[type=button]").click(function(event) {
 		$(".window").hide();
 	});
-	
+	$(".window.details > div > .submit input[type=button]").click(function(event) {
+		$(".window").hide();
+	});
+	$(".window.details > div > .submit input[type=button]").click(function(event) {
+		$(".window").hide();
+	});
 	$(".window a.message-add").click(function(event) {
 		const div = $(this).parent().next();
 		const list = div.find(".message-list");
@@ -101,6 +117,10 @@ $(document).ready(function(){
 		div.find(".document-list,.message-list").show();
 		div.find(".message-edition,.document-upload").hide();
 		return false;
+	});
+	
+	$(".buttons a").click(function(event) {
+		page.form.show();
 	});
 	
 	page.table.paginate();

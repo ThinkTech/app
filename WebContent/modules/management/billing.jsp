@@ -74,7 +74,7 @@
       
      <div class="clearfix"> </div>
 </div>
-<div class="window form">
+<div class="window details">
      <div>
 		<span title="fermer" class="close">X</span>
 		<h1><i class="fa fa-money" aria-hidden="true"></i>Facture #1</h1>

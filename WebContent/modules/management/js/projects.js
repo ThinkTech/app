@@ -1,13 +1,4 @@
 jQuery(document).ready(function($) {
-		$("tbody tr").click(function(event) {
-			const div = $(".details").show();
-			return false;
-		});
-		$(".buttons a").click(function(event) {
-			$(".form").show();
-			return false;
-		});
-		
 		$(".window a.pay").click(function(event) {
 			page.wait();
 			head.load("modules/payment/js/wizard.js",function() {

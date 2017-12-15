@@ -14,14 +14,13 @@ $(document).ready(function(){
 		return false;
 	});
 	$("tbody tr").click(function(event) {
-		$(".window").show();
-		$(".window .submit").show();
-		$(".window .details").hide();
-		return false;
-	});
-	$("tbody tr.paid").click(function(event) {
-		$(".window .submit").hide();
-		$(".window .details").show();
-		return false;
+		const tr = $(this);
+		if(tr.hasClass("paid")){
+		  $(".window .submit").hide();
+		  $(".window .details").show();
+		}else {
+		  $(".window .submit").show();
+		  $(".window .details").hide();
+		}
 	});
  });
