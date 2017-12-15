@@ -233,6 +233,10 @@
 	<h1><i class="fa fa-briefcase" aria-hidden="true"></i>Nouveau Projet</h1>
    <form action="${url}/projects/create">
 	<fieldset>
+	    <span class="text-right">Service </span>
+		<select name="service">
+		  <option value="site web">site web</option>
+		</select>
 	    <span class="text-right">Objet </span>
 	    <select name="subject">
 		  <option value="création site web">création site web</option>

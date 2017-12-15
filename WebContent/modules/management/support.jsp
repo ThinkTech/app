@@ -95,12 +95,12 @@
    <h1><i class="fa fa-question-circle-o" aria-hidden="true"></i>Nouveau Ticket</h1>
    <form action="${url}/support/tickets/create">
 	<fieldset>
-	    <span class="text-right">Objet </span>
-	     <input name="subject" placeholder="votre objet" type="text" required>
-	     <span class="text-right">Service </span>
+	    <span class="text-right">Service </span>
 		<select name="service">
 		  <option value="site web">site web</option>
 		</select>
+	    <span class="text-right">Objet </span>
+	     <input name="subject" placeholder="votre objet" type="text" required>
 		<span class="text-right">Priorité </span>
 		<select name="priority">
 		  <option value="low">normal</option>
@@ -126,8 +126,8 @@
 		<span title="fermer" class="close">X</span>
 		<h1><i class="fa fa-question-circle-o" aria-hidden="true"></i>Ticket #1</h1>
 		<fieldset>
-		    <span class="text-right">Objet </span> <span>site web down</span>
 		    <span class="text-right">Service </span> <span>site web</span>
+		    <span class="text-right">Objet </span> <span>site web down</span>
 		    <span class="text-right">Auteur </span> <span>Malorum</span>
 			<span class="text-right">Date </span> <span>17/09/2017</span>
 			<span class="text-right">Traitement </span> <span class="label label-info">en attente</span> <span class="label label-info">staff technique</span><br>
