@@ -61,11 +61,12 @@ jQuery(document).ready(function($) {
 								  row.click(function(event) {
 										const div = $(".details").show();
 										return false;
-									});
+								  });
+								  page.release();
+								  alert("votre ticket a &edot;t&edot; bien cr&edot;&edot;");
 							  });
-							  alert("votre ticket a &edot;t&edot; bien cr&edot;&edot;");
+							 
 						  }
-						  page.release();
 					  },
 					  dataType: "json"
 				});

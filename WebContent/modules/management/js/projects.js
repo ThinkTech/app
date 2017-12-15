@@ -1,12 +1,6 @@
 jQuery(document).ready(function($) {
 		$("tbody tr").click(function(event) {
 			const div = $(".details").show();
-			/*const list = $(".documents-list",div);
-			if($("ul li",list).length){
-				list.find("h6").hide();
-			}else {
-				list.find("h6").show();
-			}*/
 			return false;
 		});
 		$(".buttons a").click(function(event) {

@@ -132,5 +132,6 @@
 <script src="js/metamorphosis.js" defer></script> 
 <script src="templates/dashboard/js/template.js" defer></script>
 <script src="templates/dashboard/js/bootstrap.js" defer> </script>
+<script src="js/dust-full.min.js" defer></script>
 </body>
 </html>                     
