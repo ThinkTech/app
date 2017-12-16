@@ -7,10 +7,8 @@ page.form.show = function(){
 page.details = {};
 
 page.details.show = function(entity) {
-	page.wait();
 	const div = $(".window.details");
 	page.render($("section",div), entity, false, function(section) {
-		 page.release();
 		 $.each($("[data-template]",section),function(i,node){
 			 node = $(node);
 			 const id = "#template-"+node.data("template");
@@ -64,13 +62,13 @@ page.table.paginate = function() {
 	    	const id = $(this).attr("id");
 	    	const url = $table.data("url");
 	    	if(url) {
-	    		page.wait();
+	    		page.wait({top : $table.offset().top});
 	    		$.ajax({
 					  type: "GET",
 					  url: url+"?id="+id,
 					  success: function(entity) {
-						  page.release();
 						  page.details.show(entity);
+						  page.release();
 					  },
 					  dataType: "json"
 				});

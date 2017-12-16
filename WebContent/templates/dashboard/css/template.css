@@ -624,6 +624,8 @@ ul.dropdown-menu {
 .profile_details {
     float: right;
     margin-right: -23px;
+    position: relative;
+    top: -10px;
 }
 .profile_details_drop .fa.fa-angle-up{
 	display:none;
@@ -1278,6 +1280,9 @@ canvas#bar {
 }
 }
 @media (max-width:640px){
+.profile_details {
+    top: -16px;
+}
 .info-update-block img {
     left: 0%;
     width : 25%;
