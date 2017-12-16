@@ -224,7 +224,7 @@ legend a i.fa {
 
 .window > div .message-list > div p , .window > div .document-list > div p {
 	margin-top: -10px;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .window > div .message-edition {
@@ -256,6 +256,7 @@ legend a i.fa {
 .window > div h6 {
 	margin-top: -10px;
     margin-bottom: 0px;
+    font-size: 13px;
 }
 
 .window > div hr {
