@@ -6,8 +6,49 @@ page.form.show = function(){
 
 page.details = {};
 
-page.details.show = function() {
-	$(".window.details").show();
+page.details.show = function(entity) {
+	page.wait();
+	const div = $(".window.details");
+	page.render($("section",div), entity, false, function(section) {
+		 page.release();
+		 $.each($("[data-template]",section),function(i,node){
+			 node = $(node);
+			 const id = "#template-"+node.data("template");
+			 node.append($(id,div));
+		 });
+		 $("a.message-add",section).click(function(event) {
+				const div = $(this).parent().next();
+				const list = div.find(".message-list");
+				if(list.is(":hidden")) {
+					list.show(1);
+					div.find(".message-edition").hide(1);
+				}else {
+					list.hide(1);
+					div.find(".message-edition").show(1);
+				}
+				return false;
+		  });
+		  $(".document-add",section).click(function(event) {
+				const div = $(this).parent().next();
+				const list = div.find(".document-list");
+				if(list.is(":hidden")) {
+					list.show(1);
+					div.find(".document-upload").hide(1);
+				}else {
+					list.hide(1);
+					div.find(".document-upload").show(1);
+				}
+				return false;
+		  });
+		  $("input[type=button]",section).click(function(event) {
+				const div = $(this).parent().parent().parent().parent();
+				div.find(".document-list,.message-list").show();
+				div.find(".message-edition,.document-upload").hide();
+				return false;
+		  });
+		  if(page.details.bind) page.details.bind(section,entity);
+		  div.show();
+	});
 };
 
 page.table = {};
@@ -27,11 +68,9 @@ page.table.paginate = function() {
 	    		$.ajax({
 					  type: "GET",
 					  url: url+"?id="+id,
-					  success: function(response) {
+					  success: function(entity) {
 						  page.release();
-						  if(response.status){
-							  page.details.show();
-						  }
+						  page.details.show(entity);
 					  },
 					  dataType: "json"
 				});
@@ -98,48 +137,10 @@ $(document).ready(function(){
 	$(".window.details > div > .submit input[type=button]").click(function(event) {
 		$(".window").hide();
 	});
-	$(".window.details > div > .submit input[type=button]").click(function(event) {
-		$(".window").hide();
-	});
-	$(".window a.message-add").click(function(event) {
-		const div = $(this).parent().next();
-		const list = div.find(".message-list");
-		if(list.is(":hidden")) {
-			list.show(1);
-			div.find(".message-edition").hide(1);
-		}else {
-			list.hide(1);
-			div.find(".message-edition").show(1);
-		}
-		return false;
-	});
-	
-	$(".window a.document-add").click(function(event) {
-		const div = $(this).parent().next();
-		const list = div.find(".document-list");
-		if(list.is(":hidden")) {
-			list.show(1);
-			div.find(".document-upload").hide(1);
-		}else {
-			list.hide(1);
-			div.find(".document-upload").show(1);
-		}
-		return false;
-	});
-	
-	$(".window.details input[type=button]").click(function(event) {
-		const div = $(this).parent().parent().parent().parent();
-		div.find(".document-list,.message-list").show();
-		div.find(".message-edition,.document-upload").hide();
-		return false;
-	});
-	
 	$(".buttons a").click(function(event) {
 		page.form.show();
 	});
-	
 	page.table.paginate();
-	
 	setTimeout(function(){
 		$("#confirm-dialog-ok").html("Oui");
 		$("#confirm-dialog-cancel").html("Annuler");

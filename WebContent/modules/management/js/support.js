@@ -1,5 +1,6 @@
-jQuery(document).ready(function($) {		
-		$(".window .messages form").submit(function(event){
+jQuery(document).ready(function($) {
+	page.details.bind = function(container,entity) {
+		$(".messages form",container).submit(function(event){
 			const form = $(this);
 			const comment = {};
 			comment.message =  form.find("textarea[name=message]").val();
@@ -26,8 +27,9 @@ jQuery(document).ready(function($) {
 				  dataType: "json"
 			});
 			return false;
-		});
-		
+		 });
+		};
+
 		$(".window > div > form").submit(function(event){
 			const form = $(this);
 			const ticket = {};

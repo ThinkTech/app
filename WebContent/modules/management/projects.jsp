@@ -105,6 +105,8 @@
     <div>
 	<span title="fermer" class="close">X</span>
 	<h1><i class="fa fa-briefcase" aria-hidden="true"></i>Projet : création site web</h1>
+	<section>
+	 <template type="text/x-dust-template">
 	<fieldset>
 		<span class="text-right">Plan </span> <span>plan business</span>
 		<span class="text-right">Structure </span> <span>Sesame</span>
@@ -177,12 +179,7 @@
 	   <div class="documents">
 	        <div class="document-list">
    		 		<h6>pas de documents</h6>
-   		 		<ol>
-   		 		   <template type="text/x-dust-template">
-					  {#.}
-					    <li><a>{name}</a></li>
-					  {/.}
-				   </template>
+   		 		<ol data-template="documents">
    		 		</ol>
    		 	</div>
    		 	<div class="document-upload">
@@ -207,13 +204,8 @@
    		 <div class="comments messages">
    		    <div class="message-list">
    		 		<h6>pas de commentaires</h6>
-   		 		<div>
-   		 		  <template type="text/x-dust-template">
-   		 		     <p class="message">{message}</p>
-   		 		     <hr/>
-   		 		  </template>
-   		 		</div>
-   		 	</div>
+							<div data-template="comments"></div>
+						</div>
    		 	<div class="message-edition">
    		 	   <form action="${url}/projects/comments/create">
    		 		<textarea name="message" placeholder="entrer votre commentaire" required></textarea>
@@ -225,6 +217,17 @@
    		 	</div>
    		 </div>
   </fieldset>
+  </template>
+  </section>
+  <template id="template-documents" type="text/x-dust-template">
+		{#.}
+			<li><a>{name}</a></li>
+		 {/.}
+  </template>
+  <template id="template-comments" type="text/x-dust-template">
+   	  <p class="message">{message}</p>
+   	   <hr/>
+  </template>	
   </div>
 </div>
 <div class="window form">

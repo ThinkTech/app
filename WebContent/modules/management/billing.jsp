@@ -78,6 +78,8 @@
      <div>
 		<span title="fermer" class="close">X</span>
 		<h1><i class="fa fa-money" aria-hidden="true"></i>Facture #1</h1>
+		<section>
+		 <template type="text/x-dust-template">
 		<fieldset>
 			<span class="text-right">Frais </span> <span>hébergement</span>
 			<span class="text-right">Service </span> <span>site web</span>
@@ -89,6 +91,8 @@
 			    <span class="text-right">Par </span> <span>carte Visa</span>
 			</div>
 		</fieldset>
+		</template>
+		</section>
 		<div class="submit">
 		   <input type="submit" value="Payer">
 		   <input type="button" value="Annuler">

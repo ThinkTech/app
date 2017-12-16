@@ -117,6 +117,7 @@
     padding: 15px 15px;
     width: 44%;
     margin: auto;
+    margin-right: 10px;
     display: inline-block;
     margin-top: 5px;
     background: #212121;
@@ -260,7 +261,7 @@ legend a i.fa {
 .window > div hr {
 	margin-top: 10px;
     margin-bottom: 10px;
-    border-top: 1px solid #bbbbad;
+    border-top: 1px solid #05d2ff;
 }
 
 .project-wizard h2 {

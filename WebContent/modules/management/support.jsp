@@ -125,6 +125,8 @@
     <div>
 		<span title="fermer" class="close">X</span>
 		<h1><i class="fa fa-question-circle-o" aria-hidden="true"></i>Ticket #1</h1>
+		<section>
+		 <template type="text/x-dust-template">
 		<fieldset>
 		    <span class="text-right">Service </span> <span>site web</span>
 		    <span class="text-right">Objet </span> <span>site web down</span>
@@ -141,11 +143,7 @@
 	   		 <div class="messages">
 	   		    <div class="message-list">
    		 		 <h6>pas de messages</h6>
-   		 		 <div>
-   		 		  <template type="text/x-dust-template">
-   		 		     <p class="message">{message}</p>
-   		 		     <hr/>
-   		 		  </template>
+   		 		 <div data-template="messages">
    		 		</div>
    		 		</div>
 	   		 	<div class="message-edition">
@@ -160,6 +158,12 @@
 	   		 </div>
 	    </fieldset>
 	</fieldset>
+	</template>
+	</section>
+	<template id="template-messages" type="text/x-dust-template">
+   		 <p class="message">{message}</p>
+   		  <hr/>
+   	</template>
 	</div>
 </div>
 </div>
