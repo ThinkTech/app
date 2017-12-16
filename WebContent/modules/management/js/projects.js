@@ -54,6 +54,7 @@ jQuery(document).ready(function($) {
 									  const wizard = $(".project-wizard");
 									  page.render(wizard, project, false, function() {
 										  if(!project.structure) $(".structure-info",wizard).hide()
+										  $("> div section:nth-child(1)",wizard).show();
 										  wizard.fadeIn(100);
 										  $("input[type=button]",wizard).click(function(event) {
 												const input = $("input[type=checkbox]",wizard);

@@ -293,9 +293,9 @@
 </div>
 <div class="window project-wizard">
   <template type="text/x-dust-template">
-  <div>
-   <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Création Projet Reussie</h1>
+  <div> 
   <section>
+    <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Création Projet Reussie</h1>
     <div class="structure-info">
 		<h5>
 			<span><b>Structure</b> : {structure}</span>
@@ -348,6 +348,68 @@
 	    <span class="terms-agreement">
 	      <input type="checkbox" checked> Payer la caution
 	    </span>
+	   </p>
+	   <div class="submit">
+		 <input type="button" value="Terminer" style="float:right">
+	</div>
+  </section>
+  <section>
+    <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Paiement Caution Reussie</h1>
+    <div class="structure-info">
+		<h5>
+			<span><b>Structure</b> : {structure}</span>
+		</h5>
+		<h5>
+			<span><b>Ninea</b> : {ninea}</span>
+		</h5>
+	</div>
+	<hr/>
+	<span>Merci pour votre souscription au {plan}</span>
+	<h2><span class="number">2</span> Etape 2 : Développement</h2>
+	<div class="col-md-12">
+		  <div class="content-process">
+			<div class="content3">
+				<div class="shipment">
+					<div class="confirm">
+						<div class="imgcircle active">
+							<img src="${images}/confirm.png" alt="confirm order">
+						</div>
+						<span class="line active"></span>
+						<p>Contrat et Caution</p>
+					</div>
+					<div class="process">
+						<div class="imgcircle active">
+							<img src="${images}/process.png" alt="process order">
+						</div>
+						<span class="line"></span>
+						<p>Développement</p>
+					</div>
+					<div class="quality">
+						<div class="imgcircle">
+							<img src="${images}/quality.png" alt="quality check">
+						</div>
+						<span class="line"></span>
+						<p>Tests et Validation</p>
+					</div>
+					<div class="delivery">
+						<div class="imgcircle">
+							<img src="${images}/delivery.png" alt="delivery">
+						</div>
+						<p>Livraison Produit</p>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		   </div>	
+	   </div>
+	   <h2>Projet Description</h2>
+	   <p>
+	     {description}
+	   </p>
+	   <hr/>
+	   <p>
+	      Votre projet a été transmis à notre équipe de développement pour traitement. La durée du projet est estimée à 3 mois et vous pouvez bien entendu suivre son évolution. Au besoin, nous vous contacterons pour de 
+	      plus amples informations ou pour fournir des documents que vous pouvez attacher au projet.
 	   </p>
 	   <div class="submit">
 		 <input type="button" value="Terminer" style="float:right">

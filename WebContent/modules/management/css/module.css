@@ -289,6 +289,8 @@ legend a i.fa {
     font-size: 87%;
 }
 
+.project-wizard h1{margin-left: -40px;}
+
 .project-wizard h5 {
 	font-size: 115%; 
 	margin-bottom: 5px;
@@ -298,6 +300,7 @@ legend a i.fa {
 	width: 90%; 
 	margin: auto; 
 	margin-top: 0px;
+	display : none;
 }
 
 .project-wizard section > span {
@@ -386,6 +389,7 @@ legend a i.fa {
 	.project-wizard h2 {font-size: 1em;margin-left: 0;font-weight:bold}
 	.window > div .terms h1 i.fa {top: 0px;}
 	.project-wizard p {font-size: 12px;}
+	.project-wizard h1{margin-left: -16px;}
 	.window > div .terms-agreement {font-size: 12px;margin-top: 5px;}
 }
 
