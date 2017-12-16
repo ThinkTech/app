@@ -75,7 +75,7 @@
 		<span title="fermer" class="close">X</span>
 		<h1><i class="fa fa-envelope-o" aria-hidden="true"></i>Message : création site web</h1>
 		<section>
-		 <template type="text/x-dust-template">
+		 <template>
 		<fieldset>
 			<span class="text-right">Auteur </span> <span>ThinkTech</span> 
 			<span class="text-right">Destinataire </span> <span>Malorum</span>

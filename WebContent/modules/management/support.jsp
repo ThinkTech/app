@@ -69,7 +69,7 @@
 	                                  <td><span class="badge badge-info">${ticket.properties['progression']}%</span></td>
 	                              </tr>
 	                          </s:iterator>
-                              <template type="text/x-dust-template">
+                              <template>
 							     {#.}
 							      <tr id="{id}">
 							            <td><span class="number"></span></td>
@@ -126,7 +126,7 @@
 		<span title="fermer" class="close">X</span>
 		<h1><i class="fa fa-question-circle-o" aria-hidden="true"></i>Ticket #1</h1>
 		<section>
-		 <template type="text/x-dust-template">
+		 <template>
 		<fieldset>
 		    <span class="text-right">Service </span> <span>site web</span>
 		    <span class="text-right">Objet </span> <span>site web down</span>
@@ -160,7 +160,7 @@
 	</fieldset>
 	</template>
 	</section>
-	<template id="template-messages" type="text/x-dust-template">
+	<template id="template-messages">
    		 <p class="message">{message}</p>
    		  <hr/>
    	</template>

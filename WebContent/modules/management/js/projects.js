@@ -1,4 +1,4 @@
-jQuery(document).ready(function($) {
+$(document).ready(function(){
 	page.details.bind = function(container,entity) {
 		$("a.pay",container).click(function(event) {
 			page.wait();

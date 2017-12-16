@@ -1,4 +1,4 @@
-jQuery(document).ready(function($) {
+$(document).ready(function(){
 	page.details.bind = function(container,entity) {
 		$(".messages form",container).submit(function(event){
 			const form = $(this);

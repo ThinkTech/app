@@ -82,7 +82,7 @@
 	                              </tr>
 	                          </s:iterator>
                              
-                              <template type="text/x-dust-template">
+                              <template>
 							     {#.}
 							      <tr id="{id}">
 							            <td><span class="number"></span></td>
@@ -106,7 +106,7 @@
 	<span title="fermer" class="close">X</span>
 	<h1><i class="fa fa-briefcase" aria-hidden="true"></i>Projet : création site web</h1>
 	<section>
-	 <template type="text/x-dust-template">
+	 <template>
 	<fieldset>
 		<span class="text-right">Plan </span> <span>plan business</span>
 		<span class="text-right">Structure </span> <span>Sesame</span>
@@ -219,12 +219,12 @@
   </fieldset>
   </template>
   </section>
-  <template id="template-documents" type="text/x-dust-template">
+  <template id="template-documents">
 		{#.}
 			<li><a>{name}</a></li>
 		 {/.}
   </template>
-  <template id="template-comments" type="text/x-dust-template">
+  <template id="template-comments">
    	  <p class="message">{message}</p>
    	   <hr/>
   </template>	
@@ -295,7 +295,7 @@
 	</div>
 </div>
 <div class="window project-wizard">
-  <template type="text/x-dust-template">
+  <template>
   <div> 
   <section>
     <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Création Projet Reussie</h1>
