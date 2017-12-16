@@ -350,7 +350,7 @@
 	    </span>
 	   </p>
 	   <div class="submit">
-		 <input type="button" value="Terminer">
+		 <input type="button" value="Terminer" style="float:right">
 	</div>
   </section>
   </div>
