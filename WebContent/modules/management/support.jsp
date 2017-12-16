@@ -43,7 +43,7 @@
                                   <h3 class="tlt"><i class="fa fa-question-circle-o" aria-hidden="true"></i> Vos Tickets</h3>
                             </div>
                             <div class="table-responsive">
-                               <table class="support table table-hover">
+                               <table data-url="${url}/support/tickets/info" class="support table table-hover">
                                   <thead>
                                     <tr>
                                       <th></th>
@@ -56,8 +56,8 @@
                                   </tr>
                               </thead>
                               <tbody>
-                               <s:iterator value="#request.tickets" var="ticket" status="status">
-	                                <tr>
+                               <s:iterator value="#session.tickets" var="ticket" status="status">
+	                                <tr id="${ticket.properties['id']}">
 	                                  <td><span class="number">${status.index+1}</span></td>
 	                                  <td><i class="fa fa-question-circle-o" aria-hidden="true"></i> ${ticket.properties['subject']}</td>
 	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${ticket.properties['service']}</td>

@@ -40,7 +40,7 @@
                                   <h3 class="tlt"><i class="fa fa-money" aria-hidden="true"></i> Vos Factures</h3>
                             </div>
                             <div class="table-responsive">
-                                <table class="billing table table-hover">
+                                <table data-url="${url}/billing/info" class="billing table table-hover">
                                   <thead>
                                     <tr class="clr-block-6">
                                       <th></th>
@@ -53,8 +53,8 @@
                                   </tr>
                               </thead>
                               <tbody>
-                               <s:iterator value="#request.bills" var="bill" status="status">
-	                                <tr class="${bill.properties['status']=='finished' ? 'paid' : ''}">
+                               <s:iterator value="#session.bills" var="bill" status="status">
+	                                <tr id="${bill.properties['id']}" class="${bill.properties['status']=='finished' ? 'paid' : ''}">
 	                                  <td><span class="number">${status.index+1}</span></td>
 	                                  <td><i class="fa fa-money" aria-hidden="true"></i> ${bill.properties['fee']}</td>
 	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${bill.properties['service']}</td>

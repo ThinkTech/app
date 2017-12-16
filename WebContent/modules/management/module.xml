@@ -5,14 +5,19 @@
   <actions>
     <action url="projects" page="projects" method="showProjects"/>
     <action url="projects/create"  method="createProject" />
+    <action url="projects/info"  method="getProjectInfo"/>
     <action url="projects/description/update"  method="updateProjectDescription" />
     <action url="projects/comments/create"  method="addComment" />
     <action url="messages" page="messages" method="showMessages"/>
+    <action url="messages/info"  method="getMessageInfo"/>
     <action url="support"  page="support" method="showTickets"/>
     <action url="support/tickets/create"  method="createTicket" />
+    <action url="support/tickets/info"  method="getTicketInfo"/>
     <action url="support/messages/create"  method="addTicketMessage" />
     <action url="billing"  page="billing" method="showBills"/>
+    <action url="billing/info"  method="getBillInfo"/>
     <action url="services" page="services" method="showServices"/>
+    
   </actions>
   
 </module>

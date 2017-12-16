@@ -42,7 +42,7 @@
 					</h3>
 				</div>
 				<div class="table-responsive">
-					<table class="table table-hover">
+					<table data-url="${url}/messages/info" class="table table-hover">
 						<thead>
 							<tr>
 								<th></th>
@@ -53,8 +53,8 @@
 							</tr>
 						</thead>
 						<tbody>
-						  <s:iterator value="#request.messages" var="message" status="status">
-	                            <tr>
+						  <s:iterator value="#session.messages" var="message" status="status">
+	                            <tr id="${message.properties['id']}">
 	                                <td><span class="number">${status.index+1}</span></td>
 	                                <td><i class="fa fa-envelope-o" aria-hidden="true"></i> ${message.properties['subject']}</td>
 								    <td><i class="fa fa-user" aria-hidden="true"></i> ${message.properties['author']}</td>

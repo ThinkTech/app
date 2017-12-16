@@ -19,19 +19,19 @@ class ModuleAction extends ActionSupport {
        request.setAttribute("unactive",3)
        request.setAttribute("active",1)
        def projects = []
-       def project = new Expando(subject: 'cr&edot;ation site web',plan : 'plan business',status : "in progress",progression : '50')
+       def project = new Expando(id : 1,subject: 'cr&edot;ation site web',plan : 'plan business',status : "in progress",progression : '50')
        projects << project
-       project = new Expando(subject: 'cr&edot;ation site web',plan : 'plan business',status : "finished",progression : '100')
+       project = new Expando(id : 2,subject: 'cr&edot;ation site web',plan : 'plan business',status : "finished",progression : '100')
        projects << project
-       project = new Expando(subject: 'cr&edot;ation site web',plan : 'plan business',status : "stand by",progression : '0')
+       project = new Expando(id : 3,subject: 'cr&edot;ation site web',plan : 'plan business',status : "stand by",progression : '0')
        projects << project
-       project = new Expando(subject: 'cr&edot;ation site web',plan : 'plan business',status : "stand by",progression : '0')
+       project = new Expando(id : 4,subject: 'cr&edot;ation site web',plan : 'plan business',status : "stand by",progression : '0')
        projects << project
-       project = new Expando(subject: 'cr&edot;ation site web',plan : 'plan business',status : "stand by",progression : '0')
+       project = new Expando(id : 5,subject: 'cr&edot;ation site web',plan : 'plan business',status : "stand by",progression : '0')
        projects << project
-       project = new Expando(subject: 'cr&edot;ation site web',plan : 'plan business',status : "stand by",progression : '0')
+       project = new Expando(id : 6,subject: 'cr&edot;ation site web',plan : 'plan business',status : "stand by",progression : '0')
        projects << project
-       request.setAttribute("projects",projects)
+       session.setAttribute("projects",projects)
        SUCCESS
    }
 
@@ -41,6 +41,10 @@ class ModuleAction extends ActionSupport {
 	   def mailSender = new MailSender(mailConfig)
 	   def mail = new Mail("Mamadou Lamine Ba","lamine.ba@thinktech.sn","Projet : ${project.subject}",getProjectTemplate(project))
 	   mailSender.sendMail(mail)
+	   response.writer.write(json([status: 1]))
+	}
+	
+	def getProjectInfo() {
 	   response.writer.write(json([status: 1]))
 	}
 	
@@ -69,19 +73,19 @@ class ModuleAction extends ActionSupport {
 	   request.setAttribute("total",6)
        request.setAttribute("unsolved",5)
        def tickets = []
-       def ticket = new Expando(subject: 'site web down',service : 'site web',author : 'Malorum',status : "in progress",progression : '50')
+       def ticket = new Expando(id : "1",subject: 'site web down',service : 'site web',author : 'Malorum',status : "in progress",progression : '50')
        tickets << ticket
-       ticket = new Expando(subject: 'site web down',service : 'site web',author : 'Malorum',status : "finished",progression : '100')
+       ticket = new Expando(id : "2",subject: 'site web down',service : 'site web',author : 'Malorum',status : "finished",progression : '100')
        tickets << ticket
-       ticket = new Expando(subject: 'site web down',service : 'site web',author : 'Malorum',status : "stand by",progression : '0')
+       ticket = new Expando(id : "3",subject: 'site web down',service : 'site web',author : 'Malorum',status : "stand by",progression : '0')
        tickets << ticket
-       ticket = new Expando(subject: 'site web down',service : 'site web',author : 'Malorum',status : "stand by",progression : '0')
+       ticket = new Expando(id : "4",subject: 'site web down',service : 'site web',author : 'Malorum',status : "stand by",progression : '0')
        tickets << ticket
-       ticket = new Expando(subject: 'site web down',service : 'site web',author : 'Malorum',status : "stand by",progression : '0')
+       ticket = new Expando(id : "5",subject: 'site web down',service : 'site web',author : 'Malorum',status : "stand by",progression : '0')
        tickets << ticket
-       ticket = new Expando(subject: 'site web down',service : 'site web',author : 'Malorum',status : "stand by",progression : '0')
+       ticket = new Expando(id : "6",subject: 'site web down',service : 'site web',author : 'Malorum',status : "stand by",progression : '0')
        tickets << ticket
-       request.setAttribute("tickets",tickets)
+       session.setAttribute("tickets",tickets)
        SUCCESS
     }
 	
@@ -94,6 +98,10 @@ class ModuleAction extends ActionSupport {
 	   response.writer.write(json([status: 1]))
 	}
 	
+	def getTicketInfo() {
+	   response.writer.write(json([status: 1]))
+	}
+	
 	def addTicketMessage() {
 	   def ticket = new JsonSlurper().parse(request.inputStream) 
 	   response.writer.write(json([status: 1]))
@@ -103,41 +111,49 @@ class ModuleAction extends ActionSupport {
 	   request.setAttribute("total",6)
        request.setAttribute("read",0)
        def messages = []
-       def message = new Expando(subject: 'cr&edot;ation site web',author : 'ThinkTech')
+       def message = new Expando(id : "1",subject: 'cr&edot;ation site web',author : 'ThinkTech')
        messages << message
-       message = new Expando(subject: 'cr&edot;ation site web',author : 'ThinkTech')
+       message = new Expando(id : "2",subject: 'cr&edot;ation site web',author : 'ThinkTech')
        messages << message
-       message = new Expando(subject: 'cr&edot;ation site web',author : 'ThinkTech')
+       message = new Expando(id : "3",subject: 'cr&edot;ation site web',author : 'ThinkTech')
        messages << message
-       message = new Expando(subject: 'cr&edot;ation site web',author : 'ThinkTech')
+       message = new Expando(id : "4",subject: 'cr&edot;ation site web',author : 'ThinkTech')
        messages << message
-       message = new Expando(subject: 'cr&edot;ation site web',author : 'ThinkTech')
+       message = new Expando(id : "5",subject: 'cr&edot;ation site web',author : 'ThinkTech')
        messages << message
-       message = new Expando(subject: 'cr&edot;ation site web',author : 'ThinkTech')
+       message = new Expando(id : "6",subject: 'cr&edot;ation site web',author : 'ThinkTech')
        messages << message
-       request.setAttribute("messages",messages)
+       session.setAttribute("messages",messages)
        SUCCESS
     }
+    
+    def getMessageInfo() {
+	   response.writer.write(json([status: 1]))
+	}
     
     def showBills(){
        request.setAttribute("total",6)
        request.setAttribute("unpayed",4)
        def bills = []
-       def bill = new Expando(fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "finished")
+       def bill = new Expando(id : 1,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "finished")
        bills << bill
-       bill = new Expando(fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "finished")
+       bill = new Expando(id : 2,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "finished")
        bills << bill
-       bill = new Expando(fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "stand by")
+       bill = new Expando(id : 3,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "stand by")
        bills << bill
-       bill = new Expando(fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "stand by")
+       bill = new Expando(id : 4,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "stand by")
        bills << bill
-       bill = new Expando(fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "stand by")
+       bill = new Expando(id : 5,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "stand by")
        bills << bill
-       bill = new Expando(fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "stand by")
+       bill = new Expando(id : 6,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "stand by")
        bills << bill
-       request.setAttribute("bills",bills)
+       session.setAttribute("bills",bills)
        SUCCESS
     }
+    
+    def getBillInfo() {
+	   response.writer.write(json([status: 1]))
+	}
 	
 	def showServices(){
 	   request.setAttribute("total",1)

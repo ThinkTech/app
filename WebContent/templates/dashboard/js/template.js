@@ -20,7 +20,22 @@ page.table.paginate = function() {
 	    var currentPage = 0;
 	    var numPerPage = 5;
 	    const rows = $table.find('tbody tr').click(function(event) {
-			page.details.show();
+	    	const id = $(this).attr("id");
+	    	const url = $table.data("url");
+	    	if(url) {
+	    		page.wait();
+	    		$.ajax({
+					  type: "GET",
+					  url: url+"?id="+id,
+					  success: function(response) {
+						  page.release();
+						  if(response.status){
+							  page.details.show();
+						  }
+					  },
+					  dataType: "json"
+				});
+	    	}
 			rows.removeClass("active");
 			$(this).addClass("active");
 	    });

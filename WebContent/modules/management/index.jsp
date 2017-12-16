@@ -51,7 +51,7 @@
                                   <h3 class="tlt"><i class="fa fa-briefcase" aria-hidden="true"></i> Vos Projets</h3>
                             </div>
                             <div class="projects table-responsive">
-                                <table class="table table-hover">
+                                <table data-url="${url}/projects/info" class="table table-hover">
                                   <thead>
                                     <tr>
                                       <th></th>
@@ -63,7 +63,7 @@
                                   </tr>
                               </thead>
                               <tbody>
-                                <tr>
+                                <tr id="1">
                                   <td><span class="number">1</span></td>
                                   <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
@@ -71,7 +71,7 @@
                                   <td><span class="label label-danger">en cours</span></td>
                                   <td><span class="badge badge-info">50%</span></td>
                               </tr>
-                              <tr>
+                              <tr id="2">
                                   <td><span class="number">2</span></td>
                                   <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
@@ -79,7 +79,7 @@
                                   <td><span class="label label-success">terminé</span></td>
                                   <td><span class="badge badge-success">100%</span></td>
                               </tr>
-                              <tr>
+                              <tr id="3">
                                   <td><span class="number">3</span></td>
                                   <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
@@ -87,7 +87,7 @@
                                   <td><span class="label label-info">en attente</span></td>
                                   <td><span class="badge badge-info">0%</span></td>
                               </tr>
-                              <tr>
+                              <tr id="4">
                                   <td><span class="number">4</span></td>
                                   <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
@@ -95,7 +95,7 @@
                                   <td><span class="label label-info">en attente</span></td>
                                   <td><span class="badge badge-info">0%</span></td>
                               </tr>
-                              <tr>
+                              <tr id="5">
                                   <td><span class="number">5</span></td>
                                   <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
@@ -103,7 +103,7 @@
                                   <td><span class="label label-info">en attente</span></td>
                                   <td><span class="badge badge-info">0%</span></td>
                               </tr>
-                              <tr>
+                              <tr id="6">
                                   <td><span class="number">6</span></td>
                                   <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>

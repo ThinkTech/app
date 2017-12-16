@@ -57,7 +57,7 @@
 					</h3>
 				</div>
 				<div class="table-responsive">
-					      <table class="projects table table-hover">
+					      <table data-url="${url}/projects/info" class="projects table table-hover">
                                   <thead>
                                     <tr>
                                       <th></th>
@@ -69,8 +69,8 @@
                                   </tr>
                               </thead>
                               <tbody>
-                              <s:iterator value="#request.projects" var="project" status="status">
-	                                <tr>
+                              <s:iterator value="#session.projects" var="project" status="status">
+	                                <tr id="${project.properties['id']}">
 	                                  <td><span class="number">${status.index+1}</span></td>
 	                                  <td><i class="fa fa-briefcase" aria-hidden="true"></i> ${project.properties['subject']}</td>
 	                                  <td><i class="fa fa-code" aria-hidden="true"></i> ${project.properties['plan']}</td>
