@@ -124,16 +124,19 @@
 <div class="window details">
     <div>
 		<span title="fermer" class="close">X</span>
-		<h1><i class="fa fa-question-circle-o" aria-hidden="true"></i>Ticket #1</h1>
 		<section>
 		 <template>
+		 <h1><i class="fa fa-question-circle-o" aria-hidden="true"></i>Ticket : {id}</h1>
 		<fieldset>
-		    <span class="text-right">Service </span> <span>site web</span>
-		    <span class="text-right">Objet </span> <span>site web down</span>
-		    <span class="text-right">Auteur </span> <span>Malorum</span>
+		    <span class="text-right">Service </span> <span>{service}</span>
+		    <span class="text-right">Objet </span> <span>{subject}</span>
+		    <span class="text-right">Auteur </span> <span>{author}</span>
 			<span class="text-right">Date </span> <span>17/09/2017</span>
-			<span class="text-right">Traitement </span> <span class="label label-info">en attente</span> <span class="label label-info">staff technique</span><br>
-			<span class="text-right">Progression </span> <span class="badge badge-info">0%</span>
+			<span class="text-right">Traitement </span> 
+			<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">staff technique</span> </span>
+			<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  
+			<span data-status="finished" style="display:none"><span class="label label-success">terminé</span></span><br>
+			<span class="text-right">Progression </span> <span class="badge badge-info">{progression}%</span>
 		</fieldset>
 		<fieldset>
 	    <fieldset>

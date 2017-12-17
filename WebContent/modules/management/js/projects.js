@@ -1,5 +1,9 @@
 $(document).ready(function(){
 	page.details.bind = function(container,entity) {
+		if(entity.status == "finished") $(".imgcircle,.line",container).addClass("active");
+		if(entity.status == "in progress") {
+			$(".confirm .imgcircle,.confirm .line,.process .imgcircle",container).addClass("active");
+		}
 		$("a.pay",container).click(function(event) {
 			page.wait();
 			head.load("modules/payment/js/wizard.js",function() {

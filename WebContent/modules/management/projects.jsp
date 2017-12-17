@@ -104,16 +104,20 @@
 	<div class="window details">
     <div>
 	<span title="fermer" class="close">X</span>
-	<h1><i class="fa fa-briefcase" aria-hidden="true"></i>Projet : création site web</h1>
 	<section>
 	 <template>
+	 <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Projet : {subject|s}</h1>
 	<fieldset>
-		<span class="text-right">Plan </span> <span>plan business</span>
+		<span class="text-right">Plan </span> <span>{plan}</span>
 		<span class="text-right">Structure </span> <span>Sesame</span>
 		<span class="text-right">Date </span> <span>17/09/2017</span>
 		<span class="text-right">Durée </span> <span>3 mois</span>
-		<span class="text-right">Traitement </span> <span class="label label-info">en attente</span> <span class="label label-info">paiement caution</span> <a class="pay"><i class="fa fa-money"></i></a><br>
-		<span class="text-right">Progression </span> <span class="badge badge-info">0%</span>
+		<span class="text-right">Traitement </span> 
+		<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">paiement caution</span> <a class="pay"><i class="fa fa-money"></i></a></span>
+		<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  
+		<span data-status="finished" style="display:none"><span class="label label-success">terminé</span></span>  
+		<br>
+		<span class="text-right">Progression </span> <span class="badge badge-info">{progression}%</span>
 	</fieldset>
 	<div class="col-md-12">
 		  <div class="content-process">

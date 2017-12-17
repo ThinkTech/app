@@ -9,6 +9,7 @@ page.details = {};
 page.details.show = function(entity) {
 	const div = $(".window.details");
 	page.render($("section",div), entity, false, function(section) {
+		$("[data-status='"+entity.status+"']",section).show();
 		 $.each($("[data-template]",section),function(i,node){
 			 node = $(node);
 			 const id = "#template-"+node.data("template");
@@ -66,8 +67,8 @@ page.table.paginate = function() {
 	    		$.ajax({
 					  type: "GET",
 					  url: url+"?id="+id,
-					  success: function(entity) {
-						  page.details.show(entity);
+					  success: function(response) {
+						  page.details.show(response.entity);
 						  page.release();
 					  },
 					  dataType: "json"
@@ -119,7 +120,7 @@ $(document).ready(function(){
 	$.each($(".menu a"),function(i,element){
 		 const link = $(element);
 		 const href = link.attr("href");
-		 if(location.href.endsWith(href)){
+		 if(location.href.slice(-href.length) === href){
 			 link.addClass("active");
 			 return false;
 	     };

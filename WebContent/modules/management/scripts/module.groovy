@@ -45,7 +45,10 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def getProjectInfo() {
-	   response.writer.write(json([status: 1]))
+	   def projects = session.getAttribute("projects")
+	   def id = getParameter("id") as int
+	   def project = projects[id-1] 
+	   response.writer.write(json([entity : project]))
 	}
 	
 	def generateContract(project) {
@@ -99,7 +102,10 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def getTicketInfo() {
-	   response.writer.write(json([status: 1]))
+	   def tickets = session.getAttribute("tickets")
+	   def id = getParameter("id") as int
+	   def ticket = tickets[id-1] 
+	   response.writer.write(json([entity : ticket]))
 	}
 	
 	def addTicketMessage() {
@@ -128,7 +134,10 @@ class ModuleAction extends ActionSupport {
     }
     
     def getMessageInfo() {
-	   response.writer.write(json([status: 1]))
+	   def messages = session.getAttribute("messages")
+	   def id = getParameter("id") as int
+	   def message = messages[id-1] 
+	   response.writer.write(json([entity : message]))
 	}
     
     def showBills(){
@@ -152,7 +161,10 @@ class ModuleAction extends ActionSupport {
     }
     
     def getBillInfo() {
-	   response.writer.write(json([status: 1]))
+	   def bills = session.getAttribute("bills")
+	   def id = getParameter("id") as int
+	   def bill = bills[id-1] 
+	   response.writer.write(json([entity : bill]))
 	}
 	
 	def showServices(){
