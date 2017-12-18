@@ -1,5 +1,8 @@
 $(document).ready(function(){
 	page.details.bind = function(container,ticket) {
+		if(ticket.status == "finished") {
+			$("legend a",container).hide();
+		}
 		$(".messages form",container).submit(function(event){
 			const form = $(this);
 			const comment = {};
