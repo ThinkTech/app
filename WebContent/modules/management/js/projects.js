@@ -6,6 +6,9 @@ $(document).ready(function(){
 		}
 		if(project.status == "in progress") {
 			$(".confirm .imgcircle,.confirm .line,.process .imgcircle",container).addClass("active");
+			if(project.progression >= 95) {
+				$(".quality .imgcircle,.quality .line",container).addClass("active");
+			}
 		}
 		$("a.pay",container).click(function(event) {
 			page.wait();
