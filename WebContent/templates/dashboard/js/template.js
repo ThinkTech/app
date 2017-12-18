@@ -50,6 +50,10 @@ page.details.show = function(entity) {
 	});
 };
 
+page.details.hide = function(){
+	$(".window.details").hide();
+};
+
 page.table = {};
 
 page.table.paginate = function() {
@@ -117,6 +121,7 @@ page.table.addRow = function(entity,callback) {
 };
 
 $(document).ready(function(){
+	page.table.paginate();
 	$.each($(".menu a"),function(i,element){
 		 const link = $(element);
 		 const href = link.attr("href");
@@ -139,7 +144,6 @@ $(document).ready(function(){
 	$(".buttons a").click(function(event) {
 		page.form.show();
 	});
-	page.table.paginate();
 	setTimeout(function(){
 		$("#confirm-dialog-ok").html("Oui");
 		$("#confirm-dialog-cancel").html("Annuler");

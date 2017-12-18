@@ -8,7 +8,7 @@ $(document).ready(function(){
 		   $(".details",container).hide();
 		}
 		$("input[type=submit]",container).click(function(event){
-			$(".window").hide();
+			page.details.hide();
 			const top = $(".chit-chat-layer1").offset().top;
 			page.wait({top : top});
 			head.load("modules/payment/js/wizard.js",function() {
