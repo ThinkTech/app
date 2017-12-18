@@ -57,7 +57,7 @@
                                       <th></th>
                                       <th>Projet</th>
                                       <th>Plan</th> 
-                                      <th>Date</th>                                                             
+                                      <th>Date Création</th>                                                             
                                       <th>Traitement</th>
                                       <th>Progression</th>
                                   </tr>
@@ -67,7 +67,7 @@
                                   <td><span class="number">1</span></td>
                                   <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
-                                  <td>17/09/2017</td>                                        
+                                  <td>${project.properties['date']}</td>                                        
                                   <td><span class="label label-danger">en cours</span></td>
                                   <td><span class="badge badge-info">50%</span></td>
                               </tr>
@@ -75,7 +75,7 @@
                                   <td><span class="number">2</span></td>
                                   <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
-                                  <td>17/09/2017</td>                  
+                                  <td>${project.properties['date']}</td>                  
                                   <td><span class="label label-success">terminé</span></td>
                                   <td><span class="badge badge-success">100%</span></td>
                               </tr>
@@ -83,7 +83,7 @@
                                   <td><span class="number">3</span></td>
                                   <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
-                                  <td>17/09/2017</td> 
+                                  <td>${project.properties['date']}</td> 
                                   <td><span class="label label-info">en attente</span></td>
                                   <td><span class="badge badge-info">0%</span></td>
                               </tr>
@@ -91,7 +91,7 @@
                                   <td><span class="number">4</span></td>
                                   <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
-                                  <td>17/09/2017</td>            
+                                  <td>${project.properties['date']}</td>            
                                   <td><span class="label label-info">en attente</span></td>
                                   <td><span class="badge badge-info">0%</span></td>
                               </tr>
@@ -99,7 +99,7 @@
                                   <td><span class="number">5</span></td>
                                   <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
-                                  <td>17/09/2017</td>                 
+                                  <td>${project.properties['date']}</td>                 
                                   <td><span class="label label-info">en attente</span></td>
                                   <td><span class="badge badge-info">0%</span></td>
                               </tr>
@@ -107,7 +107,7 @@
                                   <td><span class="number">6</span></td>
                                   <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
-                                  <td>17/09/2017</td>           
+                                  <td>${project.properties['date']}</td>           
                                   <td><span class="label label-info">en attente</span></td>
                                   <td><span class="badge badge-info">0%</span></td>
                               </tr>
@@ -127,7 +127,7 @@
 	<fieldset>
 		<span class="text-right">Plan </span> <span>{plan}</span>
 		<span class="text-right">Structure </span> <span>Sesame</span>
-		<span class="text-right">Date </span> <span>17/09/2017</span>
+		<span class="text-right">Date Création</span> <span>{date}</span>
 		<span class="text-right">Durée </span> <span>3 mois</span>
 		<span class="text-right">Traitement </span> 
 		<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">paiement caution</span> <a class="pay"><i class="fa fa-money"></i></a></span>

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	page.details.bind = function(container,entity) {
+	page.details.bind = function(container,ticket) {
 		$(".messages form",container).submit(function(event){
 			const form = $(this);
 			const comment = {};

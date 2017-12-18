@@ -59,7 +59,7 @@
 	                                <td><i class="fa fa-envelope-o" aria-hidden="true"></i> ${message.properties['subject']}</td>
 								    <td><i class="fa fa-user" aria-hidden="true"></i> ${message.properties['author']}</td>
 								    <td><i class="fa fa-user" aria-hidden="true"></i> Malorum</td>
-								    <td>17/09/2017</td>
+								    <td>${message.properties['date']}</td>
 	                            </tr>
 	                      </s:iterator>
 						</tbody>
@@ -73,13 +73,13 @@
 	<div class="window details">
 	   <div>
 		<span title="fermer" class="close">X</span>
-		<h1><i class="fa fa-envelope-o" aria-hidden="true"></i>Message : création site web</h1>
 		<section>
 		 <template>
+		 <h1><i class="fa fa-envelope-o" aria-hidden="true"></i>Message : {subject|s}</h1>
 		<fieldset>
-			<span class="text-right">Auteur </span> <span>ThinkTech</span> 
+			<span class="text-right">Auteur </span> <span>{author}</span> 
 			<span class="text-right">Destinataire </span> <span>Malorum</span>
-			<span class="text-right">Date </span> <span>17/09/2017</span>
+			<span class="text-right">Date </span> <span>{date}</span>
 		</fieldset>
 		<div class="message">
 		<div style="background: #fafafa; padding-bottom: 16px; padding-top: 25px;">

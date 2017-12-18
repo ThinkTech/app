@@ -50,7 +50,7 @@
                                       <th>Objet</th>
                                       <th>Service</th>
                                       <th>Auteur</th> 
-                                      <th>Date</th>                                                             
+                                      <th>Date Création</th>                                                             
                                       <th>Traitement</th>
                                       <th>Progression</th>
                                   </tr>
@@ -62,7 +62,7 @@
 	                                  <td><i class="fa fa-question-circle-o" aria-hidden="true"></i> ${ticket.properties['subject']}</td>
 	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${ticket.properties['service']}</td>
                                       <td><i class="fa fa-user" aria-hidden="true"></i> ${ticket.properties['author']}</td>
-                                      <td>17/09/2017</td>                                       
+                                      <td>${ticket.properties['date']}</td>                                       
 	                                  <td><span class="label ${ticket.properties['status']=='in progress' ? 'label-danger' : '' } ${ticket.properties['status']=='finished' ? 'label-success' : '' } ${ticket.properties['status']=='stand by' ? 'label-info' : '' }">
 	                                  ${ticket.properties['status']=='in progress' ? 'en cours' : '' } ${ticket.properties['status']=='finished' ? 'terminé' : '' } ${ticket.properties['status']=='stand by' ? 'en attente' : '' }
 	                                  </span></td>
@@ -131,7 +131,7 @@
 		    <span class="text-right">Service </span> <span>{service}</span>
 		    <span class="text-right">Objet </span> <span>{subject}</span>
 		    <span class="text-right">Auteur </span> <span>{author}</span>
-			<span class="text-right">Date </span> <span>17/09/2017</span>
+			<span class="text-right">Date Création </span> <span>{date}</span>
 			<span class="text-right">Traitement </span> 
 			<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">staff technique</span> </span>
 			<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  

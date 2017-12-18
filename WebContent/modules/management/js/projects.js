@@ -1,7 +1,7 @@
 $(document).ready(function(){
-	page.details.bind = function(container,entity) {
-		if(entity.status == "finished") $(".imgcircle,.line",container).addClass("active");
-		if(entity.status == "in progress") {
+	page.details.bind = function(container,project) {
+		if(project.status == "finished") $(".imgcircle,.line",container).addClass("active");
+		if(project.status == "in progress") {
 			$(".confirm .imgcircle,.confirm .line,.process .imgcircle",container).addClass("active");
 		}
 		$("a.pay",container).click(function(event) {
