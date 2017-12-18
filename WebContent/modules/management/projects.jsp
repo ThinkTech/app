@@ -111,7 +111,7 @@
 		<span class="text-right">Plan </span> <span>{plan}</span>
 		<span class="text-right">Structure </span> <span>Sesame</span>
 		<span class="text-right">Date Création </span> <span>{date}</span>
-		<span class="text-right">Durée </span> <span>3 mois</span>
+		<span class="text-right">Durée </span> <span>{duration} mois</span>
 		<span class="text-right">Traitement </span> 
 		<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">paiement caution</span> <a class="pay"><i class="fa fa-money"></i></a></span>
 		<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  
@@ -166,7 +166,8 @@
    		 	</div>
    		 	<div class="message-edition description">
    		 	    <form action="${url}/projects/description/update">
-   		 		<textarea name="description" placeholder="entrer votre description" required></textarea>
+   		 		<textarea name="description" placeholder="entrer votre description" required>{description}</textarea>
+   		 		<input name="id" type="hidden" value={id}>
    		 		<div class="submit">
 			      <input type="submit" value="Modifier">
 			      <input type="button" value="Annuler">
@@ -212,6 +213,7 @@
    		 	<div class="message-edition">
    		 	   <form action="${url}/projects/comments/create">
    		 		<textarea name="message" placeholder="entrer votre commentaire" required></textarea>
+   		 		<input name="id" type="hidden" value={id}>
    		 		<div class="submit">
 			      <input type="submit" value="Ajouter">
 			      <input type="button" value="Annuler">

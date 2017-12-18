@@ -10,6 +10,11 @@ $(document).ready(function(){
 				$(".quality .imgcircle,.quality .line",container).addClass("active");
 			}
 		}
+		if(project.description){
+			const list = $(".description .message-list",container);
+			list.find("h6").hide();
+			$("> div",list).html($("<p/>").html(project.description));
+		}
 		$("a.pay",container).click(function(event) {
 			page.wait();
 			head.load("modules/payment/js/wizard.js",function() {
@@ -25,6 +30,7 @@ $(document).ready(function(){
 			const form = $(this);
 			const project = {};
 			project.description =  form.find("textarea[name=description]").val();
+			project.id =  form.find("input[name=id]").val();
 			page.wait({top : form.offset().top});
 			$.ajax({
 				  type: "POST",
@@ -93,6 +99,7 @@ $(document).ready(function(){
 			const form = $(this);
 			const comment = {};
 			comment.message =  form.find("textarea[name=message]").val();
+			comment.project =  form.find("input[name=id]").val();
 			page.wait({top : form.offset().top});
 			$.ajax({
 				  type: "POST",

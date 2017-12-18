@@ -18,20 +18,23 @@ class ModuleAction extends ActionSupport {
        request.setAttribute("total",6)
        request.setAttribute("unactive",3)
        request.setAttribute("active",1)
-       def projects = []
-       def project = new Expando(id : 1,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",status : "in progress",progression : 50)
-       projects << project
-       project = new Expando(id : 2,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",status : "finished",progression : 100)
-       projects << project
-       project = new Expando(id : 3,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",status : "stand by",progression : 0)
-       projects << project
-       project = new Expando(id : 4,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",status : "stand by",progression : 0)
-       projects << project
-       project = new Expando(id : 5,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",status : "stand by",progression : 0)
-       projects << project
-       project = new Expando(id : 6,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",status : "stand by",progression : 0)
-       projects << project
-       session.setAttribute("projects",projects)
+       def projects = session.getAttribute("projects")
+       if(!projects) {
+           projects = []    
+	       def project = new Expando(id : 1,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",duration : '3',status : "in progress",progression : 50)
+	       projects << project
+	       project = new Expando(id : 2,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",duration : '4',status : "finished",progression : 100)
+	       projects << project
+	       project = new Expando(id : 3,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
+	       projects << project
+	       project = new Expando(id : 4,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
+	       projects << project
+	       project = new Expando(id : 5,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
+	       projects << project
+	       project = new Expando(id : 6,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
+	       projects << project
+	       session.setAttribute("projects",projects)
+       }
        SUCCESS
    }
 
@@ -51,17 +54,6 @@ class ModuleAction extends ActionSupport {
 	   response.writer.write(json([entity : project]))
 	}
 	
-	def generateContract(project) {
-	   def folder = module.folder.absolutePath
-	   Thread.start{
-	      def manager = new FileManager()
-	      def file = new File(folder + "/billing.jsp");
-	      def stream = new FileInputStream(file)
-	      manager.upload(file.name,stream)
-	      stream.close()
-	   }
-	}
-	
 	def addComment() {
 	   def comment = new JsonSlurper().parse(request.inputStream) 
 	   response.writer.write(json([status: 1]))
@@ -69,6 +61,9 @@ class ModuleAction extends ActionSupport {
 	
 	def updateProjectDescription() {
 	   def project = new JsonSlurper().parse(request.inputStream)
+	   def projects = session.getAttribute("projects")
+	   def id = project.id as int
+	   projects[id-1].description = project.description
 	   response.writer.write(json([status: 1]))
 	}
 	
