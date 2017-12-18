@@ -57,6 +57,11 @@ class ModuleAction extends ActionSupport {
 	
 	def addComment() {
 	   def comment = new JsonSlurper().parse(request.inputStream) 
+	   def id = comment.project as int
+	   def projects = session.getAttribute("projects")
+	   def project = projects[id-1]
+	   if(!project.comments) project.comments = []
+	   project.comments << comment
 	   response.writer.write(json([status: 1]))
 	}
 	

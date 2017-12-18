@@ -15,6 +15,11 @@ $(document).ready(function(){
 			list.find("h6").hide();
 			$("> div",list).html($("<p/>").html(project.description));
 		}
+		if(project.comments){
+			 const list = $(".comments .message-list",container);
+			// list.find("h6").hide();
+			 //page.render($("> div",list), project.comments,false);
+		}
 		$("a.pay",container).click(function(event) {
 			page.wait();
 			head.load("modules/payment/js/wizard.js",function() {
@@ -113,7 +118,7 @@ $(document).ready(function(){
 						  const div = form.parent().parent();
 						  const list = $(".message-list",div);
 						  list.find("h6").hide();
-						  page.render($("> div",list), comment, true, function() {
+						  page.render($("> div",list), [comment], true, function() {
 							  page.release();
 							  alert("votre commentaire a &edot;t&edot; bien ajout&edot;");
 						  });

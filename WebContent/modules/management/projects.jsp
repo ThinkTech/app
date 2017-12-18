@@ -208,8 +208,8 @@
    		 <div class="comments messages">
    		    <div class="message-list">
    		 		<h6>pas de commentaires</h6>
-							<div data-template="comments"></div>
-						</div>
+				<div data-template="comments"></div>
+			</div>
    		 	<div class="message-edition">
    		 	   <form action="${url}/projects/comments/create">
    		 		<textarea name="message" placeholder="entrer votre commentaire" required></textarea>
@@ -230,8 +230,10 @@
 		 {/.}
   </template>
   <template id="template-comments">
+      {#.}
    	  <p class="message">{message}</p>
    	   <hr/>
+   	  {/.}
   </template>	
   </div>
 </div>
