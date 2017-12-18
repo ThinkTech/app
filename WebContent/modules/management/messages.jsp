@@ -85,7 +85,8 @@
 		<div style="background: #fafafa; padding-bottom: 16px; padding-top: 25px;">
 			<div
 				style="padding-bottom: 12px; margin-left: auto; margin-right: auto; width: 80%; background: #fff;">
-				<img src="https://www.thinktech.sn/images/logo.png"
+				<img src="https://www.thinktech.sn/imag
+				es/logo.png"
 					style="display: block; margin: 0 auto;">
 				<div
 					style="margin-top: 10px; padding: 10px; height: 90px; text-align: center; background: #eee;">
@@ -112,8 +113,7 @@
 				</div>
 			</div>
 			<div style="margin: 10px;margin-top: 10px; font-size: 11px; text-align: center;">
-				<p>Vous recevez cet email parce que vous (ou quelqu'un utilisant
-					cet email)</p>
+				<p>Vous recevez cet email parce que vous (ou quelqu'un utilisant cet email)</p>
 				<p>a créé un projet en utilisant cette adresse</p>
 			</div>
 		</div>
