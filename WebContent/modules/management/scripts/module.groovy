@@ -144,17 +144,17 @@ class ModuleAction extends ActionSupport {
        request.setAttribute("total",6)
        request.setAttribute("unpayed",4)
        def bills = []
-       def bill = new Expando(id : 1,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "finished")
+       def bill = new Expando(id : 1,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "finished")
        bills << bill
-       bill = new Expando(id : 2,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "finished")
+       bill = new Expando(id : 2,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "finished")
        bills << bill
-       bill = new Expando(id : 3,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "stand by")
+       bill = new Expando(id : 3,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "stand by")
        bills << bill
-       bill = new Expando(id : 4,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "stand by")
+       bill = new Expando(id : 4,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "stand by")
        bills << bill
-       bill = new Expando(id : 5,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "stand by")
+       bill = new Expando(id : 5,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "stand by")
        bills << bill
-       bill = new Expando(id : 6,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',status : "stand by")
+       bill = new Expando(id : 6,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "stand by")
        bills << bill
        session.setAttribute("bills",bills)
        SUCCESS

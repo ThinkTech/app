@@ -58,7 +58,7 @@
 	                                  <td><span class="number">${status.index+1}</span></td>
 	                                  <td><i class="fa fa-money" aria-hidden="true"></i> ${bill.properties['fee']}</td>
 	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${bill.properties['service']}</td>
-                                  	  <td>17/09/2017</td>
+                                  	  <td>${bill.properties['date']}</td>
                                   	  <td>${bill.properties['amount']} F</td>                                        
 	                                  <td><span class="label ${bill.properties['status']=='in progress' ? 'label-danger' : '' } ${bill.properties['status']=='finished' ? 'label-success' : '' } ${bill.properties['status']=='stand by' ? 'label-info' : '' }">
 	                                  ${bill.properties['status']=='in progress' ? 'en cours' : '' } ${bill.properties['status']=='finished' ? 'terminé' : '' } ${bill.properties['status']=='stand by' ? 'en attente' : '' }
@@ -83,7 +83,7 @@
 		<fieldset>
 			<span class="text-right">Frais </span> <span>{fee|s}</span>
 			<span class="text-right">Service </span> <span>{service}</span>
-			<span class="text-right">Date </span> <span>17/09/2017</span>
+			<span class="text-right">Date </span> <span>{date}</span>
 			<span class="text-right">Montant </span> <span>{amount} F</span>
 			<div class="details">
 			    <span class="text-right">Paiement </span> <span class="label label-success">terminé</span><br>
@@ -91,12 +91,12 @@
 			    <span class="text-right">Par </span> <span>carte Visa</span>
 			</div>
 		</fieldset>
-		</template>
-		</section>
 		<div class="submit">
 		   <input type="submit" value="Payer">
 		   <input type="button" value="Annuler">
 		</div>
+		</template>
+		</section>
 	</div>
 </div>
 </div>
