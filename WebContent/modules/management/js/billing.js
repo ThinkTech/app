@@ -7,7 +7,7 @@ $(document).ready(function(){
 			  $(".submit",container).show();
 			  $(".details",container).hide();
 			}
-	});
+	};
 	$(".window input[type=submit]").click(function(event){
 		$(".window").hide();
 		const top = $(".chit-chat-layer1").offset().top;
