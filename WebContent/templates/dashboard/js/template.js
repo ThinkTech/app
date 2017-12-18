@@ -45,7 +45,7 @@ page.details.show = function(entity) {
 				div.find(".message-edition,.document-upload").hide();
 				return false;
 		  });
-		  if(page.details.bind) page.details.bind(section,entity);
+		  if(page.details.bind) page.details.bind(div,entity);
 		  div.show();
 	});
 };
