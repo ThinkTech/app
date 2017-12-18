@@ -124,20 +124,9 @@ $(document).ready(function(){
 			return false;
 		});
 	};
-	
-	/*$(".window a.message-add").click(function(event) {
-			const div = $(this).parent().next();
-			const list = div.find(".message-list");
-			if(list.is(":visible")) {
-				div.find(".message-edition.description textarea").val($("> div p",list).html());
-			}
-			return false;
-	});*/
-		
 	$(".window a.read-terms").click(function(event) {
 			$(".window .terms").show();
 	});
-		
 	$(".window > div > form").submit(function(event){
 			const form = $(this);
 			const project = {};
@@ -196,6 +185,4 @@ $(document).ready(function(){
 			});
 			return false;
 		});
-		
-		
 });
