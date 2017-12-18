@@ -77,14 +77,14 @@
 <div class="window details">
      <div>
 		<span title="fermer" class="close">X</span>
-		<h1><i class="fa fa-money" aria-hidden="true"></i>Facture #1</h1>
 		<section>
 		 <template>
+		 <h1><i class="fa fa-money" aria-hidden="true"></i>Facture : {id}</h1>
 		<fieldset>
-			<span class="text-right">Frais </span> <span>hébergement</span>
-			<span class="text-right">Service </span> <span>site web</span>
+			<span class="text-right">Frais </span> <span>{fee|s}</span>
+			<span class="text-right">Service </span> <span>{service}</span>
 			<span class="text-right">Date </span> <span>17/09/2017</span>
-			<span class="text-right">Montant </span> <span>20 000 F</span>
+			<span class="text-right">Montant </span> <span>{amount} F</span>
 			<div class="details">
 			    <span class="text-right">Paiement </span> <span class="label label-success">terminé</span><br>
 			    <span class="text-right">Effectué le </span> <span>17/09/2017</span>

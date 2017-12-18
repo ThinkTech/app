@@ -1,4 +1,13 @@
 $(document).ready(function(){
+	page.details.bind = function(container,entity) {
+		if(entity.status == "finished"){
+			  $(".submit",container).hide();
+			  $(".details",container).show();
+			}else {
+			  $(".submit",container).show();
+			  $(".details",container).hide();
+			}
+	});
 	$(".window input[type=submit]").click(function(event){
 		$(".window").hide();
 		const top = $(".chit-chat-layer1").offset().top;
@@ -12,15 +21,5 @@ $(document).ready(function(){
 		    page.wizard.show(bill,top);
 		});
 		return false;
-	});
-	$("tbody tr").click(function(event) {
-		const tr = $(this);
-		if(tr.hasClass("paid")){
-		  $(".window .submit").hide();
-		  $(".window .details").show();
-		}else {
-		  $(".window .submit").show();
-		  $(".window .details").hide();
-		}
 	});
  });
