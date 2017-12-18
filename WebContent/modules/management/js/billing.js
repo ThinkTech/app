@@ -1,12 +1,12 @@
 $(document).ready(function(){
 	page.details.bind = function(container,entity) {
 		if(entity.status == "finished"){
-			  $(".submit",container).hide();
-			  $(".details",container).show();
-			}else {
-			  $(".submit",container).show();
-			  $(".details",container).hide();
-			}
+		   $(".submit",container).hide();
+		   $(".details",container).show();
+		}else {
+		   $(".submit",container).show();
+		   $(".details",container).hide();
+		}
 	};
 	$(".window input[type=submit]").click(function(event){
 		$(".window").hide();
