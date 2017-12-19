@@ -180,18 +180,26 @@
 	background : transparent;
 	display : inline-block;
 	width : 2%;
-	font-size : 12px;
+	font-size : 10px;
 	white-space : nowrap;
 	border : none;
+	vertical-align : top;
+	top : -2px;
+	position : relative;
+	text-align : right;
 }
 
 .window > div .message-list > div  > div p.message {
 	margin-top : 0px;
 	display : inline-block;
-	width : 75%;
+	width : 77%;
 	vertical-align : top;
+	margin-right : 2%;
 }
 
+.window > div .message-list > div > div {
+	background : #ffe;
+}
 
 .window > div h1 i.fa {
 	top: 0px;
