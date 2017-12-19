@@ -32,5 +32,4 @@ public class UploadServlet extends HttpServlet {
 		response.getWriter().write("{\"status\" : 1}");
 	}
 	
-	
 }

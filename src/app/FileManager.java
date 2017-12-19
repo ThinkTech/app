@@ -17,4 +17,5 @@ public class FileManager {
     public void upload(String name,InputStream in) throws Exception {
     	client.files().uploadBuilder("/sesame/"+name).uploadAndFinish(in);
     }
+    
 }
