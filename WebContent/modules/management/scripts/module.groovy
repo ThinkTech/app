@@ -111,7 +111,12 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def addTicketMessage() {
-	   def ticket = new JsonSlurper().parse(request.inputStream) 
+	   def comment = new JsonSlurper().parse(request.inputStream) 
+	   def id = comment.ticket as int
+	   def tickets = session.getAttribute("tickets")
+	   def ticket = tickets[id-1]
+	   if(!ticket.comments) ticket.comments = []
+	   ticket.comments << comment
 	   response.writer.write(json([status: 1]))
 	}
 	

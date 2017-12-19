@@ -152,6 +152,7 @@
 	   		 	<div class="message-edition">
 	   		 	   <form action="${url}/support/messages/create">
 	   		 		<textarea name="message" placeholder="entrer votre message" required></textarea>
+	   		 		<input name="id" type="hidden" value={id}>
 	   		 		<div class="submit">
 				      <input type="submit" value="Ajouter">
 				      <input type="button" value="Annuler">
@@ -164,8 +165,14 @@
 	</template>
 	</section>
 	<template id="template-messages">
-   		 <p class="message">{message}</p>
-   		  <hr/>
+   	  {#.}
+	      <div>
+	        <img width= "32px" height="32" src="${images}/user_64.png"/> 
+	   	  	<p class="message">{message}</p>
+	   	  	<span>14/12/2017 17:35:25</span>
+	   	  </div>
+	   	   <hr/>
+   	  {/.}
    	</template>
 	</div>
 </div>

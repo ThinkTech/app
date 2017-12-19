@@ -3,10 +3,19 @@ $(document).ready(function(){
 		if(ticket.status == "finished") {
 			$("legend a",container).hide();
 		}
+		if(ticket.comments){
+			 const list = $(".message-list",container);
+			 list.find("h6").hide();
+			 const div = $("> div",list);
+			 page.render(div, ticket.comments);
+			 const id = "#template-"+div.data("template");
+			 div.append($(id,container).clone());
+		}
 		$(".messages form",container).submit(function(event){
 			const form = $(this);
 			const comment = {};
 			comment.message =  form.find("textarea[name=message]").val();
+			comment.ticket =   form.find("input[name=id]").val();
 			page.wait({top : form.offset().top});
 			$.ajax({
 				  type: "POST",
@@ -21,7 +30,7 @@ $(document).ready(function(){
 						  const div = form.parent().parent();
 						  const list = $(".message-list",div);
 						  list.find("h6").hide();
-						  page.render($("> div",list), comment, true, function() {
+						  page.render($("> div",list), [comment], true, function() {
 							  page.release();
 							  alert("votre message a &edot;t&edot; bien ajout&edot;");
 						  });
