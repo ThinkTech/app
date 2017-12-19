@@ -13,7 +13,7 @@ page.details.show = function(entity) {
 		 $.each($("[data-template]",section),function(i,node){
 			 node = $(node);
 			 const id = "#template-"+node.data("template");
-			 node.append($(id,div));
+			 node.append($(id,div).clone());
 		 });
 		 $("a.message-add",section).click(function(event) {
 				const div = $(this).parent().next();

@@ -231,7 +231,11 @@
   </template>
   <template id="template-comments">
       {#.}
-   	  <p class="message">{message}</p>
+      <div>
+        <img width= "32px" height="32" src="${images}/user_64.png"/> 
+   	  	<p class="message">{message}</p>
+   	  	<span>14/12/2017 17:35:25</span>
+   	  </div>
    	   <hr/>
    	  {/.}
   </template>	

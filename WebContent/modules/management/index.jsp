@@ -118,7 +118,7 @@
       </div>
      <div class="clearfix"> </div>
 </div>
-	<div class="window details">
+<div class="window details">
     <div>
 	<span title="fermer" class="close">X</span>
 	<section>
@@ -225,8 +225,8 @@
    		 <div class="comments messages">
    		    <div class="message-list">
    		 		<h6>pas de commentaires</h6>
-							<div data-template="comments"></div>
-						</div>
+				<div data-template="comments"></div>
+			</div>
    		 	<div class="message-edition">
    		 	   <form action="${url}/projects/comments/create">
    		 		<textarea name="message" placeholder="entrer votre commentaire" required></textarea>
@@ -247,8 +247,14 @@
 		 {/.}
   </template>
   <template id="template-comments">
-   	  <p class="message">{message}</p>
+      {#.}
+      <div>
+        <img width= "32px" height="32px" src="${images}/user_64.png"/> 
+   	  	<p class="message">{message}</p>
+   	  	<span>14/12/2017 17:35:25</span>
+   	  </div>
    	   <hr/>
+   	  {/.}
   </template>	
   </div>
 </div>

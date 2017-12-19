@@ -167,13 +167,31 @@
 	margin-top : 7px;
 }
 
-.window > div .message-list > div  p.message:first-of-type {
+.window > div .message-list > div > div:first-of-type {
 	margin-top : -10px;
 }
 
-.window > div .message-list > div  p.message {
-	margin-top : 0px;
+.window > div .message-list > div > div img {
+	display : inline-block;
+	vertical-align : top;
 }
+
+.window > div .message-list > div > div span {
+	background : transparent;
+	display : inline-block;
+	width : 2%;
+	font-size : 12px;
+	white-space : nowrap;
+	border : none;
+}
+
+.window > div .message-list > div  > div p.message {
+	margin-top : 0px;
+	display : inline-block;
+	width : 75%;
+	vertical-align : top;
+}
+
 
 .window > div h1 i.fa {
 	top: 0px;

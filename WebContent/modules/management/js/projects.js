@@ -17,8 +17,11 @@ $(document).ready(function(){
 		}
 		if(project.comments){
 			 const list = $(".comments .message-list",container);
-			// list.find("h6").hide();
-			 //page.render($("> div",list), project.comments,false);
+			 list.find("h6").hide();
+			 const div = $("> div",list);
+			 page.render(div, project.comments);
+			 const id = "#template-"+div.data("template");
+			 div.append($(id,container).clone());
 		}
 		$("a.pay",container).click(function(event) {
 			page.wait();
