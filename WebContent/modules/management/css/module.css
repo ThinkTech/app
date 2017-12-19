@@ -450,7 +450,7 @@ legend a i.fa {
 	.project-wizard h1{margin-left: -16px;}
 	.window > div .terms-agreement {font-size: 12px;margin-top: 5px;}
 	.window > div .message-list > div > div span {display : block;}
-	.window > div .message-list > div > div p.message {width : 90%;}
+	.window > div .message-list > div > div p.message {width : 85%;margin-bottom:3px}
 }
 
 .content-process{
