@@ -68,21 +68,21 @@
 											</li>
 											<li><a href="dashboard/messages">
 											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
+												<p>création site web</p>
 												<p><span>1 hour ago</span></p>
 												</div>
 											   <div class="clearfix"></div>	
 											</a></li>
 											<li class="odd"><a href="dashboard/messages">
 											   <div class="notification_desc">
-												<p>Lorem ipsum dolor </p>
+												<p>création site web</p>
 												<p><span>1 hour ago</span></p>
 												</div>
 											  <div class="clearfix"></div>	
 											</a></li>
 											<li><a href="dashboard/messages">
 											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
+												<p>création site web</p>
 												<p><span>1 hour ago</span></p>
 												</div>
 											   <div class="clearfix"></div>	
