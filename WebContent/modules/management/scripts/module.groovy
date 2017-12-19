@@ -66,6 +66,16 @@ class ModuleAction extends ActionSupport {
 	   response.writer.write(json([status: 1]))
 	}
 	
+	def saveDocuments() {
+	   def upload = new JsonSlurper().parse(request.inputStream) 
+	   def id = upload.id as int
+	   def projects = session.getAttribute("projects")
+	   def project = projects[id-1]
+	   if(!project.documents) project.documents = []
+	   project.documents = project.documents + upload.documents
+	   response.writer.write(json([status: 1]))
+	}
+	
 	def updateProjectDescription() {
 	   def project = new JsonSlurper().parse(request.inputStream)
 	   def projects = session.getAttribute("projects")

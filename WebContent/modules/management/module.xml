@@ -6,6 +6,7 @@
     <action url="projects" page="projects" method="showProjects"/>
     <action url="projects/create"  method="createProject" />
     <action url="projects/info"  method="getProjectInfo"/>
+    <action url="projects/documents/save"  method="saveDocuments"/>
     <action url="projects/description/update"  method="updateProjectDescription" />
     <action url="projects/comments/create"  method="addComment" />
     <action url="messages" page="messages" method="showMessages"/>

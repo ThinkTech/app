@@ -192,6 +192,8 @@
    		 	    <span class="text-right">Document 1 </span> <input name="file1" type="file" required>
 				<span class="text-right">Document 2 </span> <input name="file2" type="file">
 				<span class="text-right">Document 3 </span> <input name="file3" type="file">
+				<input name="id" type="hidden" value="{id}">
+				<input name="url" type="hidden" value="${url}/projects/documents/save"/>
 				</fieldset>
    		 		<div class="submit">
 			      <input type="submit" value="Envoyer">

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.fileupload.FileItemIterator;
+import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 @SuppressWarnings("serial")
@@ -20,7 +21,10 @@ public class UploadServlet extends HttpServlet {
 				ServletFileUpload upload = new ServletFileUpload();
 				FileItemIterator iter = upload.getItemIterator(request);
 				FileManager manager = new FileManager();
-				while(iter.hasNext()) manager.upload(iter.next());
+				while(iter.hasNext()) {
+					FileItemStream item = iter.next(); 
+					if(!item.isFormField()) manager.upload(item.getName(),item.openStream());
+				}
 			}catch(Exception e){
 				
 			}

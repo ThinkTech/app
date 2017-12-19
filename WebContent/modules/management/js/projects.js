@@ -20,6 +20,11 @@ $(document).ready(function(){
 			 list.find("h6").hide();
 			 page.details.render($("> div",list),project.comments);
 		}
+		if(project.documents){
+			 const list = $(".document-list",container);
+			 list.find("h6").hide();
+			 page.details.render($("ol",list).addClass("not-empty"),project.documents);
+		}
 		$("a.pay",container).click(function(event) {
 			const top = $(this).offset().top;
 			page.wait({top : top});
@@ -96,6 +101,20 @@ $(document).ready(function(){
 							  alert("votre document a &edot;t&edot; bien envoy&edot;");
 						  }
 					  });
+					  const url  = form.find("input[name=url]").val();
+					  const id  =  form.find("input[name=id]").val();
+					  const upload = {};
+					  upload.id = id;
+					  upload.documents = files;
+					  $.ajax({
+							  type: "POST",
+							  url: url,
+							  data: JSON.stringify(upload),
+							  contentType : "application/json",
+							  success: function(response) {
+							  },
+							  dataType: "json"
+						});
 				  },
 				  dataType : "json"
 			});
