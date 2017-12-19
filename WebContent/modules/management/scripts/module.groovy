@@ -10,9 +10,6 @@ import app.FileManager
 
 class ModuleAction extends ActionSupport {
 
-   def String execute(){
-       SUCCESS
-   }
    
    def showProjects(){
        request.setAttribute("total",6)
