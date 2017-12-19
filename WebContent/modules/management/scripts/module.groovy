@@ -77,20 +77,23 @@ class ModuleAction extends ActionSupport {
 	def showTickets(){
 	   request.setAttribute("total",6)
        request.setAttribute("unsolved",5)
-       def tickets = []
-       def ticket = new Expando(id : "1",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "in progress",progression : 50)
-       tickets << ticket
-       ticket = new Expando(id : "2",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "finished",progression : 100)
-       tickets << ticket
-       ticket = new Expando(id : "3",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
-       tickets << ticket
-       ticket = new Expando(id : "4",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
-       tickets << ticket
-       ticket = new Expando(id : "5",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
-       tickets << ticket
-       ticket = new Expando(id : "6",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
-       tickets << ticket
-       session.setAttribute("tickets",tickets)
+       def tickets = session.getAttribute("tickets")
+       if(!tickets) {
+           tickets = []
+           def ticket = new Expando(id : "1",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "in progress",progression : 50)
+       	   tickets << ticket
+           ticket = new Expando(id : "2",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "finished",progression : 100)
+           tickets << ticket
+           ticket = new Expando(id : "3",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
+           tickets << ticket
+           ticket = new Expando(id : "4",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
+           tickets << ticket
+           ticket = new Expando(id : "5",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
+           tickets << ticket
+           ticket = new Expando(id : "6",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
+           tickets << ticket
+           session.setAttribute("tickets",tickets)
+       }
        SUCCESS
     }
 	

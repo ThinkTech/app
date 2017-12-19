@@ -6,10 +6,7 @@ $(document).ready(function(){
 		if(ticket.comments){
 			 const list = $(".message-list",container);
 			 list.find("h6").hide();
-			 const div = $("> div",list);
-			 page.render(div, ticket.comments);
-			 const id = "#template-"+div.data("template");
-			 div.append($(id,container).clone());
+			 page.details.render($("> div",list),ticket.comments);
 		}
 		$(".messages form",container).submit(function(event){
 			const form = $(this);

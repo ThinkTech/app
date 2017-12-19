@@ -48,6 +48,11 @@ page.details.show = function(entity) {
 		  if(page.details.bind) page.details.bind(div,entity);
 		  div.show();
 	});
+	page.details.render = function(container,entity){
+		page.render(container, entity);
+		const id = "#template-"+container.data("template");
+		div.append($(id,div).clone());
+	};
 };
 
 page.details.hide = function(){

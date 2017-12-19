@@ -18,20 +18,18 @@ $(document).ready(function(){
 		if(project.comments){
 			 const list = $(".comments .message-list",container);
 			 list.find("h6").hide();
-			 const div = $("> div",list);
-			 page.render(div, project.comments);
-			 const id = "#template-"+div.data("template");
-			 div.append($(id,container).clone());
+			 page.details.render($("> div",list),project.comments);
 		}
 		$("a.pay",container).click(function(event) {
-			page.wait();
+			const top = $(this).offset().top;
+			page.wait({top : top});
 			head.load("modules/payment/js/wizard.js",function() {
 				const bill = {};
 				bill.service = "site web";
 				bill.amount = "60 000";
 				bill.fee = "caution"
 				bill.date = "17/09/2017";
-			    page.wizard.show(bill);
+			    page.wizard.show(bill,top);
 			});
 		});
 		$(".description form",container).submit(function(event){
