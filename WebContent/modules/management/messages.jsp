@@ -77,9 +77,9 @@
 		 <template>
 		 <h1><i class="fa fa-envelope-o" aria-hidden="true"></i>Message : {subject|s}</h1>
 		<fieldset>
-			<span class="text-right">Auteur </span> <span>{author}</span> 
-			<span class="text-right">Destinataire </span> <span>Malorum</span>
-			<span class="text-right">Date </span> <span>{date}</span>
+			<span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span> <span>{author}</span> 
+			<span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Destinataire </span> <span>Malorum</span>
+			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date </span> <span>{date}</span>
 		</fieldset>
 		<div class="message">
 		<div style="background: #fafafa; padding-bottom: 16px; padding-top: 25px;">

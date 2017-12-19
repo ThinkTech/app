@@ -108,15 +108,15 @@
 	 <template>
 	 <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Projet : {subject|s}</h1>
 	<fieldset>
-		<span class="text-right">Plan </span> <span>{plan}</span>
-		<span class="text-right">Structure </span> <span>Sesame</span>
-		<span class="text-right">Date Création </span> <span>{date} - 17:35:25</span>
-		<span class="text-right">Durée </span> <span>{duration} mois</span>
-		<span class="text-right">Traitement </span> 
+		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span> <span>{plan}</span>
+		<span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Structure </span> <span>Sesame</span>
+		<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date} - 17:35:25</span>
+		<span class="text-right"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Durée </span> <span>{duration} mois</span>
+		<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Traitement </span> 
 		<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">paiement caution</span> <a class="pay"><i class="fa fa-money"></i></a></span>
 		<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  
 		<span data-status="finished" style="display:none"><span class="label label-success">terminé</span></span>
-		<span class="text-right">Progression </span> <span class="badge badge-info">{progression}%</span>
+		<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Progression </span> <span class="badge badge-info">{progression}%</span>
 	</fieldset>
 	<div class="col-md-12">
 		  <div class="content-process">
@@ -252,26 +252,26 @@
 	<h1><i class="fa fa-briefcase" aria-hidden="true"></i>Nouveau Projet</h1>
    <form action="${url}/projects/create">
 	<fieldset>
-	    <span class="text-right">Service </span>
+	    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span>
 		<select name="service">
 		  <option value="site web">site web</option>
 		</select>
-	    <span class="text-right">Objet </span>
+	    <span class="text-right"><i class="fa fa-file-code-o" aria-hidden="true"></i> Objet </span>
 	    <select name="subject">
 		  <option value="création site web">création site web</option>
 		</select>
-		<span class="text-right">Plan </span>
+		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span>
 		<select name="plan">
 		  <option value="plan business">plan business</option>
 		  <option value="plan corporate">plan corporate</option>
 		  <option value="plan personal">plan personal</option>
 		  <option value="plan social">plan social</option>
 		</select>
-		<span class="text-right">Structure </span>
+		<span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Structure </span>
 	    <input name="structure" type="text" value="Sesame" readonly>
-	    <span class="text-right">Auteur </span>
+	    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span>
 	    <input name="author" type="text" value="Malorum" readonly>
-		<span class="text-right full">Description du projet</span>
+		<span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du projet</span>
 		<textarea name="description" placeholder="entrer votre description" required></textarea>
 	</fieldset>
 	<div class="terms-agreement">

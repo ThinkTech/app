@@ -235,6 +235,15 @@
 
 .window > div h1 i.fa-money {top: 1px;}
 
+.text-right .fa {
+	color : #05d2ff;
+}
+
+.fa-tasks {
+	position : relative;
+	top : 1px;
+}
+
 .window > div fieldset {
 	padding: 0px;
 	padding-left: 5px;

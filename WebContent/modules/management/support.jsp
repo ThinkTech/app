@@ -95,23 +95,23 @@
    <h1><i class="fa fa-question-circle-o" aria-hidden="true"></i>Nouveau Ticket</h1>
    <form action="${url}/support/tickets/create">
 	<fieldset>
-	    <span class="text-right">Service </span>
+	    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span>
 		<select name="service">
 		  <option value="site web">site web</option>
 		</select>
-	    <span class="text-right">Objet </span>
+	    <span class="text-right"><i class="fa fa-file-code-o" aria-hidden="true"></i> Objet </span>
 	     <input name="subject" placeholder="votre objet" type="text" required>
-		<span class="text-right">Priorité </span>
+		<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span>
 		<select name="priority">
 		  <option value="low">normal</option>
 		  <option value="medium">moyen</option>
 		  <option value="high">élévé</option>
 		</select>
-		<span class="text-right">Structure </span>
+		<span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Structure </span>
 	    <input name="structure" type="text" value="Sesame" readonly>
-	    <span class="text-right">Auteur </span>
+	    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span>
 	    <input name="author" type="text" value="Malorum" readonly>
-		<span class="text-right full">Description du probléme</span>
+		<span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du probléme</span>
 		<textarea name="message" placeholder="entrer votre description" required></textarea>
 	</fieldset>
 	<div class="submit">
@@ -128,15 +128,15 @@
 		 <template>
 		 <h1><i class="fa fa-question-circle-o" aria-hidden="true"></i>Ticket : {id}</h1>
 		<fieldset>
-		    <span class="text-right">Service </span> <span>{service}</span>
-		    <span class="text-right">Objet </span> <span>{subject}</span>
-		    <span class="text-right">Auteur </span> <span>{author}</span>
-			<span class="text-right">Date Création </span> <span>{date} - 17:35:25</span>
-			<span class="text-right">Traitement </span> 
+		    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>{service}</span>
+		    <span class="text-right"><i class="fa fa-file-code-o" aria-hidden="true"></i> Objet </span> <span>{subject}</span>
+		    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span> <span>{author}</span>
+			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date} - 17:35:25</span>
+			<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Traitement </span> 
 			<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">staff technique</span> </span>
 			<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  
 			<span data-status="finished" style="display:none"><span class="label label-success">terminé</span></span>
-			<span class="text-right">Progression </span> <span class="badge badge-info">{progression}%</span>
+			<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Progression </span> <span class="badge badge-info">{progression}%</span>
 		</fieldset>
 		<fieldset>
 	    <fieldset>

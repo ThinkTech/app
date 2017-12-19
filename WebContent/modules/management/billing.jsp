@@ -81,14 +81,14 @@
 		 <template>
 		 <h1><i class="fa fa-money" aria-hidden="true"></i>Facture : {id}</h1>
 		<fieldset>
-			<span class="text-right">Frais </span> <span>{fee|s}</span>
-			<span class="text-right">Service </span> <span>{service}</span>
-			<span class="text-right">Date </span> <span>{date}</span>
-			<span class="text-right">Montant </span> <span>{amount} F</span>
+			<span class="text-right"><i class="fa fa-money" aria-hidden="true"></i> Frais </span> <span>{fee|s}</span>
+			<span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>{service}</span>
+			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date </span> <span>{date}</span>
+			<span class="text-right"><i class="fa fa-money" aria-hidden="true"></i> Montant </span> <span>{amount} F</span>
 			<div class="details">
-			    <span class="text-right">Paiement </span> <span class="label label-success">terminé</span><br>
-			    <span class="text-right">Effectué le </span> <span>17/09/2017 - 17:35:25</span>
-			    <span class="text-right">Par </span> <span>carte Visa</span>
+			    <span class="text-right"><i class="fa fa-check" aria-hidden="true"></i> Paiement </span> <span class="label label-success">terminé</span><br>
+			    <span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Effectué le </span> <span>17/09/2017 - 17:35:25</span>
+			    <span class="text-right"><i class="fa fa-credit-card" aria-hidden="true"></i> Par </span> <span>carte Visa</span>
 			</div>
 		</fieldset>
 		<div class="submit">
