@@ -50,6 +50,7 @@ class ModuleAction extends ActionSupport {
 	def getProjectInfo() {
 	   def projects = session.getAttribute("projects")
 	   if(!projects) showProjects()
+	   projects = session.getAttribute("projects")
 	   def id = getParameter("id") as int
 	   def project = projects[id-1] 
 	   response.writer.write(json([entity : project]))
