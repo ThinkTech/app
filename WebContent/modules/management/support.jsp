@@ -131,7 +131,7 @@
 		    <span class="text-right">Service </span> <span>{service}</span>
 		    <span class="text-right">Objet </span> <span>{subject}</span>
 		    <span class="text-right">Auteur </span> <span>{author}</span>
-			<span class="text-right">Date Création </span> <span>{date}</span>
+			<span class="text-right">Date Création </span> <span>{date} - 17:35:25</span>
 			<span class="text-right">Traitement </span> 
 			<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">staff technique</span> </span>
 			<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  
@@ -169,7 +169,7 @@
 	      <div>
 	        <img width= "32px" height="32" src="${images}/user_64.png"/> 
 	   	  	<p class="message">{message}</p>
-	   	  	<span>14/12/2017 17:35:25</span>
+	   	  	<span>14/12/2017 - 17:35:25</span>
 	   	  </div>
 	   	   <hr/>
    	  {/.}

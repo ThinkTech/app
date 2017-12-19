@@ -110,7 +110,7 @@
 	<fieldset>
 		<span class="text-right">Plan </span> <span>{plan}</span>
 		<span class="text-right">Structure </span> <span>Sesame</span>
-		<span class="text-right">Date Création </span> <span>{date}</span>
+		<span class="text-right">Date Création </span> <span>{date} - 17:35:25</span>
 		<span class="text-right">Durée </span> <span>{duration} mois</span>
 		<span class="text-right">Traitement </span> 
 		<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">paiement caution</span> <a class="pay"><i class="fa fa-money"></i></a></span>
@@ -228,7 +228,10 @@
   </section>
   <template id="template-documents">
 		{#.}
-			<li><a>{name}</a></li>
+			<li>
+				<a>{name}</a>
+				<span>14/12/2017 - 17:35:25</span>
+			</li>
 		 {/.}
   </template>
   <template id="template-comments">
@@ -236,7 +239,7 @@
       <div>
         <img width= "32px" height="32" src="${images}/user_64.png"/> 
    	  	<p class="message">{message}</p>
-   	  	<span>14/12/2017 17:35:25</span>
+   	  	<span>14/12/2017 - 17:35:25</span>
    	  </div>
    	   <hr/>
    	  {/.}

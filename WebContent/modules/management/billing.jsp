@@ -87,7 +87,7 @@
 			<span class="text-right">Montant </span> <span>{amount} F</span>
 			<div class="details">
 			    <span class="text-right">Paiement </span> <span class="label label-success">terminé</span><br>
-			    <span class="text-right">Effectué le </span> <span>17/09/2017</span>
+			    <span class="text-right">Effectué le </span> <span>17/09/2017 - 17:35:25</span>
 			    <span class="text-right">Par </span> <span>carte Visa</span>
 			</div>
 		</fieldset>
