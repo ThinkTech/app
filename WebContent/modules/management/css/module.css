@@ -148,6 +148,7 @@
 .window > div ul, .window > div ol {
     background: #ffe;
     margin-bottom: 0;
+    font-size: 13px;
 }
 
 .window > div ul.not-empty, .window > div ol.not-empty {
