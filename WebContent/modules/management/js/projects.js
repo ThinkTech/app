@@ -158,8 +158,6 @@ $(document).ready(function(){
 			project.subject = form.find("select[name=subject]").val();
 			project.plan =  form.find("select[name=plan]").val();
 			project.description =  form.find("textarea[name=description]").val();
-			project.structure =  form.find("input[name=structure]").val();
-			project.ninea = 1454545;
 			project.date ="14/12/2017";
 			confirm("&ecirc;tes vous s&ucirc;r de vouloir cr&edot;&edot;r ce projet?",function(){
 				$(".window").hide();

@@ -8,8 +8,30 @@ import static groovy.json.JsonOutput.toJson as json
 import groovy.json.JsonSlurper
 import app.FileManager
 
+class User {
+   def name
+   def email
+   def telephone
+   def fonction
+   def role
+   def structure
+}
+
+class Structure {
+   def name
+   def ninea
+}
+
 class ModuleAction extends ActionSupport {
 
+   def ModuleAction() {
+       def user = new User(name : "Malorum", email : "malorum@gmail.com",role : "administrateur",fonction : "CEO",telephone : "776154520")
+       user.structure = new Structure(name : "Sesame",ninea : 1454554)
+       request.setAttribute("user",user)
+       request.setAttribute("projects_count",6)
+       request.setAttribute("messages_count",3)
+       request.setAttribute("bills_count",4)
+   }
    
    def showProjects(){
        request.setAttribute("total",6)

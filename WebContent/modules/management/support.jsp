@@ -108,9 +108,9 @@
 		  <option value="high">élévé</option>
 		</select>
 		<span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Structure </span>
-	    <input name="structure" type="text" value="Sesame" readonly>
+	    <input name="structure" type="text" value="${user.structure.name}" readonly>
 	    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span>
-	    <input name="author" type="text" value="Malorum" readonly>
+	    <input name="author" type="text" value="${user.name}" readonly>
 		<span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du probléme</span>
 		<textarea name="message" placeholder="entrer votre description" required></textarea>
 	</fieldset>

@@ -109,7 +109,7 @@
 	 <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Projet : {subject|s}</h1>
 	<fieldset>
 		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span> <span>{plan}</span>
-		<span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Structure </span> <span>Sesame</span>
+		<span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Structure </span> <span>${user.structure.name}</span>
 		<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date} - 17:35:25</span>
 		<span class="text-right"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Durée </span> <span>{duration} mois</span>
 		<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Traitement </span> 
@@ -268,9 +268,9 @@
 		  <option value="plan social">plan social</option>
 		</select>
 		<span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Structure </span>
-	    <input name="structure" type="text" value="Sesame" readonly>
+	    <input name="structure" type="text" value="${user.structure.name}" readonly>
 	    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span>
-	    <input name="author" type="text" value="Malorum" readonly>
+	    <input name="author" type="text" value="${user.name}" readonly>
 		<span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du projet</span>
 		<textarea name="description" placeholder="entrer votre description" required></textarea>
 	</fieldset>
@@ -317,10 +317,10 @@
     <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Création Projet Reussie</h1>
     <div class="structure-info">
 		<h5>
-			<span><b>Structure</b> : {structure}</span>
+			<span><b>Structure</b> : ${user.structure.name}</span>
 		</h5>
 		<h5>
-			<span><b>Ninea</b> : {ninea}</span>
+			<span><b>Ninea</b> : ${user.structure.ninea}</span>
 		</h5>
 	</div>
 	<hr/>
@@ -376,10 +376,10 @@
     <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Paiement Caution Reussie</h1>
     <div class="structure-info">
 		<h5>
-			<span><b>Structure</b> : {structure}</span>
+			<span><b>Structure</b> : ${user.structure.name}</span>
 		</h5>
 		<h5>
-			<span><b>Ninea</b> : {ninea}</span>
+			<span><b>Ninea</b> : ${user.structure.ninea}</span>
 		</h5>
 	</div>
 	<hr/>

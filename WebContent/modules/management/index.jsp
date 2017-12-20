@@ -7,7 +7,7 @@
 			<div class="col-md-4 info-update-gd">
 				<div class="info-update-block clr-block-1">
 					<div class="col-md-8 info-update-left">
-						<h3>6</h3>
+						<h3>${projects_count}</h3>
 						<h4>nouveaux projets</h4>
 					</div>
 					<div class="col-md-4 info-update-right">
@@ -19,7 +19,7 @@
 			<div class="col-md-4 info-update-gd">
 				<div class="info-update-block clr-block-3">
 					<div class="col-md-8 info-update-left">
-						<h3>3</h3>
+						<h3>${messages_count}</h3>
 						<h4>nouveaux messages</h4>
 					</div>
 					<div class="col-md-4 info-update-right">
@@ -31,7 +31,7 @@
 			<div class="col-md-4 info-update-gd">
 				<div class="info-update-block clr-block-6">
 					<div class="col-md-8 info-update-left">
-						<h3>4</h3>
+						<h3>${bills_count}</h3>
 						<h4>factures impayées</h4>
 					</div>
 					<div class="col-md-4 info-update-right">
@@ -126,7 +126,7 @@
 	 <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Projet : {subject|s}</h1>
 	<fieldset>
 		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span> <span>{plan}</span>
-		<span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Structure </span> <span>Sesame</span>
+		<span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Structure </span> <span>${user.structure.name}</span>
 		<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date} - 17:35:25</span>
 		<span class="text-right"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Durée </span> <span>{duration} mois</span>
 		<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Traitement </span> 

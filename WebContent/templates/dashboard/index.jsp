@@ -102,8 +102,8 @@
 								<ul>
 									<li class="dropdown profile_details_drop">
 									    <div class="user-name">
-													<p>Malorum</p>
-													<span>administrateur</span>
+													<p>${user.name}</p>
+													<span>${user.role}</span>
 												</div>
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 											<div class="profile_img">	

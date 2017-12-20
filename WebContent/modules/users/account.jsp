@@ -27,37 +27,37 @@
 								<div>
 								   <fieldset class="profile-details">
 								        <span class="text-right">Prénom et Nom </span>
-										<span>Malorum</span>
+										<span>${user.name}</span>
 									    <span class="text-right">Email </span>
-										<span>email</span>
+										<span>${user.email}</span>
 										<span class="text-right">Téléphone </span>
-										<span>téléphone</span>
+										<span>${user.telephone}</span>
 										<span class="text-right">Role </span>
-   										<span>administrateur</span>
+   										<span>${user.role}</span>
    										<span class="text-right">Fonction </span>
-   										<span>fonction</span>
+   										<span>${user.fonction}</span>
 										<span class="text-right">Structure </span>
-   										<span>Sesame</span>
+   										<span>${user.structure.name}</span>
    										<span class="text-right">Ninea </span>
-   										<span>ninea</span>
+   										<span>${user.structure.ninea}</span>
    								 </fieldset>
    								 <a class="text-center">[ modifier ]</a>
    								 <fieldset class="profile-edition">
    								   <form action="${url}/profile/update">
    								    <span class="text-right">Prénom et Nom </span>
-										<input type="text" required>
+										<input type="text" value="${user.name}" required>
 									    <span class="text-right">Email </span>
-										<input type="email" required>
+										<input type="email" value="${user.email}" required>
 										<span class="text-right">Téléphone </span>
-										<input type="text">
+										<input value="${user.telephone}" type="text">
 										<span class="text-right">Role </span>
-   										<span>administrateur</span>
+   										<span>${user.role}</span>
    										<span class="text-right">Fonction </span>
-   										<input type="text" required>
+   										<input type="text" value="${user.fonction}" required>
 										<span class="text-right">Structure </span>
-   										<span>Sesame</span>
+   										<span>${user.structure.name}</span>
    										<span class="text-right">Ninea </span>
-   										<input type="text" required>
+   										<input value="${user.structure.ninea}" type="text" required>
    								    <div class="submit">
    								      <input type="submit" value="Modifier">
    								      <input type="button" value="Annuler">
