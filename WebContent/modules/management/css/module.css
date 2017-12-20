@@ -29,7 +29,7 @@
 }
 
 .window > div h1 {
-	font-size: 1.5em;
+	font-size: 1.3em;
     padding: 5px;
     font-weight: bold;
 }
@@ -94,6 +94,9 @@
 	font-size: 14px;
     display: block;
     margin-top: 10px;
+    background : #ffe;
+    padding-left : 5px;
+    width : 200px;
 }
 
 .window > div .terms-agreement input{
@@ -446,9 +449,9 @@ legend a i.fa {
 	.project-wizard .number {top: -1px;width: 30px;height: 27px;}
 	.project-wizard h2 {font-size: 1em;margin-left: 0;font-weight:bold}
 	.window > div .terms h1 i.fa {top: 0px;}
-	.project-wizard p {font-size: 12px;}
+	.project-wizard p {font-size: 13px;width : 89%}
 	.project-wizard h1{margin-left: -16px;}
-	.window > div .terms-agreement {font-size: 12px;margin-top: 5px;}
+	.window > div .terms-agreement {font-size: 13px;margin-top: 5px;}
 	.window > div .message-list > div > div span {display : block;}
 	.window > div .message-list > div > div p.message {width : 85%;margin-bottom:3px}
 }
