@@ -59,10 +59,10 @@ $(document).ready(function(){
 					  success: function(response) {
 						  if(response.status){
 							  $("input[type=text],textarea",form).val("");
+							  ticket.id = response.status;
 							  page.table.addRow(ticket,function(row){
-								  row.click(function(event) {
-										const div = $(".details").show();
-										return false;
+								  row.click(function() {
+									    page.details.show(ticket);
 								  });
 								  page.release();
 								  alert("votre ticket a &edot;t&edot; bien cr&edot;&edot;");

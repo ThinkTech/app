@@ -62,7 +62,7 @@ class ModuleAction extends ActionSupport {
 	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
 	   def mailSender = new MailSender(mailConfig)
 	   def mail = new Mail("Mamadou Lamine Ba","lamine.ba@thinktech.sn","Projet : ${project.subject}",getProjectTemplate(project))
-	   mailSender.sendMail(mail)
+	   //mailSender.sendMail(mail) 
 	   response.writer.write(json([status: 1]))
 	}
 	

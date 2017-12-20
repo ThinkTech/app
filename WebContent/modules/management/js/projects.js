@@ -170,13 +170,13 @@ $(document).ready(function(){
 					  success: function(response) {
 						  if(response.status){
 							  $("textarea",form).val("");
+							  project.id = response.status;
 							  page.table.addRow(project,function(row){
-								  row.click(function(event) {
-										const div = $(".details").show();
-										return false;
-								  });
-								  page.release();
-								  alert("votre projet a &edot;t&edot; bien cr&edot;&edot;",function(){
+							  row.click(function() {
+								  page.details.show(project);
+							  });
+							  page.release();
+						      alert("votre projet a &edot;t&edot; bien cr&edot;&edot;",function(){
 									  const wizard = $(".project-wizard");
 									  page.render(wizard, project, false, function() {
 										  if(!project.structure) $(".structure-info",wizard).hide()
