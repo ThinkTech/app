@@ -13,7 +13,7 @@ $(document).ready(function(){
 		if(project.description){
 			const list = $(".description .message-list",container);
 			list.find("h6").hide();
-			$("> div",list).html($("<p/>").html(project.description));
+			$("> div",list).html(project.description);
 		}
 		if(project.comments){
 			 const list = $(".comments .message-list",container);
@@ -40,7 +40,13 @@ $(document).ready(function(){
 		$(".description form",container).submit(function(event){
 			const form = $(this);
 			const project = {};
-			project.description =  form.find("textarea[name=description]").val();
+			project.description =  tinyMCE.get("textarea-description").getContent();
+			if(tinyMCE.get("textarea-description").getContent({format: 'text'}).trim() == ""){
+				alert("vous devez entrer une description",function(){
+					tinyMCE.get("textarea-description").focus();
+				});
+				return false;
+			}
 			project.id =  form.find("input[name=id]").val();
 			page.wait({top : form.offset().top});
 			$.ajax({
@@ -51,12 +57,11 @@ $(document).ready(function(){
 				  success: function(response) {
 					  page.release();
 					  if(response.status){
-						  $("textarea",form).val("");
 						  form.find("input[type=button]").click();
 						  const div = form.parent().parent();
 						  const list = $(".message-list",div);
 						  list.find("h6").hide();
-						  $("> div",list).html($("<p/>").html(project.description));
+						  $("> div",list).html(project.description);
 						  alert("votre description a &edot;t&edot; bien modifi&edot;e");
 					  }
 				  },
@@ -123,7 +128,13 @@ $(document).ready(function(){
 		$(".comments form",container).submit(function(event){
 			const form = $(this);
 			const comment = {};
-			comment.message =  form.find("textarea[name=message]").val();
+			comment.message =  tinyMCE.get("textarea-message").getContent();
+			if(tinyMCE.get("textarea-message").getContent({format: 'text'}).trim() == ""){
+				alert("vous devez entrer votre commentaire",function(){
+					tinyMCE.get("textarea-message").focus();
+				});
+				return false;
+			}
 			comment.project =  form.find("input[name=id]").val();
 			page.wait({top : form.offset().top});
 			$.ajax({
@@ -133,7 +144,7 @@ $(document).ready(function(){
 				  contentType : "application/json",
 				  success: function(response) {
 					  if(response.status){
-						  $("textarea",form).val("");
+						  tinyMCE.get("textarea-message").setContent("");
 						  form.find("input[type=button]").click();
 						  const div = form.parent().parent();
 						  const list = $(".message-list",div);
@@ -148,6 +159,7 @@ $(document).ready(function(){
 			});
 			return false;
 		});
+		tinymce.init({ selector:'textarea',language: 'fr_FR'});
 	};
 	$(".window a.read-terms").click(function(event) {
 			$(".window .terms").show();
@@ -157,7 +169,14 @@ $(document).ready(function(){
 			const project = {};
 			project.subject = form.find("select[name=subject]").val();
 			project.plan =  form.find("select[name=plan]").val();
-			project.description =  form.find("textarea[name=description]").val();
+			project.structure =  form.find("input[name=structure]").val();
+			project.description =  tinyMCE.activeEditor.getContent();
+			if(tinyMCE.activeEditor.getContent({format: 'text'}).trim() == ""){
+				alert("vous devez entrer une description",function(){
+					tinyMCE.activeEditor.focus();
+				});
+				return false;
+			}
 			project.date ="14/12/2017";
 			confirm("&ecirc;tes vous s&ucirc;r de vouloir cr&edot;&edot;r ce projet?",function(){
 				$(".window").hide();

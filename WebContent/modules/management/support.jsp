@@ -107,12 +107,8 @@
 		  <option value="medium">moyen</option>
 		  <option value="high">élévé</option>
 		</select>
-		<span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Structure </span>
-	    <input name="structure" type="text" value="${user.structure.name}" readonly>
-	    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span>
-	    <input name="author" type="text" value="${user.name}" readonly>
-		<span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du probléme</span>
-		<textarea name="message" placeholder="entrer votre description" required></textarea>
+	   <span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du probléme</span>
+		<textarea name="message"></textarea>
 	</fieldset>
 	<div class="submit">
 		 <input type="submit" value="Créér">
@@ -151,7 +147,7 @@
    		 		</div>
 	   		 	<div class="message-edition">
 	   		 	   <form action="${url}/support/messages/create">
-	   		 		<textarea name="message" placeholder="entrer votre message" required></textarea>
+	   		 		<textarea name="message"></textarea>
 	   		 		<input name="id" type="hidden" value={id}>
 	   		 		<div class="submit">
 				      <input type="submit" value="Ajouter">
@@ -168,7 +164,7 @@
    	  {#.}
 	      <div>
 	        <img width= "32px" height="32" src="${images}/user_64.png"/> 
-	   	  	<p class="message">{message}</p>
+	   	  	<div class="message">{message|s}</div>
 	   	  	<span>14/12/2017 - 17:35:25</span>
 	   	  </div>
 	   	   <hr/>
@@ -178,3 +174,4 @@
 </div>
 </div>
 <script src="${js}/support.js" defer></script>
+<script src="js/tinymce/tinymce.min.js" defer></script> 

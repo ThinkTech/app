@@ -2,6 +2,7 @@ page.form = {};
 
 page.form.show = function(){
 	$(".window.form").show();
+	tinymce.init({ selector:'textarea',language: 'fr_FR'});
 };
 
 page.details = {};

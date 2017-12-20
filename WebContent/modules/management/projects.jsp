@@ -166,7 +166,7 @@
    		 	</div>
    		 	<div class="message-edition description">
    		 	    <form action="${url}/projects/description/update">
-   		 		<textarea name="description" placeholder="entrer votre description" required>{description}</textarea>
+   		 		<textarea id="textarea-description" name="description">{description}</textarea>
    		 		<input name="id" type="hidden" value={id}>
    		 		<div class="submit">
 			      <input type="submit" value="Modifier">
@@ -214,7 +214,7 @@
 			</div>
    		 	<div class="message-edition">
    		 	   <form action="${url}/projects/comments/create">
-   		 		<textarea name="message" placeholder="entrer votre commentaire" required></textarea>
+   		 		<textarea id="textarea-message" name="message"></textarea>
    		 		<input name="id" type="hidden" value={id}>
    		 		<div class="submit">
 			      <input type="submit" value="Ajouter">
@@ -238,7 +238,7 @@
       {#.}
       <div>
         <img width= "32px" height="32" src="${images}/user_64.png"/> 
-   	  	<p class="message">{message}</p>
+   	  	<div class="message">{message|s}</div>
    	  	<span>14/12/2017 - 17:35:25</span>
    	  </div>
    	   <hr/>
@@ -267,12 +267,9 @@
 		  <option value="plan personal">plan personal</option>
 		  <option value="plan social">plan social</option>
 		</select>
-		<span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Structure </span>
-	    <input name="structure" type="text" value="${user.structure.name}" readonly>
-	    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span>
-	    <input name="author" type="text" value="${user.name}" readonly>
+		<input name="structure" type="hidden" value="${user.structure.name}">
 		<span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du projet</span>
-		<textarea name="description" placeholder="entrer votre description" required></textarea>
+		<textarea name="description" placeholder="entrer votre description"></textarea>
 	</fieldset>
 	<div class="terms-agreement">
 		<input type="checkbox" checked disabled> J'accepte les <a class="read-terms">Termes</a>
@@ -439,3 +436,4 @@
 </div>
 </div>
 <script src="${js}/projects.js" defer></script>
+<script src="js/tinymce/tinymce.min.js" defer></script> 

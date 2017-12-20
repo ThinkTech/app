@@ -105,7 +105,7 @@
 .window > div .submit {
 	width: 90%;
     margin: auto;
-    margin-top : 10px;
+    margin-top : 5px;
     padding-left: 10%;
 }
 
@@ -196,6 +196,8 @@
 	vertical-align : top;
 	width : 32px;
 	height : 32px;
+	position : relative;
+	top : -6px;
 }
 
 .window > div .message-list > div > div span {
@@ -211,7 +213,7 @@
 	text-align : right;
 }
 
-.window > div .message-list > div > div p.message {
+.window > div .message-list > div > div div.message {
 	margin-top : 0px;
 	display : inline-block;
 	width : 77%;
@@ -280,12 +282,8 @@ legend a i.fa {
 }
 
 .window > div .message-list > div p , .window > div .document-list > div p {
-	margin-top: -10px;
+	margin-top: -8px;
     font-size: 13px;
-}
-
-.window > div .message-edition {
-	margin-top: -28px;
 }
 
 .window > div .document-upload {
@@ -294,7 +292,7 @@ legend a i.fa {
 
 .window > div .document-upload fieldset {
 	padding-left : 0;
-	margin-bottom: 5px;
+	margin-bottom: 0px;
 }
 
 .window > div fieldset span.text-right {
@@ -317,7 +315,7 @@ legend a i.fa {
 }
 
 .window > div hr {
-	margin-top: 10px;
+	margin-top: 0px;
     margin-bottom: 10px;
     border-top: 1px solid #05d2ff;
 }
@@ -452,7 +450,7 @@ legend a i.fa {
 	.project-wizard h1{margin-left: -16px;}
 	.window > div .terms-agreement {font-size: 13px;margin-top: 5px;}
 	.window > div .message-list > div > div span {display : block;}
-	.window > div .message-list > div > div p.message {width : 85%;margin-bottom:3px}
+	.window > div .message-list > div > div div.message {width : 85%;margin-bottom:3px}
 }
 
 .content-process{

@@ -183,7 +183,7 @@
    		 	</div>
    		 	<div class="message-edition description">
    		 	    <form action="${url}/projects/description/update">
-   		 		<textarea name="description" placeholder="entrer votre description" required>{description}</textarea>
+   		 		<textarea id="textarea-description" name="description">{description}</textarea>
    		 		<input name="id" type="hidden" value={id}>
    		 		<div class="submit">
 			      <input type="submit" value="Modifier">
@@ -209,6 +209,8 @@
    		 	    <span class="text-right">Document 1 </span> <input name="file1" type="file" required>
 				<span class="text-right">Document 2 </span> <input name="file2" type="file">
 				<span class="text-right">Document 3 </span> <input name="file3" type="file">
+				<input name="id" type="hidden" value="{id}">
+				<input name="url" type="hidden" value="${url}/projects/documents/save"/>
 				</fieldset>
    		 		<div class="submit">
 			      <input type="submit" value="Envoyer">
@@ -229,7 +231,7 @@
 			</div>
    		 	<div class="message-edition">
    		 	   <form action="${url}/projects/comments/create">
-   		 		<textarea name="message" placeholder="entrer votre commentaire" required></textarea>
+   		 		<textarea id="textarea-message" name="message"></textarea>
    		 		<input name="id" type="hidden" value={id}>
    		 		<div class="submit">
 			      <input type="submit" value="Ajouter">
@@ -252,8 +254,8 @@
   <template id="template-comments">
       {#.}
       <div>
-        <img width= "32px" height="32px" src="${images}/user_64.png"/> 
-   	  	<p class="message">{message}</p>
+        <img width= "32px" height="32" src="${images}/user_64.png"/> 
+   	  	<div class="message">{message|s}</div>
    	  	<span>14/12/2017 - 17:35:25</span>
    	  </div>
    	   <hr/>
@@ -263,3 +265,4 @@
 </div>
 </div>
 <script src="${js}/projects.js" defer></script>
+<script src="js/tinymce/tinymce.min.js" defer></script> 
