@@ -639,6 +639,10 @@ ul.dropdown-menu {
     margin-right: 35px;
     height: 35px;
 }
+.user-name i {
+	 text-shadow : none;
+	 margin-right : 2px;
+}
 .profile_details ul li{
 	list-style-type:none;
 	position:relative;

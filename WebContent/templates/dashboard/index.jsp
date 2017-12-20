@@ -102,7 +102,7 @@
 								<ul>
 									<li class="dropdown profile_details_drop">
 									    <div class="user-name">
-													<p>${user.name}</p>
+													<p><i class="fa fa-user" aria-hidden="true"></i>${user.name}</p>
 													<span>${user.role}</span>
 												</div>
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
