@@ -367,7 +367,8 @@ legend a i.fa {
 
 .project-wizard section > span {
     font-weight: bold;
-    display: block;}
+    display: block;
+    font-size : 30px;
 }
 
 .project-wizard .content-process {
