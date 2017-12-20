@@ -35,14 +35,11 @@
 }
 
 .window > div .terms {
-	display : none;
-}
-
-.window > div .terms {
 	position: absolute;
     background: #ffe;
     height: 92%;
     overflow-y: auto;
+    font-family : Tahoma;
     top: 5%;
     display : none;
     width: 61%;
