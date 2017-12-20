@@ -159,7 +159,7 @@ $(document).ready(function(){
 			});
 			return false;
 		});
-		tinymce.init({ selector:'textarea',language: 'fr_FR'});
+		tinymce.init({ selector:'textarea',language: 'fr_FR',menubar:false,statusbar: false});
 	};
 	$(".window a.read-terms").click(function(event) {
 			$(".window .terms").show();

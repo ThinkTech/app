@@ -43,7 +43,7 @@ $(document).ready(function(){
 			});
 			return false;
 		 });
-		tinymce.init({ selector:'textarea',language: 'fr_FR'});
+		tinymce.init({ selector:'textarea',language: 'fr_FR',menubar:false,statusbar: false});
 		};
 		$(".window > div > form").submit(function(event){
 			const form = $(this);
