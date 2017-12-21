@@ -176,7 +176,7 @@
 	display : inline-block;
 	width : 20px;
 	white-space : nowrap;
-	font-size : 10px;
+	font-size : 11px;
 	border : none;
 	background : transparent;
 }
@@ -204,7 +204,7 @@
 	background : transparent;
 	display : inline-block;
 	width : 2%;
-	font-size : 10px;
+	font-size : 11px;
 	white-space : nowrap;
 	border : none;
 	vertical-align : top;
@@ -278,11 +278,11 @@ legend a i.fa {
 
 .window > div .message-edition, .window > div .document-upload {
 	display : none;
-	margin-top: -22px;
+	margin-top: -21x;
 }
 
 .window > div .message-list > div p , .window > div .document-list > div p {
-	margin-top: -8px;
+	margin-top: -8\px;
     font-size: 13px;
 }
 
@@ -380,15 +380,6 @@ legend a i.fa {
     	left: auto;
     	right: auto;
     	margin-left : -10px;
-	}
-}
-
-@media (max-width:1024px){
-	.window > div .message-edition {
-		margin-top: -23px;
-	}
-	.window > div .document-upload {
-		margin-top: -26px;
 	}
 }
 
