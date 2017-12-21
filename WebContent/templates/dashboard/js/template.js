@@ -1,8 +1,10 @@
 page.form = {};
 
 page.form.show = function(){
-	$(".window.form").show();
-	tinymce.init({ selector:'textarea',language: 'fr_FR',menubar:false,statusbar: false});
+	const form = $(".window.form");
+	const area = $('textarea',form);
+	if(area.length) tinymce.init({target:area[0],language: 'fr_FR',menubar:false,statusbar: false});
+	form.show();
 };
 
 page.details = {};
