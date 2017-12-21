@@ -278,11 +278,11 @@ legend a i.fa {
 
 .window > div .message-edition, .window > div .document-upload {
 	display : none;
-	margin-top: -21x;
+	margin-top: -21px;
 }
 
 .window > div .message-list > div p , .window > div .document-list > div p {
-	margin-top: -8\px;
+	margin-top: -8px;
     font-size: 13px;
 }
 
