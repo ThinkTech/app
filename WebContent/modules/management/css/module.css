@@ -281,9 +281,12 @@ legend a i.fa {
 	margin-top: -21px;
 }
 
-.window > div .message-list > div p , .window > div .document-list > div p {
+.window p {
+	font-size : 13px;
+}
+
+.window > div .document-list > div p {
 	margin-top: -8px;
-    font-size: 13px;
 }
 
 .window > div .document-upload {
