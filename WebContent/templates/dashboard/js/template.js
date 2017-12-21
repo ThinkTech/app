@@ -47,7 +47,9 @@ page.details.show = function(entity) {
 				return false;
 		  });
 		  if(page.details.bind) page.details.bind(div,entity);
-		  div.show();
+		  div.show(1,function(){
+			  if($("textarea",div).length) tinymce.init({ selector:'textarea',language: 'fr_FR',menubar:false,statusbar: false});
+		  });
 	});
 	page.details.render = function(container,entity){
 		page.render(container, entity);

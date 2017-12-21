@@ -159,7 +159,6 @@ $(document).ready(function(){
 			});
 			return false;
 		});
-		tinymce.init({ selector:'textarea',language: 'fr_FR',menubar:false,statusbar: false});
 	};
 	$(".window a.read-terms").click(function(event) {
 			$(".window .terms").show();
@@ -188,7 +187,7 @@ $(document).ready(function(){
 					  contentType : "application/json",
 					  success: function(response) {
 						  if(response.status){
-							  $("textarea",form).val("");
+							  tinyMCE.activeEditor.setContent("");
 							  project.id = response.status;
 							  page.table.addRow(project,function(row){
 							  row.click(function() {
