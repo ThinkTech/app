@@ -47,9 +47,14 @@ page.details.show = function(entity) {
 				return false;
 		  });
 		  if(page.details.bind) page.details.bind(div,entity);
-		  div.show(1,function(){
-			  if($("textarea",div).length) tinymce.init({ selector:'textarea',language: 'fr_FR',menubar:false,statusbar: false});
-		  });
+		  const areas = $("textarea",div); 
+		  if(areas.length) {
+			  tinymce.remove();
+			  $.each(areas,function(i,node){
+				  tinymce.init({target:node,language: 'fr_FR',menubar:false,statusbar: false}); 
+			  });
+		  }
+		  div.show();
 	});
 	page.details.render = function(container,entity){
 		page.render(container, entity);
