@@ -188,11 +188,7 @@
 }
 
 .window > div .info-tasks{
-	background: #fff; 
-	margin: auto; 
-	position: relative; 
-	z-index: 999;
-	min-height: 150px;
+	background: #fff;
 	display : none;
 }
 
