@@ -130,6 +130,7 @@
 		<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date} - 17:35:25</span>
 		<span class="text-right"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Durée </span> <span>{duration} mois</span> <a class="duration"><i class="fa fa-info" aria-hidden="true"></i></a>
 		<div class="info-duration">
+		   <p data-status="stand by">la durée du projet est estimée à {duration} mois en attendant le paiement de la caution que vous devez effectuer</p>
 		   <p data-status="in progress">la durée du projet est estimée à {duration} mois et dans les normes, le produit final sera livré au plus tard le 17/12/2017</p>
 		   <p data-status="finished">la durée du projet fut de {duration} mois et le produit final a été livré le 17/12/2017 à 10:35:24</p>
 		</div>
