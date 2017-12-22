@@ -133,7 +133,7 @@
 		<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">paiement caution</span> <a class="pay"><i class="fa fa-money"></i></a></span>
 		<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  
 		<span data-status="finished" style="display:none"><span class="label label-success">terminé</span></span>
-		<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Progression </span> <span class="badge badge-info">{progression}%</span>
+		<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Progression </span> <span class="badge badge-info">{progression}%</span> <a><i class="fa fa-info" aria-hidden="true"></i></a>
 	</fieldset>
 	<div class="col-md-12">
 		  <div class="content-process">
