@@ -141,7 +141,6 @@
 .window > div fieldset input[type=file] {
     display: inline-block;
     font-weight: 600;
-    background: #dcf5fb;
     color : #212121;
     border : none;
 }
