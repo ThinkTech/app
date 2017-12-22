@@ -1,14 +1,17 @@
 $(document).ready(function(){
 	page.details.bind = function(container,project) {
-		if(project.status == "finished") {
-			$("legend a",container).hide();
-			$(".imgcircle,.line",container).addClass("active");
+		if(project.status == "stand by") {
+			$("a.tasks",container).hide();
 		}
 		if(project.status == "in progress") {
 			$(".confirm .imgcircle,.confirm .line,.process .imgcircle",container).addClass("active");
 			if(project.progression >= 95) {
 				$(".quality .imgcircle,.quality .line",container).addClass("active");
 			}
+		}
+		if(project.status == "finished") {
+			$("legend a",container).hide();
+			$(".imgcircle,.line",container).addClass("active");
 		}
 		if(project.description){
 			const list = $(".description .message-list",container);
