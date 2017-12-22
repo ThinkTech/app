@@ -40,6 +40,17 @@ $(document).ready(function(){
 			    page.wizard.show(bill,top);
 			});
 		});
+		$("a.plan",container).click(function(event) {
+			const plan = $(this).data("plan");
+			const plans = $(".plans");
+			$(".pricing",plans).hide();
+		    const top = event.pageY;
+		    plans.css("top",top-20);
+			$("div[data-plan='"+plan+"']",plans).show();
+			plans.toggle();
+			return false;
+		});
+		$(".plans").hide();
 		$("a.tasks",container).click(function(event) {
 			$(".info-tasks",container).toggle();
 		});

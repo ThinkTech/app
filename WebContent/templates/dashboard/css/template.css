@@ -874,6 +874,7 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 
 }
 @media (max-width:991px){
+.sidebar-menu h1 a{font-size : 22px}
 td a.pay i {
 	top : 6px;
 }
@@ -913,10 +914,10 @@ td a.pay i {
     padding-top: 30px;
 }
 .left-content {
-    width: 75%;
+    width: 80%;
 }
 .sidebar-menu{
-	width : 25%;
+	width : 20%;
 }
 .info-update-gd {
     float: left;
