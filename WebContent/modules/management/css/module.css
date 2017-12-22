@@ -417,6 +417,7 @@ legend a i.fa {
       top: -3px;
       position: relative;
      }
+     .window > div a.plan,.window > div a.duration {position:absolute;right:31px;margin-top:-26px}
 }
 
 @media (max-width:768px){
