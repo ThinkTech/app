@@ -37,6 +37,9 @@ $(document).ready(function(){
 			    page.wizard.show(bill,top);
 			});
 		});
+		$("a.info",container).click(function(event) {
+			$(".info-tasks",container).toggle();
+		});
 		$(".description form",container).submit(function(event){
 			const form = $(this);
 			const project = {};
@@ -147,7 +150,8 @@ $(document).ready(function(){
 						  tinyMCE.get("textarea-message").setContent("");
 						  form.find("input[type=button]").click();
 						  const div = form.parent().parent();
-						  const list = $(".message-list",div);
+						  const list = $(".message-list"
+								  ,div);
 						  list.find("h6").hide();
 						  page.render($("> div",list), [comment], true, function() {
 							  page.release();

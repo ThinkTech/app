@@ -133,7 +133,18 @@
 		<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">paiement caution</span> <a class="pay"><i class="fa fa-money"></i></a></span>
 		<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  
 		<span data-status="finished" style="display:none"><span class="label label-success">terminé</span></span>
-		<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Progression </span> <span class="badge badge-info">{progression}%</span> <a><i class="fa fa-info" aria-hidden="true"></i></a>
+		<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Progression </span> <span class="badge badge-info">{progression}%</span> <a class="info"><i class="fa fa-info" aria-hidden="true"></i></a>
+		<div class="info-tasks">
+		  <h1><i class="fa fa-tasks" aria-hidden="true"></i> Tâches</h1>
+		 <ol>
+		  	<li>tâche 1 <span class="badge badge-info">100%</span></li>
+		  	<li>tâche 2 <span class="badge badge-info">100%</span></li>
+		  	<li>tâche 3 <span class="badge badge-info">100%</span></li>
+		  	<li>tâche 4 <span class="badge badge-info">100%</span></li>
+		  	<li>tâche 5 <span class="badge badge-info">100%</span></li>
+		  	<li>tâche 6 <span class="badge badge-info">100%</span></li>
+		  </ol>
+		</div>
 	</fieldset>
 	<div class="col-md-12">
 		  <div class="content-process">

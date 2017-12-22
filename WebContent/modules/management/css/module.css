@@ -187,6 +187,20 @@
 	margin-top : 7px;
 }
 
+.window > div .info-tasks{
+	background: #fff; 
+	margin: auto; 
+	position: relative; 
+	z-index: 999;
+	min-height: 150px;
+	display : none;
+}
+
+.window > div .info-tasks .badge {
+	background : #212121;
+	margin-left : 10px;
+}
+
 .window > div .message-list > div > div:first-of-type {
 	margin-top : -10px;
 }
