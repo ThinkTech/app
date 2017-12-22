@@ -187,9 +187,17 @@
 	margin-top : 7px;
 }
 
-.window > div .info-tasks{
+.window > div .info-tasks,.window > div .info-duration{
 	background: #fff;
 	display : none;
+}
+
+.window > div .info-duration {
+	padding : 5px;
+}
+
+.window > div .info-duration p {
+	font-weight : bold;
 }
 
 .window > div .info-tasks .badge {

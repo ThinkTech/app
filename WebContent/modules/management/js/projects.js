@@ -37,8 +37,14 @@ $(document).ready(function(){
 			    page.wizard.show(bill,top);
 			});
 		});
-		$("a.info",container).click(function(event) {
+		$("a.tasks",container).click(function(event) {
 			$(".info-tasks",container).toggle();
+		});
+		$("a.duration",container).click(function(event) {
+			const div = $(".info-duration",container);
+			$("p",div).hide();
+			$("p[data-status='"+project.status+"']",div).show();
+			div.toggle();
 		});
 		$(".description form",container).submit(function(event){
 			const form = $(this);
