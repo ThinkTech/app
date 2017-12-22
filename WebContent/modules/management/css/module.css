@@ -471,7 +471,7 @@ legend a i.fa {
 .window > div.plans {
 	width: 22%;
     margin: auto;
-    position: absolute;
+    position: fixed;
     z-index: 9;
     left: 0;
     right: 0;

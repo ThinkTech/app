@@ -565,6 +565,7 @@ ul.dropdown-menu.drp-mnu li {
     line-height: 1em;
     font-weight: bold;
     text-shadow: 1px 0px #000000;
+    white-space : nowrap;
 }
 .user-name span {
     font-size: 9px;
