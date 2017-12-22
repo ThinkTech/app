@@ -193,6 +193,7 @@
 
 .window > div .info-duration {
 	padding : 5px;
+	padding-bottom : 0;
 }
 
 .window > div .info-duration p {
