@@ -566,7 +566,7 @@ p.text {
 .pricing-bottom-top p{font-size : 13px}
 .pricing-top h3 {font-size : 15px}
 .pricing-top p{font-size : 13px}
-.pricing-bottom-bottom p{font-size : 13px}
+.pricing-bottom-bottom p{font-size : 11px}
 }
 
 @media(max-width:480px){
@@ -579,12 +579,6 @@ p.text {
       margin: 0 0 0.2em 0;
 	  font-size: 11px;
 }
-.pricing-top h3 {
-     font-size: 20px;
-}
-.pricing-top p {
-     font-size: 13px;
-}
 .window > div.plans {
 	width: 60%;
 }
@@ -592,9 +586,6 @@ p.text {
 }
 
 @media(max-width:320px){
-.pricing-top h3 {
-	font-size: 1.5em;
-}
 .pricing-bottom {
 	padding: 1em 2em;
 }
@@ -609,7 +600,6 @@ p.text {
 }
 
 .pricing-bottom-top p {
-	font-size: 16px;
 	line-height: 1.4em;
 }
 	

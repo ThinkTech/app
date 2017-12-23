@@ -45,7 +45,7 @@ $(document).ready(function(){
 			const plans = $(".plans");
 			$(".pricing",plans).hide();
 		    const top = event.pageY;
-		    plans.css("top",top-20);
+		    plans.css("top",top-30);
 			$("div[data-plan='"+plan+"']",plans).show();
 			plans.toggle();
 			return false;
