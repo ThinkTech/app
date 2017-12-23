@@ -418,7 +418,8 @@ legend a i.fa {
       top: -3px;
       position: relative;
      }
-     .window > div a.plan,.window > div a.duration {position:absolute;right:31px;margin-top:-26px}
+     .window > div fieldset span.text-right { margin-top: 0px;}
+     .window > div a.plan,.window > div a.duration {margin-left:9px}
 }
 
 @media (max-width:768px){
@@ -880,54 +881,7 @@ span.line {
     min-height: 670px;
     margin-left: -15px;
     margin-top: -25px;
-}
-	.wthree_stat_left h3:after {
-    top: 35px;
-    }
-    .w3l_banner_bottom_left p {
-		font-size: 13px;
-        width: 108%;
-        margin-left: -28px;
 	}
-	.portal.w3l_banner_bottom_left p {
-        width: 98%;
-        margin-left: auto;
-        margin-right : auto;
-        margin-bottom : 15px;
-	}
-	.banner-bottom .w3l_banner_bottom_left p {
-    font-size: 13px;
-    width: 100%;
-    margin: auto;
-	padding-top: 0.3em;
-   }
-   .faq p span span.text {
-    font-size: 13px;
-	text-align: center;
-   }
-  .faq p img {
-    display: inline-block;
-    width: 100%;
-    margin-right: 5px;
-    margin-bottom: 10px;
-}
-	.faq p span {
-     display: block;
-     width: 100%;
-     padding: 0em;
-     vertical-align: top;
-     text-align: center;
-     font-size: 13px;
-     line-height: 2em;
-    }
-	.faq p span.full {
-    display: block;
-    width: 100%;
-    padding: 0;
-    vertical-align: top;
-    margin: auto;
-	text-align: center;
-}
 	.content3 p {
 		margin-left: 10px;
 	}
