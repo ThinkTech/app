@@ -175,14 +175,14 @@ tr.paid {
 
 .close {
 	opacity: 1;
-    margin-right: 11px;
-    margin-top: 0px;
+    margin-right: 5px;
+    margin-bottom: 3px;
     font-weight: bold;
     padding: 8px;
     background: #000;
     color: #fff;
     border-radius: 50%;
-    top: -2px;
+    top: -3px;
     position: relative;
     font-size: 12px;
 }

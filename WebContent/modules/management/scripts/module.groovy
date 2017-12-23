@@ -40,17 +40,17 @@ class ModuleAction extends ActionSupport {
        def projects = session.getAttribute("projects")
        if(!projects) {
            projects = []    
-	       def project = new Expando(id : 1,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",duration : '3',status : "in progress",progression : 50)
+	       def project = new Expando(id : 1,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '3',status : "in progress",progression : 50)
 	       projects << project
-	       project = new Expando(id : 2,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",duration : '4',status : "finished",progression : 100)
+	       project = new Expando(id : 2,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '4',status : "finished",progression : 100)
 	       projects << project
-	       project = new Expando(id : 3,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
+	       project = new Expando(id : 3,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
 	       projects << project
-	       project = new Expando(id : 4,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
+	       project = new Expando(id : 4,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
 	       projects << project
-	       project = new Expando(id : 5,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
+	       project = new Expando(id : 5,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
 	       projects << project
-	       project = new Expando(id : 6,subject: 'cr&edot;ation site web',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
+	       project = new Expando(id : 6,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
 	       projects << project
 	       session.setAttribute("projects",projects)
        }
