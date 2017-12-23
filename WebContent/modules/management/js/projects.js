@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	page.details.bind = function(container,project) {
 		if(project.status == "stand by") {
-			$("a.tasks",container).hide();
+			$("a.tasks,.document-add",container).hide();
 		}
 		if(project.status == "in progress") {
 			$(".confirm .imgcircle,.confirm .line,.process .imgcircle",container).addClass("active");
