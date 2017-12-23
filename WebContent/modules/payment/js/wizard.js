@@ -20,24 +20,19 @@ page.wizard.init = function(){
 		    		const input = prevStep.find("select[name='method']");
 	    			const val = input.val();
 	    			payment.done = false;
-                    if(val == "visa" || val == "mastercard" || val == "express" || val == "discover") {
+                    if(val == "visa") {
                       page.wait({top : form.offset().top+80});
                       head.load("modules/payment/js/visa.js","https://sandbox-assets.secure.checkout.visa.com/checkout-widget/resources/js/integration/v1/sdk.js",function(){
                     	  page.release();
                       });
-      	    		}else if(val == "paypal") {
-                      page.wait({top : form.offset().top+80});
-                      head.load("https://www.paypalobjects.com/api/checkout.js","modules/payment/js/paypal.js",function(){
-                      	  page.release(); 
-                      });
-        	    	} 	
+      	    		}	
 		    		$("."+val+"-payment",div).show();
 		    	}
 		    },
 		    beforeSubmit: function() {
 		    	const select = form.find("select[name='method']")
 	    		const val = select.val();
-	    		if(val == "visa" || val == "mastercard" || val == "express" || val == "discover") {
+	    		if(val == "visa") {
 	    		   alert("vous devez effectuer le paiement",function(){
 	    				  $("."+val+"-payment .v-button",form).trigger("click");  
 	    		   });
