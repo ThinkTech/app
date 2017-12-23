@@ -12,7 +12,7 @@
     overflow : hidden;
 }
 
-.close {
+#checkout-wizard .close {
 	opacity: 1;
     margin-right: 5px;
     margin-bottom: 3px;
