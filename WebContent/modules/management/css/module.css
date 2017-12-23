@@ -295,7 +295,7 @@ legend a i.fa {
     margin-left: 2px;
 }
 
-.window > div .message-edition, .window > div .document-upload {
+.window > div .message-edition{
 	display : none;
 	margin-top: -21px;
 }
@@ -310,6 +310,7 @@ legend a i.fa {
 
 .window > div .document-upload {
 	margin-top: -26px;
+	display : none;
 }
 
 .window > div .document-upload fieldset {
@@ -422,6 +423,7 @@ legend a i.fa {
      .window > div a.plan,.window > div a.duration {margin-left:9px}
      .window > div a.pay{position : relative; top : -2px}
      .window > div .info-duration{margin-top : -7px;margin-bottom:5px;}
+     .window > div .document-upload {margin-top: -21px;}
 }
 
 @media (max-width:768px){
