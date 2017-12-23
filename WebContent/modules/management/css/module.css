@@ -415,7 +415,7 @@ legend a i.fa {
       margin-top: 2px;
      }
      .window > div .label, .window > div .badge {
-      top: -3px;
+      top: 0px;
       position: relative;
      }
      .window > div fieldset span.text-right { margin-top: 0px;}
