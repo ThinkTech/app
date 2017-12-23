@@ -288,7 +288,6 @@
 	
 
     <div data-plan="plan corporate" class="pricing corporate" style="display:none">
-	    <span class="close">X</span>
 		<div class="pricing-top blue-top">
 			<h3>Corporate</h3>
 			<p>15 000 F/mois</p>
@@ -316,7 +315,6 @@
 	</div>
 	
 	<div data-plan="plan personal" class="pricing personal" style="display:none">
-	    <span class="close">X</span>
 		<div class="pricing-top">
 			<h3>Personal</h3>
 			<p>10 000 F/mois</p>
@@ -342,7 +340,6 @@
 	
 	
 	<div data-plan="plan social" class="pricing social" style="display:none">
-	    <span class="close">X</span>
 		<div class="pricing-top black-top">
 			<h3>Social</h3>
 			<p>Gratuit</p>

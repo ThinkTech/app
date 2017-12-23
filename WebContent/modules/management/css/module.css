@@ -496,16 +496,17 @@ legend a i.fa {
 	text-align:center;
 	border-radius: 5px;
 }
-.social {
+
+.blue-top{
+	background:#05d2ff;
+}
+
+.black-top {
 	background : #212121;
 }
 
-.corporate{
-	background : #05d2ff;
-}
-
-.business {
-	background : #7ac143;
+.green-top{
+	background:#7ac143;
 }
 
 .pricing-top h3{
