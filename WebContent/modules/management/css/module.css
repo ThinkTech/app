@@ -421,6 +421,7 @@ legend a i.fa {
      .window > div fieldset span.text-right { margin-top: 0px;}
      .window > div a.plan,.window > div a.duration {margin-left:9px}
      .window > div a.pay{position : relative; top : -2px}
+     .window > div .info-duration{margin-top : -9px;margin-bottom:5px;}
 }
 
 @media (max-width:768px){
