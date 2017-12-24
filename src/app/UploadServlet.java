@@ -28,7 +28,6 @@ public class UploadServlet extends HttpServlet {
 					manager.upload(name,item.openStream());
 				}
 			}catch(Exception e){
-				e.printStackTrace(System.out);
 			}
 		}
 		response.getWriter().write("{\"status\" : 1}");

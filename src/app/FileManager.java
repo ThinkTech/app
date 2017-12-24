@@ -5,6 +5,7 @@ import java.io.OutputStream;
 
 import com.dropbox.core.DbxRequestConfig;
 import com.dropbox.core.v2.DbxClientV2;
+import com.dropbox.core.v2.files.WriteMode;
 
 public class FileManager {
 	
@@ -17,11 +18,12 @@ public class FileManager {
     }
     
     public void upload(String name,InputStream in) throws Exception {
-    	client.files().uploadBuilder("/sesame/"+name).uploadAndFinish(in);
+    	client.files().uploadBuilder("/sesame/"+name).withMode(WriteMode.OVERWRITE).uploadAndFinish(in);
     }
     
     public void download(String name,OutputStream out) throws Exception {
-    	client.files().downloadBuilder("/sesame/"+name).start().download(out);
+    	client.files().downloadBuilder("/sesame/"+name).start().download(out)
+    	;
     }
     
 }
