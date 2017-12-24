@@ -95,6 +95,14 @@ class ModuleAction extends ActionSupport {
 	   response.writer.write(json([status: 1]))
 	}
 	
+	def downloadDocument(){
+	   def name = getParameter("name");
+	   response.contentType = servletContext.getMimeType(name)
+	   response.setHeader("Content-disposition","attachment; filename=$name");
+	   def fileManager = new FileManager()
+	   fileManager.download(name,response.outputStream)
+	}
+	
 	def updateProjectDescription() {
 	   def project = new JsonSlurper().parse(request.inputStream)
 	   def projects = session.getAttribute("projects")

@@ -262,7 +262,7 @@
   <template id="template-documents">
 		{#.}
 			<li>
-				<a>{name}</a>
+				<a href="${url}/projects/documents/download?name={name}">{name}</a>
 				<span>14/12/2017 - 17:35:25</span>
 			</li>
 		 {/.}

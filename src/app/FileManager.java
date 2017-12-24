@@ -1,6 +1,8 @@
 package app;
 
 import java.io.InputStream;
+import java.io.OutputStream;
+
 import com.dropbox.core.DbxRequestConfig;
 import com.dropbox.core.v2.DbxClientV2;
 
@@ -16,6 +18,10 @@ public class FileManager {
     
     public void upload(String name,InputStream in) throws Exception {
     	client.files().uploadBuilder("/sesame/"+name).uploadAndFinish(in);
+    }
+    
+    public void download(String name,OutputStream out) throws Exception {
+    	client.files().downloadBuilder("/sesame/"+name).start().download(out);
     }
     
 }

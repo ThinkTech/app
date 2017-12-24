@@ -1,5 +1,6 @@
 package app;
 
+import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,10 +24,11 @@ public class UploadServlet extends HttpServlet {
 				FileManager manager = new FileManager();
 				while(iter.hasNext()) {
 					FileItemStream item = iter.next(); 
-					if(!item.isFormField()) manager.upload(item.getName(),item.openStream());
+					String name = new File(item.getName()).getName();
+					manager.upload(name,item.openStream());
 				}
 			}catch(Exception e){
-				
+				e.printStackTrace(System.out);
 			}
 		}
 		response.getWriter().write("{\"status\" : 1}");
