@@ -205,13 +205,13 @@
    		 	<div class="document-upload">
    		 	  <form method="POST" enctype="multipart/form-data" action="documents/upload.html">
    		 	   <fieldset>
-   		 	    <span class="text-right">Document 1 </span> <input name="file1" type="file" required>
-				<span class="text-right">Document 2 </span> <input name="file2" type="file">
-				<span class="text-right">Document 3 </span> <input name="file3" type="file">
+   		 	    <span class="text-right"><i class="fa fa-file"></i> Document 1 </span> <input name="file1" type="file" required>
+				<span class="text-right"><i class="fa fa-file"></i> Document 2 </span> <input name="file2" type="file">
+				<span class="text-right"><i class="fa fa-file"></i> Document 3 </span> <input name="file3" type="file">
 				<input name="id" type="hidden" value="{id}">
 				<input name="url" type="hidden" value="${url}/projects/documents/save"/>
 				</fieldset>
-   		 		<div class="submit">
+				<div class="submit">
 			      <input type="submit" value="Envoyer">
 			      <input type="button" value="Annuler">
 			    </div>

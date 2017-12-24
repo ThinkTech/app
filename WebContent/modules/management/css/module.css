@@ -14,7 +14,7 @@
 	width : 60%;
 	border : 1px solid #05d2ff;
 	border-radius : 5px;
-	height: 570px;
+	height: 590px;
 	overflow-x : hidden; 
 	overflow-y : auto;
 	margin : auto;
@@ -33,6 +33,11 @@
 	font-size: 1.3em;
     padding: 5px;
     font-weight: bold;
+}
+
+.window > div .buttons {
+	top: 5px;
+	position : relative;
 }
 
 .window > div .terms {
@@ -544,7 +549,6 @@ legend a i.fa {
 .pricing-bottom-bottom{
 	padding: 1em 0;
     border-top: solid 1px #EFECEC;
-    border-bottom: solid 1px #EFECEC;
 }
 .pricing-bottom-bottom p{
 	color: #A5A5A5;
