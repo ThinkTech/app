@@ -170,10 +170,7 @@
 
 .window > div ol li a {
 	display : inline-block;
-	width : auto;
-	min-width : 200px;
-	margin-right : 25%;
-	color : #515151;
+	width : 60%;
 	font-weight : bold;
 }
 
