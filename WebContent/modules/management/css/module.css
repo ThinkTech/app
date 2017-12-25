@@ -263,6 +263,15 @@
 	color : #05d2ff;
 }
 
+.info-tasks li span {
+	display : inline-block;
+}
+
+.info-tasks li span:first-of-type {
+	width : 30%;
+	font-size : 13px;
+}
+
 .fa-tasks {
 	position : relative;
 	top : 1px;
@@ -426,6 +435,7 @@ legend a i.fa {
      .window > div a.pay{position : relative; top : -2px}
      .window > div .info-duration{margin-top : -7px;margin-bottom:5px;}
      .window > div .document-upload {margin-top: -21px;}
+     .info-tasks li span:first-of-type {width : 100%;}
 }
 
 @media (max-width:768px){

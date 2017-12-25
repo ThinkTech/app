@@ -28,6 +28,10 @@ $(document).ready(function(){
 			 list.find("h6").hide();
 			 page.details.render($("ol",list).addClass("not-empty"),project.documents);
 		}
+		if(project.tasks){
+			 const list = $(".info-tasks",container);
+			 page.details.render($("ol",list),project.tasks);
+		}
 		$("a.pay",container).click(function(event) {
 			const top = $(this).offset().top;
 			page.wait({top : top});

@@ -41,16 +41,50 @@ class ModuleAction extends ActionSupport {
        if(!projects) {
            projects = []    
 	       def project = new Expando(id : 1,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '3',status : "in progress",progression : 50)
+	       project.tasks = []
+	       def task = new Expando(name : "contrat et caution", progression : 100)
+	       project.tasks << task
+	       task = new Expando(name : "item 1", progression : 100)
+	       project.tasks << task
+	       task = new Expando(name : "item 2", progression : 100)
+	       project.tasks << task
+	       task = new Expando(name : "item 3", progression : 100)
+	       project.tasks << task
 	       projects << project
 	       project = new Expando(id : 2,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '4',status : "finished",progression : 100)
+	       project.tasks = []
+	       task = new Expando(name : "contrat et caution", progression : 100)
+	       project.tasks << task
+	       task = new Expando(name : "item 1", progression : 100)
+	       project.tasks << task
 	       projects << project
 	       project = new Expando(id : 3,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
+	       project.tasks = []
+	       task = new Expando(name : "contrat et caution", progression : 100)
+	       project.tasks << task
+	       task = new Expando(name : "item 1", progression : 100)
+	       project.tasks << task
 	       projects << project
 	       project = new Expando(id : 4,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
+	       project.tasks = []
+	       task = new Expando(name : "contrat et caution", progression : 100)
+	       project.tasks << task
+	       task = new Expando(name : "item 1", progression : 100)
+	       project.tasks << task
 	       projects << project
 	       project = new Expando(id : 5,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
+	       project.tasks = []
+	       task = new Expando(name : "contrat et caution", progression : 100)
+	       project.tasks << task
+	       task = new Expando(name : "item 1", progression : 100)
+	       project.tasks << task
 	       projects << project
 	       project = new Expando(id : 6,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
+	       project.tasks = []
+	       task = new Expando(name : "contrat et caution", progression : 100)
+	       project.tasks << task
+	       task = new Expando(name : "item 1", progression : 100)
+	       project.tasks << task
 	       projects << project
 	       session.setAttribute("projects",projects)
        }

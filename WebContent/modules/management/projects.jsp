@@ -124,13 +124,7 @@
 		<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Progression </span> <span class="badge badge-info">{progression}%</span> <a class="tasks"><i class="fa fa-info" aria-hidden="true"></i></a>
 		<div class="info-tasks">
 		  <h1><i class="fa fa-tasks" aria-hidden="true"></i> Tâches</h1>
-		  <ol>
-		  	<li>tâche 1 <span class="badge badge-info">100%</span></li>
-		  	<li>tâche 2 <span class="badge badge-info">100%</span></li>
-		  	<li>tâche 3 <span class="badge badge-info">100%</span></li>
-		  	<li>tâche 4 <span class="badge badge-info">100%</span></li>
-		  	<li>tâche 5 <span class="badge badge-info">100%</span></li>
-		  	<li>tâche 6 <span class="badge badge-info">100%</span></li>
+		  <ol data-template="tasks">
 		  </ol>
 		</div>
 	</fieldset>
@@ -259,6 +253,11 @@
    	  </div>
    	   <hr/>
    	  {/.}
+  </template>
+  <template id="template-tasks">
+    {#.}
+    <li><span>{name}</span> <span class="badge badge-info">{progression}%</span></li>
+	{/.}  
   </template>	
   </div>
      <div class="plans">
