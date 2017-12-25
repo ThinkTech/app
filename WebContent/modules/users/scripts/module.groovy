@@ -35,6 +35,11 @@ class ModuleAction extends ActionSupport {
 	   response.writer.write(json([status: 1]))
 	}
 	
+	def recoverPassword() {
+	   def user = new JsonSlurper().parse(request.inputStream) 
+	   response.writer.write(json([status: 1]))
+	}
+	
 	def updateProfil() {
 	   response.writer.write(json([status: 1]))
 	}

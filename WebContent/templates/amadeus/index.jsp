@@ -58,7 +58,7 @@
 			   <input placeholder="email" name="email" type="email" required>
 			   <input type="submit" value="Récupérer">
 			   <div class="rem-w3">
-					<a class="w3-pass"><i class="fa fa-sign-out" aria-hidden="true"></i> annuler</a>
+					<a class="w3-pass"><i class="fa fa-sign-out" aria-hidden="true"></i> retour</a>
 					<div class="clear"></div>
 			  </div>
 			  </form>
@@ -89,6 +89,24 @@
 					  contentType : "application/json",
 					  success: function(response) {
 						  location.href = response.url;
+					  },
+					  dataType: "json"
+				});
+				return false;
+			});
+			$(".recover form").submit(function(event){
+				const form = $(this);
+				const user = {};
+				user.email = form.find("input[name=email]").val();
+				page.wait({top : form.offset().top});
+				$.ajax({
+					  type: "POST",
+					  url: form.attr("action"),
+					  data: JSON.stringify(user),
+					  contentType : "application/json",
+					  success: function(response) {
+						  alert("un message vous a été envoyé à l'adresse fournie");
+						  page.release();
 					  },
 					  dataType: "json"
 				});

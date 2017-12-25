@@ -277,14 +277,20 @@ a.w3-pass {
 }
 
 #confirm-dialog-container span:nth-child(1), #alert-dialog-container span:nth-child(1)
-	{
+{
 	background: #05d2ff;
+	width : 96%;
+	height : 25px;
 }
 
 #confirm-dialog-container a, #alert-dialog-container a,
 	#alert-dialog-container span:nth-child(1) {
 	background: #05d2ff;
 	background-color: #05d2ff;
+}
+
+#confirm-dialog-container a, #alert-dialog-container a{
+	height : 22px;
 }
 
 #confirm-dialog-container a:hover, #alert-dialog-container a:hover,
@@ -294,6 +300,7 @@ a.w3-pass {
 	border: 1px solid;
 	text-decoration: none;
 	outline: none;
+	height : 22px;
 }
 
 #confirm-dialog-container i, #alert-dialog-container i {
