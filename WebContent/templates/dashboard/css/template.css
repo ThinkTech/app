@@ -750,15 +750,10 @@ h3 .fa-question-circle-o {
    font-family: 'Work Sans', sans-serif;
 }
 .work-progres {
-    box-shadow: 0px 0px 2px 1px #dff9ff;
     padding: 0.5em 0.5em;
     background: #fff;
     min-height : 320px;
 }
-/*--geochart start here--*/
-/*--climate start here--*/
-/*--climate end here--*/
-/*--copyrights start here--*/
 #confirm-dialog-container, #alert-dialog-container {
     font-family: Tahoma;
 }
