@@ -3,14 +3,8 @@ page.form = {};
 page.form.show = function(){
 	const form = $(".window.form");
 	const area = $('textarea',form);
-	if(area.length) {
-		tinymce.init({target:area[0],language: 'fr_FR',menubar:false,statusbar: false,
-		setup : function(editor){
-			page.form.loaded = true;
-			form.show();
-		}});
-	}
-	if(page.form.loaded)form.show();
+	if(area.length) tinymce.init({target:area[0],language: 'fr_FR',menubar:false,statusbar: false});
+	form.show();
 };
 
 page.details = {};
