@@ -465,6 +465,7 @@ legend a i.fa {
 		height : 110px;
 		font-size: 12px;
 	}
+	.info-tasks li span:first-of-type {font-size : 12px;}
 }
 
 @media(max-width:640px){
