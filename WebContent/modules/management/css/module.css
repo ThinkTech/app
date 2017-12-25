@@ -212,13 +212,14 @@
 	margin-top : -10px;
 }
 
-.window > div .message-list > div > div img {
+.window > div .message-list > div > div i {
 	display : inline-block;
 	vertical-align : top;
-	width : 32px;
-	height : 32px;
+	font-size : 2em;
 	position : relative;
 	top : -6px;
+	color : #000;
+	margin-right : 5px;
 }
 
 .window > div .message-list > div > div span {
@@ -232,18 +233,20 @@
 	top : -2px;
 	position : relative;
 	text-align : right;
+	font-weight : normal;
 }
 
 .window > div .message-list > div > div div.message {
-	margin-top : 0px;
+	margin-top : -7px;
 	display : inline-block;
 	width : 77%;
 	vertical-align : top;
 	margin-right : 2%;
 }
 
-.window > div .message-list > div > div {
-	background : #ffe;
+.window > div .message-list > div > div div.message p {
+	word-break : break-all;
+	margin-bottom : 6px;
 }
 
 .window > div h1 i.fa {
@@ -293,6 +296,7 @@ legend {
 	font-size : 18px;
 	color : #05d2ff;
 	font-weight : bold;
+	padding-bottom : 1px;
 }
 
 legend a {

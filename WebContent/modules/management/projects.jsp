@@ -247,7 +247,7 @@
   <template id="template-comments">
       {#.}
       <div>
-        <img width= "32px" height="32" src="${images}/user_64.png"/> 
+        <i class="fa fa-user" aria-hidden="true"></i>
    	  	<div class="message">{message|s}</div>
    	  	<span>14/12/2017 - 17:35:25</span>
    	  </div>

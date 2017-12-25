@@ -21,7 +21,7 @@
 					    <div class="first-one-inner lost">
 						    <div class="user profile">
 								<div class="profile-bottom">
-									<img src="${images}/user_128.png" alt="" width="128px" height="128px"/>
+									<i class="fa fa-user" aria-hidden="true"></i>
 								</div>
 								<div>
 								   <fieldset class="profile-details">
