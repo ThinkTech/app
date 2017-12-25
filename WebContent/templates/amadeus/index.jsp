@@ -1,3 +1,4 @@
+
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
@@ -41,16 +42,26 @@
 			<div class="wthree-pro">
 				<h2><i class="fa fa-user" aria-hidden="true"></i> Entrez vos identifiants</h2>
 			</div>
-			<div class="sub-main-w3">	
+			<div class="sub-main-w3 login">	
 				<form action="users/login" method="post">
 					<input placeholder="email" name="email" type="email" required>
 					<input  placeholder="mot de passe" name="password" type="password" required>
 					<input type="submit" value="Connexion">
 					<div class="rem-w3">
-						<a class="w3-pass" href="#"><i class="fa fa-key" aria-hidden="true"></i> mot de passe oublié?</a>
+						<a class="w3-pass"><i class="fa fa-key" aria-hidden="true"></i> mot de passe oublié?</a>
 						<div class="clear"></div>
 					</div>
 				</form>
+			</div>
+			<div class="sub-main-w3 recover">
+			  <form action="users/password/recover" method="post">
+			   <input placeholder="email" name="email" type="email" required>
+			   <input type="submit" value="Récupérer">
+			   <div class="rem-w3">
+					<a class="w3-pass"><i class="fa fa-sign-out" aria-hidden="true"></i> annuler</a>
+					<div class="clear"></div>
+			  </div>
+			  </form>
 			</div>
 		</div>
 		<!--//main-->
@@ -65,7 +76,7 @@
 <script>
 		jQuery(document).ready(function( $ ) {
 			$('input[name=email]').focus();
-			$("form").submit(function(event){
+			$(".login form").submit(function(event){
 				const form = $(this);
 				const user = {};
 				user.email = form.find("input[name=email]").val();
@@ -82,6 +93,14 @@
 					  dataType: "json"
 				});
 				return false;
+			});
+			$(".login a").click(function(){
+				$(".login").hide();
+				$(".recover").show();
+			});
+			$(".recover a").click(function(){
+				$(".login").show();
+				$(".recover").hide();
 			});
 		});
 </script>
