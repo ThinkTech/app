@@ -263,6 +263,10 @@
 	color : #05d2ff;
 }
 
+.info-tasks ol {
+	padding-bottom : 5px;
+}
+
 .info-tasks li span {
 	display : inline-block;
 }
