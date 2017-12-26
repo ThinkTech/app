@@ -159,6 +159,8 @@
 
 .window > div ul.not-empty, .window > div ol.not-empty {
 	margin-top : -10px;
+	padding-top : 5px;
+	padding-bottom : 5px;
 }
 
 .window > div ul a, .window > div ol a {
@@ -244,7 +246,16 @@
 	width : 77%;
 	vertical-align : top;
 	margin-right : 2%;
-	padding : 2px;
+}
+
+.window > div .message-list > div > div:nth-child(odd) {
+	background : #fff;
+}
+
+.window > div .message-list > div > div:nth-child(even) {
+	background : #ffe;
+	margin-top : -10px;
+	padding-top : 10px;
 }
 
 .window > div .message-list > div > div div.message p {
@@ -556,12 +567,12 @@ legend a i.fa {
     background: #FFF;
     text-align: center;
     padding: 2em;
-    padding-top : 1em;
+    padding-top : 0.5em;
     padding-bottom : 1em;
     border-radius: 5px;
 }
 .pricing-bottom-top {
-    padding-bottom: 1em;
+    padding-bottom: 0.5em;
 }
 .pricing-bottom-top p{
     color: #333;

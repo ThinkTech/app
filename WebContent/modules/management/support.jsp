@@ -166,8 +166,8 @@
 	        <i class="fa fa-user" aria-hidden="true"></i> 
 	   	  	<div class="message">{message|s}</div>
 	   	  	<span>14/12/2017 - 17:35:25</span>
+	   	  	 <hr/>
 	   	  </div>
-	   	   <hr/>
    	  {/.}
    	</template>
 	</div>
