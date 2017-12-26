@@ -239,7 +239,7 @@
   <template id="template-documents">
 		{#.}
 			<li>
-				<a href="${url}/projects/documents/download?name={name}">{name}</a>
+				<a href="${url}/projects/documents/download?name={name}"><i class="fa fa-file" aria-hidden="true"></i> {name}</a>
 				<span>14/12/2017 - 17:35:25</span>
 			</li>
 		 {/.}
