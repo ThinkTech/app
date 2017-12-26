@@ -209,6 +209,7 @@
 .window > div .info-tasks .badge {
 	background : #212121;
 	margin-left : 10px;
+	font-weight : bold;
 }
 
 .window > div .message-list > div:first-of-type {
