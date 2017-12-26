@@ -635,15 +635,6 @@ p.text {
 }
 
 @media(max-width:320px){
-.pricing-bottom {
-	padding: 1em 2em;
-}
-.pricing-bottom-top {
-	padding-bottom: 1em;
-}
-.pricing-bottom-bottom {
-	padding: 1em 0;
-}
 p.text {
 	margin-bottom: 0;
 }
