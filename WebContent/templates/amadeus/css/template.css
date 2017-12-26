@@ -451,7 +451,7 @@ a.w3-pass {
 
 @media ( max-width : 640px) {
 	.header-w3l h1 {
-		font-size: 4.5em;
+		font-size: 4em;
 	}
 	.sub-main-w3 input[type="submit"] {
 		padding: .7em 2.5em;
@@ -520,7 +520,7 @@ a.w3-pass {
 		padding: 0em 0;
 	}
 	.header-w3l h1 {
-		font-size: 3.9em;
+		font-size: 3.2em;
 	}
 	.main-content-agile {
 		width: 86%;
@@ -547,9 +547,6 @@ a.w3-pass {
 }
 
 @media ( max-width : 414px) {
-	.header-w3l h1 {
-		font-size: 1.7em;
-	}
 	.wthree-pro h2 {
 		font-size: 1.2em;
 	}
@@ -591,12 +588,10 @@ a.w3-pass {
 
 @media ( max-width : 384px) {
 	.header-w3l h1 {
-		font-size: 3em;
+		font-size: 2.8em;
 		letter-spacing: 1px;
-		margin-top: -15px;
-	}
-	.header-w3l {
-		padding: 1.5em 0;
+		margin-top : -15px;
+		margin-bottom : 5px;
 	}
 	.main-content-agile {
 		width: 89%;
