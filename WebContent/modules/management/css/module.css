@@ -258,6 +258,12 @@
 	padding-top : 10px;
 }
 
+.window > div .message-list > div > div:first-of-type {
+	background : #fff;
+	margin-top : 0px;
+	padding-top : 0px;
+}
+
 .window > div .message-list > div > div div.message p {
 	word-break : break-all;
 	margin-bottom : 7px;
