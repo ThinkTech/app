@@ -223,6 +223,7 @@
 	top : -6px;
 	color : #05d2ff;
 	margin-right : 5px;
+	margin-left : 5px;
 }
 
 .window > div .message-list > div > div span {
@@ -246,6 +247,7 @@
 	width : 77%;
 	vertical-align : top;
 	margin-right : 2%;
+	margin-left : 5px;
 }
 
 .window > div .message-list > div > div:nth-child(odd) {
