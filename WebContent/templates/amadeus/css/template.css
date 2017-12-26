@@ -133,7 +133,7 @@ body {
 
 .wthree-pro {
 	background: #05d2ff;
-	border: 1px solid #888a8e;
+	border: 1px solid #999;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -184,29 +184,24 @@ body {
 }
 
 .sub-main-w3 input[type="submit"] {
-	color: #fff;
+	color: #000;
 	text-shadow: 1px 1px #5a8182;
-	background: #05d2ff;
-	border: 1px solid #c8ccd0;
+	background: #fff;
+	border: 1px solid #05d2ff;
 	margin-bottom: 10px;
 	padding: .7em 3em;
 	outline: none;
 	font-size: 1.05em;
 	cursor: pointer;
 	letter-spacing: 1px;
-	transition: 0.5s all;
-	-webkit-transition: 0.5s all;
-	-o-transition: 0.5s all;
-	-moz-transition: 0.5s all;
-	-ms-transition: 0.5s all;
 	font-family: 'Work Sans', sans-serif;
 	margin-top: 1.6em;
 	width: 77.5%;
 }
 
 .sub-main-w3 input[type="submit"]:hover {
-	background: #fff;
-	color: #000;
+	background: #05d2ff;
+	color: #fff;
 	border: 1px solid #c8ccd0;
 }
 
@@ -472,9 +467,6 @@ a.w3-pass {
 }
 
 @media ( max-width : 600px) {
-	.header-w3l h1 {
-		font-size: 2.1em;
-	}
 	.wthree-pro h2 {
 		font-size: 1.3em;
 	}
@@ -525,11 +517,10 @@ a.w3-pass {
 		margin-top: 20px;
 	}
 	.header-w3l {
-		padding: 1.5em 0;
+		padding: 0em 0;
 	}
 	.header-w3l h1 {
 		font-size: 3.9em;
-		margin-top: -15px;
 	}
 	.main-content-agile {
 		width: 86%;

@@ -1,4 +1,9 @@
 import org.metamorphosis.core.ActionSupport
+import org.metamorphosis.core.Mail
+import org.metamorphosis.core.MailConfig
+import org.metamorphosis.core.MailSender
+import groovy.text.markup.TemplateConfiguration
+import groovy.text.markup.MarkupTemplateEngine
 import static groovy.json.JsonOutput.toJson as json
 import groovy.json.JsonSlurper
 
@@ -36,7 +41,11 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def recoverPassword() {
-	   def user = new JsonSlurper().parse(request.inputStream) 
+	   def user = new JsonSlurper().parse(request.inputStream)
+	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
+	   def mailSender = new MailSender(mailConfig)
+	   def mail = new Mail("Mamadou Lamine Ba","$user.email","Récupération de votre mot de passe",getPasswordTemplate(user))
+	   mailSender.sendMail(mail) 
 	   response.writer.write(json([status: 1]))
 	}
 	
@@ -48,6 +57,42 @@ class ModuleAction extends ActionSupport {
 	    session.invalidate()
 		def url = request.contextPath+"/"
 		response.sendRedirect(url)
+	}
+	
+	def getPasswordTemplate(user) {
+	    TemplateConfiguration config = new TemplateConfiguration()
+		MarkupTemplateEngine engine = new MarkupTemplateEngine(config)
+		def text = '''\
+		 div(style : "background:#fafafa;padding-bottom:16px;padding-top: 25px"){
+		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
+		    img(src : "https://www.thinktech.sn/images/logo.png", style : "display:block;margin : 0 auto")
+		    div(style : "margin-top:10px;padding:10px;height:90px;text-align:center;background:#eee") {
+		      h4(style : "font-size: 200%;color: rgb(0, 0, 0);margin: 3px") {
+		        span("R&edot;cup&edot;ration mot de passe")
+		      }
+		      p(style : "font-size:150%;color:rgb(100,100,100)"){
+		         span("r&edot;initialisation reussie")
+		      }
+		    }
+		    div(style : "width:90%;margin:auto;margin-top : 30px;margin-bottom:30px") {
+		      p("Votre mot de passe a &edot;t&edot; r&edot;initialis&edot;")
+		      br()
+		      p("Mot de passe : <b>12455444444</b>")
+		      br()
+		      p("Vous pouvez le modifier en vous connectant &aacute; <a href='$url'>votre compte client</a>")
+		    }
+		  }
+		  
+		  div(style :"margin: 10px;margin-top:10px;font-size : 11px;text-align:center") {
+		      p("Vous recevez cet email parce que vous (ou quelqu'un utilisant cet email)")
+		      p("a envoy&edot; une demande en utilisant cette adresse")
+		  }
+		  
+		   
+		 }
+		'''
+		def template = engine.createTemplate(text).make([user:user,url : baseUrl])
+		template.toString()
 	}
 	
 }

@@ -59,34 +59,22 @@
 							<div class="profile_details_left"><!--notifications of menu start -->
 								<ul class="nofitications-dropdown">
 									<li class="dropdown head-dpdn">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge">3</span></a>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge">${messages_count}</span></a>
 										<ul class="dropdown-menu">
 											<li>
 												<div class="notification_header">
-													<h3>Vous avez 3 nouveaux messages</h3>
+													<h3>Vous avez ${messages_count} nouveaux messages</h3>
 												</div>
 											</li>
+											<s:iterator value="#request.inbox" var="message" status="status">
 											<li><a href="dashboard/messages">
 											   <div class="notification_desc">
-												<p>création site web</p>
+												<p>${message.properties['subject']}</p>
 												<p><span>1 hour ago</span></p>
 												</div>
 											   <div class="clearfix"></div>	
 											</a></li>
-											<li class="odd"><a href="dashboard/messages">
-											   <div class="notification_desc">
-												<p>création site web</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											  <div class="clearfix"></div>	
-											</a></li>
-											<li><a href="dashboard/messages">
-											   <div class="notification_desc">
-												<p>création site web</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											</a></li>
+											</s:iterator>
 											<li>
 												<div class="notification_bottom">
 													<a href="dashboard/messages">voir messages</a>
