@@ -517,10 +517,12 @@ a.w3-pass {
 		margin-top: 20px;
 	}
 	.header-w3l {
-		padding: 0em 0;
+		padding: 2em 0;
 	}
 	.header-w3l h1 {
 		font-size: 3.2em;
+		margin-top : -15px;
+		margin-bottom : 0px;
 	}
 	.main-content-agile {
 		width: 86%;
@@ -590,8 +592,8 @@ a.w3-pass {
 	.header-w3l h1 {
 		font-size: 2.8em;
 		letter-spacing: 1px;
-		margin-top : -15px;
-		margin-bottom : 5px;
+		margin-top : -25px;
+		margin-bottom : 0px;
 	}
 	.main-content-agile {
 		width: 89%;
