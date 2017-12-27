@@ -160,6 +160,7 @@ body {
 .sub-main-w3 {
 	position: relative;
 	padding: 2.3em;
+	padding-top : 2em;
 	padding-bottom: 3.5em;
 	background: rgba(0, 0, 0, 0.58);
 }
@@ -225,7 +226,7 @@ span.icon1, span.icon2 {
 .rem-w3 {
 	margin: 1em 0;
 	position: absolute;
-	right: 10px;
+	left : 105px;
 	margin-top: -2px;
 }
 
@@ -528,6 +529,7 @@ a.w3-pass {
 	}
 	.sub-main-w3 {
 		padding: 2em;
+		padding-top : 1.5em;
 		padding-bottom: 3em;
 	}
 	span.icon1, span.icon2 {
@@ -548,6 +550,10 @@ a.w3-pass {
 }
 
 @media ( max-width : 414px) {
+	.sub-main-w3 {
+		padding: 1.8em;
+		padding-top : 1.4em;
+	}
 	.wthree-pro h2 {
 		font-size: 1.2em;
 	}
@@ -559,7 +565,7 @@ a.w3-pass {
 	.sub-main-w3 a {
 		font-size: .7em;
 		display: block;
-		top: 5px
+		top: 2px
 	}
 	.social-icons ul li a.fa {
 		margin: 0 4px;
@@ -606,7 +612,7 @@ a.w3-pass {
 @media ( max-width : 375px) {
 	.sub-main-w3 {
 		padding: 1.8em;
-		padding-bottom: 1.9em;
+		padding-top : 1.4em;
 	}
 	.wthree-pro h2 {
 		font-size: 1.1em;
