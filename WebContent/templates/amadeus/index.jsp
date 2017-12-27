@@ -18,24 +18,18 @@
  <meta name="twitter:title" property="og:title" content="ThinkTech - Portail"> 
  <meta name="twitter:description" property="og:description" content="Bienvenue sur le portail de ThinkTech"> 
  <meta name="twitter:image" property="og:image" content="${baseUrl}/images/banner.jpeg">
-<!-- Meta tag Keywords -->
-<!-- css files -->
 <style type="text/css">
  <%@include file="/css/metamorphosis.css"%>
 </style>
 <style type="text/css">
  <%@include file="/templates/amadeus/css/template.css"%>
 </style>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" media="all">
-<!-- //css files -->
-<!-- online-fonts -->
-<link href="//fonts.googleapis.com/css?family=Work+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-<!-- //online-fonts -->
 <link rel="shortcut icon" href="images/favicon.png" sizes="32x32">
 <link rel="manifest" href="manifest.json">
 <script>
 <%@include file="/js/jquery-3.1.1.min.js"%>
 </script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
 <div class="w3-agile-banner">
