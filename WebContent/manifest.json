@@ -1,8 +1,8 @@
 {
   "name": "ThinkTech Portail",
   "short_name": "ThinkTech Portail",
-  "theme_color": "#ff9b05",
-  "background_color": "#ff9b05",
+  "theme_color": "#05d2ff",
+  "background_color": "#05d2ff",
   "orientation": "portrait",
   "display": "standalone",
   "start_url": ".",

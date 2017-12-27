@@ -20,8 +20,12 @@
  <meta name="twitter:image" property="og:image" content="${baseUrl}/images/banner.jpeg">
 <!-- Meta tag Keywords -->
 <!-- css files -->
-<link rel="stylesheet" href="css/metamorphosis.css" type="text/css" media="all" /> <!-- Style-CSS --> 
-<link rel="stylesheet" href="templates/amadeus/css/template.css" type="text/css" media="all" /> <!-- Style-CSS --> 
+<style type="text/css">
+ <%@include file="/css/metamorphosis.css"%>
+</style>
+<style type="text/css">
+ <%@include file="/templates/amadeus/css/template.css"%>
+</style>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" media="all">
 <!-- //css files -->
 <!-- online-fonts -->
@@ -29,6 +33,9 @@
 <!-- //online-fonts -->
 <link rel="shortcut icon" href="images/favicon.png" sizes="32x32">
 <link rel="manifest" href="manifest.json">
+<script>
+<%@include file="/js/jquery-3.1.1.min.js"%>
+</script>
 </head>
 <body>
 <div class="w3-agile-banner">
@@ -72,8 +79,7 @@
 		</div>
 		<!--//footer-->
 	</div>
-<script type="text/javascript" src="templates/amadeus/js/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="js/metamorphosis.js"></script>
+<script type="text/javascript" src="js/metamorphosis.js" defer></script>
 <script>
 		jQuery(document).ready(function( $ ) {
 			$('input[name=email]').focus();
