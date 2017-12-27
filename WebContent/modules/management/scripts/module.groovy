@@ -105,7 +105,15 @@ class ModuleAction extends ActionSupport {
 	   def mailSender = new MailSender(mailConfig)
 	   def mail = new Mail("Mamadou Lamine Ba","lamine.ba@thinktech.sn","Projet : ${project.subject}",getProjectTemplate(project))
 	   //mailSender.sendMail(mail) 
+	   createBill()
 	   response.writer.write(json([status: 1]))
+	}
+	
+	def createBill(){
+	   showBills()
+	   def bills = session.getAttribute("bills")
+	   def bill = new Expando(id : bills.size()+1,fee: 'caution',service : 'site web',amount : '60 000',date : "17/09/2017",status : "stand by")
+	   bills << bill
 	}
 	
 	def getProjectInfo() {
@@ -232,20 +240,23 @@ class ModuleAction extends ActionSupport {
     def showBills(){
        request.setAttribute("total",6)
        request.setAttribute("unpayed",4)
-       def bills = []
-       def bill = new Expando(id : 1,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "finished")
-       bills << bill
-       bill = new Expando(id : 2,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "finished")
-       bills << bill
-       bill = new Expando(id : 3,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "stand by")
-       bills << bill
-       bill = new Expando(id : 4,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "stand by")
-       bills << bill
-       bill = new Expando(id : 5,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "stand by")
-       bills << bill
-       bill = new Expando(id : 6,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "stand by")
-       bills << bill
-       session.setAttribute("bills",bills)
+       def bills = session.getAttribute("bills")
+       if(!bills) {
+	       bills = []
+	       def bill = new Expando(id : 1,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "finished")
+	       bills << bill
+	       bill = new Expando(id : 2,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "finished")
+	       bills << bill
+	       bill = new Expando(id : 3,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "stand by")
+	       bills << bill
+	       bill = new Expando(id : 4,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "stand by")
+	       bills << bill
+	       bill = new Expando(id : 5,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "stand by")
+	       bills << bill
+	       bill = new Expando(id : 6,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "stand by")
+	       bills << bill
+	       session.setAttribute("bills",bills)
+       }
        SUCCESS
     }
     

@@ -206,8 +206,8 @@ $(document).ready(function(){
 			}
 			project.date ="14/12/2017";
 			confirm("&ecirc;tes vous s&ucirc;r de vouloir cr&edot;&edot;r ce projet?",function(){
-				$(".window").hide();
-				page.wait({top : form.offset().top});
+				page.form.hide();
+				page.wait({top : form.offset().top+200});
 				$.ajax({
 					  type: "POST",
 					  url: form.attr("action"),

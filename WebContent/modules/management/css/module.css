@@ -137,12 +137,7 @@
 
 .window > div input[type="submit"]:hover,.window > div input[type="button"]:hover{
   background:#05d2ff;
-  transition: 0.5s all;
-  -webkit-transition: 0.5s all;
-  -moz-transition: 0.5s all;
-  -o-transition: 0.5s all;
 }
-
 
 .window > div fieldset input[type=file] {
     display: inline-block;
@@ -520,6 +515,10 @@ legend a i.fa {
 	.window > div ol li a{margin-bottom : 2px;display:block;width:100%;white-space:normal;word-break : break-all}
 	.window > div ol li span{text-align:left}
 	.window > div .message-list > div > div div.message {width : 100%;}
+}
+
+@media(max-width:480px){
+	.project-wizard p {text-align : center}
 }
 
 /*-- pricing --*/

@@ -3,8 +3,12 @@ page.form = {};
 page.form.show = function(){
 	const form = $(".window.form");
 	const area = $('textarea',form);
-	if(area.length) tinymce.init({target:area[0],language: 'fr_FR',menubar:false,statusbar: false});
+	if(area.length) tinymce.init({target:area[0],height:"150",language: 'fr_FR',menubar:false,statusbar: false});
 	form.show();
+};
+
+page.form.hide = function(){
+	$(".window.form").hide();
 };
 
 page.details = {};
@@ -53,7 +57,7 @@ page.details.show = function(entity) {
 		  if(areas.length) {
 			  tinymce.remove();
 			  $.each(areas,function(i,node){
-				  tinymce.init({target:node,language: 'fr_FR',menubar:false,statusbar: false}); 
+				  tinymce.init({target:node,height:"120",language: 'fr_FR',menubar:false,statusbar: false}); 
 			  });
 		  }
 		  div.show();

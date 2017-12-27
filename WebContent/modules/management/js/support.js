@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 	page.details.bind = function(container,ticket) {
 		if(ticket.status == "finished") {
@@ -60,8 +61,8 @@ $(document).ready(function(){
 			const date = new Date();
 			ticket.date = date.getDay()+"/"+date.getMonth()+"/"+date.getFullYear();
 			confirm("&ecirc;tes vous s&ucirc;r de vouloir cr&edot;&edot;r ce ticket?",function(){
-				$(".window").hide();
-				page.wait({top : form.offset().top});
+				page.form.hide();
+				page.wait({top : form.offset().top+200});
 				$.ajax({
 					  type: "POST",
 					  url: form.attr("action"),
