@@ -143,11 +143,10 @@ body {
 .wthree-pro h2 {
 	font-size: 1.65em;
 	color: #fff;
-	text-shadow: 1px 1px #5a8182;
 	letter-spacing: 1px;
 	padding: 0.9em 0;
 	font-weight: 600;
-	font-family: "Work Sans";
+	font-family: "Tahoma";
 }
 
 .recover {
@@ -185,16 +184,16 @@ body {
 
 .sub-main-w3 input[type="submit"] {
 	color: #000;
-	text-shadow: 1px 1px #5a8182;
 	background: #fff;
 	border: 1px solid #05d2ff;
 	margin-bottom: 10px;
 	padding: .7em 3em;
 	outline: none;
 	font-size: 1.05em;
+	font-weight : bold;
 	cursor: pointer;
 	letter-spacing: 1px;
-	font-family: 'Work Sans', sans-serif;
+	font-family: 'Tahoma', sans-serif;
 	margin-top: 1.6em;
 	width: 77.5%;
 }
