@@ -1,4 +1,3 @@
-
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
@@ -24,12 +23,12 @@
 <style type="text/css">
  <%@include file="/templates/amadeus/css/template.css"%>
 </style>
-<link rel="shortcut icon" href="images/favicon.png" sizes="32x32">
-<link rel="manifest" href="manifest.json">
 <script>
 <%@include file="/js/jquery-3.1.1.min.js"%>
 </script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" media="all">
+<link rel="shortcut icon" href="images/favicon.png" sizes="32x32">
+<link rel="manifest" href="manifest.json">
 </head>
 <body>
 <div class="w3-agile-banner">
