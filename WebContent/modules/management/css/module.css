@@ -311,7 +311,7 @@
 }
 
 legend {
-	font-size : 18px;
+	font-size : 17px;
 	color : #05d2ff;
 	font-weight : bold;
 	padding-bottom : 1px;
@@ -323,6 +323,7 @@ legend a {
 
 legend i {
 	color : #000000;
+	font-weight : bold;
 }
 
 legend a i.fa {

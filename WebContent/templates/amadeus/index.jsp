@@ -27,7 +27,8 @@
 <!-- online-fonts -->
 <link href="//fonts.googleapis.com/css?family=Work+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 <!-- //online-fonts -->
-<link rel="shortcut icon" href="templates/amadeus/images/arrow.png" sizes="32x32">
+<link rel="shortcut icon" href="images/favicon.png" sizes="32x32">
+<link rel="manifest" href="manifest.json">
 </head>
 <body>
 <div class="w3-agile-banner">
