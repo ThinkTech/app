@@ -56,7 +56,7 @@
 			<div class="sub-main-w3 recover">
 			  <form action="users/password/recover" method="post">
 			   <input placeholder="email" name="email" type="email" required>
-			   <input type="submit" value="Récupérer">
+			   <input type="submit" value="Réinitialiser">
 			   <div class="rem-w3">
 					<a class="w3-pass"><i class="fa fa-sign-out" aria-hidden="true"></i> retour</a>
 					<div class="clear"></div>
