@@ -121,6 +121,9 @@
 				$(".login").show();
 				$(".recover").hide();
 			});
+			if('serviceWorker' in navigator) {
+				navigator.serviceWorker.register('sw.js');
+			};
 		});
 </script>
 </div>
