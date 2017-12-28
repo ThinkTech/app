@@ -39,7 +39,7 @@
 	color:#3a0b03;
 	border: 1px solid #05d2ff;
 	border-radius: 5px;
-	font-family : 'Work Sans';
+	font-family : Tahoma;
 	margin-bottom : 30px;
 }
 
@@ -67,7 +67,7 @@
 #checkout-wizard fieldset > h3 {
 	margin-top: 15px;
     margin-left: 1px;
-    font-family: 'Work Sans';
+    font-family: Tahoma;
     background: #180101;
     padding: 10px;
     color : #fff;
@@ -136,7 +136,7 @@
 .checkout-wizard-content fieldset h6 {
     font-size: 13px;
     line-height: 1.4em;
-    font-family: 'Work Sans';
+    font-family: Tahoma;
 }
 
 .checkout-wizard-content fieldset span input {
@@ -147,7 +147,7 @@
 	font-size: 1.3em;
     position: relative;
     top: 0px;
-    font-family: 'Work Sans';
+    font-family: Tahoma;
     letter-spacing: 0;
     color: #05d2ff;
     width: 165px;
@@ -181,7 +181,7 @@
 .shopping-payment li {
 	font-size: 13px;
     line-height: 1.5em;
-    font-family: 'Work Sans';
+    font-family: Tahoma;
     text-align : left;
 }
 
@@ -255,7 +255,7 @@
     padding: 10px;
     background: #05d2ff;
     color: white;
-    font-family : 'Work Sans';
+    font-family : Tahoma;
     font-weight : bold;
 }
 
@@ -291,7 +291,7 @@
     margin-right : 3px;
     text-align : center;
     cursor : pointer;
-    font-family : 'Work Sans';
+    font-family : Tahoma;
     user-select : none;
     border: 2px solid #05d2ff;
     border-radius: 25px;
@@ -318,7 +318,7 @@
     margin-top: 3px;
     color: #180101;
     margin-right: 0px;
-    font-family: 'Work Sans';
+    font-family: Tahoma;
     background: #fff;
     width : 200px;
     white-space: nowrap;
@@ -339,7 +339,7 @@
     color: white;
     padding: 7px;
     width : 100px;
-   font-family: 'Work Sans';
+   font-family: Tahoma;
    height : 39px;
     font-size: 15px;
 } 
@@ -357,7 +357,7 @@
     color: white;
     padding: 7px;
     width : 100px;
-    font-family: 'Work Sans';
+    font-family: Tahoma;
     height : 39px;
     font-size: 15px;
 }
