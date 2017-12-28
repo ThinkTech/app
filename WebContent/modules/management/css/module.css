@@ -512,10 +512,10 @@ legend a i.fa {
 	.project-wizard p {font-size: 13px;width : 89%}
 	.project-wizard h1{margin-left: -16px;}
 	.window > div .terms-agreement {font-size: 13px;margin-top: 5px;}
-	.window > div .message-list > div > div span,.window > div ol li span {display : block;width:100%;text-align:right}
+	.window > div .message-list > div > div span,.window > div ol li span {display : block;width:100%;text-align:right;margin-left:2px}
 	.window > div ol li a{margin-bottom : 2px;display:block;width:100%;white-space:normal;word-break : break-all}
 	.window > div ol li span{text-align:left}
-	.window > div .message-list > div > div div.message {width : 100%;}
+	.window > div .message-list > div > div div.message {width : 98.680%;}
 }
 
 @media(max-width:480px){
