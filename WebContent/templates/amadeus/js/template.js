@@ -1,4 +1,4 @@
-jQuery(document).ready(function( $ ) {
+$(document).ready(function(){
 		$('input[name=email]').focus();
 		$(".login form").submit(function(event){
 			const form = $(this);
@@ -12,7 +12,16 @@ jQuery(document).ready(function( $ ) {
 				  data: JSON.stringify(user),
 				  contentType : "application/json",
 				  success: function(response) {
-					  location.href = response.url;
+					  if(response.url) {
+						  location.href = response.url;
+					  }else {
+						  page.release();
+						  alert("email ou mot de passe incorrect");
+					  }
+				  },
+				  error : function(){
+					page.release();
+					alert("erreur lors de la connexion au serveur");  
 				  },
 				  dataType: "json"
 			});
@@ -29,8 +38,12 @@ jQuery(document).ready(function( $ ) {
 				  data: JSON.stringify(user),
 				  contentType : "application/json",
 				  success: function(response) {
-					  alert("un message vous a été envoyé à l'adresse fournie");
 					  page.release();
+					  alert("un message vous a &edot;t&edot; envoy&edot; &agrave; l'adresse fournie");
+				  },
+				  error : function(){
+					page.release();
+					alert("erreur lors de la connexion au serveur");  
 				  },
 				  dataType: "json"
 			});
