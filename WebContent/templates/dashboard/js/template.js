@@ -140,7 +140,6 @@ page.table.addRow = function(entity,callback) {
 };
 
 $(document).ready(function(){
-	page.table.paginate();
 	$.each($(".menu a"),function(i,element){
 		 const link = $(element);
 		 const href = link.attr("href");
@@ -149,6 +148,7 @@ $(document).ready(function(){
 			 return false;
 	     };
 	});
+	page.table.paginate();
 	$(".window .close").click(function(event) {
 		const div = $(this).parent().parent().hide();
 		div.find(".document-list,.message-list").show();
