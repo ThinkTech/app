@@ -208,6 +208,10 @@
 }
 
 .window > div .message-list > div:first-of-type {
+	margin-top : -20px;
+}
+
+.window > div .description .message-list > div:first-of-type {
 	margin-top : -10px;
 }
 
@@ -247,7 +251,9 @@
 }
 
 .window > div .message-list > div > div:nth-child(odd) {
-	background : #fff;
+	background : #e2f6f5;
+	margin-top : -10px;
+	padding-top : 10px;
 }
 
 .window > div .message-list > div > div:nth-child(even) {
@@ -257,14 +263,13 @@
 }
 
 .window > div .message-list > div > div:first-of-type {
-	background : #fff;
-	margin-top : 0px;
-	padding-top : 0px;
+	background : #e2f6f5;
+	margin-top : -10px;
+	padding-top : 10px;
 }
 
 .window > div .message-list > div > div div.message p {
 	word-break : break-all;
-	margin-bottom : 7px;
 }
 
 .window > div h1 i.fa {
