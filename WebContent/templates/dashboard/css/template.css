@@ -55,7 +55,7 @@ input:focus, select:focus, textarea:focus {
 
 input[type=submit],input[type="button"] {
 	border: 2px solid #05d2ff;
-	font-family: 'Work Sans';
+	font-family: Tahoma;
 }
 
 input[readonly]{
@@ -360,7 +360,7 @@ fieldset span.text-right.full {
     font-weight: bold;
     white-space: nowrap;
     text-decoration: none;
-    font-family: 'Work Sans';
+    font-family: Tahoma;
     text-shadow: 1px 0px #000000;
     width: 20px;
 }
@@ -570,7 +570,7 @@ ul.dropdown-menu.drp-mnu li {
 }
 .user-name span {
     font-size: 9px;
-    font-family: 'Work Sans';
+    font-family: Tahoma;
     color: #d9534f;
     font-weight: normal;
     position: relative;
@@ -615,14 +615,14 @@ ul.dropdown-menu.drp-mnu li {
 .info-update-block h3 {
     color: #fff;
     font-size: 2em;
-    font-family: 'Work Sans', sans-serif;
+    font-family: Tahoma, sans-serif;
     text-align: center;
 }
 .info-update-block h4 {
 	font-size: 15px;
     color: #fff;
     margin: 0.3em 0em;
-   font-family: 'Work Sans';
+   font-family: Tahoma;
    text-align: center;
 }
 .info-update-block.clr-block-1 {
@@ -715,7 +715,7 @@ h3.tlt {
     font-weight: bold;
     color: #180101;
     text-transform: uppercase;
-   font-family: 'Work Sans';
+   font-family: Tahoma;
    text-shadow: 1px 0px #000000;
 }
 
@@ -748,7 +748,7 @@ h3 .fa-question-circle-o {
     color: #180101;
     text-transform: uppercase;
     margin-bottom: 5px;
-   font-family: 'Work Sans', sans-serif;
+   font-family: Tahoma, sans-serif;
 }
 .work-progres {
     padding: 0.5em 0.5em;

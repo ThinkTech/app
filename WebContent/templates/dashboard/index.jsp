@@ -17,7 +17,6 @@
  <meta name="twitter:title" property="og:title" content="ThinkTech - Portail"> 
  <meta name="twitter:description" property="og:description" content="Bienvenue sur le portail de ThinkTech"> 
  <meta name="twitter:image" property="og:image" content="${baseUrl}/images/banner.jpeg">
-<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" type="text/css" media="all" />
 <style type="text/css">
  <%@include file="/templates/dashboard/css/bootstrap.css"%>
 </style>
@@ -29,7 +28,8 @@
 </style>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" media="all">
 <link href="${css}/module.css" rel="stylesheet" type="text/css" media="all" />
-<link rel="shortcut icon" href="images/favicon.png" sizes="32x32">
+<link rel="
+icon" href="images/favicon.png" sizes="32x32">
 </head>
 <body>	
 <div class="page-container">
