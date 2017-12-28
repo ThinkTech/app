@@ -30,9 +30,6 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" media="all">
 <link href="${css}/module.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="shortcut icon" href="images/favicon.png" sizes="32x32">
-<script>
-<%@include file="/js/jquery-3.1.1.min.js"%>
-</script>
 </head>
 <body>	
 <div class="page-container">
@@ -117,9 +114,20 @@
 </div>
 </div>
 </div>
-<script src="js/metamorphosis.js" defer></script> 
-<script src="templates/dashboard/js/template.js" defer></script>
-<script src="templates/dashboard/js/bootstrap.js" defer> </script>
-<script src="js/dust-full.min.js" defer></script>
+<script>
+<%@include file="/js/jquery-3.1.1.min.js"%>
+</script>
+<script>
+<%@include file="/js/metamorphosis.js"%>
+</script> 
+<script>
+<%@include file="/templates/dashboard/js/template.js"%>
+</script>
+<script>
+<%@include file="/templates/dashboard/js/bootstrap.js"%>
+</script>
+<script>
+<%@include file="/js/dust-full.min.js"%>
+</script>
 </body>
 </html>                     

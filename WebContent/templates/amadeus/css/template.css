@@ -85,7 +85,7 @@ img {
 /*end reset*/
 html {
 	background-color: #dadada;
-	background-image: url(../templates/amadeus/images/background.jpg);
+	background-image: url(templates/amadeus/images/background.jpg);
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	-webkit-background-size: cover;
