@@ -269,7 +269,7 @@
 }
 
 .window > div .message-list > div > div div.message p {
-	word-break : break-all;
+	word-break : normal;
 }
 
 .window > div h1 i.fa {
