@@ -63,11 +63,6 @@
 			</div>
 		</div>
 		<!--//main-->
-		<!--footer-->
-		<div class="footer">
-			<p>© 2017 | Concu par <a href="https://w3layouts.com/">W3layouts</a> et <a href="https://www.thinktech.sn/">ThinkTech</a></p>
-		</div>
-		<!--//footer-->
 	</div>
 </div>
 <script>
