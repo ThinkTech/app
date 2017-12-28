@@ -9,6 +9,7 @@ import groovy.json.JsonSlurper
 import app.FileManager
 
 class User {
+   def id
    def name
    def email
    def telephone
@@ -25,7 +26,7 @@ class Structure {
 class ModuleAction extends ActionSupport {
 
    def ModuleAction() {
-       def user = new User(name : "Malorum", email : "malorum@gmail.com",role : "administrateur",fonction : "CEO",telephone : "776154520")
+       def user = new User(id : 1,name : "Malorum", email : "malorum@gmail.com",role : "administrateur",fonction : "CEO",telephone : "776154520")
        user.structure = new Structure(name : "Sesame",ninea : 1454554)
        request.setAttribute("user",user)
        request.setAttribute("projects_count",6)

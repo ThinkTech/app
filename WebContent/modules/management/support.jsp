@@ -109,6 +109,7 @@
 		</select>
 	   <span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du probléme</span>
 		<textarea name="message"></textarea>
+		<input name="user" type="hidden" value="${user.id}"/>
 	</fieldset>
 	<div class="submit">
 		 <input type="submit" value="Créér">

@@ -8,6 +8,7 @@ import static groovy.json.JsonOutput.toJson as json
 import groovy.json.JsonSlurper
 
 class User {
+   def id
    def name
    def email
    def telephone
@@ -24,9 +25,20 @@ class Structure {
 class ModuleAction extends ActionSupport {
 
     def ModuleAction() {
-       def user = new User(name : "Malorum", email : "malorum@gmail.com",role : "administrateur",fonction : "CEO",telephone : "776154520")
+       def user = new User(id : 1,name : "Malorum", email : "malorum@gmail.com",role : "administrateur",fonction : "CEO",telephone : "776154520")
        user.structure = new Structure(name : "Sesame",ninea : 1454554)
        request.setAttribute("user",user)
+       request.setAttribute("projects_count",6)
+       request.setAttribute("bills_count",4)
+       def messages = []
+       def message = new Expando(id : "1",subject: 'cr&edot;ation site web',author : 'ThinkTech',date : "17/09/2017")
+       messages << message
+       message = new Expando(id : "2",subject: 'cr&edot;ation site web',author : 'ThinkTech',date : "17/09/2017")
+       messages << message
+       message = new Expando(id : "3",subject: 'cr&edot;ation site web',author : 'ThinkTech',date : "17/09/2017")
+       messages << message
+       request.setAttribute("inbox",messages)
+       request.setAttribute("messages_count",messages.size())
    }
 
 	def login() {
