@@ -85,8 +85,7 @@ img {
 /*end reset*/
 html {
 	background-color: #dadada;
-	background-image:
-		url(https://static.pexels.com/photos/147408/pexels-photo-147408.jpeg);
+	background-image: url(../images/background.jpg);
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	-webkit-background-size: cover;
