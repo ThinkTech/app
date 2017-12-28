@@ -23,9 +23,6 @@
 <style type="text/css">
  <%@include file="/templates/amadeus/css/template.css"%>
 </style>
-<script>
-<%@include file="/js/jquery-3.1.1.min.js"%>
-</script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" media="all">
 <link rel="shortcut icon" href="images/favicon.png" sizes="32x32">
 <link rel="manifest" href="manifest.json">
@@ -72,59 +69,15 @@
 		</div>
 		<!--//footer-->
 	</div>
-<script type="text/javascript" src="js/metamorphosis.js" defer></script>
-<script>
-		jQuery(document).ready(function( $ ) {
-			$('input[name=email]').focus();
-			$(".login form").submit(function(event){
-				const form = $(this);
-				const user = {};
-				user.email = form.find("input[name=email]").val();
-				user.password = form.find("input[name=password]").val();
-				page.wait({top : form.offset().top});
-				$.ajax({
-					  type: "POST",
-					  url: form.attr("action"),
-					  data: JSON.stringify(user),
-					  contentType : "application/json",
-					  success: function(response) {
-						  location.href = response.url;
-					  },
-					  dataType: "json"
-				});
-				return false;
-			});
-			$(".recover form").submit(function(event){
-				const form = $(this);
-				const user = {};
-				user.email = form.find("input[name=email]").val();
-				page.wait({top : form.offset().top});
-				$.ajax({
-					  type: "POST",
-					  url: form.attr("action"),
-					  data: JSON.stringify(user),
-					  contentType : "application/json",
-					  success: function(response) {
-						  alert("un message vous a été envoyé à l'adresse fournie");
-						  page.release();
-					  },
-					  dataType: "json"
-				});
-				return false;
-			});
-			$(".login a").click(function(){
-				$(".login").hide();
-				$(".recover").show();
-			});
-			$(".recover a").click(function(){
-				$(".login").show();
-				$(".recover").hide();
-			});
-			if('serviceWorker' in navigator) {
-				navigator.serviceWorker.register('sw.js');
-			};
-		});
-</script>
 </div>
+<script>
+<%@include file="/js/jquery-3.1.1.min.js"%>
+</script>
+<script>
+<%@include file="/js/metamorphosis.js"%>
+</script>
+<script>
+<%@include file="/templates/amadeus/js/template.js"%>
+</script>
 </body>
 </html>
