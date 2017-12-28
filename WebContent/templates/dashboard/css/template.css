@@ -2,7 +2,7 @@ h4, h1, h2, h3 {margin: 0;}
 ul {margin: 0;}
 p {margin: 0;}
 html, body{
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Arial', sans-serif;
    font-size: 100%;
    background: #fafafa; 
    overflow-x : hidden;
@@ -98,7 +98,7 @@ legend {
     vertical-align: middle;
     border-top: none;
     border: none;
-    font-family : 'Work Sans';
+    font-family : 'Tahoma';
 }
 
 
@@ -230,12 +230,12 @@ fieldset span.text-right.full {
 
 .left-content {
     float: right;
-    width: 85%;
+    width: 82%;
 }
 .sidebar-menu {
   position: absolute;
   float: left;
-  width: 15%;
+  width: 18%;
   top: 0px;
   left:0px;
   bottom: 0;

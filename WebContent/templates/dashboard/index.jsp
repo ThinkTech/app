@@ -17,7 +17,7 @@
  <meta name="twitter:title" property="og:title" content="ThinkTech - Portail"> 
  <meta name="twitter:description" property="og:description" content="Bienvenue sur le portail de ThinkTech"> 
  <meta name="twitter:image" property="og:image" content="${baseUrl}/images/banner.jpeg">
-<link href="https://fonts.googleapis.com/css?family=Work+Sans|Open+Sans" rel="stylesheet" type="text/css" media="all" />
+<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" type="text/css" media="all" />
 <style type="text/css">
  <%@include file="/templates/dashboard/css/bootstrap.css"%>
 </style>
