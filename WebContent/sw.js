@@ -1,4 +1,4 @@
-const assets = ["."];
+const assets = ["/"];
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open("assets").then(function(cache) {
