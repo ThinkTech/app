@@ -200,7 +200,7 @@ tr.paid {
     border: 1px solid #f1eaea;
     cursor: pointer;
     font-family : Tahoma;
-    font-weight : 600;
+    font-weight : 500;
 }
 
 .page-number.active {
@@ -216,6 +216,7 @@ fieldset span {
 	background: #dcf5fb;
 	font-size: 14px;
 	border: 1px solid #05d2ff;
+	font-family : Tahoma;
 }
 
 fieldset span.text-right {
