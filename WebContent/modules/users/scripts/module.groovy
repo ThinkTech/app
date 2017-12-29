@@ -56,7 +56,7 @@ class ModuleAction extends ActionSupport {
 	   def user = new JsonSlurper().parse(request.inputStream)
 	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
 	   def mailSender = new MailSender(mailConfig)
-	   def mail = new Mail("Mamadou Lamine Ba","$user.email","Réinitialisation de votre mot de passe",getPasswordTemplate(user))
+	   def mail = new Mail("Mamadou Lamine Ba","$user.email","RÄ—initialisation de votre mot de passe",getPasswordTemplate(user))
 	   mailSender.sendMail(mail) 
 	   response.writer.write(json([status: 1]))
 	}
