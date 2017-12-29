@@ -56,13 +56,13 @@
                                   </tr>
                               </thead>
                               <tbody>
-                               <s:iterator value="#session.tickets" var="ticket" status="status">
+                               <s:iterator value="#request.tickets" var="ticket" status="status">
 	                                <tr id="${ticket.properties['id']}">
 	                                  <td><span class="number">${status.index+1}</span></td>
 	                                  <td><i class="fa fa-question-circle-o" aria-hidden="true"></i> ${ticket.properties['subject']}</td>
 	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${ticket.properties['service']}</td>
                                       <td><i class="fa fa-user" aria-hidden="true"></i> ${ticket.properties['author']}</td>
-                                      <td>${ticket.properties['date']}</td>                                       
+                                      <td><s:date name="properties['date']" format="dd/MM/yyyy" /></td>                                       
 	                                  <td><span class="label ${ticket.properties['status']=='in progress' ? 'label-danger' : '' } ${ticket.properties['status']=='finished' ? 'label-success' : '' } ${ticket.properties['status']=='stand by' ? 'label-info' : '' }">
 	                                  ${ticket.properties['status']=='in progress' ? 'en cours' : '' } ${ticket.properties['status']=='finished' ? 'terminé' : '' } ${ticket.properties['status']=='stand by' ? 'en attente' : '' }
 	                                  </span></td>
@@ -127,7 +127,7 @@
 		    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>{service}</span>
 		    <span class="text-right"><i class="fa fa-file-code-o" aria-hidden="true"></i> Objet </span> <span>{subject}</span>
 		    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span> <span>{author}</span>
-			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date} - 17:35:25</span>
+			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date}</span>
 			<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Traitement </span> 
 			<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">staff technique</span> </span>
 			<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  

@@ -164,25 +164,30 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def showTickets(){
-	   request.setAttribute("total",6)
-       request.setAttribute("unsolved",5)
-       def tickets = session.getAttribute("tickets")
-       if(!tickets) {
-           tickets = []
-           def ticket = new Expando(id : "1",subject: 'site web down',service : 'site web',message : "<p>our website is down</p>",author : 'Malorum',date : "17/09/2017",status : "in progress",progression : 50)
-       	   tickets << ticket
-           ticket = new Expando(id : "2",subject: 'site web down',service : 'site web',message : "<p>our website is down</p>",author : 'Malorum',date : "17/09/2017",status : "finished",progression : 100)
-           tickets << ticket
-           ticket = new Expando(id : "3",subject: 'site web down',service : 'site web',message : "<p>our website is down</p>",author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
-           tickets << ticket
-           ticket = new Expando(id : "4",subject: 'site web down',service : 'site web',message : "<p>our website is down</p>",author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
-           tickets << ticket
-           ticket = new Expando(id : "5",subject: 'site web down',service : 'site web',message : "<p>our website is down</p>",author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
-           tickets << ticket
-           ticket = new Expando(id : "6",subject: 'site web down',service : 'site web',message : "<p>our website is down</p>",author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
-           tickets << ticket
-           session.setAttribute("tickets",tickets)
+       def connection = getConnection()
+       def tickets = []
+       def unsolved
+       try {
+       connection.eachRow("select id,subject,message,date,service,status,progression from tickets", { row -> 
+          def ticket = new Expando()
+          ticket.id = row.id
+          ticket.author =  "Malorum"
+          ticket.subject = row.subject
+          ticket.message = row.message
+          ticket.date = row.date
+          ticket.service = row.service
+          ticket.status = row.status
+          ticket.progression = row.progression
+          tickets << ticket
+       })
+       unsolved = connection.firstRow("select count(*) AS num from tickets where status != 'finished'").num
+       }catch(e){
+          println e
        }
+       connection.close() 
+       request.setAttribute("tickets",tickets)  
+       request.setAttribute("total",tickets.size())
+       request.setAttribute("unsolved",unsolved)
        SUCCESS
     }
 	
@@ -200,9 +205,12 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def getTicketInfo() {
-	   def tickets = session.getAttribute("tickets")
 	   def id = getParameter("id") as int
-	   def ticket = tickets[id-1] 
+	   def connection = getConnection()
+	   def ticket = connection.firstRow("select * from tickets where id = ?", [id])
+	   ticket.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(ticket.date)
+	   ticket.author = "Malorum"
+	   connection.close()
 	   response.writer.write(json([entity : ticket]))
 	}
 	
