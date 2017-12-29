@@ -200,6 +200,7 @@ tr.paid {
     border: 1px solid #f1eaea;
     cursor: pointer;
     font-family : Tahoma;
+    font-weight : 600;
 }
 
 .page-number.active {
