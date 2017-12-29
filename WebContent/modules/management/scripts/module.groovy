@@ -7,7 +7,7 @@ import groovy.text.markup.MarkupTemplateEngine
 import static groovy.json.JsonOutput.toJson as json
 import groovy.json.JsonSlurper
 import app.FileManager
-import java.sql.DriverManager
+import groovy.sql.Sql
 
 class User {
    def id
@@ -193,16 +193,8 @@ class ModuleAction extends ActionSupport {
 	   def mail = new Mail("Mamadou Lamine Ba","lamine.ba@thinktech.sn","Ticket : ${ticket.subject}",getTicketTemplate(ticket))
 	   // mailSender.sendMail(mail)
 	   def connection = getConnection()
-       connection.setAutoCommit(false)
-       def stmt = connection.createStatement()
-       def id = session.getAttribute("user").id
-       def SQL = """\
-          insert INTO tickets(subject,service,message,createdBy) 
-          VALUES("${ticket.subject}","${ticket.service}","${ticket.message}",${id});
-       """
-	   stmt.executeUpdate(SQL)
-	   connection.commit()
-	   stmt.close()
+	   def params = [ticket.subject,ticket.service,ticket.message,session.getAttribute("user").id]
+       connection.execute 'insert into tickets(subject,service,message,createdBy) values (?, ?, ?,?)', params
 	   connection.close()
 	   response.writer.write(json([status: 1]))
 	}
@@ -376,8 +368,8 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def getConnection()  {
-		Class.forName("com.mysql.jdbc.Driver")
-		DriverManager.getConnection("jdbc:mysql://localhost/thinktech","root","thinktech")
+		def db = [url:'jdbc:mysql://localhost/thinktech', user:'root', password:'thinktech', driver:'com.mysql.jdbc.Driver']
+        Sql.newInstance(db.url, db.user, db.password, db.driver)
 	}
 	
 }
