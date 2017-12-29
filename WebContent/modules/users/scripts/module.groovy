@@ -56,7 +56,7 @@ class ModuleAction extends ActionSupport {
 	   def user = new JsonSlurper().parse(request.inputStream)
 	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
 	   def mailSender = new MailSender(mailConfig)
-	   def mail = new Mail("Mamadou Lamine Ba","$user.email","Récupération de votre mot de passe",getPasswordTemplate(user))
+	   def mail = new Mail("Mamadou Lamine Ba","$user.email","R&edot;initialisation de votre mot de passe",getPasswordTemplate(user))
 	   mailSender.sendMail(mail) 
 	   response.writer.write(json([status: 1]))
 	}
@@ -80,7 +80,7 @@ class ModuleAction extends ActionSupport {
 		    img(src : "https://www.thinktech.sn/images/logo.png", style : "display:block;margin : 0 auto")
 		    div(style : "margin-top:10px;padding:10px;height:90px;text-align:center;background:#eee") {
 		      h4(style : "font-size: 200%;color: rgb(0, 0, 0);margin: 3px") {
-		        span("R&edot;cup&edot;ration mot de passe")
+		        span("R&edot;initialisation de votre mot de passe")
 		      }
 		      p(style : "font-size:150%;color:rgb(100,100,100)"){
 		         span("r&edot;initialisation reussie")
