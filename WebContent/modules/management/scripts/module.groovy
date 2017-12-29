@@ -191,24 +191,19 @@ class ModuleAction extends ActionSupport {
 	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
 	   def mailSender = new MailSender(mailConfig)
 	   def mail = new Mail("Mamadou Lamine Ba","lamine.ba@thinktech.sn","Ticket : ${ticket.subject}",getTicketTemplate(ticket))
-	  // mailSender.sendMail(mail)
-	  try {
+	   // mailSender.sendMail(mail)
 	   def connection = getConnection()
        connection.setAutoCommit(false)
        def stmt = connection.createStatement()
        def id = session.getAttribute("user").id
        def SQL = """\
-          insert INTO tickets(subject,message,createdBy) 
-          VALUES("${ticket.subject}","${ticket.message}",${id});
+          insert INTO tickets(subject,service,message,createdBy) 
+          VALUES("${ticket.subject}","${ticket.service}","${ticket.message}",${id});
        """
-	   println SQL
 	   stmt.executeUpdate(SQL)
 	   connection.commit()
 	   stmt.close()
 	   connection.close()
-	   }catch(e){
-	     println e
-	   }
 	   response.writer.write(json([status: 1]))
 	}
 	
