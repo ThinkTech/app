@@ -50,8 +50,11 @@ $(document).ready(function(){
 			return false;
 		});
 		$(".login a").click(function(){
-			$(".login").hide();
+			const div = $(".login").hide();
+			const email = $("input[type=email]",div).val();
+			$(".recover input[type=email]").val(email);
 			$(".recover").show();
+			
 		});
 		$(".recover a").click(function(){
 			$(".login").show();
