@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
 	page.details.bind = function(container,ticket) {
+		$("[data-status='"+ticket.priority+"']",container).show();
 		if(ticket.status == "finished") {
 			$("legend a",container).hide();
 		}

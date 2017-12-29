@@ -198,8 +198,8 @@ class ModuleAction extends ActionSupport {
 	   def mail = new Mail("Mamadou Lamine Ba","lamine.ba@thinktech.sn","Ticket : ${ticket.subject}",getTicketTemplate(ticket))
 	   // mailSender.sendMail(mail)
 	   def connection = getConnection()
-	   def params = [ticket.subject,ticket.service,ticket.message,session.getAttribute("user").id]
-       connection.execute 'insert into tickets(subject,service,message,createdBy) values (?, ?, ?,?)', params
+	   def params = [ticket.subject,ticket.service,ticket.message,ticket.priority,session.getAttribute("user").id]
+       connection.execute 'insert into tickets(subject,service,message,priority,createdBy) values (?, ?, ?, ?,?)', params
 	   connection.close()
 	   response.writer.write(json([status: 1]))
 	}

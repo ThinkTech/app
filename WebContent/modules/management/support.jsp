@@ -103,9 +103,9 @@
 	     <input name="subject" placeholder="votre objet" type="text" required>
 		<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span>
 		<select name="priority">
-		  <option value="low">normal</option>
-		  <option value="medium">moyen</option>
-		  <option value="high">élévé</option>
+		  <option value="normal">normale</option>
+		  <option value="medium">moyenne</option>
+		  <option value="high">élevée</option>
 		</select>
 	   <span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du probléme</span>
 		<textarea name="message"></textarea>
@@ -128,6 +128,10 @@
 		    <span class="text-right"><i class="fa fa-file-code-o" aria-hidden="true"></i> Objet </span> <span>{subject}</span>
 		    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span> <span>{author}</span>
 			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date}</span>
+			<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span> 
+			<span data-status="normal" style="display:none">normale</span>
+			<span data-status="medium" style="display:none">moyenne</span>
+			<span data-status="high" style="display:none">élevée</span>
 			<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Traitement </span> 
 			<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">staff technique</span> </span>
 			<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  
