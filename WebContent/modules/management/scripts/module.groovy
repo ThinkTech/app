@@ -282,7 +282,7 @@ class ModuleAction extends ActionSupport {
 	    TemplateConfiguration config = new TemplateConfiguration()
 		MarkupTemplateEngine engine = new MarkupTemplateEngine(config)
 		def text = '''\
-		 div(style : "background:#fafafa;padding-bottom:16px;padding-top: 25px"){
+		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
 		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
 		    img(src : "https://www.thinktech.sn/images/logo.png", style : "display:block;margin : 0 auto")
 		    div(style : "margin-top:10px;padding:10px;height:90px;text-align:center;background:#eee") {
@@ -326,7 +326,7 @@ class ModuleAction extends ActionSupport {
 	    TemplateConfiguration config = new TemplateConfiguration()
 		MarkupTemplateEngine engine = new MarkupTemplateEngine(config)
 		def text = '''\
-		 div(style : "background:#fafafa;padding-bottom:16px;padding-top: 25px"){
+		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
 		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
 		    img(src : "https://www.thinktech.sn/images/logo.png", style : "display:block;margin : 0 auto")
 		    div(style : "margin-top:10px;padding:10px;height:90px;text-align:center;background:#eee") {
