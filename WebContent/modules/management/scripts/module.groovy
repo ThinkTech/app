@@ -7,6 +7,7 @@ import groovy.text.markup.MarkupTemplateEngine
 import static groovy.json.JsonOutput.toJson as json
 import groovy.json.JsonSlurper
 import app.FileManager
+import java.sql.DriverManager
 
 class User {
    def id
@@ -28,7 +29,7 @@ class ModuleAction extends ActionSupport {
    def ModuleAction() {
        def user = new User(id : 1,name : "Malorum", email : "malorum@gmail.com",role : "administrateur",fonction : "CEO",telephone : "776154520")
        user.structure = new Structure(name : "Sesame",ninea : 1454554)
-       request.setAttribute("user",user)
+       session.setAttribute("user",user)
        request.setAttribute("projects_count",6)
        request.setAttribute("bills_count",4)
        def messages = []
@@ -168,17 +169,17 @@ class ModuleAction extends ActionSupport {
        def tickets = session.getAttribute("tickets")
        if(!tickets) {
            tickets = []
-           def ticket = new Expando(id : "1",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "in progress",progression : 50)
+           def ticket = new Expando(id : "1",subject: 'site web down',service : 'site web',message : "<p>our website is down</p>",author : 'Malorum',date : "17/09/2017",status : "in progress",progression : 50)
        	   tickets << ticket
-           ticket = new Expando(id : "2",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "finished",progression : 100)
+           ticket = new Expando(id : "2",subject: 'site web down',service : 'site web',message : "<p>our website is down</p>",author : 'Malorum',date : "17/09/2017",status : "finished",progression : 100)
            tickets << ticket
-           ticket = new Expando(id : "3",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
+           ticket = new Expando(id : "3",subject: 'site web down',service : 'site web',message : "<p>our website is down</p>",author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
            tickets << ticket
-           ticket = new Expando(id : "4",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
+           ticket = new Expando(id : "4",subject: 'site web down',service : 'site web',message : "<p>our website is down</p>",author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
            tickets << ticket
-           ticket = new Expando(id : "5",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
+           ticket = new Expando(id : "5",subject: 'site web down',service : 'site web',message : "<p>our website is down</p>",author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
            tickets << ticket
-           ticket = new Expando(id : "6",subject: 'site web down',service : 'site web',author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
+           ticket = new Expando(id : "6",subject: 'site web down',service : 'site web',message : "<p>our website is down</p>",author : 'Malorum',date : "17/09/2017",status : "stand by",progression : 0)
            tickets << ticket
            session.setAttribute("tickets",tickets)
        }
@@ -190,7 +191,24 @@ class ModuleAction extends ActionSupport {
 	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
 	   def mailSender = new MailSender(mailConfig)
 	   def mail = new Mail("Mamadou Lamine Ba","lamine.ba@thinktech.sn","Ticket : ${ticket.subject}",getTicketTemplate(ticket))
-	   mailSender.sendMail(mail)
+	  // mailSender.sendMail(mail)
+	  try {
+	   def connection = getConnection()
+       connection.setAutoCommit(false)
+       def stmt = connection.createStatement()
+       def id = session.getAttribute("user").id
+       def SQL = """\
+          insert INTO tickets(subject,message,createdBy) 
+          VALUES("${ticket.subject}","${ticket.message}",${id});
+       """
+	   println SQL
+	   stmt.executeUpdate(SQL)
+	   connection.commit()
+	   stmt.close()
+	   connection.close()
+	   }catch(e){
+	     println e
+	   }
 	   response.writer.write(json([status: 1]))
 	}
 	
@@ -360,6 +378,11 @@ class ModuleAction extends ActionSupport {
 		'''
 		def template = engine.createTemplate(text).make([ticket:ticket,url : baseUrl])
 		template.toString()
+	}
+	
+	def getConnection()  {
+		Class.forName("com.mysql.jdbc.Driver")
+		DriverManager.getConnection("jdbc:mysql://localhost/thinktech","root","thinktech")
 	}
 	
 }

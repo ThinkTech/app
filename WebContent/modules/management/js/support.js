@@ -48,7 +48,6 @@ $(document).ready(function(){
 		$(".window > div > form").submit(function(event){
 			const form = $(this);
 			const ticket = {};
-			ticket.user = form.find("input[name=user]").val();
 			ticket.subject = form.find("input[name=subject]").val();
 			ticket.service =  form.find("select[name=service]").val();
 			ticket.priority =  form.find("select[name=priority]").val();

@@ -109,7 +109,6 @@
 		</select>
 	   <span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du probléme</span>
 		<textarea name="message"></textarea>
-		<input name="user" type="hidden" value="${user.id}"/>
 	</fieldset>
 	<div class="submit">
 		 <input type="submit" value="Créér">
@@ -136,9 +135,17 @@
 			<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Progression </span> <span class="badge badge-info">{progression}%</span>
 		</fieldset>
 		<fieldset>
+		<fieldset>
+		 <legend>
+	      <i class="fa fa-file-text-o" aria-hidden="true"></i> Probléme
+	   	 </legend>
+	   	 <div class="description" style="margin-top:-10px;margin-bottom:-5px">
+	   	  {message|s}
+	   	 </div>
+		</fieldset>
 	    <fieldset>
 	        <legend>
-	    		Messages <a class="message-add"><i class="fa fa-plus" aria-hidden="true"></i></a>
+	    	<i class="fa fa-comments"></i> Messages <a class="message-add"><i class="fa fa-plus" aria-hidden="true"></i></a>
 	   		</legend>
 	   		 <div class="messages">
 	   		    <div class="message-list">
