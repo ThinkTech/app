@@ -260,7 +260,7 @@
 }
 
 .window > div .message-list > div > div:nth-child(even) {
-	background : #ffe;
+	background : #fff;
 	margin-top : -10px;
 	padding-top : 10px;
 }
