@@ -20,7 +20,7 @@
 		<div class="col-md-4 info-update-gd">
 			<div class="info-update-block clr-block-3">
 				<div class="col-md-8 info-update-left">
-					<h3>${read}</h3>
+					<h3 class="unread">${unread}</h3>
 					<h4>messages non lus</h4>
 				</div>
 				<div class="col-md-4 info-update-right">
@@ -53,13 +53,13 @@
 							</tr>
 						</thead>
 						<tbody>
-						  <s:iterator value="#session.messages" var="message" status="status">
-	                            <tr id="${message.properties['id']}">
+						  <s:iterator value="#request.messages" var="message" status="status">
+	                            <tr id="${message.properties['id']}" style="font-weight:${message.properties['unread']?'700':'normal'}">
 	                                <td><span class="number">${status.index+1}</span></td>
 	                                <td><i class="fa fa-envelope-o" aria-hidden="true"></i> ${message.properties['subject']}</td>
-								    <td><i class="fa fa-user" aria-hidden="true"></i> ${message.properties['author']}</td>
-								    <td><i class="fa fa-user" aria-hidden="true"></i> Malorum</td>
-								    <td>${message.properties['date']}</td>
+								    <td><i class="fa fa-user" aria-hidden="true"></i> ThinkTech</td>
+								    <td><i class="fa fa-user" aria-hidden="true"></i> ${user.name}</td>
+								    <td><s:date name="properties['date']" format="dd/MM/yyyy" /></td>
 	                            </tr>
 	                      </s:iterator>
 						</tbody>
@@ -77,46 +77,12 @@
 		 <template>
 		 <h1><i class="fa fa-envelope-o" aria-hidden="true"></i>Message : {subject|s}</h1>
 		<fieldset>
-			<span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span> <span>{author}</span> 
-			<span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Destinataire </span> <span>Malorum</span>
+			<span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span> <span>ThinkTech</span> 
+			<span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Destinataire </span> <span>${user.name}</span>
 			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date </span> <span>{date}</span>
 		</fieldset>
 		<div class="message">
-		<div style="background: #fafafa; padding-bottom: 16px; padding-top: 25px;">
-			<div
-				style="padding-bottom: 12px; margin-left: auto; margin-right: auto; width: 80%; background: #fff;">
-				<img src="https://www.thinktech.sn/imag
-				es/logo.png"
-					style="display: block; margin: 0 auto;">
-				<div
-					style="margin-top: 10px; padding: 10px; height: 90px; text-align: center; background: #eee;">
-					<h4 style="font-size: 200%; color: rgb(0, 0, 0); margin: 3px;">
-						<span>Souscription reussie</span>
-					</h4>
-					<p style="font-size: 150%; color: rgb(100, 100, 100);">
-						<span>cliquer sur le bouton en bas pour confirmation</span>
-					</p>
-				</div>
-				<div
-					style="width: 90%; margin: auto; margin-top: 30px; margin-bottom: 30px;">
-					<h5
-						style="font-size: 120%; color: rgb(0, 0, 0); margin-bottom: 15px;">
-						<span>Structure : Sesame</span>
-					</h5>
-					<p>Merci pour votre souscription au plan business</p>
-					<p>Veuillez confirmer votre projet pour son traitement.</p>
-				</div>
-				<div style="text-align: center; margin-bottom: 10px;">
-					<a href="http://localhost:8080/app/registration/confirm"
-						style="font-size: 150%; width: 180px; margin: auto; text-decoration: none; background: #05d2ff; display: block; padding: 10px; border-radius: 2px; border: 1px solid #eee; color: #fff;"
-						target="_blank" rel="noopener"><span>Confirmer</span></a>
-				</div>
-			</div>
-			<div style="margin: 10px;margin-top: 10px; font-size: 11px; text-align: center;">
-				<p>Vous recevez cet email parce que vous (ou quelqu'un utilisant cet email)</p>
-				<p>a créé un projet en utilisant cette adresse</p>
-			</div>
-		</div>
+		  {message|s}
 		</div>
 		</template>
 		</section>

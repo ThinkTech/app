@@ -174,8 +174,7 @@ $(document).ready(function(){
 						  tinyMCE.get("textarea-message").setContent("");
 						  form.find("input[type=button]").click();
 						  const div = form.parent().parent();
-						  const list = $(".message-list"
-								  ,div);
+						  const list = $(".message-list",div);
 						  list.find("h6").hide();
 						  page.render($("> div",list), [comment], true, function() {
 							  page.release();
@@ -204,7 +203,8 @@ $(document).ready(function(){
 				});
 				return false;
 			}
-			project.date ="14/12/2017";
+			const date = new Date();
+			project.date = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
 			confirm("&ecirc;tes vous s&ucirc;r de vouloir cr&edot;&edot;r ce projet?",function(){
 				page.form.hide();
 				page.wait({top : form.offset().top+200});
@@ -214,13 +214,10 @@ $(document).ready(function(){
 					  data: JSON.stringify(project),
 					  contentType : "application/json",
 					  success: function(response) {
-						  if(response.status){
+						  if(response.id){
 							  tinyMCE.activeEditor.setContent("");
-							  project.id = response.status;
-							  page.table.addRow(project,function(row){
-							  row.click(function() {
-								  page.details.show(project);
-							  });
+							  project.id = response.id;
+							  page.table.addRow(project,function(){
 							  page.release();
 						      alert("votre projet a &edot;t&edot; bien cr&edot;&edot;",function(){
 									  const wizard = $(".project-wizard");

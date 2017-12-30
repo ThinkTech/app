@@ -75,7 +75,7 @@
 							            <td><span class="number"></span></td>
 							   	        <td><i class="fa fa-question-circle-o" aria-hidden="true"></i> {subject}</td>
                                   		<td><i class="fa fa-ticket" aria-hidden="true"></i> {service}</td>
-                                  		<td><i class="fa fa-user" aria-hidden="true"></i> Malorum</td>
+                                  		<td><i class="fa fa-user" aria-hidden="true"></i> ${user.name}</td>
                                   		<td>{date}</td>          
                                   		<td><span class="label label-info">en attente</span></td>
                                   		<td><span class="badge badge-info">0%</span></td>
@@ -100,7 +100,7 @@
 		  <option value="site web">site web</option>
 		</select>
 	    <span class="text-right"><i class="fa fa-file-code-o" aria-hidden="true"></i> Objet </span>
-	     <input name="subject" placeholder="votre objet" type="text" required>
+	     <input name="subject" placeholder="votre objet" maxlength="100" type="text" required>
 		<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span>
 		<select name="priority">
 		  <option value="normal">normale</option>
@@ -126,7 +126,7 @@
 		<fieldset>
 		    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>{service}</span>
 		    <span class="text-right"><i class="fa fa-file-code-o" aria-hidden="true"></i> Objet </span> <span>{subject}</span>
-		    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span> <span>{author}</span>
+		    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span> <span>{firstName} {lastName}</span>
 			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date}</span>
 			<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span> 
 			<span data-status="normal" style="display:none">normale</span>
@@ -138,6 +138,7 @@
 			<span data-status="finished" style="display:none"><span class="label label-success">terminé</span></span>
 			<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Progression </span> <span class="badge badge-info">{progression}%</span>
 		</fieldset>
+		
 		<fieldset>
 		<fieldset>
 		 <legend>
@@ -177,7 +178,7 @@
 	      <div>
 	        <i class="fa fa-user" aria-hidden="true"></i> 
 	   	  	<div class="message">{message|s}</div>
-	   	  	<span>14/12/2017 - 17:35:25</span>
+	   	  	<span><a><i class="fa fa-info" aria-hidden="true"></i></a></span>
 	   	  	 <hr/>
 	   	  </div>
    	  {/.}

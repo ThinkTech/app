@@ -229,8 +229,8 @@
 .window > div .message-list > div > div span {
 	background : transparent;
 	display : inline-block;
-	width : 2%;
-	font-size : 11px;
+	width : 13%;
+	font-size : 7px;
 	white-space : nowrap;
 	border : none;
 	vertical-align : top;
@@ -238,7 +238,10 @@
 	position : relative;
 	text-align : right;
 	font-weight : normal;
-	color : #d9534f;
+}
+
+.window > div .message-list > div > div span a i {
+	color : #000;
 }
 
 .window > div .message-list > div > div div.message {
@@ -269,7 +272,7 @@
 }
 
 .window > div .message-list > div > div div.message p {
-	word-break : normal;
+	word-break : break-all;
 }
 
 .window > div h1 i.fa {
@@ -295,6 +298,7 @@
 
 .info-tasks li span {
 	display : inline-block;
+	overflow : inherit;
 }
 
 .info-tasks li span:first-of-type {
@@ -359,10 +363,6 @@ legend a i.fa {
 .window > div .document-upload fieldset {
 	padding-left : 0;
 	margin-bottom: 0px;
-}
-
-.window > div fieldset span.text-right {
-    margin-top: 5px;
 }
 
 .window > div input[type=text], .window > div select {
@@ -520,7 +520,7 @@ legend a i.fa {
 	.window > div .message-list > div > div span,.window > div ol li span {display : block;width:100%;text-align:right;margin-left:2px}
 	.window > div ol li a{margin-bottom : 2px;display:block;width:100%;white-space:normal;word-break : break-all}
 	.window > div ol li span{text-align:left}
-	.window > div .message-list > div > div div.message {width : 98.680%;}
+	.window > div .message-list > div > div div.message {width : 97%;}
 }
 
 @media(max-width:480px){

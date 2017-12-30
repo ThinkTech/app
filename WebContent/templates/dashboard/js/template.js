@@ -125,13 +125,28 @@ page.table.paginate = function() {
 };
 
 page.table.addRow = function(entity,callback) {
-	const tbody = $(".table tbody");
+	const table = $(".table");
+	const tbody = $("tbody",table);
 	page.render(tbody, [entity], true, function(row) {
 		$("td:first-child span.number",row).html($("tr",tbody).removeClass("active").length);
 		page.table.paginate();
-		row.click(function(event) {
+		row.attr("id",entity.id).click(function(event) {
 			$("tr",tbody).removeClass("active");
 			$(this).addClass("active");
+			const id = $(this).attr("id");
+	    	const url = table.data("url");
+	    	if(url) {
+	    		page.wait({top : table.offset().top});
+	    		$.ajax({
+					  type: "GET",
+					  url: url+"?id="+id,
+					  success: function(response) {
+						  page.details.show(response.entity);
+						  page.release();
+					  },
+					  dataType: "json"
+				});
+	        }
 			return false;
 		}).addClass("active");
 		$("span.page-number:last").click();
