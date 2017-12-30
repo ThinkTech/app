@@ -32,15 +32,7 @@ class ModuleAction extends ActionSupport {
        session.setAttribute("user",user)
        request.setAttribute("projects_count",6)
        request.setAttribute("bills_count",4)
-       def messages = []
-       def message = new Expando(id : "1",subject: 'cr&edot;ation site web',author : 'ThinkTech',date : "17/09/2017")
-       messages << message
-       message = new Expando(id : "2",subject: 'cr&edot;ation site web',author : 'ThinkTech',date : "17/09/2017")
-       messages << message
-       message = new Expando(id : "3",subject: 'cr&edot;ation site web',author : 'ThinkTech',date : "17/09/2017")
-       messages << message
-       request.setAttribute("inbox",messages)
-       request.setAttribute("messages_count",messages.size())
+       request.setAttribute("messages_count",3)
    }
    
    def showProjects(){
