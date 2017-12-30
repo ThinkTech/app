@@ -55,7 +55,7 @@
                                <s:iterator value="#session.bills" var="bill" status="status">
 	                                <tr id="${bill.properties['id']}" class="${bill.properties['status']=='finished' ? 'paid' : ''}">
 	                                  <td><span class="number">${status.index+1}</span></td>
-	                                  <td><i class="fa fa-money" aria-hidden="true"></i> ${bill.properties['fee']}</td>
+	                                  <td>${bill.properties['fee']}</td>
 	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${bill.properties['service']}</td>
                                   	  <td>${bill.properties['date']}</td>
                                   	  <td>${bill.properties['amount']} F</td>                                        

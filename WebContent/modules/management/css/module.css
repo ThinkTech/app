@@ -271,7 +271,7 @@
 	padding-top : 10px;
 }
 
-.window > div .message-list > div > div div.message p {
+.window > div .message-list > div > div div.message p, .window > div .description p {
 	word-break : break-all;
 }
 
@@ -323,7 +323,7 @@ legend {
 	font-size : 17px;
 	color : #05d2ff;
 	font-weight : bold;
-	padding-bottom : 1px;
+	padding-bottom : 3px;
 }
 
 legend a {
@@ -349,6 +349,7 @@ legend a i.fa {
 
 .window p {
 	font-size : 13px;
+	word-break : break-all;
 }
 
 .window > div .document-list > div p {

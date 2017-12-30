@@ -72,7 +72,7 @@
                               <s:iterator value="#session.projects" var="project" status="status">
 	                                <tr id="${project.properties['id']}">
 	                                  <td><span class="number">${status.index+1}</span></td>
-	                                  <td><i class="fa fa-briefcase" aria-hidden="true"></i> ${project.properties['subject']}</td>
+	                                  <td>${project.properties['subject']}</td>
 	                                  <td><i class="fa fa-code" aria-hidden="true"></i> ${project.properties['plan']}</td>
 	                                  <td>${project.properties['date']}</td>                                        
 	                                  <td><span class="label ${project.properties['status']=='in progress' ? 'label-danger' : '' } ${project.properties['status']=='finished' ? 'label-success' : '' } ${project.properties['status']=='stand by' ? 'label-info' : '' }">
@@ -86,7 +86,7 @@
 							     {#.}
 							      <tr id="{id}">
 							            <td><span class="number"></span></td>
-							   	        <td><i class="fa fa-briefcase" aria-hidden="true"></i> {subject}</td>
+							   	        <td>{subject}</td>
 							            <td><i class="fa fa-code" aria-hidden="true"></i> {plan}</td>
 		                                <td>{date}</td>           
 		                                <td><span class="label label-info">en attente</span></td>

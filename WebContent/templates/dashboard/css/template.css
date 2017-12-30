@@ -144,6 +144,10 @@ td i.fa-user {
 	width: 20px;
 }
 
+.table thead tr th {
+	font-size : 14px;
+}
+
 .table tbody tr {
    display : none;
 }
@@ -228,9 +232,9 @@ fieldset span {
 	text-align : left;
 	font-weight: 600;
 	background: #dcf5fb;
-	font-size: 14px;
+	font-size: 13px;
 	border: 1px solid #05d2ff;
-	font-family : Arial;
+	font-family : Tahoma;
 	margin-top : 5px;
 }
 
@@ -1120,6 +1124,25 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 }
 }
 @media (max-width:480px){
+.table tbody tr td:nth-child(2)  {
+	text-align : left;
+	width : 170px;
+	max-width :163px;
+	overflow : hidden;
+}
+
+.table thead tr th:nth-child(2)  {
+	width : 170px;
+	max-width :163px;
+	overflow : hidden;
+}
+
+.table thead tr th:nth-child(1)  {
+	display : none;
+}
+.table tbody tr td:nth-child(1)  {
+	display : none;
+}
 .badge, .label {
     display: inline-block;
     top: 1px;

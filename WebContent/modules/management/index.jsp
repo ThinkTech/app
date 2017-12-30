@@ -48,7 +48,7 @@
 	<div class="col-md-12 chit-chat-layer1-left">
                <div class="work-progres">
                             <div class="chit-chat-heading">
-                                  <h3 class="tlt"><i class="fa fa-briefcase" aria-hidden="true"></i> Vos Projets</h3>
+                                  <h3 class="tlt">Vos Projets</h3>
                             </div>
                             <div class="projects table-responsive">
                                 <table data-url="${url}/projects/info" class="table table-hover">
@@ -65,7 +65,7 @@
                               <tbody>
                                 <tr id="1">
                                   <td><span class="number">1</span></td>
-                                  <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
+                                  <td>création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
                                   <td>17/09/2017</td>                                        
                                   <td><span class="label label-danger">en cours</span></td>
@@ -73,7 +73,7 @@
                               </tr>
                               <tr id="2">
                                   <td><span class="number">2</span></td>
-                                  <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
+                                  <td>création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
                                   <td>17/09/2017</td>                  
                                   <td><span class="label label-success">terminé</span></td>
@@ -81,7 +81,7 @@
                               </tr>
                               <tr id="3">
                                   <td><span class="number">3</span></td>
-                                  <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
+                                  <td>création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
                                   <td>17/09/2017</td> 
                                   <td><span class="label label-info">en attente</span></td>
@@ -89,7 +89,7 @@
                               </tr>
                               <tr id="4">
                                   <td><span class="number">4</span></td>
-                                  <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
+                                  <td>création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
                                   <td>17/09/2017</td>            
                                   <td><span class="label label-info">en attente</span></td>
@@ -97,7 +97,7 @@
                               </tr>
                               <tr id="5">
                                   <td><span class="number">5</span></td>
-                                  <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
+                                  <td>création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
                                   <td>17/09/2017</td>                 
                                   <td><span class="label label-info">en attente</span></td>
@@ -105,7 +105,7 @@
                               </tr>
                               <tr id="6">
                                   <td><span class="number">6</span></td>
-                                  <td><i class="fa fa-briefcase" aria-hidden="true"></i> création site web</td>
+                                  <td>création site web</td>
                                   <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
                                   <td>17/09/2017</td>           
                                   <td><span class="label label-info">en attente</span></td>

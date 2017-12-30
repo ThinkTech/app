@@ -59,7 +59,7 @@
                                <s:iterator value="#request.tickets" var="ticket" status="status">
 	                                <tr id="${ticket.properties['id']}">
 	                                  <td><span class="number">${status.index+1}</span></td>
-	                                  <td><i class="fa fa-question-circle-o" aria-hidden="true"></i> ${ticket.properties['subject']}</td>
+	                                  <td>${ticket.properties['subject']}</td>
 	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${ticket.properties['service']}</td>
                                       <td><i class="fa fa-user" aria-hidden="true"></i> ${ticket.properties['author']}</td>
                                       <td><s:date name="properties['date']" format="dd/MM/yyyy" /></td>                                       
@@ -73,7 +73,7 @@
 							     {#.}
 							      <tr id="{id}">
 							            <td><span class="number"></span></td>
-							   	        <td><i class="fa fa-question-circle-o" aria-hidden="true"></i> {subject}</td>
+							   	        <td>{subject}</td>
                                   		<td><i class="fa fa-ticket" aria-hidden="true"></i> {service}</td>
                                   		<td><i class="fa fa-user" aria-hidden="true"></i> ${user.name}</td>
                                   		<td>{date}</td>          
