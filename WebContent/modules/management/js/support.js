@@ -12,6 +12,9 @@ $(document).ready(function(){
 		    page.details.addTicket($(this));
 		    return false;
 	});
+	$(".window").click(function(event){
+	    $(".info-message").hide();
+	});
 	page.details.addTicket = function(form){
 		const ticket = {};
 		ticket.subject = form.find("input[name=subject]").val();
@@ -93,6 +96,7 @@ $(document).ready(function(){
 			page.release();
 			$("a",div).click(function(event){
 				 $(this).parent().prev().css({top : event.pageY-20,left : event.pageX-400}).toggle();
+				 return false;
 			});
 	   });
 	};
