@@ -289,11 +289,6 @@
 	padding-top : 10px;
 }
 
-.window > div .message-list > div > div:first-of-type {
-	background : #e2f6f5;
-	margin-top : -10px;
-	padding-top : 10px;
-}
 
 .window > div .message-list > div > div div.message p, .window > div .description p {
 	word-break : break-all;

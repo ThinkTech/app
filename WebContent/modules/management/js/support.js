@@ -5,13 +5,7 @@ $(document).ready(function(){
 			$("legend a",container).hide();
 		}
 		if(ticket.comments.length){
-			 const list = $(".message-list",container);
-			 list.find("h6").hide();
-			 page.details.render($("> div",list),ticket.comments,function(){
-				 $("a",list).click(function(event){
-					$(this).parent().prev().css({top : event.pageY-20,left : event.pageX-400}).toggle();
-				 });
-			 });
+			page.details.showMessages(ticket.comments);
 		}
 		$(".messages form",container).submit(function(event){
 			page.details.addMessage($(this));
@@ -89,19 +83,22 @@ $(document).ready(function(){
 					  if(response.status){
 						  tinyMCE.activeEditor.setContent("");
 						  form.find("input[type=button]").click();
-						  const div = form.parent().parent();
-						  const list = $(".message-list",div);
-						  list.find("h6").hide();
-						  page.render($("> div",list), [comment], true, function(div) {
-							  page.release();
-							  alert("votre message a &edot;t&edot; bien ajout&edot;");
-							  $("a",div).click(function(event){
-								 $(this).parent().prev().css({top : event.pageY-20,left : event.pageX-400}).toggle();
-							  });
-						  });
+						  alert("votre message a &edot;t&edot; bien ajout&edot;");
+						  page.details.showMessages([comment]);
 					  }
 				  },
 				  dataType: "json"
 			});
+		};
+		
+		page.details.showMessages = function(messages){
+			const list = $(".message-list");
+			  list.find("h6").hide();
+			  page.render($("> div",list), messages, true, function(div) {
+				  page.release();
+				  $("a",div).click(function(event){
+					 $(this).parent().prev().css({top : event.pageY-20,left : event.pageX-400}).toggle();
+				  });
+			  });
 		};
 });
