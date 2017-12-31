@@ -65,7 +65,7 @@ class ModuleAction extends ActionSupport {
 	   // mailSender.sendMail(mail)
 	   def connection = getConnection()
 	   def user = session.getAttribute("user")
-	   def params = [ticket.subject,template,user.id,user.structure.id]
+	   def params = ["Ticket : "+ticket.subject,template,user.id,user.structure.id]
        connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?,?)', params
 	   params = [ticket.subject,ticket.service,ticket.message,ticket.priority,user.id,user.structure.id]
        def result = connection.executeInsert 'insert into tickets(subject,service,message,priority,user_id,structure_id) values (?, ?, ?, ?,?,?)', params

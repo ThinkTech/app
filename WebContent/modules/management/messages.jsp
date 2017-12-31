@@ -75,7 +75,7 @@
 		<span title="fermer" class="close">X</span>
 		<section>
 		 <template>
-		 <h1><i class="fa fa-envelope-o" aria-hidden="true"></i>Message : {subject|s}</h1>
+		 <h1><i class="fa fa-envelope-o" aria-hidden="true"></i>{subject|s}</h1>
 		<fieldset>
 			<span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span> <span>ThinkTech</span> 
 			<span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Destinataire </span> <span>{name}</span>
