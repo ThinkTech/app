@@ -95,7 +95,8 @@ $(document).ready(function(){
 		page.render($("> div",list), comments, true, function(div) {
 			page.release();
 			$("a",div).click(function(event){
-				 $(this).parent().prev().css({top : event.pageY-20,left : event.pageX-400}).toggle();
+				 const info = $(this).parent().prev();
+				 info.css({top : event.pageY-20,left : event.pageX-info.width()-50}).toggle();
 				 return false;
 			});
 	   });

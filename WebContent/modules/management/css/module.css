@@ -235,7 +235,7 @@
 	white-space : nowrap;
 	border : none;
 	vertical-align : top;
-	top : -2px;
+	top : 0px;
 	position : relative;
 	text-align : right;
 	font-weight : normal;
@@ -256,6 +256,7 @@
 
 .window > div .message-list > div > div div.info-message {
 	position : absolute; 
+	z-index : 999999;
 	display : none;
 	background : #fafafa;
 	font-size : 12px;
