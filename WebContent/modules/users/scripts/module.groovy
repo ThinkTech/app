@@ -19,6 +19,7 @@ class User {
 }
 
 class Structure {
+   def id
    def name
    def ninea
 }
@@ -27,8 +28,8 @@ class ModuleAction extends ActionSupport {
 
     def ModuleAction() {
        def user = new User(id : 1,name : "Malorum Diaz", email : "malorum@gmail.com",role : "administrateur",profession : "CEO",telephone : "776154520")
-       user.structure = new Structure(name : "Sesame",ninea : 1454554)
-       request.setAttribute("user",user)
+       user.structure = new Structure(id : 1,name : "Sesame",ninea : 1454554)
+       session.setAttribute("user",user)
    }
 
 	def login() {

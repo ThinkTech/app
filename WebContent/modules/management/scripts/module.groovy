@@ -20,6 +20,7 @@ class User {
 }
 
 class Structure {
+   def id
    def name
    def ninea
 }
@@ -28,7 +29,7 @@ class ModuleAction extends ActionSupport {
 
    def ModuleAction() {
        def user = new User(id : 1,name : "Malorum Diaz", email : "malorum@gmail.com",role : "administrateur",profession : "CEO",telephone : "776154520")
-       user.structure = new Structure(name : "Sesame",ninea : 1454554)
+       user.structure = new Structure(id : 1,name : "Sesame",ninea : 1454554)
        session.setAttribute("user",user)
        request.setAttribute("projects_count",6)
        request.setAttribute("bills_count",4)
@@ -102,8 +103,8 @@ class ModuleAction extends ActionSupport {
 	   //mailSender.sendMail(mail) 
 	   createBill()
 	   def connection = getConnection()
-	   def params = [project.subject,template,session.getAttribute("user").id]
-       connection.executeInsert 'insert into messages(subject,message,user_id) values (?, ?, ?)', params
+	   def params = [project.subject,template,session.getAttribute("user").structure.id]
+       connection.executeInsert 'insert into messages(subject,message,structure_id) values (?, ?, ?)', params
 	   connection.close()
 	   response.writer.write(json([id: 1]))
 	}
@@ -160,76 +161,12 @@ class ModuleAction extends ActionSupport {
 	   response.writer.write(json([status: 1]))
 	}
 	
-	def showTickets(){
-       def connection = getConnection()
-       def tickets = []
-       connection.eachRow("select t.id,t.subject,t.message,t.date,t.service,t.status,t.progression, u.name from tickets t, users u where t.createdBy = u.id", { row -> 
-          def ticket = new Expando()
-          ticket.id = row.id
-          ticket.author =  row.name
-          ticket.subject = row.subject
-          ticket.message = row.message
-          ticket.date = row.date
-          ticket.service = row.service
-          ticket.status = row.status
-          ticket.progression = row.progression
-          tickets << ticket
-       })
-       def unsolved = connection.firstRow("select count(*) AS num from tickets where status != 'finished'").num
-       connection.close() 
-       request.setAttribute("tickets",tickets)  
-       request.setAttribute("total",tickets.size())
-       request.setAttribute("unsolved",unsolved)
-       SUCCESS
-    }
-	
-	def createTicket() {
-	   def ticket = new JsonSlurper().parse(request.inputStream) 
-	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
-	   def mailSender = new MailSender(mailConfig)
-	   def template = getTicketTemplate(ticket)
-	   def mail = new Mail("Mamadou Lamine Ba","lamine.ba@thinktech.sn","Ticket : ${ticket.subject}",template)
-	   // mailSender.sendMail(mail)
-	   def connection = getConnection()
-	   def params = [ticket.subject,template,session.getAttribute("user").id]
-       connection.executeInsert 'insert into messages(subject,message,user_id) values (?, ?, ?)', params
-	   params = [ticket.subject,ticket.service,ticket.message,ticket.priority,session.getAttribute("user").id]
-       def result = connection.executeInsert 'insert into tickets(subject,service,message,priority,createdBy) values (?, ?, ?, ?,?)', params
-	   connection.close()
-	   response.writer.write(json([id: result[0][0]]))
-	}
-	
-	def getTicketInfo() {
-	   def id = getParameter("id") as int
-	   def connection = getConnection()
-	   def ticket = connection.firstRow("select t.*, u.name from tickets t,users u where t.id = ? and t.createdBy = u.id", [id])
-	   if(ticket.subject.length()>40) ticket.subject = ticket.subject.substring(0,40)+"..."
-	   ticket.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(ticket.date)
-	   ticket.comments = []
-	   connection.eachRow("select id, message from tickets_comments where ticket_id = ?", [ticket.id],{ row -> 
-          def comment = new Expando()
-          comment.id = row.id
-          comment.message = row.message
-          ticket.comments << comment
-       })
-	   connection.close()
-	   response.writer.write(json([entity : ticket]))
-	}
-	
-	def addTicketMessage() {
-	   def comment = new JsonSlurper().parse(request.inputStream) 
-	   def connection = getConnection()
-	   def params = [comment.message,comment.ticket,session.getAttribute("user").id]
-       connection.executeInsert 'insert into tickets_comments(message,ticket_id,createdBy) values (?,?,?)', params
-	   connection.close()
-	   response.writer.write(json([status: 1]))
-	}
 	
 	def showMessages(){
 	   def connection = getConnection()
        def messages = []
-       def id = session.getAttribute("user").id
-       connection.eachRow("select m.id,m.subject,m.message,m.date,m.unread from messages m where m.user_id = ?",[id], { row -> 
+       def id = session.getAttribute("user").structure.id
+       connection.eachRow("select m.id,m.subject,m.message,m.date,m.unread from messages m where m.structure_id = ?",[id], { row -> 
           def message = new Expando()
           message.id = row.id
           message.subject = row.subject
@@ -237,7 +174,7 @@ class ModuleAction extends ActionSupport {
           message.unread = row.unread
           messages << message
        })
-       def unread = connection.firstRow("select count(*) AS num from messages where unread = true").num
+       def unread = connection.firstRow("select count(*) AS num from messages where unread = true and structure_id = "+id).num
        connection.close() 
        request.setAttribute("messages",messages)  
        request.setAttribute("total",messages.size())
