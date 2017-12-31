@@ -103,8 +103,9 @@ class ModuleAction extends ActionSupport {
 	   //mailSender.sendMail(mail) 
 	   createBill()
 	   def connection = getConnection()
-	   def params = [project.subject,template,session.getAttribute("user").structure.id]
-       connection.executeInsert 'insert into messages(subject,message,structure_id) values (?, ?, ?)', params
+	   def user = session.getAttribute("user")
+	   def params = [project.subject,template,user.id,user.structure.id]
+       connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?, ?)', params
 	   connection.close()
 	   response.writer.write(json([id: 1]))
 	}
@@ -166,11 +167,12 @@ class ModuleAction extends ActionSupport {
 	   def connection = getConnection()
        def messages = []
        def id = session.getAttribute("user").structure.id
-       connection.eachRow("select m.id,m.subject,m.message,m.date,m.unread from messages m where m.structure_id = ?",[id], { row -> 
+       connection.eachRow("select m.id,m.subject,m.message,m.date,m.unread,u.name from messages m, users u where m.structure_id = ? and m.user_id = u.id",[id], { row -> 
           def message = new Expando()
           message.id = row.id
           message.subject = row.subject
           message.date = row.date
+          message.user = row.name
           message.unread = row.unread
           messages << message
        })
@@ -185,7 +187,7 @@ class ModuleAction extends ActionSupport {
     def getMessageInfo() {
 	   def id = getParameter("id") as int
 	   def connection = getConnection()
-	   def message = connection.firstRow("select * from messages where id = ?", [id])
+	   def message = connection.firstRow("select m.*, u.name from messages m, users u where m.user_id=u.id and m.id = ?", [id])
 	   if(message.subject.length()>40) message.subject = message.subject.substring(0,40)+"..."
 	   message.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(message.date)
 	   connection.executeUpdate 'update messages set unread = false where id = ?', [id] 

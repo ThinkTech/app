@@ -65,8 +65,8 @@ class ModuleAction extends ActionSupport {
 	   // mailSender.sendMail(mail)
 	   def connection = getConnection()
 	   def user = session.getAttribute("user")
-	   def params = [ticket.subject,template,user.structure.id]
-       connection.executeInsert 'insert into messages(subject,message,structure_id) values (?, ?, ?)', params
+	   def params = [ticket.subject,template,user.id,user.structure.id]
+       connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?,?)', params
 	   params = [ticket.subject,ticket.service,ticket.message,ticket.priority,user.id,user.structure.id]
        def result = connection.executeInsert 'insert into tickets(subject,service,message,priority,user_id,structure_id) values (?, ?, ?, ?,?,?)', params
 	   connection.close()
@@ -80,9 +80,11 @@ class ModuleAction extends ActionSupport {
 	   if(ticket.subject.length()>40) ticket.subject = ticket.subject.substring(0,40)+"..."
 	   ticket.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(ticket.date)
 	   ticket.comments = []
-	   connection.eachRow("select id, message from tickets_comments where ticket_id = ?", [ticket.id],{ row -> 
+	   connection.eachRow("select t.id, t.message, t.date, u.name from tickets_comments t, users u where t.createdBy = u.id and t.ticket_id = ?", [ticket.id],{ row -> 
           def comment = new Expando()
           comment.id = row.id
+          comment.author = row.name
+          comment.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(row.date)
           comment.message = row.message
           ticket.comments << comment
        })

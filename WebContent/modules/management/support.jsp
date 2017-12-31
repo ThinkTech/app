@@ -161,7 +161,8 @@
 	   		 	<div class="message-edition">
 	   		 	   <form action="${url}/support/messages/create">
 	   		 		<textarea name="message"></textarea>
-	   		 		<input name="id" type="hidden" value={id}>
+	   		 		<input name="id" type="hidden" value="{id}">
+	   		 		<input name="author" type="hidden" value="${user.name}">
 	   		 		<div class="submit">
 				      <input type="submit" value="Ajouter">
 				      <input type="button" value="Annuler">
@@ -178,6 +179,10 @@
 	      <div>
 	        <i class="fa fa-user" aria-hidden="true"></i> 
 	   	  	<div class="message">{message|s}</div>
+	   	  	<div class="info-message">
+	   	  	    <b>Auteur :</b> {author}<br>
+	   	  	    <b>Date :</b> {date}
+	   	  	</div>
 	   	  	<span><a><i class="fa fa-info" aria-hidden="true"></i></a></span>
 	   	  	 <hr/>
 	   	  </div>

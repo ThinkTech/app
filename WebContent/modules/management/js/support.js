@@ -7,7 +7,11 @@ $(document).ready(function(){
 		if(ticket.comments.length){
 			 const list = $(".message-list",container);
 			 list.find("h6").hide();
-			 page.details.render($("> div",list),ticket.comments);
+			 page.details.render($("> div",list),ticket.comments,function(){
+				 $("a",list).click(function(event){
+					$(this).parent().prev().css({top : event.pageY-20,left : event.pageX-400}).toggle();
+				 });
+			 });
 		}
 		$(".messages form",container).submit(function(event){
 			page.details.addMessage($(this));
@@ -70,6 +74,10 @@ $(document).ready(function(){
 				return false;
 			}
 			comment.ticket =   form.find("input[name=id]").val();
+			comment.author =  form.find("input[name=author]").val();
+			const date = new Date();
+			comment.date = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
+			comment.date+=" "+(date.getHours()<10 ? "0"+date.getHours() : date.getHours())+":"+(date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes())+":"+(date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds());
 			page.wait({top : form.offset().top});
 			$.ajax({
 				  type: "POST",
@@ -84,9 +92,12 @@ $(document).ready(function(){
 						  const div = form.parent().parent();
 						  const list = $(".message-list",div);
 						  list.find("h6").hide();
-						  page.render($("> div",list), [comment], true, function() {
+						  page.render($("> div",list), [comment], true, function(div) {
 							  page.release();
 							  alert("votre message a &edot;t&edot; bien ajout&edot;");
+							  $("a",div).click(function(event){
+								 $(this).parent().prev().css({top : event.pageY-20,left : event.pageX-400}).toggle();
+							  });
 						  });
 					  }
 				  },

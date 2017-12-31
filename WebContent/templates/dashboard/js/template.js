@@ -62,10 +62,11 @@ page.details.show = function(entity) {
 		  }
 		  div.show();
 	});
-	page.details.render = function(container,entity){
+	page.details.render = function(container,entity,callback){
 		page.render(container, entity);
 		const id = "#template-"+container.data("template");
 		div.append($(id,div).clone());
+		if(callback) callback();
 	};
 };
 

@@ -58,7 +58,7 @@
 	                                <td><span class="number">${status.index+1}</span></td>
 	                                <td>${message.properties['subject']}</td>
 								    <td><i class="fa fa-user" aria-hidden="true"></i> ThinkTech</td>
-								    <td><i class="fa fa-user" aria-hidden="true"></i> ${user.name}</td>
+								    <td><i class="fa fa-user" aria-hidden="true"></i> ${message.properties['user']}</td>
 								    <td><s:date name="properties['date']" format="dd/MM/yyyy" /></td>
 	                            </tr>
 	                      </s:iterator>
@@ -78,7 +78,7 @@
 		 <h1><i class="fa fa-envelope-o" aria-hidden="true"></i>Message : {subject|s}</h1>
 		<fieldset>
 			<span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span> <span>ThinkTech</span> 
-			<span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Destinataire </span> <span>${user.name}</span>
+			<span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Destinataire </span> <span>{name}</span>
 			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date </span> <span>{date}</span>
 		</fieldset>
 		<div class="message">

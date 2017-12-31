@@ -211,6 +211,7 @@
 	margin-top : -20px;
 }
 
+
 .window > div .description .message-list > div:first-of-type {
 	margin-top : -10px;
 }
@@ -253,10 +254,33 @@
 	margin-left : 5px;
 }
 
+.window > div .message-list > div > div div.info-message {
+	position : absolute; 
+	display : none;
+	background : #fafafa;
+	font-size : 12px;
+	padding : 10px;
+	border : 1px solid #05d2ff;
+	border-radius : 5px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.window > div .message-list > div > div div.info-message b {
+	width : 50px;
+	display : inline-block;
+	text-align : right;
+}
+
+.window > div .message-list > div > div {
+   border-left : 1px solid #05d2ff;
+   border-right : 1px solid #05d2ff;	
+}
+
 .window > div .message-list > div > div:nth-child(odd) {
 	background : #e2f6f5;
 	margin-top : -10px;
 	padding-top : 10px;
+	
 }
 
 .window > div .message-list > div > div:nth-child(even) {
