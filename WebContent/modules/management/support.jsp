@@ -142,7 +142,7 @@
 		<fieldset>
 		<fieldset>
 		 <legend>
-	      <i class="fa fa-file-text-o" aria-hidden="true"></i> Probléme
+	      <i class="fa fa-file-text-o" aria-hidden="true"></i> Description
 	   	 </legend>
 	   	 <div class="description" style="margin-top:-10px;margin-bottom:-5px">
 	   	  {message|s}
@@ -159,7 +159,7 @@
    		 		</div>
    		 		</div>
 	   		 	<div class="message-edition">
-	   		 	   <form action="${url}/support/messages/create">
+	   		 	   <form action="${url}/support/tickets/comment">
 	   		 		<textarea name="message"></textarea>
 	   		 		<input name="id" type="hidden" value="{id}">
 	   		 		<input name="author" type="hidden" value="${user.name}">

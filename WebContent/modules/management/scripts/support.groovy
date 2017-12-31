@@ -92,7 +92,7 @@ class ModuleAction extends ActionSupport {
 	   response.writer.write(json([entity : ticket]))
 	}
 	
-	def addTicketMessage() {
+	def addTicketComment() {
 	   def comment = new JsonSlurper().parse(request.inputStream) 
 	   def connection = getConnection()
 	   def params = [comment.message,comment.ticket,session.getAttribute("user").id]
