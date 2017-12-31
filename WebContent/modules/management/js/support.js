@@ -11,12 +11,12 @@ $(document).ready(function(){
 			page.details.addMessage($(this));
 			return false;
 		});
-	 };
-	 $(".window > div > form").submit(function(event){
+	};
+	$(".window > div > form").submit(function(event){
 		 page.details.addTicket($(this));
 		 return false;
-	 });
-	 page.details.addTicket = function(form){
+	});
+	page.details.addTicket = function(form){
 			const ticket = {};
 			ticket.subject = form.find("input[name=subject]").val();
 			ticket.service =  form.find("select[name=service]").val();
@@ -57,8 +57,8 @@ $(document).ready(function(){
 					  dataType: "json"
 				});
 			});
-		};
-		page.details.addMessage = function(form) {
+	  };
+	  page.details.addMessage = function(form) {
 			const comment = {};
 			comment.message =  tinyMCE.activeEditor.getContent();
 			if(tinyMCE.activeEditor.getContent({format: 'text'}).trim() == ""){
@@ -100,5 +100,5 @@ $(document).ready(function(){
 					 $(this).parent().prev().css({top : event.pageY-20,left : event.pageX-400}).toggle();
 				  });
 			  });
-		};
+	   };
 });
