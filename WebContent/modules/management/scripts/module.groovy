@@ -14,7 +14,7 @@ class User {
    def name
    def email
    def telephone
-   def fonction
+   def profession
    def role
    def structure
 }
@@ -27,7 +27,7 @@ class Structure {
 class ModuleAction extends ActionSupport {
 
    def ModuleAction() {
-       def user = new User(id : 1,name : "Malorum", email : "malorum@gmail.com",role : "administrateur",fonction : "CEO",telephone : "776154520")
+       def user = new User(id : 1,name : "Malorum Diaz", email : "malorum@gmail.com",role : "administrateur",profession : "CEO",telephone : "776154520")
        user.structure = new Structure(name : "Sesame",ninea : 1454554)
        session.setAttribute("user",user)
        request.setAttribute("projects_count",6)
@@ -163,10 +163,10 @@ class ModuleAction extends ActionSupport {
 	def showTickets(){
        def connection = getConnection()
        def tickets = []
-       connection.eachRow("select t.id,t.subject,t.message,t.date,t.service,t.status,t.progression, u.firstName, u.lastName from tickets t, users u where t.createdBy = u.id", { row -> 
+       connection.eachRow("select t.id,t.subject,t.message,t.date,t.service,t.status,t.progression, u.name from tickets t, users u where t.createdBy = u.id", { row -> 
           def ticket = new Expando()
           ticket.id = row.id
-          ticket.author =  row.firstName + " " + row.lastName
+          ticket.author =  row.name
           ticket.subject = row.subject
           ticket.message = row.message
           ticket.date = row.date
@@ -202,7 +202,7 @@ class ModuleAction extends ActionSupport {
 	def getTicketInfo() {
 	   def id = getParameter("id") as int
 	   def connection = getConnection()
-	   def ticket = connection.firstRow("select t.*, u.firstName, u.lastName from tickets t,users u where t.id = ? and t.createdBy = u.id", [id])
+	   def ticket = connection.firstRow("select t.*, u.name from tickets t,users u where t.id = ? and t.createdBy = u.id", [id])
 	   if(ticket.subject.length()>40) ticket.subject = ticket.subject.substring(0,40)+"..."
 	   ticket.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(ticket.date)
 	   ticket.comments = []

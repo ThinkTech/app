@@ -42,21 +42,31 @@ jQuery(document).ready(function( $ ) {
 	});
 	
 	$(".profile-edition form").submit(function(event){
-		$(".profile-details").show();
-		$(".profile-edition").hide();
-		$(".user a").show();
 		const form = $(this);
-		const profile = {};
+		const user = {};
+		user.structure = {};
+		user.name = form.find("input[name=name]").val();
+		user.email = form.find("input[name=email]").val();
+		user.telephone = form.find("input[name=telephone]").val();
+		user.profession = form.find("input[name=profession]").val();
+		user.structure.ninea = form.find("input[name=ninea]").val();
 		page.wait({top : form.offset().top});
 		$.ajax({
 			  type: "POST",
 			  url: form.attr("action"),
-			  data: JSON.stringify(profile),
+			  data: JSON.stringify(user),
 			  contentType : "application/json",
 			  success: function(response) {
 				  if(response.status){
 					  form.find("input[type=password]").val("");
 					  alert("votre profil a &edot;t&edot; bien modifi&edot;");
+					  $(".profile-details #name").html(user.name);
+					  $(".profile-details #email").html(user.email);
+					  $(".profile-details #telephone").html(user.telephone);
+					  $(".profile-details #profession").html(user.profession);
+					  $(".profile-details").show();
+					  $(".profile-edition").hide();
+					  $(".user a").show();
 				  }
 				  page.release();
 			  },

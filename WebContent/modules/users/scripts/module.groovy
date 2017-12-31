@@ -6,13 +6,14 @@ import groovy.text.markup.TemplateConfiguration
 import groovy.text.markup.MarkupTemplateEngine
 import static groovy.json.JsonOutput.toJson as json
 import groovy.json.JsonSlurper
+import groovy.sql.Sql
 
 class User {
    def id
    def name
    def email
    def telephone
-   def fonction
+   def profession
    def role
    def structure
 }
@@ -25,7 +26,7 @@ class Structure {
 class ModuleAction extends ActionSupport {
 
     def ModuleAction() {
-       def user = new User(id : 1,name : "Malorum", email : "malorum@gmail.com",role : "administrateur",fonction : "CEO",telephone : "776154520")
+       def user = new User(id : 1,name : "Malorum Diaz", email : "malorum@gmail.com",role : "administrateur",profession : "CEO",telephone : "776154520")
        user.structure = new Structure(name : "Sesame",ninea : 1454554)
        request.setAttribute("user",user)
    }
@@ -37,20 +38,31 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def changePassword() {
-	   def user = new JsonSlurper().parse(request.inputStream) 
+	   def user = new JsonSlurper().parse(request.inputStream)
+	   def connection = getConnection()
+	   connection.executeUpdate 'update users set password = ? where id = ?', [user.password,session.getAttribute("user").id] 
+	   connection.close()
 	   response.writer.write(json([status: 1]))
 	}
 	
 	def recoverPassword() {
 	   def user = new JsonSlurper().parse(request.inputStream)
+	   user.password = "123456789"
 	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
 	   def mailSender = new MailSender(mailConfig)
 	   def mail = new Mail("Mamadou Lamine Ba","$user.email","Rėinitialisation de votre mot de passe",getPasswordTemplate(user))
-	   mailSender.sendMail(mail) 
+	   mailSender.sendMail(mail)
+	   def connection = getConnection()
+	   connection.executeUpdate 'update users set password = ? where email = ?', [user.password,user.email] 
+	   connection.close() 
 	   response.writer.write(json([status: 1]))
 	}
 	
 	def updateProfil() {
+	   def user = new JsonSlurper().parse(request.inputStream)
+	   def connection = getConnection()
+	   connection.executeUpdate 'update users set name = ?, email = ?, profession = ?, telephone = ?  where id = ?', [user.name,user.email,user.profession,user.telephone,session.getAttribute("user").id] 
+	   connection.close() 
 	   response.writer.write(json([status: 1]))
 	}
 	
@@ -78,7 +90,7 @@ class ModuleAction extends ActionSupport {
 		    div(style : "width:90%;margin:auto;margin-top : 30px;margin-bottom:30px") {
 		      p("Votre mot de passe a &edot;t&edot; r&edot;initialis&edot;")
 		      br()
-		      p("Mot de passe : <b>12455444444</b>")
+		      p("Mot de passe : <b>$user.password</b>")
 		      br()
 		      p("Vous pouvez le modifier ensuite en vous connectant &aacute; <a href='$url'>votre compte</a>")
 		    }
@@ -150,6 +162,11 @@ class ModuleAction extends ActionSupport {
 		'''
 		def template = engine.createTemplate(text).make([subscription:subscription,url : baseUrl])
 		template.toString()
+	}
+	
+	def getConnection()  {
+		def db = [url:'jdbc:mysql://localhost/thinktech', user:'root', password:'thinktech', driver:'com.mysql.jdbc.Driver']
+        Sql.newInstance(db.url, db.user, db.password, db.driver)
 	}
 	
 }

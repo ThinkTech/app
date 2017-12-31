@@ -26,37 +26,37 @@
 								<div>
 								   <fieldset class="profile-details">
 								        <span class="text-right">Prénom et Nom </span>
-										<span>${user.name}</span>
+										<span id="name">${user.name}</span>
 									    <span class="text-right">Email </span>
-										<span>${user.email}</span>
+										<span id="email">${user.email}</span>
 										<span class="text-right">Téléphone </span>
-										<span>${user.telephone}</span>
+										<span id="telephone">${user.telephone}</span>
 										<span class="text-right">Role </span>
-   										<span>${user.role}</span>
-   										<span class="text-right">Fonction </span>
-   										<span>${user.fonction}</span>
+   										<span id="role">${user.role}</span>
+   										<span class="text-right">Profession </span>
+   										<span id="profession">${user.profession}</span>
 										<span class="text-right">Structure </span>
-   										<span>${user.structure.name}</span>
+   										<span id="structure">${user.structure.name}</span>
    										<span class="text-right">Ninea </span>
-   										<span>${user.structure.ninea}</span>
+   										<span id="ninea">${user.structure.ninea}</span>
    								 </fieldset>
    								 <a class="text-center">[ modifier ]</a>
    								 <fieldset class="profile-edition">
    								   <form action="${url}/profile/update">
    								    <span class="text-right">Prénom et Nom </span>
-										<input type="text" value="${user.name}" required>
+										<input type="text" name="name" value="${user.name}" required>
 									    <span class="text-right">Email </span>
-										<input type="email" value="${user.email}" required>
+										<input type="email" name="email" value="${user.email}" required>
 										<span class="text-right">Téléphone </span>
-										<input value="${user.telephone}" type="text">
+										<input name="telephone" value="${user.telephone}" type="text">
 										<span class="text-right">Role </span>
    										<span>${user.role}</span>
-   										<span class="text-right">Fonction </span>
-   										<input type="text" value="${user.fonction}" required>
+   										<span class="text-right">Profession </span>
+   										<input name="profession" type="text" value="${user.profession}" required>
 										<span class="text-right">Structure </span>
    										<span>${user.structure.name}</span>
    										<span class="text-right">Ninea </span>
-   										<input value="${user.structure.ninea}" type="text" required>
+   										<input name="ninea" value="${user.structure.ninea}" type="text" required>
    								    <div class="submit">
    								      <input type="submit" value="Modifier">
    								      <input type="button" value="Annuler">
