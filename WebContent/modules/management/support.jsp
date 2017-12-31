@@ -150,11 +150,11 @@
 		</fieldset>
 	    <fieldset>
 	        <legend>
-	    	<i class="fa fa-comments"></i> Messages <a class="message-add"><i class="fa fa-plus" aria-hidden="true"></i></a>
+	    	<i class="fa fa-comments"></i> Commentaires <a class="message-add"><i class="fa fa-plus" aria-hidden="true"></i></a>
 	   		</legend>
 	   		 <div class="messages">
 	   		    <div class="message-list">
-   		 		 <h6>pas de messages</h6>
+   		 		 <h6>pas de commentaires</h6>
    		 		 <div data-template="messages">
    		 		</div>
    		 		</div>

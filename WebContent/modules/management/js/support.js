@@ -5,10 +5,10 @@ $(document).ready(function(){
 			$("legend a",container).hide();
 		}
 		if(ticket.comments.length){
-			page.details.showMessages(ticket.comments);
+			page.details.showComments(ticket.comments);
 		}
 		$(".messages form",container).submit(function(event){
-			page.details.addMessage($(this));
+			page.details.addComment($(this));
 			return false;
 		});
 	};
@@ -58,7 +58,7 @@ $(document).ready(function(){
 				});
 			});
 	  };
-	  page.details.addMessage = function(form) {
+	  page.details.addComment = function(form) {
 			const comment = {};
 			comment.message =  tinyMCE.activeEditor.getContent();
 			if(tinyMCE.activeEditor.getContent({format: 'text'}).trim() == ""){
@@ -84,17 +84,17 @@ $(document).ready(function(){
 						  tinyMCE.activeEditor.setContent("");
 						  form.find("input[type=button]").click();
 						  alert("votre message a &edot;t&edot; bien ajout&edot;");
-						  page.details.showMessages([comment]);
+						  page.details.showComments([comment]);
 					  }
 				  },
 				  dataType: "json"
 			});
 		};
 		
-		page.details.showMessages = function(messages){
+		page.details.showComments = function(comments){
 			const list = $(".message-list");
 			  list.find("h6").hide();
-			  page.render($("> div",list), messages, true, function(div) {
+			  page.render($("> div",list), comments, true, function(div) {
 				  page.release();
 				  $("a",div).click(function(event){
 					 $(this).parent().prev().css({top : event.pageY-20,left : event.pageX-400}).toggle();
