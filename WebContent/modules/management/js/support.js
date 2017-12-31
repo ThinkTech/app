@@ -7,6 +7,10 @@ $(document).ready(function(){
 			page.details.addComment($(this));
 			return false;
 		});
+		$(".close-ticket",container).click(function(event){
+			page.details.closeTicket($(this).attr("href"),ticket);
+			return false;
+		});
 	};
 	$(".window > div > form").submit(function(event){
 		    page.details.addTicket($(this));
@@ -100,5 +104,30 @@ $(document).ready(function(){
 				 return false;
 			});
 	   });
+	};
+	page.details.closeTicket = function(url,ticket){
+		confirm("&ecirc;tes vous s&ucirc;r de vouloir fermer ce ticket?",function(){
+			page.wait();
+			$.ajax({
+				  type: "POST",
+				  url: url,
+				  data: JSON.stringify(ticket),
+				  contentType : "application/json",
+				  success: function(response) {
+					  if(response.status){
+						  page.release();
+						  page.details.hide();
+						  const tr = $(".table tr[id="+ticket.id+"]");
+						  $("span.label",tr).html("termin&edot;").removeClass().addClass("label label-success");
+						  $(".badge",tr).html("100%");
+						  alert("votre ticket a &edot;t&edot; bien ferm&edot;");
+						  const h3 = $("h3.unsolved");
+						  const count = parseInt(h3.text());
+						  h3.html(count-1);
+					  }
+				  },
+				  dataType: "json"
+			});
+		});
 	};
 });

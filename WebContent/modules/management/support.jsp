@@ -20,7 +20,7 @@
 			<div class="col-md-4 info-update-gd">
 				<div class="info-update-block clr-block-3">
 					<div class="col-md-8 info-update-left">
-						<h3>${unsolved}</h3>
+						<h3 class="unsolved">${unsolved}</h3>
 						<h4>tickets non résolus</h4>
 					</div>
 					<div class="col-md-4 info-update-right">
@@ -132,7 +132,7 @@
 			<span data-status="medium" style="display:none">moyenne</span>
 			<span data-status="high" style="display:none">élevée</span>
 			<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Traitement </span> 
-			<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">staff technique</span> </span>
+			<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">staff technique</span> <a href="${url}/support/tickets/close" class="close-ticket"><i class="fa fa-window-close"></i></a></span>
 			<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  
 			<span data-status="finished" style="display:none"><span class="label label-success">terminé</span></span>
 			<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Progression </span> <span class="badge badge-info">{progression}%</span>

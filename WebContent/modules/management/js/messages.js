@@ -4,7 +4,7 @@ $(document).ready(function(){
 		if(weight == "700") {
 			$(this).css("font-weight","normal");
 			const h3 = $("h3.unread");
-			const count = parseInt($("h3.unread").text());
+			const count = parseInt(h3.text());
 			h3.html(count-1);
 		}
 		

@@ -16,6 +16,7 @@
     <action url="support/tickets/create"  method="createTicket" script="support.groovy"/>
     <action url="support/tickets/info"  method="getTicketInfo" script="support.groovy"/>
     <action url="support/tickets/comment"  method="addTicketComment" script="support.groovy"/>
+    <action url="support/tickets/close"  method="closeTicket" script="support.groovy"/>
     <action url="billing"  page="billing" method="showBills"/>
     <action url="billing/info"  method="getBillInfo"/>
     <action url="services" page="services" method="showServices"/>

@@ -489,7 +489,7 @@ legend a i.fa {
       right : 10px;
       float : right;
      }
-     .window > div a.pay{position : relative; top : -2px}
+     .window > div a.pay,.window > div a.close-ticket{position : relative; top : -2px}
      .window > div .info-duration{padding-top : 2px;margin-bottom:5px;}
      .info-tasks li span:first-of-type {width : 100%;}
 }

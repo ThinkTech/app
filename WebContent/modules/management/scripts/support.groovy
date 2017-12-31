@@ -101,6 +101,14 @@ class ModuleAction extends ActionSupport {
 	   response.writer.write(json([status: 1]))
 	}
 	
+	def closeTicket() {
+	   def ticket = new JsonSlurper().parse(request.inputStream) 
+	   def connection = getConnection()
+	   connection.executeUpdate "update tickets set progression = 100, status = 'finished' where id = ?", [ticket.id] 
+	   connection.close()
+	   response.writer.write(json([status : 1]))
+	}
+	
 	def getTicketTemplate(ticket) {
 	    TemplateConfiguration config = new TemplateConfiguration()
 		MarkupTemplateEngine engine = new MarkupTemplateEngine(config)
