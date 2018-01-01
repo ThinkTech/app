@@ -80,7 +80,7 @@ class ModuleAction extends ActionSupport {
 	   if(ticket.subject.length()>40) ticket.subject = ticket.subject.substring(0,40)+"..."
 	   ticket.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(ticket.date)
 	   ticket.comments = []
-	   connection.eachRow("select t.id, t.message, t.date, u.name from tickets_comments t, users u where t.createdBy = u.id and t.ticket_id = ?", [ticket.id],{ row -> 
+	   connection.eachRow("select c.id, c.message, c.date, u.name from tickets_comments c, users u where c.createdBy = u.id and c.ticket_id = ?", [ticket.id],{ row -> 
           def comment = new Expando()
           comment.id = row.id
           comment.author = row.name

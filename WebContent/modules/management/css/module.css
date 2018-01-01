@@ -254,7 +254,7 @@
 	margin-left : 5px;
 }
 
-.window > div .message-list > div > div div.info-message {
+.window > div div.info-message {
 	position : absolute; 
 	z-index : 999999;
 	display : none;
@@ -266,7 +266,7 @@
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-.window > div .message-list > div > div div.info-message b {
+.window > div  div.info-message b {
 	width : 50px;
 	display : inline-block;
 	text-align : right;
@@ -369,7 +369,6 @@ legend a i.fa {
 
 .window p {
 	font-size : 13px;
-	word-break : break-all;
 }
 
 .window > div .document-list > div p {
@@ -539,13 +538,14 @@ legend a i.fa {
 	.project-wizard h1{margin-left: -16px;}
 	.window > div .terms-agreement {font-size: 13px;margin-top: 5px;}
 	.window > div .message-list > div > div span,.window > div ol li span {display : block;width:100%;text-align:right;margin-left:2px}
-	.window > div ol li a{margin-bottom : 2px;display:block;width:100%;white-space:normal;word-break : break-all}
-	.window > div ol li span{text-align:left}
+	.window > div ol li a{margin-bottom : 2px;display:inline-block;width:90%;white-space:normal;word-break : break-all}
+	.window > div ol li span{text-align:left;display:inline-block;width:20px}
 	.window > div .message-list > div > div div.message {width : 97%;}
 }
 
 @media(max-width:480px){
 	.project-wizard p {text-align : center}
+	.window p {word-break : break-all;}
 }
 
 /*-- pricing --*/

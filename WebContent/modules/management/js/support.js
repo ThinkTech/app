@@ -16,9 +16,6 @@ $(document).ready(function(){
 		    page.details.addTicket($(this));
 		    return false;
 	});
-	$(".window").click(function(event){
-	    $(".info-message").hide();
-	});
 	page.details.addTicket = function(form){
 		const ticket = {};
 		ticket.subject = form.find("input[name=subject]").val();
@@ -54,7 +51,6 @@ $(document).ready(function(){
 								  h3.html(parseInt(h3.text())+1);
 							  });
 						  });
-						 
 					  }
 				  },
 				  dataType: "json"
@@ -84,6 +80,7 @@ $(document).ready(function(){
 			  success: function(response) {
 				  page.release();
 				  if(response.status){
+					  page.release();
 					  tinyMCE.activeEditor.setContent("");
 					  form.find("input[type=button]").click();
 					  alert("votre message a &edot;t&edot; bien ajout&edot;");
@@ -97,7 +94,6 @@ $(document).ready(function(){
 		const list = $(".message-list");
 		list.find("h6").hide();
 		page.render($("> div",list), comments, true, function(div) {
-			page.release();
 			$("a",div).click(function(event){
 				 const info = $(this).parent().prev();
 				 info.css({top : event.pageY-20,left : event.pageX-info.width()-50}).toggle();

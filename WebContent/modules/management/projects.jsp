@@ -62,19 +62,19 @@
                                     <tr>
                                       <th></th>
                                       <th>Projet</th>
-                                      <th>Plan</th> 
+                                      <th>Auteur</th>
                                       <th>Date Création</th>                                                             
                                       <th>Traitement</th>
                                       <th>Progression</th>
                                   </tr>
                               </thead>
                               <tbody>
-                              <s:iterator value="#session.projects" var="project" status="status">
+                              <s:iterator value="#request.projects" var="project" status="status">
 	                                <tr id="${project.properties['id']}">
 	                                  <td><span class="number">${status.index+1}</span></td>
 	                                  <td>${project.properties['subject']}</td>
-	                                  <td><i class="fa fa-code" aria-hidden="true"></i> ${project.properties['plan']}</td>
-	                                  <td>${project.properties['date']}</td>                                        
+	                                  <td><i class="fa fa-user" aria-hidden="true"></i> ${project.properties['author']}</td>
+	                                  <td><s:date name="properties['date']" format="dd/MM/yyyy" /></td>                                        
 	                                  <td><span class="label ${project.properties['status']=='in progress' ? 'label-danger' : '' } ${project.properties['status']=='finished' ? 'label-success' : '' } ${project.properties['status']=='stand by' ? 'label-info' : '' }">
 	                                  ${project.properties['status']=='in progress' ? 'en cours' : '' } ${project.properties['status']=='finished' ? 'terminé' : '' } ${project.properties['status']=='stand by' ? 'en attente' : '' }
 	                                  </span></td>
@@ -87,7 +87,7 @@
 							      <tr id="{id}">
 							            <td><span class="number"></span></td>
 							   	        <td>{subject}</td>
-							            <td><i class="fa fa-code" aria-hidden="true"></i> {plan}</td>
+							            <td><i class="fa fa-user" aria-hidden="true"></i> ${user.name}</td>
 		                                <td>{date}</td>           
 		                                <td><span class="label label-info">en attente</span></td>
 		                                <td><span class="badge badge-info">0%</span></td>
@@ -108,9 +108,9 @@
 	 <template>
 	 <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Projet : {subject|s}</h1>
 	<fieldset>
+	    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>{service}</span>
 		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span> <span>{plan}</span> <a data-plan="{plan}" class="plan"><i class="fa fa-info" aria-hidden="true"></i></a>
-		<span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Structure </span> <span>${user.structure.name}</span>
-		<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date} - 17:35:25</span>
+		<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date}</span>
 		<span class="text-right"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Durée </span> <span>{duration} mois</span> <a class="duration"><i class="fa fa-info" aria-hidden="true"></i></a>
 		<div class="info-duration">
 		   <p data-status="stand by">la durée du projet est estimée à {duration} mois dans l'attente du paiement de la caution que vous devez effectuer</p>
@@ -134,28 +134,28 @@
 				<div class="shipment">
 					<div class="confirm">
 						<div class="imgcircle">
-							<img src="${images}/confirm.png" alt="confirm order">
+							<img src="${images}/confirm.png">
 						</div>
 						<span class="line"></span>
 						<p>Contrat et Caution</p>
 					</div>
 					<div class="process">
 						<div class="imgcircle">
-							<img src="${images}/process.png" alt="process order">
+							<img src="${images}/process.png">
 						</div>
 						<span class="line"></span>
 						<p>Développement</p>
 					</div>
 					<div class="quality">
 						<div class="imgcircle">
-							<img src="${images}/quality.png" alt="quality check">
+							<img src="${images}/quality.png">
 						</div>
 						<span class="line"></span>
 						<p>Tests et Validation</p>
 					</div>
 					<div class="delivery">
 						<div class="imgcircle">
-							<img src="${images}/delivery.png" alt="delivery">
+							<img src="${images}/delivery.png">
 						</div>
 						<p>Livraison Produit</p>
 					</div>
@@ -204,6 +204,7 @@
 				<span class="text-right"><i class="fa fa-file"></i> Document 3 </span> <input name="file3" type="file">
 				<input name="id" type="hidden" value="{id}">
 				<input name="url" type="hidden" value="${url}/projects/documents/save"/>
+				<input name="author" type="hidden" value="${user.name}">
 				</fieldset>
 				<div class="submit">
 			      <input type="submit" value="Envoyer">
@@ -226,6 +227,7 @@
    		 	   <form action="${url}/projects/comments/create">
    		 		<textarea id="textarea-message" name="message"></textarea>
    		 		<input name="id" type="hidden" value={id}>
+   		 		<input name="author" type="hidden" value="${user.name}">
    		 		<div class="submit">
 			      <input type="submit" value="Ajouter">
 			      <input type="button" value="Annuler">
@@ -240,18 +242,26 @@
 		{#.}
 			<li>
 				<a href="${url}/projects/documents/download?name={name}"><i class="fa fa-file" aria-hidden="true"></i> {name}</a>
-				<span>14/12/2017 - 17:35:25</span>
+				<div class="info-message">
+	   	  	    	<b>Auteur :</b> {author}<br>
+	   	  	    	<b>Date :</b> {date}
+	   	  		</div>
+	   	  		<span><a><i class="fa fa-info" aria-hidden="true"></i></a></span>
 			</li>
 		 {/.}
   </template>
   <template id="template-comments">
       {#.}
-      <div>
-        <i class="fa fa-user" aria-hidden="true"></i>
-   	  	<div class="message">{message|s}</div>
-   	  	<span>14/12/2017 - 17:35:25</span>
-   	  	 <hr/>
-   	  </div>
+	      <div>
+	        <i class="fa fa-user" aria-hidden="true"></i> 
+	   	  	<div class="message">{message|s}</div>
+	   	  	<div class="info-message">
+	   	  	    <b>Auteur :</b> {author}<br>
+	   	  	    <b>Date :</b> {date}
+	   	  	</div>
+	   	  	<span><a><i class="fa fa-info" aria-hidden="true"></i></a></span>
+	   	  	 <hr/>
+	   	  </div>
    	  {/.}
   </template>
   <template id="template-tasks">
@@ -429,14 +439,6 @@
   <div> 
   <section>
     <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Création Projet Reussie</h1>
-    <div class="structure-info">
-		<h5>
-			<span><b>Structure</b> : ${user.structure.name}</span>
-		</h5>
-		<h5>
-			<span><b>Ninea</b> : ${user.structure.ninea}</span>
-		</h5>
-	</div>
 	<hr/>
 	<span>Merci pour votre souscription au {plan}</span>
 	<h2><span class="number">1</span> Etape 1 : Contrat et Caution</h2>
@@ -446,28 +448,28 @@
 				<div class="shipment">
 					<div class="confirm">
 						<div class="imgcircle">
-							<img src="${images}/confirm.png" alt="confirm order">
+							<img src="${images}/confirm.png">
 						</div>
 						<span class="line"></span>
 						<p>Contrat et Caution</p>
 					</div>
 					<div class="process">
 						<div class="imgcircle">
-							<img src="${images}/process.png" alt="process order">
+							<img src="${images}/process.png">
 						</div>
 						<span class="line"></span>
 						<p>Développement</p>
 					</div>
 					<div class="quality">
 						<div class="imgcircle">
-							<img src="${images}/quality.png" alt="quality check">
+							<img src="${images}/quality.png">
 						</div>
 						<span class="line"></span>
 						<p>Tests et Validation</p>
 					</div>
 					<div class="delivery">
 						<div class="imgcircle">
-							<img src="${images}/delivery.png" alt="delivery">
+							<img src="${images}/delivery.png">
 						</div>
 						<p>Livraison Produit</p>
 					</div>
@@ -505,28 +507,28 @@
 				<div class="shipment">
 					<div class="confirm">
 						<div class="imgcircle active">
-							<img src="${images}/confirm.png" alt="confirm order">
+							<img src="${images}/confirm.png">
 						</div>
 						<span class="line active"></span>
 						<p>Contrat et Caution</p>
 					</div>
 					<div class="process">
 						<div class="imgcircle active">
-							<img src="${images}/process.png" alt="process order">
+							<img src="${images}/process.png">
 						</div>
 						<span class="line"></span>
 						<p>Développement</p>
 					</div>
 					<div class="quality">
 						<div class="imgcircle">
-							<img src="${images}/quality.png" alt="quality check">
+							<img src="${images}/quality.png">
 						</div>
 						<span class="line"></span>
 						<p>Tests et Validation</p>
 					</div>
 					<div class="delivery">
 						<div class="imgcircle">
-							<img src="${images}/delivery.png" alt="delivery">
+							<img src="${images}/delivery.png">
 						</div>
 						<p>Livraison Produit</p>
 					</div>

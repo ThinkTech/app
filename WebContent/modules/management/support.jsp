@@ -47,7 +47,7 @@
                                   <thead>
                                     <tr>
                                       <th></th>
-                                      <th>Objet</th>
+                                      <th>Ticket</th>
                                       <th>Service</th>
                                       <th>Auteur</th> 
                                       <th>Date Création</th>                                                             

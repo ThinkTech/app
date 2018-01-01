@@ -62,12 +62,6 @@ page.details.show = function(entity) {
 		  }
 		  div.show();
 	});
-	page.details.render = function(container,entity,callback){
-		page.render(container, entity);
-		const id = "#template-"+container.data("template");
-		div.append($(id,div).clone());
-		if(callback) callback();
-	};
 };
 
 page.details.hide = function(){
@@ -175,6 +169,9 @@ $(document).ready(function(){
 	});
 	$(".window.details > div > .submit input[type=button]").click(function(event) {
 		$(".window").hide();
+	});
+	$(".window").click(function(event){
+	    $(".info-message").hide();
 	});
 	$(".buttons a").click(function(event) {
 		page.form.show();

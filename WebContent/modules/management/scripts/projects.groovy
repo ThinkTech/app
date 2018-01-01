@@ -37,60 +37,26 @@ class ModuleAction extends ActionSupport {
    }
    
    def showProjects(){
-       request.setAttribute("total",6)
-       request.setAttribute("unactive",3)
-       request.setAttribute("active",1)
-       def projects = session.getAttribute("projects")
-       if(!projects) {
-           projects = []    
-	       def project = new Expando(id : 1,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '3',status : "in progress",progression : 50)
-	       project.tasks = []
-	       def task = new Expando(name : "contrat et caution", progression : 100)
-	       project.tasks << task
-	       task = new Expando(name : "item 1", progression : 100)
-	       project.tasks << task
-	       task = new Expando(name : "item 2", progression : 100)
-	       project.tasks << task
-	       task = new Expando(name : "item 3", progression : 100)
-	       project.tasks << task
-	       projects << project
-	       project = new Expando(id : 2,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '4',status : "finished",progression : 100)
-	       project.tasks = []
-	       task = new Expando(name : "contrat et caution", progression : 100)
-	       project.tasks << task
-	       task = new Expando(name : "item 1", progression : 100)
-	       project.tasks << task
-	       projects << project
-	       project = new Expando(id : 3,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
-	       project.tasks = []
-	       task = new Expando(name : "contrat et caution", progression : 100)
-	       project.tasks << task
-	       task = new Expando(name : "item 1", progression : 100)
-	       project.tasks << task
-	       projects << project
-	       project = new Expando(id : 4,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
-	       project.tasks = []
-	       task = new Expando(name : "contrat et caution", progression : 100)
-	       project.tasks << task
-	       task = new Expando(name : "item 1", progression : 100)
-	       project.tasks << task
-	       projects << project
-	       project = new Expando(id : 5,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
-	       project.tasks = []
-	       task = new Expando(name : "contrat et caution", progression : 100)
-	       project.tasks << task
-	       task = new Expando(name : "item 1", progression : 100)
-	       project.tasks << task
-	       projects << project
-	       project = new Expando(id : 6,subject: 'cr&edot;ation site web',description : '<p>cr&edot;ation site web e-commerce</p>',plan : 'plan business',date : "17/09/2017",duration : '3',status : "stand by",progression : 0)
-	       project.tasks = []
-	       task = new Expando(name : "contrat et caution", progression : 100)
-	       project.tasks << task
-	       task = new Expando(name : "item 1", progression : 100)
-	       project.tasks << task
-	       projects << project
-	       session.setAttribute("projects",projects)
-       }
+       def connection = getConnection()
+       def projects = []
+       def id = session.getAttribute("user").structure.id
+       connection.eachRow("select p.id,p.subject,p.date,p.status,p.progression, u.name from projects p, users u where p.user_id = u.id and p.structure_id = ? ", [id], { row -> 
+          def project = new Expando()
+          project.id = row.id
+          project.author =  row.name
+          project.subject = row.subject
+          project.date = row.date
+          project.status = row.status
+          project.progression = row.progression
+          projects << project
+       })
+       def active = connection.firstRow("select count(*) AS num from projects where status = 'in progress' and structure_id = "+id).num
+       def unactive = connection.firstRow("select count(*) AS num from projects where status = 'stand by' and structure_id = "+id).num
+       connection.close() 
+       request.setAttribute("projects",projects)  
+       request.setAttribute("total",projects.size())
+       request.setAttribute("active",active)
+       request.setAttribute("unactive",unactive)
        SUCCESS
    }
 
@@ -101,48 +67,65 @@ class ModuleAction extends ActionSupport {
 	   def template = getProjectTemplate(project)
 	   def mail = new Mail("Mamadou Lamine Ba","lamine.ba@thinktech.sn","Projet : ${project.subject}",template)
 	   //mailSender.sendMail(mail) 
-	   createBill()
+	   println project
 	   def connection = getConnection()
 	   def user = session.getAttribute("user")
-	   def params = [project.subject,template,user.id,user.structure.id]
+	   def params = ["Projet : " +project.subject,template,user.id,user.structure.id]
        connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?, ?)', params
+	   params = [project.subject,project.service,project.plan, project.description,user.id,user.structure.id]
+       def result = connection.executeInsert 'insert into projects(subject,service,plan,description,user_id,structure_id) values (?, ?, ?,?,?,?)', params
 	   connection.close()
-	   response.writer.write(json([id: 1]))
-	}
-	
-	def createBill(){
-	   showBills()
-	   def bills = session.getAttribute("bills")
-	   def bill = new Expando(id : bills.size()+1,fee: 'caution',service : 'site web',amount : '60 000',date : "17/09/2017",status : "stand by")
-	   bills << bill
+	   response.writer.write(json([id: result[0][0]]))
 	}
 	
 	def getProjectInfo() {
-	   def projects = session.getAttribute("projects")
-	   if(!projects) showProjects()
-	   projects = session.getAttribute("projects")
 	   def id = getParameter("id") as int
-	   def project = projects[id-1] 
+	   def connection = getConnection()
+	   def project = connection.firstRow("select p.*, u.name from projects p,users u where p.id = ? and p.user_id = u.id", [id])
+	   if(project.subject.length()>40) project.subject = project.subject.substring(0,40)+"..."
+	   project.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(project.date)
+	   project.comments = []
+	   connection.eachRow("select c.id, c.message, c.date, u.name from projects_comments c, users u where c.createdBy = u.id and c.project_id = ?", [project.id],{ row -> 
+          def comment = new Expando()
+          comment.id = row.id
+          comment.author = row.name
+          comment.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(row.date)
+          comment.message = row.message
+          project.comments << comment
+       })
+       project.documents = []
+	   connection.eachRow("select d.id, d.name, d.date, u.name as author from documents d, users u where d.createdBy = u.id and d.project_id = ?", [project.id],{ row -> 
+          def document = new Expando()
+          document.id = row.id
+          document.author = row.author
+          document.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(row.date)
+          document.name = row.name
+          project.documents << document
+       })
+	   connection.close() 
 	   response.writer.write(json([entity : project]))
 	}
 	
 	def addComment() {
 	   def comment = new JsonSlurper().parse(request.inputStream) 
-	   def id = comment.project as int
-	   def projects = session.getAttribute("projects")
-	   def project = projects[id-1]
-	   if(!project.comments) project.comments = []
-	   project.comments << comment
+	   def connection = getConnection()
+	   def params = [comment.message,comment.project,session.getAttribute("user").id]
+       connection.executeInsert 'insert into projects_comments(message,project_id,createdBy) values (?,?,?)', params
+	   connection.close()
 	   response.writer.write(json([status: 1]))
 	}
 	
 	def saveDocuments() {
 	   def upload = new JsonSlurper().parse(request.inputStream) 
 	   def id = upload.id as int
-	   def projects = session.getAttribute("projects")
-	   def project = projects[id-1]
-	   if(!project.documents) project.documents = []
-	   project.documents = project.documents + upload.documents
+	   def connection = getConnection()
+	   def query = 'insert into documents(name,project_id,createdBy) values (?,?,?)'
+       connection.withBatch(query){ ps ->
+           for(def document : upload.documents){
+              ps.addBatch(document.name,id,session.getAttribute("user").id)
+           }
+       }
+	   connection.close()
 	   response.writer.write(json([status: 1]))
 	}
 	
@@ -156,9 +139,9 @@ class ModuleAction extends ActionSupport {
 	
 	def updateProjectDescription() {
 	   def project = new JsonSlurper().parse(request.inputStream)
-	   def projects = session.getAttribute("projects")
-	   def id = project.id as int
-	   projects[id-1].description = project.description
+	   def connection = getConnection()
+	   connection.executeUpdate "update projects set description = ? where id = ?", [project.description,project.id] 
+	   connection.close()
 	   response.writer.write(json([status: 1]))
 	}
 		
