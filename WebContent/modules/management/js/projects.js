@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	page.details.bind = function(container,project) {
 		if(project.status == "stand by") {
-			$("a.tasks,.document-add",container).hide();
+			$(".document-add",container).hide();
 		}
 		if(project.status == "in progress") {
 			$(".confirm .imgcircle,.confirm .line,.process .imgcircle",container).addClass("active");
@@ -20,10 +20,7 @@ $(document).ready(function(){
 		}
 		if(project.comments.length) page.details.showComments(project.comments);
 		if(project.documents.length) page.details.showDocuments(project.documents);
-		if(project.tasks){
-			 const list = $(".info-tasks",container);
-			 page.details.render($("ol",list),project.tasks);
-		}
+		if(project.tasks) page.render($(".info-tasks ol",container),project.tasks);
 		$("a.pay",container).click(function(event) {
 			const top = $(this).offset().top;
 			page.wait({top : top});

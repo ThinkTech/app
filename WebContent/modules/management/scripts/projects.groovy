@@ -67,15 +67,17 @@ class ModuleAction extends ActionSupport {
 	   def template = getProjectTemplate(project)
 	   def mail = new Mail("Mamadou Lamine Ba","lamine.ba@thinktech.sn","Projet : ${project.subject}",template)
 	   //mailSender.sendMail(mail) 
-	   println project
 	   def connection = getConnection()
 	   def user = session.getAttribute("user")
 	   def params = ["Projet : " +project.subject,template,user.id,user.structure.id]
        connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?, ?)', params
 	   params = [project.subject,project.service,project.plan, project.description,user.id,user.structure.id]
        def result = connection.executeInsert 'insert into projects(subject,service,plan,description,user_id,structure_id) values (?, ?, ?,?,?,?)', params
+       def id = result[0][0]
+       params = ["Contrat et Caution",id]
+       connection.executeInsert 'insert into tasks(name,project_id) values (?, ?)', params
 	   connection.close()
-	   response.writer.write(json([id: result[0][0]]))
+	   response.writer.write(json([id: id]))
 	}
 	
 	def getProjectInfo() {
@@ -101,6 +103,22 @@ class ModuleAction extends ActionSupport {
           document.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(row.date)
           document.name = row.name
           project.documents << document
+       })
+       project.documents = []
+	   connection.eachRow("select d.id, d.name, d.date, u.name as author from documents d, users u where d.createdBy = u.id and d.project_id = ?", [project.id],{ row -> 
+          def document = new Expando()
+          document.id = row.id
+          document.author = row.author
+          document.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(row.date)
+          document.name = row.name
+          project.documents << document
+       }) 
+       project.tasks = []
+	   connection.eachRow("select name,progression from tasks where project_id = ?", [project.id],{ row -> 
+          def task = new Expando()
+          task.name = row.name
+          task.progression = row.progression
+          project.tasks << task
        })
 	   connection.close() 
 	   response.writer.write(json([entity : project]))
