@@ -8,16 +8,6 @@ import static groovy.json.JsonOutput.toJson as json
 import groovy.json.JsonSlurper
 import groovy.sql.Sql
 
-class User {
-   def id
-   def name
-   def email
-   def telephone
-   def profession
-   def role
-   def structure
-}
-
 class Structure {
    def id
    def name
@@ -26,18 +16,13 @@ class Structure {
 
 class ModuleAction extends ActionSupport {
 
-    def ModuleAction() {
-       def user = new User(id : 1,name : "Malorum Diaz", email : "malorum@gmail.com",role : "administrateur",profession : "CEO",telephone : "776154520")
-       user.structure = new Structure(id : 1,name : "Sesame",ninea : 1454554)
-       session.setAttribute("user",user)
-   }
-
 	def login() {
 	   def user = new JsonSlurper().parse(request.inputStream) 
 	   def connection = getConnection()
 	   user = connection.firstRow("select * from users where email = ? and password = ?", [user.email,user.password])
 	   connection.close()
 	   if(user) {
+	    user.role = "administrateur"
 	    user.structure = new Structure(id : 1,name : "Sesame",ninea : 1454554)
         session.setAttribute("user",user)
 	   	def url = request.contextPath+"/dashboard"

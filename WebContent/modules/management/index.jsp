@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <div class="inner-block">
 <div class="logo-name">
 		<h1><i class="fa fa-television" aria-hidden="true"></i>Dashboard</h1> 								
@@ -47,73 +48,37 @@
 <div class="chit-chat-layer1">
 	<div class="col-md-12 chit-chat-layer1-left">
                <div class="work-progres">
-                            <div class="chit-chat-heading">
-                                  <h3 class="tlt">Vos Projets</h3>
-                            </div>
-                            <div class="projects table-responsive">
-                                <table data-url="${url}/projects/info" class="table table-hover">
+                    <div class="chit-chat-heading">
+                        <h3 class="tlt">Vos Projets</h3>
+                    </div>
+                    <div class="projects table-responsive">
+                      <table data-url="${url}/projects/info" class="projects table table-hover">
                                   <thead>
                                     <tr>
                                       <th></th>
                                       <th>Projet</th>
-                                      <th>Plan</th> 
+                                      <th>Auteur</th>
                                       <th>Date Création</th>                                                             
                                       <th>Traitement</th>
                                       <th>Progression</th>
                                   </tr>
                               </thead>
                               <tbody>
-                                <tr id="1">
-                                  <td><span class="number">1</span></td>
-                                  <td>création site web</td>
-                                  <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
-                                  <td>17/09/2017</td>                                        
-                                  <td><span class="label label-danger">en cours</span></td>
-                                  <td><span class="badge badge-info">50%</span></td>
-                              </tr>
-                              <tr id="2">
-                                  <td><span class="number">2</span></td>
-                                  <td>création site web</td>
-                                  <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
-                                  <td>17/09/2017</td>                  
-                                  <td><span class="label label-success">terminé</span></td>
-                                  <td><span class="badge badge-success">100%</span></td>
-                              </tr>
-                              <tr id="3">
-                                  <td><span class="number">3</span></td>
-                                  <td>création site web</td>
-                                  <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
-                                  <td>17/09/2017</td> 
-                                  <td><span class="label label-info">en attente</span></td>
-                                  <td><span class="badge badge-info">0%</span></td>
-                              </tr>
-                              <tr id="4">
-                                  <td><span class="number">4</span></td>
-                                  <td>création site web</td>
-                                  <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
-                                  <td>17/09/2017</td>            
-                                  <td><span class="label label-info">en attente</span></td>
-                                  <td><span class="badge badge-info">0%</span></td>
-                              </tr>
-                              <tr id="5">
-                                  <td><span class="number">5</span></td>
-                                  <td>création site web</td>
-                                  <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
-                                  <td>17/09/2017</td>                 
-                                  <td><span class="label label-info">en attente</span></td>
-                                  <td><span class="badge badge-info">0%</span></td>
-                              </tr>
-                              <tr id="6">
-                                  <td><span class="number">6</span></td>
-                                  <td>création site web</td>
-                                  <td><i class="fa fa-code" aria-hidden="true"></i> plan business</td>
-                                  <td>17/09/2017</td>           
-                                  <td><span class="label label-info">en attente</span></td>
-                                  <td><span class="badge badge-info">0%</span></td>
-                              </tr>
+                              <s:iterator value="#request.projects" var="project" status="status">
+	                                <tr id="${project.properties['id']}">
+	                                  <td><span class="number">${status.index+1}</span></td>
+	                                  <td>${project.properties['subject']}</td>
+	                                  <td><i class="fa fa-user" aria-hidden="true"></i> ${project.properties['author']}</td>
+	                                  <td><s:date name="properties['date']" format="dd/MM/yyyy" /></td>                                        
+	                                  <td><span class="label ${project.properties['status']=='in progress' ? 'label-danger' : '' } ${project.properties['status']=='finished' ? 'label-success' : '' } ${project.properties['status']=='stand by' ? 'label-info' : '' }">
+	                                  ${project.properties['status']=='in progress' ? 'en cours' : '' } ${project.properties['status']=='finished' ? 'terminé' : '' } ${project.properties['status']=='stand by' ? 'en attente' : '' }
+	                                  </span></td>
+	                                  <td><span class="badge badge-info">${project.properties['progression']}%</span></td>
+	                              </tr>
+	                          </s:iterator>
                           </tbody>
-                      </table>
-                  </div>
+                      </table>            
+                    </div>
              </div>
       </div>
      <div class="clearfix"> </div>
