@@ -33,9 +33,16 @@ class ModuleAction extends ActionSupport {
    }
 
 	def login() {
-	    def user = new JsonSlurper().parse(request.inputStream) 
-		def url = request.contextPath+"/dashboard"
-		response.writer.write(json([url: url]))
+	   def user = new JsonSlurper().parse(request.inputStream) 
+	   def connection = getConnection()
+	   user = connection.firstRow("select * from users where email = ? and password = ?", [user.email,user.password])
+	   connection.close()
+	   if(user) {
+	   	def url = request.contextPath+"/dashboard"
+	   	response.writer.write(json([url: url]))
+	   }else{
+	    response.writer.write(json([status : 1]))
+	   }
 	}
 	
 	def changePassword() {
