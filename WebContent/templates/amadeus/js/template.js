@@ -39,7 +39,11 @@ $(document).ready(function(){
 				  contentType : "application/json",
 				  success: function(response) {
 					  page.release();
-					  alert("un message vous a &edot;t&edot; envoy&edot; &agrave; l'adresse fournie");
+					  if(response.status){
+						  alert("un message vous a &edot;t&edot; envoy&edot; &agrave; l'adresse fournie");
+					  }else{
+						  alert("l'adresse fournie est incorrecte.");
+					  }
 				  },
 				  error : function(){
 					page.release();

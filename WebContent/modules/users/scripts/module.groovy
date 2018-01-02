@@ -55,15 +55,24 @@ class ModuleAction extends ActionSupport {
 	
 	def recoverPassword() {
 	   def user = new JsonSlurper().parse(request.inputStream)
-	   user.password = "123456789"
-	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
-	   def mailSender = new MailSender(mailConfig)
-	   def mail = new Mail("Mamadou Lamine Ba","$user.email","Rėinitialisation de votre mot de passe",getPasswordTemplate(user))
-	   mailSender.sendMail(mail)
 	   def connection = getConnection()
-	   connection.executeUpdate 'update users set password = ? where email = ?', [user.password,user.email] 
-	   connection.close() 
-	   response.writer.write(json([status: 1]))
+	   user = connection.firstRow("select * from users where email = ?", [user.email])
+	   if(user){
+	    user.password = "123456789"
+	    user.structure = new Structure(id : 1,name : "Sesame",ninea : 1454554)
+	   	connection.executeUpdate 'update users set password = ? where email = ?', [user.password,user.email]
+	   	def template = getPasswordTemplate(user) 
+	    def params = ["R�initialisation de votre mot de passe",template,user.id,user.structure.id]
+       	connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?, ?)', params
+       	connection.close()
+	   	def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
+	   	def mailSender = new MailSender(mailConfig)
+	   	def mail = new Mail("$user.name","$user.email","Rėinitialisation de votre mot de passe",template)
+	   	mailSender.sendMail(mail)
+	   	response.writer.write(json([status: 1]))
+	   }else {
+	   	response.writer.write(json([status: 0]))
+	   }
 	}
 	
 	def updateProfil() {
