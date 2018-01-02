@@ -8,29 +8,7 @@ import static groovy.json.JsonOutput.toJson as json
 import groovy.json.JsonSlurper
 import groovy.sql.Sql
 
-class User {
-   def id
-   def name
-   def email
-   def telephone
-   def profession
-   def role
-   def structure
-}
-
-class Structure {
-   def id
-   def name
-   def ninea
-}
-
 class ModuleAction extends ActionSupport {
-
-   def ModuleAction() {
-       def user = new User(id : 1,name : "Malorum Diaz", email : "malorum@gmail.com",role : "administrateur",profession : "CEO",telephone : "776154520")
-       user.structure = new Structure(id : 1,name : "Sesame",ninea : 1454554)
-       session.setAttribute("user",user)
-   }
 	
 	def showTickets(){
        def connection = getConnection()

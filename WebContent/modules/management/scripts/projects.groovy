@@ -9,33 +9,8 @@ import groovy.json.JsonSlurper
 import app.FileManager
 import groovy.sql.Sql
 
-class User {
-   def id
-   def name
-   def email
-   def telephone
-   def profession
-   def role
-   def structure
-}
-
-class Structure {
-   def id
-   def name
-   def ninea
-}
-
 class ModuleAction extends ActionSupport {
 
-   def ModuleAction() {
-       def user = new User(id : 1,name : "Malorum Diaz", email : "malorum@gmail.com",role : "administrateur",profession : "CEO",telephone : "776154520")
-       user.structure = new Structure(id : 1,name : "Sesame",ninea : 1454554)
-       session.setAttribute("user",user)
-       request.setAttribute("projects_count",6)
-       request.setAttribute("bills_count",4)
-       request.setAttribute("messages_count",3)
-   }
-   
    def showProjects(){
        def connection = getConnection()
        def projects = []
