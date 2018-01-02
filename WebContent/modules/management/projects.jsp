@@ -111,6 +111,10 @@
 	    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>{service}</span>
 		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span> <span>{plan}</span> <a data-plan="{plan}" class="plan"><i class="fa fa-info" aria-hidden="true"></i></a>
 		<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date}</span>
+		<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span> 
+		<span data-status="normal" style="display:none">normale</span>
+		<span data-status="medium" style="display:none">moyenne</span>
+		<span data-status="high" style="display:none">élevée</span>
 		<span class="text-right"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Durée </span> <span>{duration} mois</span> <a class="duration"><i class="fa fa-info" aria-hidden="true"></i></a>
 		<div class="info-duration">
 		   <p data-status="stand by">la durée du projet est estimée à {duration} mois dans l'attente du paiement de la caution que vous devez effectuer</p>
@@ -391,9 +395,15 @@
 		  <option value="plan personal">plan personal</option>
 		  <option value="plan social">plan social</option>
 		</select>
-		<input name="structure" type="hidden" value="${user.structure.name}">
+		<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span>
+		<select name="priority">
+		  <option value="normal">normale</option>
+		  <option value="medium">moyenne</option>
+		  <option value="high">élevée</option>
+		</select>
 		<span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du projet</span>
 		<textarea name="description" placeholder="entrer votre description"></textarea>
+		<input name="structure" type="hidden" value="${user.structure.name}">
 	</fieldset>
 	<div class="terms-agreement">
 		<input type="checkbox" checked disabled> J'accepte les <a class="read-terms">Termes</a>

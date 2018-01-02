@@ -71,8 +71,8 @@ class ModuleAction extends ActionSupport {
 	   def user = session.getAttribute("user")
 	   def params = ["Projet : " +project.subject,template,user.id,user.structure.id]
        connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?, ?)', params
-	   params = [project.subject,project.service,project.plan, project.description,user.id,user.structure.id]
-       def result = connection.executeInsert 'insert into projects(subject,service,plan,description,user_id,structure_id) values (?, ?, ?,?,?,?)', params
+	   params = [project.subject,project.priority,project.service,project.plan, project.description,user.id,user.structure.id]
+       def result = connection.executeInsert 'insert into projects(subject,priority,service,plan,description,user_id,structure_id) values (?, ?, ?,?,?,?,?)', params
        def id = result[0][0]
        def bill = createBill(project)
        if(bill.amount){

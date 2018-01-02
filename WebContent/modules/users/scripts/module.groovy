@@ -38,6 +38,8 @@ class ModuleAction extends ActionSupport {
 	   user = connection.firstRow("select * from users where email = ? and password = ?", [user.email,user.password])
 	   connection.close()
 	   if(user) {
+	    user.structure = new Structure(id : 1,name : "Sesame",ninea : 1454554)
+        session.setAttribute("user",user)
 	   	def url = request.contextPath+"/dashboard"
 	   	response.writer.write(json([url: url]))
 	   }else{

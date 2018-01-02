@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	page.details.bind = function(container,project) {
+		$("[data-status='"+project.priority+"']",container).show();
 		if(project.status == "in progress") {
 			$(".confirm .imgcircle,.confirm .line,.process .imgcircle",container).addClass("active");
 			if(project.progression >= 95) {
@@ -172,6 +173,7 @@ $(document).ready(function(){
 		project.service = form.find("select[name=service]").val();
 		project.subject = form.find("select[name=subject]").val();
 		project.plan =  form.find("select[name=plan]").val();
+		project.priority =  form.find("select[name=priority]").val();
 		project.description =  tinyMCE.activeEditor.getContent();
 		if(tinyMCE.activeEditor.getContent({format: 'text'}).trim() == ""){
 			alert("vous devez entrer une description",function(){

@@ -4,7 +4,9 @@ page.form.show = function(){
 	const form = $(".window.form");
 	const area = $('textarea',form);
 	if(area.length) tinymce.init({target:area[0],height:"150",language: 'fr_FR',menubar:false,statusbar: false});
-	form.show();
+	setTimeout(function(){
+		form.show();
+	},1000);
 };
 
 page.form.hide = function(){
