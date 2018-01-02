@@ -3,6 +3,11 @@ page.wizard = {};
 page.wizard.init = function(){
 	const wizard = $("#checkout-wizard").css("opacity","0").show();	
 	const form = $(".checkout-wizard-steps > form",wizard);
+	$.each($(".digit",form),function(i,node){
+		 node = $(node);
+		 const val = parseInt(node.text());
+		 node.html(val.toLocaleString("fr-FR"));
+	});
 	form.easyWizard({
 		    prevButton: "Pr\u0117c\u0117dent",
 		    nextButton: "Suivant",

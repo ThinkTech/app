@@ -125,9 +125,13 @@
 	 <template>
 	 <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Projet : {subject|s}</h1>
 	<fieldset>
+	    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>{service}</span>
 		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span> <span>{plan}</span> <a data-plan="{plan}" class="plan"><i class="fa fa-info" aria-hidden="true"></i></a>
-		<span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Structure </span> <span>${user.structure.name}</span>
-		<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date} - 17:35:25</span>
+		<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date}</span>
+		<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span> 
+		<span data-status="normal" style="display:none">normale</span>
+		<span data-status="medium" style="display:none">moyenne</span>
+		<span data-status="high" style="display:none">élevée</span>
 		<span class="text-right"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Durée </span> <span>{duration} mois</span> <a class="duration"><i class="fa fa-info" aria-hidden="true"></i></a>
 		<div class="info-duration">
 		   <p data-status="stand by">la durée du projet est estimée à {duration} mois dans l'attente du paiement de la caution que vous devez effectuer</p>
@@ -135,7 +139,7 @@
 		   <p data-status="finished">la durée du projet fut de {duration} mois et le produit final a été livré le 17/12/2017 à 10:35:24</p>
 		</div>
 		<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Traitement </span> 
-		<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">paiement caution</span> <a class="pay"><i class="fa fa-money"></i></a></span>
+		<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">paiement caution</span> <span class="label label-success"><b class="digit">{bill.amount}</b> F</span> <a class="pay"><i class="fa fa-money"></i></a></span>
 		<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  
 		<span data-status="finished" style="display:none"><span class="label label-success">terminé</span></span>
 		<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Progression </span> <span class="badge badge-info">{progression}%</span> <a class="tasks"><i class="fa fa-info" aria-hidden="true"></i></a>
@@ -151,28 +155,28 @@
 				<div class="shipment">
 					<div class="confirm">
 						<div class="imgcircle">
-							<img src="${images}/confirm.png" alt="confirm order">
+							<img src="${images}/confirm.png">
 						</div>
 						<span class="line"></span>
 						<p>Contrat et Caution</p>
 					</div>
 					<div class="process">
 						<div class="imgcircle">
-							<img src="${images}/process.png" alt="process order">
+							<img src="${images}/process.png">
 						</div>
 						<span class="line"></span>
 						<p>Développement</p>
 					</div>
 					<div class="quality">
 						<div class="imgcircle">
-							<img src="${images}/quality.png" alt="quality check">
+							<img src="${images}/quality.png">
 						</div>
 						<span class="line"></span>
 						<p>Tests et Validation</p>
 					</div>
 					<div class="delivery">
 						<div class="imgcircle">
-							<img src="${images}/delivery.png" alt="delivery">
+							<img src="${images}/delivery.png">
 						</div>
 						<p>Livraison Produit</p>
 					</div>
@@ -221,6 +225,7 @@
 				<span class="text-right"><i class="fa fa-file"></i> Document 3 </span> <input name="file3" type="file">
 				<input name="id" type="hidden" value="{id}">
 				<input name="url" type="hidden" value="${url}/projects/documents/save"/>
+				<input name="author" type="hidden" value="${user.name}">
 				</fieldset>
 				<div class="submit">
 			      <input type="submit" value="Envoyer">
@@ -243,6 +248,7 @@
    		 	   <form action="${url}/projects/comments/create">
    		 		<textarea id="textarea-message" name="message"></textarea>
    		 		<input name="id" type="hidden" value={id}>
+   		 		<input name="author" type="hidden" value="${user.name}">
    		 		<div class="submit">
 			      <input type="submit" value="Ajouter">
 			      <input type="button" value="Annuler">
@@ -257,18 +263,26 @@
 		{#.}
 			<li>
 				<a href="${url}/projects/documents/download?name={name}"><i class="fa fa-file" aria-hidden="true"></i> {name}</a>
-				<span>14/12/2017 - 17:35:25</span>
+				<div class="info-message">
+	   	  	    	<b>Auteur :</b> {author}<br>
+	   	  	    	<b>Date :</b> {date}
+	   	  		</div>
+	   	  		<span><a><i class="fa fa-info" aria-hidden="true"></i></a></span>
 			</li>
 		 {/.}
   </template>
   <template id="template-comments">
       {#.}
-      <div>
-        <i class="fa fa-user" aria-hidden="true"></i>
-   	  	<div class="message">{message|s}</div>
-   	  	<span>14/12/2017 - 17:35:25</span>
-   	  	 <hr/>
-   	  </div>
+	      <div>
+	        <i class="fa fa-user" aria-hidden="true"></i> 
+	   	  	<div class="message">{message|s}</div>
+	   	  	<div class="info-message">
+	   	  	    <b>Auteur :</b> {author}<br>
+	   	  	    <b>Date :</b> {date}
+	   	  	</div>
+	   	  	<span><a><i class="fa fa-info" aria-hidden="true"></i></a></span>
+	   	  	 <hr/>
+	   	  </div>
    	  {/.}
   </template>
   <template id="template-tasks">
