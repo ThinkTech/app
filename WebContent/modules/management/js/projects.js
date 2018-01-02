@@ -1,8 +1,5 @@
 $(document).ready(function(){
 	page.details.bind = function(container,project) {
-		if(project.status == "stand by") {
-			$(".document-add",container).hide();
-		}
 		if(project.status == "in progress") {
 			$(".confirm .imgcircle,.confirm .line,.process .imgcircle",container).addClass("active");
 			if(project.progression >= 95) {

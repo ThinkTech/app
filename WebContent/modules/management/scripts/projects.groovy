@@ -80,6 +80,9 @@ class ModuleAction extends ActionSupport {
        	  connection.executeInsert 'insert into bills(fee,amount,project_id) values (?,?,?)', params
        	  params = ["Contrat et Caution",id]
        	  connection.executeInsert 'insert into tasks(name,project_id) values (?, ?)', params
+       }else{
+          params = ["Acceptation",id]
+       	  connection.executeInsert 'insert into tasks(name,project_id) values (?, ?)', params
        }
 	   connection.close()
 	   response.writer.write(json([id: id]))
