@@ -118,7 +118,7 @@ body {
 	text-transform: uppercase;
 	margin-top: 20px;
 	margin-bottom : 20px;
-	font-family: 'Arial', sans-serif;
+	font-family: 'Tahoma', sans-serif;
 }
 /*--//header--*/
 
@@ -175,7 +175,7 @@ body {
 	padding: 1em 0 1em 2em;
 	padding-left: 10px;
 	letter-spacing: 1px;
-	font-family: 'Arial', sans-serif;
+	font-family: 'Tahoma', sans-serif;
 }
 
 .sub-main-w3 input[type="password"] {
@@ -234,7 +234,7 @@ span.check-w3 {
 	color: #fff;
 	font-size: 1em;
 	letter-spacing: 1px;
-	font-family: 'Arial', sans-serif;
+	font-family: 'Tahoma', sans-serif;
 }
 
 .sub-main-w3 a {
@@ -244,7 +244,7 @@ span.check-w3 {
 }
 
 a.w3-pass {
-	font-family: 'Arial', sans-serif;
+	font-family: 'Tahoma', sans-serif;
 	text-shadow: 1px 1px #5a8182;
 	margin-right: 11%;
 	position: relative;
@@ -259,7 +259,7 @@ a.w3-pass {
 }
 
 .w3-head-continue h4 {
-	font-family: 'Arial', sans-serif;
+	font-family: 'Tahoma', sans-serif;
 }
 
 #confirm-dialog-container, #alert-dialog-container {
@@ -318,7 +318,7 @@ a.w3-pass {
 	font-weight: bold;
 	color: #212121;
 	letter-spacing: 2px;
-	font-family: 'Arial', sans-serif;
+	font-family: 'Tahoma', sans-serif;
 }
 
 .footer p a {

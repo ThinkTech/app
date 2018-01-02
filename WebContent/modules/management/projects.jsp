@@ -317,9 +317,6 @@
 				<p>Formation</p>
 				<p class="text"><span>24/7</span> Assistance</p>
 			</div>
-			<div class="buy-button">
-				 <a class="subscribe" data-plan="corporate">Souscrire</a>
-			</div>
 		</div>
 	</div>
 	
@@ -434,7 +431,7 @@
 	</form>
 	</div>
 </div>
-<div class="window project-wizard">
+<div class="window project-wizard" data-url="${url}/projects/bill">
   <template>
   <div> 
   <section>

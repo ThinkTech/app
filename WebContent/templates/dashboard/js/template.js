@@ -62,6 +62,7 @@ page.details.show = function(entity) {
 		  }
 		  div.show();
 	});
+	
 };
 
 page.details.hide = function(){

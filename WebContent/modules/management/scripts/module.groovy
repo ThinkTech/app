@@ -67,36 +67,6 @@ class ModuleAction extends ActionSupport {
 	   response.writer.write(json([entity : message]))
 	}
     
-    def showBills(){
-       request.setAttribute("total",6)
-       request.setAttribute("unpayed",4)
-       def bills = session.getAttribute("bills")
-       if(!bills) {
-	       bills = []
-	       def bill = new Expando(id : 1,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "finished")
-	       bills << bill
-	       bill = new Expando(id : 2,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "finished")
-	       bills << bill
-	       bill = new Expando(id : 3,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "stand by")
-	       bills << bill
-	       bill = new Expando(id : 4,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "stand by")
-	       bills << bill
-	       bill = new Expando(id : 5,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "stand by")
-	       bills << bill
-	       bill = new Expando(id : 6,fee: 'h&edot;bergement',service : 'site web',amount : '20 000',date : "17/09/2017",status : "stand by")
-	       bills << bill
-	       session.setAttribute("bills",bills)
-       }
-       SUCCESS
-    }
-    
-    def getBillInfo() {
-	   def bills = session.getAttribute("bills")
-	   def id = getParameter("id") as int
-	   def bill = bills[id-1] 
-	   response.writer.write(json([entity : bill]))
-	}
-	
 	def showServices(){
 	   request.setAttribute("total",1)
        request.setAttribute("subscribed",1)

@@ -25,14 +25,10 @@ $(document).ready(function(){
 			const top = $(this).offset().top;
 			page.wait({top : top});
 			head.load("modules/payment/js/wizard.js",function() {
-				const bill = {};
-				bill.service = "site web";
-				bill.amount = "60 000";
-				bill.fee = "caution"
-				bill.date = "17/09/2017";
-			    page.wizard.show(bill,top);
+			    page.wizard.show(project.bill,top);
 			});
 		});
+	    if(project.plan == "plan social") $("a.pay",container).hide().prev().hide();
 		$("a.plan",container).click(function(event) {
 			const plan = $(this).data("plan");
 			const plans = $(".plans");
@@ -190,7 +186,8 @@ $(document).ready(function(){
 		project.date = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
 		confirm("&ecirc;tes vous s&ucirc;r de vouloir cr&edot;&edot;r ce projet?",function(){
 			page.form.hide();
-			page.wait({top : form.offset().top+200});
+			const top = form.offset().top+200;
+			page.wait({top : top});
 			$.ajax({
 				  type: "POST",
 				  url: form.attr("action"),
@@ -203,27 +200,33 @@ $(document).ready(function(){
 						  page.table.addRow(project,function(){
 						  page.release();
 					      alert("votre projet a &edot;t&edot; bien cr&edot;&edot;",function(){
-								  const wizard = $(".project-wizard");
-								  page.render(wizard, project, false, function() {
-									  $("> div section:nth-child(1)",wizard).show();
-									  wizard.fadeIn(100);
-									  $("input[type=button]",wizard).click(function(event) {
-											const input = $("input[type=checkbox]",wizard);
-											if(input.is(":checked")){
-												const top = input.offset().top-300;
-												page.wait({top : top});
-												head.load("modules/payment/js/wizard.js",function() {
-													const bill = {};
-													bill.service = "site web";
-													bill.amount = "60 000";
-													bill.fee = "caution"
-													bill.date = project.date;
-												    page.wizard.show(bill,top);
-												});
-											}
-											wizard.hide();
-									});
-								 });
+					    	     if(project.plan != "plan social"){
+									  const wizard = $(".project-wizard");
+									  const url = wizard.data("url");
+									  page.render(wizard, project, false, function() {
+										  $("> div section:nth-child(1)",wizard).show();
+										  wizard.fadeIn(100);
+										  $("input[type=button]",wizard).click(function(event) {
+												const input = $("input[type=checkbox]",wizard);
+												if(input.is(":checked")){
+													page.wait({top : top});
+													$.ajax({
+														  type: "GET",
+														  url: url+"?id="+project.id,
+														  success: function(response) {
+															  const bill = response.entity;
+															  head.load("modules/payment/js/wizard.js",function() {
+																    page.wizard.show(bill,top);
+																    page.release();
+															 });
+														  },
+														  dataType: "json"
+													});
+												}
+												wizard.hide();
+										});
+									 });
+					    	     }
 							  });
 						  });
 					  }

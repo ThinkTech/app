@@ -52,12 +52,12 @@
                                   </tr>
                               </thead>
                               <tbody>
-                               <s:iterator value="#session.bills" var="bill" status="status">
+                               <s:iterator value="#request.bills" var="bill" status="status">
 	                                <tr id="${bill.properties['id']}" class="${bill.properties['status']=='finished' ? 'paid' : ''}">
 	                                  <td><span class="number">${status.index+1}</span></td>
 	                                  <td>${bill.properties['fee']}</td>
 	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${bill.properties['service']}</td>
-                                  	  <td>${bill.properties['date']}</td>
+                                  	  <td><s:date name="properties['date']" format="dd/MM/yyyy" /></td>
                                   	  <td>${bill.properties['amount']} F</td>                                        
 	                                  <td><span class="label ${bill.properties['status']=='in progress' ? 'label-danger' : '' } ${bill.properties['status']=='finished' ? 'label-success' : '' } ${bill.properties['status']=='stand by' ? 'label-info' : '' }">
 	                                  ${bill.properties['status']=='in progress' ? 'en cours' : '' } ${bill.properties['status']=='finished' ? 'terminé' : '' } ${bill.properties['status']=='stand by' ? 'en attente' : '' }
@@ -80,13 +80,14 @@
 		 <h1><i class="fa fa-money" aria-hidden="true"></i>Facture : {id}</h1>
 		<fieldset>
 			<span class="text-right"><i class="fa fa-money" aria-hidden="true"></i> Frais </span> <span>{fee|s}</span>
+			<span class="text-right"><i class="fa fa-briefcase" aria-hidden="true"></i> Projet </span> <span>{subject}</span>
 			<span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>{service}</span>
 			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date </span> <span>{date}</span>
 			<span class="text-right"><i class="fa fa-money" aria-hidden="true"></i> Montant </span> <span>{amount} F</span>
 			<div class="details">
 			    <span class="text-right"><i class="fa fa-check" aria-hidden="true"></i> Paiement </span> <span><span class="label label-success">terminé</span></span>
-			    <span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Effectué le </span> <span>17/09/2017 - 17:35:25</span>
-			    <span class="text-right"><i class="fa fa-credit-card" aria-hidden="true"></i> Par </span> <span>carte Visa</span>
+			    <span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Effectué le </span> <span>{paidOn}</span>
+			    <span class="text-right"><i class="fa fa-credit-card" aria-hidden="true"></i> Par </span> <span>{paidWith}</span>
 			</div>
 		</fieldset>
 		<div class="submit">

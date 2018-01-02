@@ -74,10 +74,30 @@ class ModuleAction extends ActionSupport {
 	   params = [project.subject,project.service,project.plan, project.description,user.id,user.structure.id]
        def result = connection.executeInsert 'insert into projects(subject,service,plan,description,user_id,structure_id) values (?, ?, ?,?,?,?)', params
        def id = result[0][0]
-       params = ["Contrat et Caution",id]
-       connection.executeInsert 'insert into tasks(name,project_id) values (?, ?)', params
+       def bill = createBill(project)
+       if(bill.amount){
+          params = [bill.fee,bill.amount,id]
+       	  connection.executeInsert 'insert into bills(fee,amount,project_id) values (?,?,?)', params
+       	  params = ["Contrat et Caution",id]
+       	  connection.executeInsert 'insert into tasks(name,project_id) values (?, ?)', params
+       }
 	   connection.close()
 	   response.writer.write(json([id: id]))
+	}
+	
+	def createBill(project){
+	   def bill = new Expando();
+	   if(project.service == "site web") {
+	      bill.fee = "caution"
+	      if(project.plan == "plan business") {
+	         bill.amount = 20000 * 3;
+	      }else if(project.plan == "plan corporate") {
+	         bill.amount = 15000 * 3;
+	      }else if(project.plan == "plan personal") {
+	         bill.amount = 10000 * 3;
+	      }
+	   }
+	   bill
 	}
 	
 	def getProjectInfo() {
@@ -120,8 +140,21 @@ class ModuleAction extends ActionSupport {
           task.progression = row.progression
           project.tasks << task
        })
+       if(project.status == "stand by" && project.plan != "plan social") {
+         project.bill = connection.firstRow("select b.*,p.service from bills b, projects p where b.project_id = p.id and p.id = ?", [id])
+	  	 project.bill.date = new java.text.SimpleDateFormat("dd/MM/yyyy").format(project.bill.date)
+       }
 	   connection.close() 
 	   response.writer.write(json([entity : project]))
+	}
+	
+	def getProjectBill() {
+	   def id = getParameter("id") as int
+	   def connection = getConnection()
+       def bill = connection.firstRow("select b.*,p.service from bills b, projects p where b.project_id = p.id and p.id = ?", [id])
+	   bill.date = new java.text.SimpleDateFormat("dd/MM/yyyy").format(bill.date)
+	   response.writer.write(json([entity : bill]))
+	   connection.close()
 	}
 	
 	def addComment() {
