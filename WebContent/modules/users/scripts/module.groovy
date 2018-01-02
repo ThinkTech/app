@@ -22,7 +22,6 @@ class ModuleAction extends ActionSupport {
 	   user = connection.firstRow("select * from users where email = ? and password = ?", [user.email,user.password])
 	   connection.close()
 	   if(user) {
-	    user.role = "administrateur"
 	    user.structure = new Structure(id : 1,name : "Sesame",ninea : 1454554)
         session.setAttribute("user",user)
 	   	def url = request.contextPath+"/dashboard"
@@ -65,7 +64,10 @@ class ModuleAction extends ActionSupport {
 	def updateProfil() {
 	   def user = new JsonSlurper().parse(request.inputStream)
 	   def connection = getConnection()
-	   connection.executeUpdate 'update users set name = ?, email = ?, profession = ?, telephone = ?  where id = ?', [user.name,user.email,user.profession,user.telephone,session.getAttribute("user").id] 
+	   connection.executeUpdate 'update users set name = ?, email = ?, profession = ?, telephone = ?  where id = ?', [user.name,user.email,user.profession,user.telephone,session.getAttribute("user").id]
+	   user = connection.firstRow("select * from users where id = ?", [session.getAttribute("user").id])
+	   user.structure = new Structure(id : 1,name : "Sesame",ninea : 1454554)
+       session.setAttribute("user",user) 
 	   connection.close() 
 	   response.writer.write(json([status: 1]))
 	}

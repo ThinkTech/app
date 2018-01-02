@@ -162,6 +162,10 @@ page.table.addRow = function(entity,callback) {
 	});
 };
 
+page.updateUserName = function(name){
+	$(".user-name b").html(name);
+};
+
 $(document).ready(function(){
 	$.each($(".menu a"),function(i,element){
 		 const link = $(element);

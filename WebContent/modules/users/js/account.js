@@ -67,6 +67,7 @@ jQuery(document).ready(function( $ ) {
 					  $(".profile-details").show();
 					  $(".profile-edition").hide();
 					  $(".user a").show();
+					  if(page.updateUserName) page.updateUserName(user.name);
 				  }
 				  page.release();
 			  },
