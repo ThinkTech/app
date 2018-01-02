@@ -24,6 +24,11 @@ page.details.show = function(entity) {
 			 const id = "#template-"+node.data("template");
 			 node.append($(id,div).clone());
 		 });
+		 $.each($(".digit",section),function(i,node){
+			 node = $(node);
+			 const val = parseInt(node.text());
+			 node.html(val.toLocaleString("fr-FR"));
+		 });
 		 $("a.message-add",section).click(function(event) {
 				const div = $(this).parent().next();
 				const list = div.find(".message-list");
@@ -98,6 +103,11 @@ page.table.paginate = function() {
 			rows.removeClass("active");
 			$(this).addClass("active");
 	    });
+	    $.each($(".digit",$table),function(i,node){
+			 node = $(node);
+			 const val = parseInt(node.text());
+			 node.html(val.toLocaleString("fr-FR"));
+		});
 	    $table.bind('repaginate', function() {
 	        rows.hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
 	    });

@@ -26,7 +26,9 @@ $(document).ready(function(){
 			    page.wizard.show(project.bill,top);
 			});
 		});
-	    if(project.plan == "plan social") $("a.pay",container).hide().prev().hide();
+	    if(project.plan == "plan social") {
+	    	$("a.pay",container).hide().prev().hide().prev().hide();
+	    }
 		$("a.plan",container).click(function(event) {
 			const plan = $(this).data("plan");
 			const plans = $(".plans");
