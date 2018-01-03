@@ -412,7 +412,6 @@
 		 <input type="submit" value="Créér">
 		 <input type="button" value="Annuler">
 	</div>
-	
 	   <div class="terms">
 	       <div>
 		     <span class="close">X</span>
@@ -497,15 +496,6 @@
   </section>
   <section>
     <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Paiement Caution Reussie</h1>
-    <div class="structure-info">
-		<h5>
-			<span><b>Structure</b> : ${user.structure.name}</span>
-		</h5>
-		<h5>
-			<span><b>Ninea</b> : ${user.structure.ninea}</span>
-		</h5>
-	</div>
-	<hr/>
 	<span>Merci pour votre souscription au {plan}</span>
 	<h2><span class="number">2</span> Etape 2 : Développement</h2>
 	<div class="col-md-12">
@@ -546,11 +536,11 @@
 	   </div>
 	   <h2>Projet Description</h2>
 	   <p>
-	     {description}
+	     {description|s}
 	   </p>
 	   <hr/>
 	   <p>
-	      Votre projet a été transmis à notre équipe de développement pour traitement. La durée du projet est estimée à 3 mois et vous pouvez bien entendu suivre son évolution. Au besoin, nous vous contacterons pour de 
+	      Votre projet a été transmis à notre équipe de développement pour traitement. La durée du projet est estimée à 3 mois et vous pouvez bien entendu suivre son évolution. Nous vous contacterons sous peu pour de 
 	      plus amples informations ou pour fournir des documents que vous pouvez attacher au projet.
 	   </p>
 	   <div class="submit">

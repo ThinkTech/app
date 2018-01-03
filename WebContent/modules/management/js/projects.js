@@ -220,7 +220,7 @@ $(document).ready(function(){
 									  page.render(wizard, project, false, function() {
 										  $("> div section:nth-child(1)",wizard).show();
 										  wizard.fadeIn(100);
-										  $("input[type=button]",wizard).click(function(event) {
+										  $("> div section:nth-child(1) input[type=button]",wizard).click(function(event) {
 												const input = $("input[type=checkbox]",wizard);
 												if(input.is(":checked")){
 													page.wait({top : top});
@@ -238,6 +238,9 @@ $(document).ready(function(){
 																		h3.html(parseInt(h3.text())-1);
 																		h3 = $("h3.active");
 																		h3.html(parseInt(h3.text())+1);
+																		$("> div section:nth-child(1)",wizard).hide();
+																		$("> div section:nth-child(2)",wizard).show();
+																		wizard.fadeIn(100);
 																    });
 																    page.release();
 															 });
@@ -247,6 +250,11 @@ $(document).ready(function(){
 												}
 												wizard.hide();
 										});
+										  
+										$("> div section:nth-child(2) input[type=button]",wizard).click(function(event) {
+											  wizard.hide();
+										});  
+										  
 									 });
 					    	     }
 							  });
