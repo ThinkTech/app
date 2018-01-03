@@ -67,7 +67,9 @@ page.details.show = function(entity) {
 				  tinymce.init({target:node,height:"120",language: 'fr_FR',menubar:false,statusbar: false}); 
 			  });
 		  }
-		  div.show();
+		  div.show(10,function(){
+			  page.release();
+		  });
 	});
 	
 };
@@ -94,7 +96,6 @@ page.table.paginate = function() {
 					  url: url+"?id="+id,
 					  success: function(response) {
 						  page.details.show(response.entity);
-						  page.release();
 					  },
 					  dataType: "json"
 				});
