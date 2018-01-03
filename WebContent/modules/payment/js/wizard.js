@@ -58,7 +58,7 @@ page.wizard.init = function(){
 	    		const val = select.val();
 	    		if(val == "visa") {
 	    		   alert("vous devez effectuer le paiement",function(){
-	    				  $("."+val+"-payment .v-button",form).trigger("click");  
+	    			 $("."+val+"-payment .v-button",form).trigger("click");  
 	    		   });
 	    		}else{
 	    		 alert("vous devez effectuer le paiement");
