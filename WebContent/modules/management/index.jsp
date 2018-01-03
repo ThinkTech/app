@@ -77,7 +77,8 @@
 	                              </tr>
 	                          </s:iterator>
                           </tbody>
-                      </table>            
+                      </table>
+                      <div class="empty"><span>aucun projet</span></div>            
                     </div>
              </div>
       </div>

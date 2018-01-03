@@ -64,6 +64,7 @@
 	                      </s:iterator>
 						</tbody>
 					</table>
+					<div class="empty"><span>aucun message</span></div>
 				</div>
 			</div>
 		</div>

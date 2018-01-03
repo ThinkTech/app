@@ -80,8 +80,7 @@
 	                                  </span></td>
 	                                  <td><span class="badge badge-info">${project.properties['progression']}%</span></td>
 	                              </tr>
-	                          </s:iterator>
-                             
+	                          </s:iterator>               
                               <template>
 							     {#.}
 							      <tr id="{id}">
@@ -96,6 +95,7 @@
 							   </template>
                           </tbody>
                       </table>
+                      <div class="empty"><span>aucun projet</span></div>
 				</div>
 			</div>
 		</div>

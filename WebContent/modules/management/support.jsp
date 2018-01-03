@@ -84,6 +84,7 @@
 							   </template>
                           </tbody>
                       </table>
+                      <div class="empty"><span>aucun ticket</span></div>
                   </div>
              </div>
       </div>

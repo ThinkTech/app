@@ -66,6 +66,7 @@
 	                          </s:iterator>
                           </tbody>
                       </table>
+                      <div class="empty"><span>aucune facture</span></div>
                   </div>
              </div>
       </div>

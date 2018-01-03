@@ -79,13 +79,12 @@ page.details.hide = function(){
 page.table = {};
 
 page.table.paginate = function() {
-	
 	$(".table").unbind("repaginate").each(function() {
 		const $table = $(this);
 		$(".pager").remove();
 	    var currentPage = 0;
 	    var numPerPage = 5;
-	    const rows = $table.find('tbody tr').click(function(event) {
+	    const rows = $table.find('tbody tr').unbind("click").click(function(event) {
 	    	const id = $(this).attr("id");
 	    	const url = $table.data("url");
 	    	if(url) {
@@ -103,6 +102,11 @@ page.table.paginate = function() {
 			rows.removeClass("active");
 			$(this).addClass("active");
 	    });
+	    if(rows.length==0) {
+	    	$table.next(".empty").show();
+	    }else{
+	    	$table.next(".empty").hide();
+	    }
 	    $.each($(".digit",$table),function(i,node){
 			 node = $(node);
 			 const val = parseInt(node.text());
@@ -137,26 +141,8 @@ page.table.addRow = function(entity,callback) {
 	const tbody = $("tbody",table);
 	page.render(tbody, [entity], true, function(row) {
 		$("td:first-child span.number",row).html($("tr",tbody).removeClass("active").length);
+		row.attr("id",entity.id).addClass("active");
 		page.table.paginate();
-		row.attr("id",entity.id).click(function(event) {
-			$("tr",tbody).removeClass("active");
-			$(this).addClass("active");
-			const id = $(this).attr("id");
-	    	const url = table.data("url");
-	    	if(url) {
-	    		page.wait({top : table.offset().top});
-	    		$.ajax({
-					  type: "GET",
-					  url: url+"?id="+id,
-					  success: function(response) {
-						  page.details.show(response.entity);
-						  page.release();
-					  },
-					  dataType: "json"
-				});
-	        }
-			return false;
-		}).addClass("active");
 		$("span.page-number:last").click();
 		if(callback) callback(row);
 	});

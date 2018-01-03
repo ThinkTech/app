@@ -43,6 +43,19 @@ tr.active {
 	background : #f5f5f5;
 }
 
+div.empty {
+	display : none;
+}
+
+div.empty span{
+	color : red;
+	text-align : center;
+	width : 100%;
+	display : block;
+	font-size : 13px;
+	margin-top : 10px;
+}
+
 .table tr td {
 	max-width : 200px;
 	overflow : hidden;
