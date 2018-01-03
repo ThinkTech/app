@@ -28,6 +28,10 @@ $(document).ready(function(){
 			    	const tr = $(".table tr[id="+project.id+"]");
 					$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
 					$(".badge",tr).html("5%");
+					var h3 = $("h3.unactive");
+					h3.html(parseInt(h3.text())-1);
+					h3 = $("h3.active");
+					h3.html(parseInt(h3.text())+1);
 			    });
 			});
 		});
@@ -205,6 +209,10 @@ $(document).ready(function(){
 						  project.id = response.id;
 						  page.table.addRow(project,function(){
 						  page.release();
+						  var h3 = $("h3.total");
+						  h3.html(parseInt(h3.text())+1);
+						  h3 = $("h3.unactive");
+						  h3.html(parseInt(h3.text())+1);
 					      alert("votre projet a &edot;t&edot; bien cr&edot;&edot;",function(){
 					    	     if(project.plan != "plan social"){
 									  const wizard = $(".project-wizard");
@@ -226,6 +234,10 @@ $(document).ready(function(){
 																    	const tr = $(".table tr[id="+project.id+"]");
 																		$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
 																		$(".badge",tr).html("5%");
+																		var h3 = $("h3.unactive");
+																		h3.html(parseInt(h3.text())-1);
+																		h3 = $("h3.active");
+																		h3.html(parseInt(h3.text())+1);
 																    });
 																    page.release();
 															 });

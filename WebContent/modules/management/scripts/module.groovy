@@ -27,7 +27,7 @@ class ModuleAction extends ActionSupport {
        })
        def projects_count = connection.firstRow("select count(*) AS num from projects where status = 'stand by' or status = 'in progress' and structure_id = "+id).num
        def messages_count = connection.firstRow("select count(*) AS num from messages where unread = true and structure_id = "+id).num
-       def bills_count = connection.firstRow("select count(*) AS num from bills b, projects p where b.project_id = p.id and p.structure_id = "+id).num
+       def bills_count = connection.firstRow("select count(*) AS num from bills b, projects p where b.project_id = p.id and b.status = 'stand by' and p.structure_id = "+id).num
        connection.close() 
        request.setAttribute("projects",projects)  
        request.setAttribute("projects_count",projects_count)
