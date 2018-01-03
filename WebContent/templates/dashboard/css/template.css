@@ -171,10 +171,6 @@ td i.fa-user {
 	display: table-row;
 }
 
-tr.paid {
-	background : #fafffa;
-}
-
 .table-responsive {
     overflow: hidden;
     min-height: 250px;

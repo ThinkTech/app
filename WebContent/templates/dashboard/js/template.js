@@ -179,8 +179,6 @@ $(document).ready(function(){
 	$(".buttons a").click(function(event) {
 		page.form.show();
 	});
-	setTimeout(function(){
-		$("#confirm-dialog-ok").html("Oui");
-		$("#confirm-dialog-cancel").html("Annuler");
-	},3000);
+	$("#confirm-dialog-ok").html("Oui");
+	$("#confirm-dialog-cancel").html("Annuler");
  });
