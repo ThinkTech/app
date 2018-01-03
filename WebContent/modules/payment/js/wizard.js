@@ -41,7 +41,8 @@ page.wizard.init = function(){
                     		  } 
                     		  });
                     		  V.on("payment.success", function(response){
-                    			app.savePayment();
+                    			  page.wizard.bill.paidWith = "Carte Visa";
+                    			  page.wizard.submit();
                     		  });
                     		  V.on("payment.cancel", function(response){ 
                     		  });
@@ -103,11 +104,18 @@ page.wizard.submit = function(){
 	const wizard = $("#checkout-wizard");
 	const form = $("form",wizard);
 	page.wait({top : page.wizard.top});
-	wizard.fadeOut(100,function(){
-		$("form",wizard).easyWizard('goToStep', 1);
-		page.release();
+	$.ajax({
+		  type: "POST",
+		  url: "payment/pay",
+		  data: JSON.stringify(page.wizard.bill),
+		  contentType : "application/json",
+		  success: function(response) {
+			  if(response.status){
+				  page.release();
+				  wizard.fadeOut();
+				  alert("le paiement de votre facture a &edot;t&edot; bien effectu&edot;e");
+			  }
+		  },
+		  dataType: "json"
 	});
-};
-app.savePayment = function() {
-	page.wizard.submit();
 };

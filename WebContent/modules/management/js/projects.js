@@ -20,6 +20,7 @@ $(document).ready(function(){
 		if(project.documents.length) page.details.showDocuments(project.documents);
 		if(project.tasks) page.render($(".info-tasks ol",container),project.tasks);
 		$("a.pay",container).click(function(event) {
+			page.details.hide();
 			const top = $(this).offset().top;
 			page.wait({top : top});
 			head.load("modules/payment/js/wizard.js",function() {
