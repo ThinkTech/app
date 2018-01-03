@@ -24,7 +24,11 @@ $(document).ready(function(){
 			const top = $(this).offset().top;
 			page.wait({top : top});
 			head.load("modules/payment/js/wizard.js",function() {
-			    page.wizard.show(project.bill,top);
+			    page.wizard.show(project.bill,top,function(){
+			    	const tr = $(".table tr[id="+project.id+"]");
+					$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
+					$(".badge",tr).html("5%");
+			    });
 			});
 		});
 	    if(project.plan == "plan social") {
@@ -218,7 +222,11 @@ $(document).ready(function(){
 														  success: function(response) {
 															  const bill = response.entity;
 															  head.load("modules/payment/js/wizard.js",function() {
-																    page.wizard.show(bill,top);
+																    page.wizard.show(bill,top,function(){
+																    	const tr = $(".table tr[id="+project.id+"]");
+																		$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
+																		$(".badge",tr).html("5%");
+																    });
 																    page.release();
 															 });
 														  },

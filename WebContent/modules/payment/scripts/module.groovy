@@ -9,8 +9,10 @@ class ModuleAction extends ActionSupport {
       def bill = new JsonSlurper().parse(request.inputStream) 
       def connection = getConnection()
 	  connection.executeUpdate "update bills set status = 'finished', paidWith = ?, paidOn = NOW() where id = ?", [bill.paidWith,bill.id]
-	  connection.executeUpdate "update projects set status = 'in progress', progression = 5 where id = ?", [bill.project_id]
-	  connection.executeUpdate "update tasks set status = 'finished', progression = 100 where name = ? and project_id = ?", ["Contrat et Caution",bill.project_id]
+	  if(bill.fee == "caution"){
+	  	connection.executeUpdate "update projects set status = 'in progress', progression = 5 where id = ?", [bill.project_id]
+	  	connection.executeUpdate "update tasks set status = 'finished', progression = 100 where name = ? and project_id = ?", ["Contrat et Caution",bill.project_id]
+	  }
 	  connection.close()
       response.writer.write(json([status: 1]))
    }

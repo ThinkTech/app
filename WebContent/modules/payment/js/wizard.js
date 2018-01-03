@@ -71,8 +71,9 @@ page.wizard.init = function(){
 	});
 	wizard.hide().css("opacity","1");
 };
-page.wizard.show = function(bill,top){
+page.wizard.show = function(bill,top,callback){
 	page.wizard.bill = bill;
+	page.wizard.callback = callback;
 	page.wizard.top = top ? top : "15%";
 	page.wait({top : top});
 	head.load("modules/payment/js/jquery.easyWizard.js","modules/payment/css/wizard.css",
@@ -114,6 +115,7 @@ page.wizard.submit = function(){
 				  page.release();
 				  wizard.fadeOut();
 				  alert("le paiement de votre facture a &edot;t&edot; bien effectu&edot;e");
+				  if(page.wizard.callback) page.wizard.callback()
 			  }
 		  },
 		  dataType: "json"
