@@ -137,7 +137,7 @@ $(document).ready(function(){
 					  	input.val(""); 
 					  	count++;
 					  }
-					  file.date = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
+					  file.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
 					  file.date+=" "+(date.getHours()<10 ? "0"+date.getHours() : date.getHours())+":"+(date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes())+":"+(date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds());
 					  file.author = author;
 				  });
@@ -193,7 +193,7 @@ $(document).ready(function(){
 			return false;
 		}
 		const date = new Date();
-		project.date = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
+		project.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
 		confirm("&ecirc;tes vous s&ucirc;r de vouloir cr&edot;&edot;r ce projet?",function(){
 			page.form.hide();
 			const top = form.offset().top+200;
@@ -269,7 +269,7 @@ $(document).ready(function(){
 		comment.project =  form.find("input[name=id]").val();
 		comment.author =  form.find("input[name=author]").val();
 		const date = new Date();
-		comment.date = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
+		comment.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
 		comment.date+=" "+(date.getHours()<10 ? "0"+date.getHours() : date.getHours())+":"+(date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes())+":"+(date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds());
 		page.wait({top : form.offset().top});
 		$.ajax({

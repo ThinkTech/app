@@ -29,7 +29,7 @@ $(document).ready(function(){
 			return false;
 		}
 		const date = new Date();
-		ticket.date = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
+		ticket.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
 		confirm("&ecirc;tes vous s&ucirc;r de vouloir cr&edot;&edot;r ce ticket?",function(){
 			page.form.hide();
 			page.wait({top : form.offset().top+200});
@@ -69,7 +69,7 @@ $(document).ready(function(){
 		comment.ticket =   form.find("input[name=id]").val();
 		comment.author =  form.find("input[name=author]").val();
 		const date = new Date();
-		comment.date = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
+		comment.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
 		comment.date+=" "+(date.getHours()<10 ? "0"+date.getHours() : date.getHours())+":"+(date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes())+":"+(date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds());
 		page.wait({top : form.offset().top});
 		$.ajax({
