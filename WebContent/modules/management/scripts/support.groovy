@@ -36,11 +36,7 @@ class ModuleAction extends ActionSupport {
 	
 	def createTicket() {
 	   def ticket = new JsonSlurper().parse(request.inputStream) 
-	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
-	   def mailSender = new MailSender(mailConfig)
 	   def template = getTicketTemplate(ticket)
-	   def mail = new Mail("Mamadou Lamine Ba","lamine.ba@thinktech.sn","Ticket : ${ticket.subject}",template)
-	   // mailSender.sendMail(mail)
 	   def connection = getConnection()
 	   def user = session.getAttribute("user")
 	   def params = ["Ticket : "+ticket.subject,template,user.id,user.structure.id]
@@ -48,6 +44,10 @@ class ModuleAction extends ActionSupport {
 	   params = [ticket.subject,ticket.service,ticket.message,ticket.priority,user.id,user.structure.id]
        def result = connection.executeInsert 'insert into tickets(subject,service,message,priority,user_id,structure_id) values (?, ?, ?, ?,?,?)', params
 	   connection.close()
+	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
+	   def mailSender = new MailSender(mailConfig)
+	   def mail = new Mail("$user.name","$user.email","Ticket : ${ticket.subject}",template)
+	   mailSender.sendMail(mail)
 	   response.writer.write(json([id: result[0][0]]))
 	}
 	

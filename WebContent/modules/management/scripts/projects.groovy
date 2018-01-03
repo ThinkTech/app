@@ -37,11 +37,7 @@ class ModuleAction extends ActionSupport {
 
    def createProject() {
 	   def project = new JsonSlurper().parse(request.inputStream) 
-	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
-	   def mailSender = new MailSender(mailConfig)
 	   def template = getProjectTemplate(project)
-	   def mail = new Mail("Mamadou Lamine Ba","lamine.ba@thinktech.sn","Projet : ${project.subject}",template)
-	   //mailSender.sendMail(mail) 
 	   def connection = getConnection()
 	   def user = session.getAttribute("user")
 	   def params = ["Projet : " +project.subject,template,user.id,user.structure.id]
@@ -60,6 +56,10 @@ class ModuleAction extends ActionSupport {
        	  connection.executeInsert 'insert into tasks(name,project_id) values (?, ?)', params
        }
 	   connection.close()
+	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
+	   def mailSender = new MailSender(mailConfig)
+	   def mail = new Mail("$user.name","$user.email","Projet : ${project.subject}",template)
+	   mailSender.sendMail(mail) 
 	   response.writer.write(json([id: id]))
 	}
 	

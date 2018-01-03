@@ -110,15 +110,59 @@ class ModuleAction extends ActionSupport {
 	def subscribe() {
        response.addHeader("Access-Control-Allow-Origin", "*");
        response.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-       if(request.method == "POST") {
-         def subscription = new JsonSlurper().parse(request.inputStream)
-         def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
-		 def mailSender = new MailSender(mailConfig)
-		 def mail = new Mail(subscription.contact,subscription.email,"${subscription.contact}, confirmer votre souscription au ${subscription.plan}",getSubscriptionTemplate(subscription))
-		 mailSender.sendMail(mail)
-		 response.writer.write(json([status: 1]))
+       if(request.method == "POST") { 
+          def subscription = new JsonSlurper().parse(request.inputStream)
+	      def connection = getConnection()
+	      def user = connection.firstRow("select * from users where email = ?", [subscription.email])
+	      if(user) {
+		    response.writer.write(json([status : 0]))
+	      }else{
+	        def params = [subscription.structure]
+            def result = connection.executeInsert 'insert into structures(name) values (?)', params
+	        params = [subscription.name,subscription.email,subscription.password,"administrateur",true,result[0][0]]
+            result = connection.executeInsert 'insert into users(name,email,password,role,owner,structure_id) values (?, ?, ?,?,?,?)', params
+            def structure_id = result[0][0]
+            params = [subscription.name,subscription.email,subscription.password,"administrateur",true,structure_id]
+            result = connection.executeInsert 'insert into users(name,email,password,role,owner,structure_id) values (?, ?, ?,?,?,?)', params
+            def user_id = result[0][0]
+            def template = getSubscriptionTemplate(subscription)
+            def params = ["Projet : " +subscription.subject,template,user_id,structure_id]
+       		connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?, ?)', params
+	   		params = [subscription.subject,"site web",subscription.plan,user_id,structure_id]
+       		result = connection.executeInsert 'insert into projects(subject,service,plan,user_id,structure_id) values (?, ?, ?,?,?,)', params
+       		def id = result[0][0]
+       		def bill = createBill(subscription)
+       		if(bill.amount){
+          		params = [bill.fee,bill.amount,id]
+       	  		connection.executeInsert 'insert into bills(fee,amount,project_id) values (?,?,?)', params
+       	  		params = ["Contrat et Caution",id]
+       	  		connection.executeInsert 'insert into tasks(name,project_id) values (?, ?)', params
+       		}else{
+          		params = ["Acceptation",id]
+       	  		connection.executeInsert 'insert into tasks(name,project_id) values (?, ?)', params
+       		}
+	        def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
+		    def mailSender = new MailSender(mailConfig)
+		    def mail = new Mail(subscription.contact,subscription.email,"${subscription.contact}, confirmer votre souscription au ${subscription.plan}",template)
+		    mailSender.sendMail(mail)
+		    response.writer.write(json([status : 1]))
+	      }
+	     connection.close()
        }
     }
+    
+    def createBill(subscription){
+	   def bill = new Expando();
+	   bill.fee = "caution"
+	   if(subscription.plan == "plan business") {
+	      bill.amount = 20000 * 3;
+	   }else if(subscription.plan == "plan corporate") {
+	      bill.amount = 15000 * 3;
+	   }else if(subscription.plan == "plan personal") {
+	      bill.amount = 10000 * 3;
+	   }
+	   bill
+	}
     
     def getSubscriptionTemplate(subscription) {
 	    TemplateConfiguration config = new TemplateConfiguration()
