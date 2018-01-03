@@ -8,11 +8,6 @@ import static groovy.json.JsonOutput.toJson as json
 import groovy.json.JsonSlurper
 import groovy.sql.Sql
 
-class Structure {
-   def id
-   def name
-   def ninea
-}
 
 class ModuleAction extends ActionSupport {
 
@@ -20,15 +15,14 @@ class ModuleAction extends ActionSupport {
 	   def user = new JsonSlurper().parse(request.inputStream) 
 	   def connection = getConnection()
 	   user = connection.firstRow("select * from users where email = ? and password = ?", [user.email,user.password])
-	   connection.close()
 	   if(user) {
-	    user.structure = new Structure(id : 1,name : "Sesame",ninea : 1454554)
+	    user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
         session.setAttribute("user",user)
-	   	def url = request.contextPath+"/dashboard"
-	   	response.writer.write(json([url: url]))
+	   	response.writer.write(json([url: request.contextPath+"/dashboard"]))
 	   }else{
 	    response.writer.write(json([status : 1]))
 	   }
+	   connection.close()
 	}
 	
 	def changePassword() {
@@ -45,7 +39,7 @@ class ModuleAction extends ActionSupport {
 	   user = connection.firstRow("select * from users where email = ?", [user.email])
 	   if(user){
 	    user.password = "123456789"
-	    user.structure = new Structure(id : 1,name : "Sesame",ninea : 1454554)
+	    user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
 	   	connection.executeUpdate 'update users set password = ? where email = ?', [user.password,user.email]
 	   	def template = getPasswordTemplate(user) 
 	    def params = ["Réinitialisation de votre mot de passe",template,user.id,user.structure.id]
@@ -53,7 +47,7 @@ class ModuleAction extends ActionSupport {
        	connection.close()
 	   	def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
 	   	def mailSender = new MailSender(mailConfig)
-	   	def mail = new Mail("$user.name","$user.email","RÄ—initialisation de votre mot de passe",template)
+	   	def mail = new Mail("$user.name","$user.email","Réinitialisation de votre mot de passe",template)
 	   	mailSender.sendMail(mail)
 	   	response.writer.write(json([status: 1]))
 	   }else {
@@ -66,7 +60,7 @@ class ModuleAction extends ActionSupport {
 	   def connection = getConnection()
 	   connection.executeUpdate 'update users set name = ?, email = ?, profession = ?, telephone = ?  where id = ?', [user.name,user.email,user.profession,user.telephone,session.getAttribute("user").id]
 	   user = connection.firstRow("select * from users where id = ?", [session.getAttribute("user").id])
-	   user.structure = new Structure(id : 1,name : "Sesame",ninea : 1454554)
+	   user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
        session.setAttribute("user",user) 
 	   connection.close() 
 	   response.writer.write(json([status: 1]))
@@ -74,8 +68,7 @@ class ModuleAction extends ActionSupport {
 	
 	def logout() {
 	    session.invalidate()
-		def url = request.contextPath+"/"
-		response.sendRedirect(url)
+		response.sendRedirect(request.contextPath+"/")
 	}
 	
 	def getPasswordTemplate(user) {
