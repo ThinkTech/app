@@ -1,4 +1,3 @@
-const payment = {};
 page.wizard = {};
 page.wizard.init = function(){
 	const wizard = $("#checkout-wizard").css("opacity","0").show();	
@@ -12,23 +11,42 @@ page.wizard.init = function(){
 		    prevButton: "Pr\u0117c\u0117dent",
 		    nextButton: "Suivant",
 		    submitButtonText: "Terminer",
-		    before: function(wizardObj,currentStep,nextStep) {
-		    	//if(!user) {
-		    		//alert("vous devez vous connecter");
-		    		//return false;
-		    	//}
-		    },
 		    after: function(wizardObj,prevStep,currentStep) {
 		    	const div = $(".shopping-payment",currentStep);
 		    	if(div.length) {
 		    		$(".payment",currentStep).hide();
 		    		const input = prevStep.find("select[name='method']");
 	    			const val = input.val();
-	    			payment.done = false;
                     if(val == "visa") {
                       page.wait({top : form.offset().top+80});
-                      head.load("modules/payment/js/visa.js","https://sandbox-assets.secure.checkout.visa.com/checkout-widget/resources/js/integration/v1/sdk.js",function(){
+                      head.load("https://sandbox-assets.secure.checkout.visa.com/checkout-widget/resources/js/integration/v1/sdk.js",function(){
                     	  page.release();
+                    	  V.init( {
+                    		  apikey: "5CUQJ9M76DYS2QYARXZZ21PcguqrizMxsdocAavPttpscAbNU",
+                    		  paymentRequest:{
+                    		    currencyCode: "USD",
+                    		    total : page.wizard.bill.amount
+                    		  },
+                    		  settings: {
+                    			  locale: "fr_FR",
+                    			  displayName: "ThinkTech - Portail",
+                    			  websiteUrl: "https://app.thinktech.sn",
+                    			  shipping: {
+                    				  collectShipping : "false"
+                    			  },
+                    			  review: {
+                    				  message: "Effectuer le paiement de votre facture.",
+                    				  buttonAction : "Pay"
+                    			  }	
+                    		  } 
+                    		  });
+                    		  V.on("payment.success", function(response){
+                    			app.savePayment();
+                    		  });
+                    		  V.on("payment.cancel", function(response){ 
+                    		  });
+                    		  V.on("payment.error", function(response, error){ 
+                    		  });
                       });
       	    		}	
 		    		$("."+val+"-payment",div).show();
@@ -53,7 +71,7 @@ page.wizard.init = function(){
 	wizard.hide().css("opacity","1");
 };
 page.wizard.show = function(bill,top){
-	payment.done = false;
+	page.wizard.bill = bill;
 	page.wizard.top = top ? top : "15%";
 	page.wait({top : top});
 	head.load("modules/payment/js/jquery.easyWizard.js","modules/payment/css/wizard.css",
@@ -84,18 +102,10 @@ page.wizard.show = function(bill,top){
 page.wizard.submit = function(){
 	const wizard = $("#checkout-wizard");
 	const form = $("form",wizard);
-	$.ajax({
-		  type: "POST",
-		  url: form.attr("action"),
-		  data :form.serialize(),
-		  success: function(response) {
-			  page.release();
-		  },
-		  dataType: "json"
-	});
 	page.wait({top : page.wizard.top});
 	wizard.fadeOut(100,function(){
 		$("form",wizard).easyWizard('goToStep', 1);
+		page.release();
 	});
 };
 app.savePayment = function() {
