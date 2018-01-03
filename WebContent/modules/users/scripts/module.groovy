@@ -126,7 +126,7 @@ class ModuleAction extends ActionSupport {
             result = connection.executeInsert 'insert into users(name,email,password,role,owner,structure_id) values (?, ?, ?,?,?,?)', params
             def user_id = result[0][0]
             def template = getSubscriptionTemplate(subscription)
-            def params = ["Projet : " +subscription.subject,template,user_id,structure_id]
+            params = ["Projet : " +subscription.subject,template,user_id,structure_id]
        		connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?, ?)', params
 	   		params = [subscription.subject,"site web",subscription.plan,user_id,structure_id]
        		result = connection.executeInsert 'insert into projects(subject,service,plan,user_id,structure_id) values (?, ?, ?,?,?,)', params
