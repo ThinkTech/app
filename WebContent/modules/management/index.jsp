@@ -209,6 +209,7 @@
    		    <div class="message-list">
    		 		<h6>pas de commentaires</h6>
 				<div data-template="comments"></div>
+				<br>
 			</div>
    		 	<div class="message-edition">
    		 	   <form action="${url}/projects/comments/create">
