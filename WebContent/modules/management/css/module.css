@@ -195,20 +195,6 @@
 	margin-top : 7px;
 }
 
-.window > div .info-tasks,.window > div .info-duration{
-	background: #fff;
-	display : none;
-}
-
-.window > div .info-duration {
-	padding : 5px;
-	padding-bottom : 0;
-}
-
-.window > div .info-duration p {
-	font-weight : bold;
-}
-
 .window > div .info-tasks .badge {
 	background : #212121;
 	margin-left : 10px;
@@ -269,6 +255,7 @@
 	background : #ffe;
 	font-size : 12px;
 	padding : 10px;
+	max-width : 250px;
 	border : 1px solid #05d2ff;
 	border-radius : 5px;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -278,6 +265,11 @@
 	width : 50px;
 	display : inline-block;
 	text-align : right;
+}
+
+.window > div .info-tasks{
+	background: #fff;
+	display : none;
 }
 
 .window > div .message-list > div > div {
@@ -491,13 +483,12 @@ legend a i.fa {
       position: relative;
      }
      .window > div a.plan,.window > div a.duration {
-       top: -27px;
+       top: -23px;
       position: relative;
       right : 10px;
       float : right;
      }
      .window > div a.pay,.window > div a.close-ticket{position : relative; top : -2px}
-     .window > div .info-duration{padding-top : 2px;margin-bottom:5px;}
      .info-tasks li span:first-of-type {width : 100%;}
 }
 

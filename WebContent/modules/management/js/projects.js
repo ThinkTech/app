@@ -59,10 +59,11 @@ $(document).ready(function(){
 			$(".info-tasks",container).toggle();
 		});
 		$("a.duration",container).click(function(event) {
-			const div = $(".info-duration",container);
+			const div = $(this).next(".info-message");
 			$("p",div).hide();
 			$("p[data-status='"+project.status+"']",div).show();
-			div.toggle();
+			div.css({top : event.pageY-20,left : event.pageX-div.width()-100}).toggle();
+			return false;
 		});
 		$(".description form",container).submit(function(event){
 			page.details.updateDescription($(this));
