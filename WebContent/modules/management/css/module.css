@@ -193,7 +193,7 @@
 }
 
 .window > div .info-tasks ol li > span:first-of-type{
-	width:40%;
+	width:50%;
 	font-size : 12px;
 }
 
@@ -270,7 +270,7 @@
 }
 
 .window > div div.info-message {
-	font-weight : normal;
+	font-weight : bold;
 	position : absolute; 
 	z-index : 999999;
 	display : none;
@@ -292,6 +292,10 @@
 .window > div .info-tasks{
 	background: #fff;
 	display : none;
+}
+
+.window > div .info-tasks h1 {
+	padding-left : 0px;
 }
 
 .window > div .message-list > div > div {
