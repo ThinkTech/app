@@ -19,10 +19,15 @@ $(document).ready(function(){
 		if(project.comments.length) page.details.showComments(project.comments);
 		if(project.documents.length) page.details.showDocuments(project.documents);
 		if(project.tasks) {
-			page.render($(".info-tasks ol",container),project.tasks,true,function(ol){
-				$.each($(".info-tasks ol li",container),function(i,li){
-					$("[data-status='"+project.tasks[i].status+"']",li).show();
-				});
+			console.log(project.tasks);
+			const ol = $(".info-tasks ol",container);
+			page.render(ol,project.tasks,true,function(){
+				for(var i = 0; i<project.tasks.length;i++){
+					if(project.tasks[i]){
+						const li = $('li[data-name="'+project.tasks[i].name+'"]',ol);
+						$("span[data-status='"+project.tasks[i].status+"']",li).show();
+					}
+				}
 			});
 		}
 		$("a.pay",container).click(function(event) {
