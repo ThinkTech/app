@@ -18,7 +18,13 @@ $(document).ready(function(){
 		}
 		if(project.comments.length) page.details.showComments(project.comments);
 		if(project.documents.length) page.details.showDocuments(project.documents);
-		if(project.tasks) page.render($(".info-tasks ol",container),project.tasks);
+		if(project.tasks) {
+			page.render($(".info-tasks ol",container),project.tasks,true,function(ol){
+				$.each($(".info-tasks ol li",container),function(i,li){
+					$("[data-status='"+project.tasks[i].status+"']",li).show();
+				});
+			});
+		}
 		$("a.pay",container).click(function(event) {
 			page.details.hide();
 			const top = $(this).offset().top;

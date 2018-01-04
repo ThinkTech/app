@@ -49,11 +49,19 @@ class ModuleAction extends ActionSupport {
        if(bill.amount){
           params = [bill.fee,bill.amount,id]
        	  connection.executeInsert 'insert into bills(fee,amount,project_id) values (?,?,?)', params
-       	  params = ["Contrat et Caution",id]
-       	  connection.executeInsert 'insert into tasks(name,project_id) values (?, ?)', params
+       	  def query = 'insert into projects_tasks(task_id,project_id) values (?, ?)'
+      	  connection.withBatch(query){ ps ->
+           10.times{
+              if(it!=0) ps.addBatch(it+1,id)
+           } 
+          }
        }else{
-          params = ["Acceptation",id]
-       	  connection.executeInsert 'insert into tasks(name,project_id) values (?, ?)', params
+          def query = 'insert into projects_tasks(task_id,project_id) values (?, ?)'
+      	  connection.withBatch(query){ ps ->
+          10.times{
+              if(it!=1) ps.addBatch(it+1,id)
+          }
+         }
        }
 	   connection.close()
 	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
@@ -112,9 +120,11 @@ class ModuleAction extends ActionSupport {
           project.documents << document
        }) 
        project.tasks = []
-	   connection.eachRow("select name,progression from tasks where project_id = ?", [project.id],{ row -> 
+	   connection.eachRow("select t.name,t.description, p.status, p.progression from tasks t, projects_tasks p where t.id = p.task_id and p.project_id = ?", [project.id],{ row -> 
           def task = new Expando()
           task.name = row.name
+          task.description = row.description
+          task.status = row.status
           task.progression = row.progression
           project.tasks << task
        })

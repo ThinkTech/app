@@ -270,7 +270,11 @@
   </template>
   <template id="template-tasks">
     {#.}
-    <li><span>{name}</span> <span class="badge badge-info">{progression}%</span></li>
+    <li><span>{name}</span> 
+    <span data-status="stand by" style="display:none"><span class="label label-info">en attente</span></span>  
+    <span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  
+	<span data-status="finished" style="display:none"><span class="label label-success">terminé</span></span>
+    <span class="badge badge-info">{progression}%</span></li>
 	{/.}  
   </template>	
   </div>
