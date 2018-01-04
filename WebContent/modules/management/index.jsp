@@ -101,8 +101,8 @@
 		<span class="text-right"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Durée </span> <span>{duration} mois</span> <a class="duration"><i class="fa fa-info" aria-hidden="true"></i></a>
 		<div class="info-message">
 		   <p data-status="stand by">la durée du projet est estimée à {duration} mois dans l'attente du paiement de la caution que vous devez effectuer</p>
-		   <p data-status="in progress">la durée du projet est estimée à {duration} mois et dans les normes, le produit final sera livré au plus tard le 17/12/2017</p>
-		   <p data-status="finished">la durée du projet fut de {duration} mois et le produit final a été livré le 17/12/2017 à 10:35:24</p>
+		   <p data-status="in progress">la durée du projet est estimée à {duration} mois et dans les normes, le produit final sera livré au plus tard le {end}</p>
+		   <p data-status="finished">la durée du projet fut de {duration} mois et le produit final a été livré le {end}</p>
 		</div>
 		<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Traitement </span> 
 		<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">paiement caution</span> <span class="label label-success"><b class="digit">{bill.amount}</b> F</span> <a class="pay"><i class="fa fa-money"></i></a></span>

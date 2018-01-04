@@ -15,7 +15,7 @@ class ModuleAction extends ActionSupport {
        def connection = getConnection()
        def projects = []
        def id = session.getAttribute("user").structure.id
-       connection.eachRow("select p.id,p.subject,p.date,p.status,p.progression, u.name from projects p, users u where p.user_id = u.id and p.structure_id = ? ", [id], { row -> 
+       connection.eachRow("select p.id,p.subject,p.date,p.status,p.progression,u.name from projects p, users u where p.user_id = u.id and p.structure_id = ? ", [id], { row -> 
           def project = new Expando()
           project.id = row.id
           project.author =  row.name
@@ -89,9 +89,11 @@ class ModuleAction extends ActionSupport {
 	def getProjectInfo() {
 	   def id = getParameter("id") as int
 	   def connection = getConnection()
-	   def project = connection.firstRow("select p.*, u.name from projects p,users u where p.id = ? and p.user_id = u.id", [id])
+	   def project = connection.firstRow("select p.*,u.name from projects p,users u where p.id = ? and p.user_id = u.id", [id])
+	   project.end = connection.firstRow("select date_add(date,interval duration month) as end from projects where id = ?", [id]).end
 	   if(project.subject.length()>40) project.subject = project.subject.substring(0,40)+"..."
 	   project.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(project.date)
+	   project.end = new java.text.SimpleDateFormat("dd/MM/yyyy").format(project.end)
 	   project.comments = []
 	   connection.eachRow("select c.id, c.message, c.date, u.name from projects_comments c, users u where c.createdBy = u.id and c.project_id = ?", [project.id],{ row -> 
           def comment = new Expando()

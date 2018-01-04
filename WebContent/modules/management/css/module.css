@@ -270,6 +270,7 @@
 }
 
 .window > div div.info-message {
+	font-weight : normal;
 	position : absolute; 
 	z-index : 999999;
 	display : none;
