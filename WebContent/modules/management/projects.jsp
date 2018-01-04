@@ -391,13 +391,14 @@
 	<h1><i class="fa fa-briefcase" aria-hidden="true"></i>Nouveau Projet</h1>
    <form action="${url}/projects/create">
 	<fieldset>
-	    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span>
-		<select name="service">
-		  <option value="site web">site web</option>
-		</select>
-	    <span class="text-right"><i class="fa fa-file-code-o" aria-hidden="true"></i> Objet </span>
+	  	<span class="text-right"><i class="fa fa-file-code-o" aria-hidden="true"></i> Objet </span>
 	    <select name="subject">
 		  <option value="création site web">création site web</option>
+		  <option value="refonte site web">refonte site web</option>
+		</select>
+		<span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span>
+		<select name="service">
+		  <option value="site web">site web</option>
 		</select>
 		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span>
 		<select name="plan">
