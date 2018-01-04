@@ -151,6 +151,7 @@
     margin-bottom: 0;
     font-size: 13px;
     list-style-position: inside;
+    font-weight : bold;
 }
 
 .window > div ul li, .window > div ol li {
@@ -184,6 +185,7 @@
 	border : none;
 	font-weight : normal;
 	background : transparent;
+	font-weight : bold;
 }
 
 .window > div ol li:nth-child(odd) {
@@ -192,6 +194,7 @@
 
 .window > div .info-tasks ol li > span:first-of-type{
 	width:40%;
+	font-size : 12px;
 }
 
 .window > div ol li > span > .label, .window > div ol li > span > .badge {
@@ -199,7 +202,7 @@
 	width : 63px;
 }
 
-.window > div ol li > span > .label-success {
+.window > div ol li > span > .label-success,.window > div ol li > span > .label-danger {
 	margin-right : 4px;
 }
 

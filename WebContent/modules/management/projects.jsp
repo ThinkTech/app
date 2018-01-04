@@ -551,7 +551,7 @@
 	   </p>
 	   <hr/>
 	   <p>
-	      Votre projet a été transmis à notre équipe de développement pour traitement. La durée du projet est estimée à 3 mois et vous pouvez bien entendu suivre son évolution. Nous vous contacterons sous peu pour de 
+	      Votre projet a été transmis à notre équipe technique pour traitement. La durée du projet est estimée à 3 mois et vous pouvez bien entendu suivre son évolution. Nous vous contacterons sous peu pour de 
 	      plus amples informations ou pour fournir des documents que vous pouvez attacher au projet.
 	   </p>
 	   <div class="submit">

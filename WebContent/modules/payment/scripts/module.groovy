@@ -12,6 +12,7 @@ class ModuleAction extends ActionSupport {
 	  if(bill.fee == "caution"){
 	  	connection.executeUpdate "update projects set status = 'in progress', progression = 5 where id = ?", [bill.project_id]
 	  	connection.executeUpdate "update projects_tasks set status = 'finished', progression = 100 where task_id = ? and project_id = ?", [1,bill.project_id]
+	  	connection.executeUpdate "update projects_tasks set status = 'in progress' where task_id = ? and project_id = ?", [2,bill.project_id]
 	  }
 	  connection.close()
       response.writer.write(json([status: 1]))
