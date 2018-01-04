@@ -273,9 +273,13 @@
     <li data-name="{name}">
       <span>{name}</span> 
       <span data-status="stand by" style="display:none"><span class="label label-info">en attente</span></span>  
-      <span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  
+      <span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>
 	  <span data-status="finished" style="display:none"><span class="label label-success">terminé</span></span>
       <span class="badge badge-info">{progression}%</span>
+      <div class="info-message">
+	   	  {description}
+	  </div>
+      <span><a><i class="fa fa-info" aria-hidden="true"></i></a></span>
     </li>
 	{/.}  
   </template>	

@@ -30,7 +30,7 @@
 }
 
 .window > div h1 {
-	font-size: 1.3em;
+	font-size: 1.2em;
     padding: 5px;
     font-weight: bold;
 }
@@ -150,6 +150,11 @@
     background: #ffe;
     margin-bottom: 0;
     font-size: 13px;
+    list-style-position: inside;
+}
+
+.window > div ul li, .window > div ol li {
+    padding-left : 5px;
 }
 
 .window > div ul.not-empty, .window > div ol.not-empty {
@@ -181,14 +186,27 @@
 	background : transparent;
 }
 
+.window > div ol li:nth-child(odd) {
+	background : #fff;
+}
+
 .window > div ol li > span:first-of-type{
 	width:40%;
 }
 
-.window > div ol li > span > .label {
+.window > div ol li > span > .label, .window > div ol li > span > .badge {
 	font-size : 10px;
 	width : 63px;
 }
+
+.window > div ol li > span > .label-success {
+	margin-right : 4px;
+}
+
+.window > div ol li > span > a {
+	margin-left : 20px;
+}
+
 .window > div textarea { 
 	width : 100%;
 	height : 150px;
@@ -540,7 +558,10 @@ legend a i.fa {
 	.window > div ol li a{margin-bottom : 2px;display:inline-block;width:90%;white-space:normal;word-break : break-all}
 	.window > div ol li span{text-align:center;display:inline-block;width:auto}
 	.window > div ol li > span:first-of-type{text-align:left;width:100%;display:block;}
-	.window > div ol li span[data-status]{margin-top:-5px}
+	.window > div ol li span[data-status]{margin-bottom:5px}
+	.window > div ol li > span:last-of-type{float:right;margin-right:20px;}
+	.window > div ol li span{margin-top:0px}
+	.window > div ul, .window > div ol {padding : 5px;list-style: none;}
 	.window > div .message-list > div > div div.message {width : 97%;}
 }
 
