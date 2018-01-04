@@ -272,7 +272,7 @@
   <template id="template-tasks">
     {#.}
     <li data-name="{name}">
-      <span>{name}</span> 
+      <span><i class="fa fa-tasks" aria-hidden="true"></i> {name}</span> 
       <span data-status="stand by" style="display:none"><span class="label label-info">en attente</span></span>  
       <span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>
 	  <span data-status="finished" style="display:none"><span class="label label-success">terminé</span></span>
