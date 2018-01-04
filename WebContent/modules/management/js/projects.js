@@ -47,6 +47,8 @@ $(document).ready(function(){
 					h3.html(parseInt(h3.text())-1);
 					h3 = $("h3.active");
 					h3.html(parseInt(h3.text())+1);
+					h3 = $("h3.unpayed");
+					h3.html(parseInt(h3.text())-1);
 			    });
 			});
 		});

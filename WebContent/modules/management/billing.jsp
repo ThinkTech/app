@@ -20,7 +20,7 @@
 			<div class="col-md-4 info-update-gd">
 				<div class="info-update-block clr-block-3">
 					<div class="col-md-8 info-update-left">
-						<h3>${unpayed}</h3>
+						<h3 class="unpayed">${unpayed}</h3>
 						<h4>factures impayées</h4>
 					</div>
 					<div class="col-md-4 info-update-right">
