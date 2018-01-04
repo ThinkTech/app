@@ -26,6 +26,7 @@ $(document).ready(function(){
 						const li = $('li[data-name="'+project.tasks[i].name+'"]',ol);
 						$("span[data-status='"+project.tasks[i].status+"']",li).show();
 						$("a",li).click(function(event){
+							 $(".info-message").hide();
 							 const info = $(this).parent().prev();
 							 info.css({top : event.pageY-20,left : event.pageX-info.width()-50}).toggle();
 							 return false;
@@ -70,6 +71,7 @@ $(document).ready(function(){
 			$(".info-tasks",container).toggle();
 		});
 		$("a.duration",container).click(function(event) {
+			$(".info-message").hide();
 			const div = $(this).next(".info-message");
 			$("p",div).hide();
 			$("p[data-status='"+project.status+"']",div).show();
@@ -190,6 +192,7 @@ $(document).ready(function(){
 		 list.find("h6").hide();
 		 page.render($("ol",list).addClass("not-empty"),documents,true,function(div){
 		    $("a",div).click(function(event){
+		    	$(".info-message").hide();
 				 const info = $(this).parent().prev();
 				 info.css({top : event.pageY-20,left : event.pageX-info.width()-50}).toggle();
 				 return false;
@@ -322,6 +325,7 @@ $(document).ready(function(){
 		list.find("h6").hide();
 		page.render($("> div",list), comments, true, function(div) {
 			$("a",div).click(function(event){
+				$(".info-message").hide();
 				 const info = $(this).parent().prev();
 				 info.css({top : event.pageY-20,left : event.pageX-info.width()-50}).toggle();
 				 return false;

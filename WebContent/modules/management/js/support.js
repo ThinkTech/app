@@ -95,6 +95,7 @@ $(document).ready(function(){
 		list.find("h6").hide();
 		page.render($("> div",list), comments, true, function(div) {
 			$("a",div).click(function(event){
+				$(".info-message").hide();
 				 const info = $(this).parent().prev();
 				 info.css({top : event.pageY-20,left : event.pageX-info.width()-50}).toggle();
 				 return false;
