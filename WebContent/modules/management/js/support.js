@@ -53,6 +53,10 @@ $(document).ready(function(){
 						  });
 					  }
 				  },
+				  error : function(){
+					  page.release();
+					  alert("erreur lors de la connexion au serveur");
+				  },
 				  dataType: "json"
 			});
 		});
@@ -86,6 +90,10 @@ $(document).ready(function(){
 					  alert("votre message a &edot;t&edot; bien ajout&edot;");
 					  page.details.showComments([comment]);
 				  }
+			  },
+			  error : function(){
+				  page.release();
+				  alert("erreur lors de la connexion au serveur");
 			  },
 			  dataType: "json"
 		});
@@ -122,6 +130,10 @@ $(document).ready(function(){
 						  const count = parseInt(h3.text());
 						  h3.html(count-1);
 					  }
+				  },
+				  error : function(){
+					  page.release();
+					  alert("erreur lors de la connexion au serveur");
 				  },
 				  dataType: "json"
 			});

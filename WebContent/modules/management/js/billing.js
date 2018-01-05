@@ -2,10 +2,10 @@ $(document).ready(function(){
 	page.details.bind = function(container,bill) {
 		if(bill.status == "finished"){
 		   $(".submit",container).hide();
-		   $(".details",container).show();
+		   $(".payment-info",container).show();
 		}else {
 		   $(".submit",container).show();
-		   $(".details",container).hide();
+		   $(".payment-info",container).hide();
 		}
 		$("input[type=submit]",container).click(function(event){
 			page.details.hide();

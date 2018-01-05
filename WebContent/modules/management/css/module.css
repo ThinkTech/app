@@ -385,6 +385,10 @@ h1 .fa-tasks {
     margin-bottom: 10px;
 }
 
+.window > div .payment-info fieldset {
+	padding: 0px;
+}
+
 legend {
 	font-size : 17px;
 	color : #05d2ff;

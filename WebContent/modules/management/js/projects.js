@@ -276,6 +276,10 @@ $(document).ready(function(){
 						  });
 					  }
 				  },
+				  error : function(){
+					  page.release();
+					  alert("erreur lors de la connexion au serveur");
+				  },
 				  dataType: "json"
 			});
 		});
@@ -352,6 +356,10 @@ $(document).ready(function(){
 					  form.find("input[type=button]").click();
 					  page.details.showComments([comment]);
 				  }
+			  },
+			  error : function(){
+				  page.release();
+				  alert("erreur lors de la connexion au serveur");
 			  },
 			  dataType: "json"
 		});
