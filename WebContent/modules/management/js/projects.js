@@ -90,6 +90,18 @@ $(document).ready(function(){
 		    page.details.addComment($(this));
 			return false;
 		});
+		$(".documents .document-upload input[type=file]",container).on("change",function(){
+			const input = $(this);
+			const val = input.val();
+			$.each($(".documents .document-list li > a",container),function(i,node){
+				const name = $(node).text();
+				if(val.toLowerCase().indexOf(name.toLowerCase())){
+					alert("un fichier portant ce nom existe d&edot;ja");
+					input.val("");
+					return;
+				}
+			});
+		});
 	};
 	$(".window a.read-terms").click(function(event) {
 			$(".window .terms").show();

@@ -27,6 +27,11 @@
 .window > div .label, .window > div .badge {
      width: auto;
      border : none;
+     padding: 2px;
+     padding-left : 4px;
+     padding-right : 4px;
+	 position: relative;
+	 top: -1px;
 }
 
 .window > div h1 {
@@ -171,7 +176,7 @@
 .window > div ul a, .window > div ol a {
 	color : #212121;
 	cursor : pointer;
-	font-size: 13px;
+	font-size: 12px;
     font-weight: 500;
 }
 
@@ -190,6 +195,7 @@
 	font-weight : normal;
 	background : transparent;
 	font-weight : bold;
+	padding : 3px;
 }
 
 .window > div ol li:nth-child(odd) {
