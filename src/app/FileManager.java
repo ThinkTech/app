@@ -18,12 +18,11 @@ public class FileManager {
     }
     
     public void upload(String name,InputStream in) throws Exception {
-    	client.files().uploadBuilder("/sesame/"+name).withMode(WriteMode.OVERWRITE).uploadAndFinish(in);
+    	client.files().uploadBuilder("/"+name).withMode(WriteMode.OVERWRITE).uploadAndFinish(in);
     }
     
     public void download(String name,OutputStream out) throws Exception {
-    	client.files().downloadBuilder("/sesame/"+name).start().download(out)
-    	;
+    	client.files().downloadBuilder("/"+name).start().download(out);
     }
     
 }

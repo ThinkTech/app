@@ -15,7 +15,10 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 @WebServlet("/documents/upload.html")
 public class UploadServlet extends HttpServlet {
 
-	public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {	
+	public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+		String structure_id = request.getParameter("structure_id");
+		String project_id = request.getParameter("project_id");
+		String dir = "structure_"+structure_id+"/"+"project_"+project_id;
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 		if(isMultipart){
 			try {
@@ -25,7 +28,7 @@ public class UploadServlet extends HttpServlet {
 				while(iter.hasNext()) {
 					FileItemStream item = iter.next(); 
 					String name = new File(item.getName()).getName();
-					manager.upload(name,item.openStream());
+					manager.upload(dir+"/"+name,item.openStream());
 				}
 			}catch(Exception e){
 			}

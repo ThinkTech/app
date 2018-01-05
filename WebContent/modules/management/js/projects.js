@@ -130,6 +130,8 @@ $(document).ready(function(){
 	};
 	page.details.uploadDocuments = function(form){
 		page.wait({top : form.offset().top});
+		 const project_id  =  form.find("input[name=project_id]").val();
+		 const structure_id  =  form.find("input[name=structure_id]").val();
 		$.ajax({
 			  xhr: function() {
 			    const xhr = new window.XMLHttpRequest();
@@ -146,7 +148,7 @@ $(document).ready(function(){
 			  },
 			  type: "POST",
 			  enctype: 'multipart/form-data',
-			  url: form.attr("action"),
+			  url: form.attr("action")+"?project_id="+project_id+"&structure_id="+structure_id,
 			  data: new FormData(form[0]),
 			  contentType : false,
 			  cache: false,
@@ -166,6 +168,7 @@ $(document).ready(function(){
 					  file.name = input.val();
 					  if(file.name) {
 						file.name = file.name.split(/(\\|\/)/g).pop();
+						file.project_id = project_id;
 					  	files.push(file);
 					  	input.val(""); 
 					  	count++;
@@ -184,9 +187,8 @@ $(document).ready(function(){
 					  }
 				  });
 				  const url  = form.find("input[name=url]").val();
-				  const id  =  form.find("input[name=id]").val();
 				  const upload = {};
-				  upload.id = id;
+				  upload.id = project_id;
 				  upload.documents = files;
 				  $.ajax({
 						  type: "POST",
@@ -205,7 +207,7 @@ $(document).ready(function(){
 		 const list = $(".documents .document-list");
 		 list.find("h6").hide();
 		 page.render($("ol",list).addClass("not-empty"),documents,true,function(div){
-		    $("a",div).click(function(event){
+		    $("span a",div).click(function(event){
 		    	$(".info-message").hide();
 				 const info = $(this).parent().prev();
 				 info.css({top : event.pageY-20,left : event.pageX-info.width()-50}).toggle();

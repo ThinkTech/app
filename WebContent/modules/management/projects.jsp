@@ -206,7 +206,8 @@
    		 	    <span class="text-right"><i class="fa fa-file"></i> Document 1 </span> <input name="file1" type="file" required>
 				<span class="text-right"><i class="fa fa-file"></i> Document 2 </span> <input name="file2" type="file">
 				<span class="text-right"><i class="fa fa-file"></i> Document 3 </span> <input name="file3" type="file">
-				<input name="id" type="hidden" value="{id}">
+				<input name="project_id" type="hidden" value="{id}">
+				<input name="structure_id" type="hidden" value="${user.structure.id}">
 				<input name="url" type="hidden" value="${url}/projects/documents/save"/>
 				<input name="author" type="hidden" value="${user.name}">
 				</fieldset>
@@ -246,7 +247,7 @@
   <template id="template-documents">
 		{#.}
 			<li>
-				<a href="${url}/projects/documents/download?name={name}"><i class="fa fa-file" aria-hidden="true"></i> {name}</a>
+				<a href="${url}/projects/documents/download?name={name}&project_id={project_id}"><i class="fa fa-file" aria-hidden="true"></i> {name}</a>
 				<div class="info-message">
 	   	  	    	<b>Auteur :</b> {author}<br>
 	   	  	    	<b>Date :</b> {date}
