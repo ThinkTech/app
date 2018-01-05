@@ -41,9 +41,9 @@
    										<span id="ninea">${user.structure.ninea}</span>
    								 </fieldset>
    								 <a class="text-center">[ modifier ]</a>
+   								 <form action="${url}/profile/update">
    								 <fieldset class="profile-edition">
-   								   <form action="${url}/profile/update">
-   								    <span class="text-right">Prénom et Nom </span>
+   								    	<span class="text-right">Prénom et Nom </span>
 										<input type="text" name="name" value="${user.name}" required>
 									    <span class="text-right">Email </span>
 										<input type="email" name="email" value="${user.email}" required>
@@ -61,8 +61,8 @@
    								      <input type="submit" value="Modifier">
    								      <input type="button" value="Annuler">
    								    </div>
-   								 </form>
    								 </fieldset>
+   								</form>
 								</div>
 							</div>
 					     </div>
