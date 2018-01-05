@@ -73,7 +73,7 @@ class ModuleAction extends ActionSupport {
 	
 	def createBill(project){
 	   def bill = new Expando()
-	   if(project.service == "site web") {
+	   if(project.service == "web dev") {
 	      bill.fee = "caution"
 	      if(project.plan == "plan business") {
 	         bill.amount = 20000 * 3

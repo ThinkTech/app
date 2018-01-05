@@ -129,7 +129,7 @@ class ModuleAction extends ActionSupport {
             def template = getSubscriptionTemplate(subscription)
             params = ["Projet : " +subscription.subject,template,user_id,structure_id]
        		connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?, ?)', params
-	   		params = [subscription.subject,"site web",subscription.plan,user_id,structure_id]
+	   		params = [subscription.subject,"web dev",subscription.plan,user_id,structure_id]
        		result = connection.executeInsert 'insert into projects(subject,service,plan,user_id,structure_id) values (?, ?, ?,?,?,)', params
        		def id = result[0][0]
        		def bill = createBill(subscription)

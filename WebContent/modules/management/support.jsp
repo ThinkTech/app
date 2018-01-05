@@ -98,7 +98,7 @@
 	<fieldset>
 	    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span>
 		<select name="service">
-		  <option value="site web">site web</option>
+		  <option value="web dev">web dev</option>
 		</select>
 	    <span class="text-right"><i class="fa fa-file-code-o" aria-hidden="true"></i> Objet </span>
 	     <input name="subject" placeholder="votre objet" maxlength="100" type="text" required>
