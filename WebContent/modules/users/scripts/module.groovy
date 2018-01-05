@@ -59,6 +59,7 @@ class ModuleAction extends ActionSupport {
 	   def user = new JsonSlurper().parse(request.inputStream)
 	   def connection = getConnection()
 	   connection.executeUpdate 'update users set name = ?, email = ?, profession = ?, telephone = ?  where id = ?', [user.name,user.email,user.profession,user.telephone,session.getAttribute("user").id]
+	   connection.executeUpdate 'update structures set name = ?, ninea = ? where id = ?', [user.structure.name,user.structure.ninea,session.getAttribute("user").structure.id]
 	   user = connection.firstRow("select * from users where id = ?", [session.getAttribute("user").id])
 	   user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
        session.setAttribute("user",user) 

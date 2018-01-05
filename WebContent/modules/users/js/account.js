@@ -49,6 +49,7 @@ jQuery(document).ready(function( $ ) {
 		user.email = form.find("input[name=email]").val();
 		user.telephone = form.find("input[name=telephone]").val();
 		user.profession = form.find("input[name=profession]").val();
+		user.structure.name = form.find("input[name=structure]").val();
 		user.structure.ninea = form.find("input[name=ninea]").val();
 		page.wait({top : form.offset().top});
 		$.ajax({
@@ -64,6 +65,8 @@ jQuery(document).ready(function( $ ) {
 					  $(".profile-details #email").html(user.email);
 					  $(".profile-details #telephone").html(user.telephone);
 					  $(".profile-details #profession").html(user.profession);
+					  $(".profile-details #structure").html(user.structure.name);
+					  $(".profile-details #ninea").html(user.structure.ninea);
 					  $(".profile-details").show();
 					  $(".profile-edition").hide();
 					  $(".user a").show();

@@ -29,12 +29,12 @@
 										<span id="name">${user.name}</span>
 									    <span class="text-right">Email </span>
 										<span id="email">${user.email}</span>
+										<span class="text-right">Profession </span>
+   										<span id="profession">${user.profession}</span>
 										<span class="text-right">Téléphone </span>
 										<span id="telephone">${user.telephone}</span>
 										<span class="text-right">Role </span>
    										<span id="role">${user.role}</span>
-   										<span class="text-right">Profession </span>
-   										<span id="profession">${user.profession}</span>
 										<span class="text-right">Structure </span>
    										<span id="structure">${user.structure.name}</span>
    										<span class="text-right">Ninea </span>
@@ -47,14 +47,14 @@
 										<input type="text" name="name" value="${user.name}" required>
 									    <span class="text-right">Email </span>
 										<input type="email" name="email" value="${user.email}" required>
+										<span class="text-right">Profession </span>
+   										<input name="profession" type="text" value="${user.profession}" required>
 										<span class="text-right">Téléphone </span>
 										<input name="telephone" value="${user.telephone}" type="text">
 										<span class="text-right">Role </span>
    										<span>${user.role}</span>
-   										<span class="text-right">Profession </span>
-   										<input name="profession" type="text" value="${user.profession}" required>
 										<span class="text-right">Structure </span>
-   										<span>${user.structure.name}</span>
+   										<input name="structure" value="${user.structure.name}" type="text" required>
    										<span class="text-right">Ninea </span>
    										<input name="ninea" value="${user.structure.ninea}" type="text" required>
    								    <div class="submit">
