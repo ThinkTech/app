@@ -261,12 +261,12 @@ fieldset span.text-right.full {
 
 .left-content {
     float: right;
-    width: 82%;
+    width: 84%;
 }
 .sidebar-menu {
   position: absolute;
   float: left;
-  width: 18%;
+  width: 16%;
   top: 0px;
   left:0px;
   bottom: 0;
@@ -902,7 +902,6 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 
 }
 @media (max-width:991px){
-.sidebar-menu h1 a{font-size : 22px}
 td a.pay i {
 	top : 6px;
 }
