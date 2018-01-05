@@ -72,15 +72,15 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def createBill(project){
-	   def bill = new Expando();
+	   def bill = new Expando()
 	   if(project.service == "site web") {
 	      bill.fee = "caution"
 	      if(project.plan == "plan business") {
-	         bill.amount = 20000 * 3;
+	         bill.amount = 20000 * 3
 	      }else if(project.plan == "plan corporate") {
-	         bill.amount = 15000 * 3;
+	         bill.amount = 15000 * 3
 	      }else if(project.plan == "plan personal") {
-	         bill.amount = 10000 * 3;
+	         bill.amount = 10000 * 3
 	      }
 	   }
 	   bill
@@ -163,9 +163,7 @@ class ModuleAction extends ActionSupport {
 	
 	def downloadDocument(){
 	   def user = session.getAttribute("user")
-	   def structure_id = user.structure.id;
-	   def project_id = getParameter("project_id");
-	   def dir = "structure_"+structure_id+"/"+"project_"+project_id
+	   def dir = "structure_"+user.structure.id+"/"+"project_"+getParameter("project_id")
 	   def name = getParameter("name")
 	   response.contentType = servletContext.getMimeType(name)
 	   response.setHeader("Content-disposition","attachment; filename=$name")
