@@ -218,7 +218,7 @@ $(document).ready(function(){
 	};
 	page.details.createProject = function(form){
 		const project = {};
-		project.service = form.find("select[name=service]").val();
+		project.service = form.find("input[name=service]").val();
 		project.subject = form.find("select[name=subject]").val();
 		project.plan =  form.find("select[name=plan]").val();
 		project.priority =  form.find("select[name=priority]").val();
