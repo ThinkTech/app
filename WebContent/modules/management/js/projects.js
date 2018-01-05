@@ -346,4 +346,8 @@ $(document).ready(function(){
 			});
 	   });
 	};
+	
+	$(".window.details").click(function(){
+		$(".plans").hide();
+	});
 });
