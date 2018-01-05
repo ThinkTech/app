@@ -93,14 +93,15 @@ $(document).ready(function(){
 		$(".documents .document-upload input[type=file]",container).on("change",function(){
 			const input = $(this);
 			const val = input.val();
+			var found;
 			$.each($(".documents .document-list li > a",container),function(i,node){
-				const name = $(node).text();
-				if(val.toLowerCase().indexOf(name.toLowerCase())){
-					alert("un fichier portant ce nom existe d&edot;ja");
+				const name = $(node).text().trim();
+				if(val.toLowerCase().indexOf(name.toLowerCase())!=-1){
+					found = true;
 					input.val("");
-					return;
 				}
 			});
+			if(found) alert("un fichier portant ce nom existe d&edot;ja");
 		});
 	};
 	$(".window a.read-terms").click(function(event) {
@@ -142,8 +143,26 @@ $(document).ready(function(){
 	};
 	page.details.uploadDocuments = function(form){
 		page.wait({top : form.offset().top});
-		 const project_id  =  form.find("input[name=project_id]").val();
-		 const structure_id  =  form.find("input[name=structure_id]").val();
+		const project_id  =  form.find("input[name=project_id]").val();
+		const structure_id  =  form.find("input[name=structure_id]").val();
+		const files = new Array();
+		const date = new Date();
+		const author = form.find("input[name=author]").val();
+		var count = 0;
+		$.each($("input[type=file]",form),function(i,node){
+		  const input = $(node);
+		  const file = {};
+		  file.name = input.val();
+		  if(file.name) {
+			file.name = file.name.split(/(\\|\/)/g).pop();
+			file.project_id = project_id;
+		  	files.push(file);
+		  	count++;
+		  }
+		  file.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
+		  file.date+=" "+(date.getHours()<10 ? "0"+date.getHours() : date.getHours())+":"+(date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes())+":"+(date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds());
+		  file.author = author;
+		});
 		$.ajax({
 			  xhr: function() {
 			    const xhr = new window.XMLHttpRequest();
@@ -154,6 +173,21 @@ $(document).ready(function(){
 			        var percentComplete = evt.loaded / evt.total;
 			        percentComplete = parseInt(percentComplete * 100);
 			        span.html(percentComplete+"%");
+			        if(percentComplete == 100){
+			        	form.find("input[type=button]").click(); 
+						const div = form.parent().parent();
+						const list = $(".document-list",div);
+						list.find("h6").hide();
+					    page.details.showDocuments(files,function(){
+						  page.release();
+						  $("#wait .progression").remove();
+						  if(count>1){
+							  alert("vos documents ont &edot;t&edot; bien envoy&edot;s");
+						  }else {
+							  alert("votre document a &edot;t&edot; bien envoy&edot;");
+						  }
+					   });
+			        }
 			      }
 			    }, false);
 			    return xhr;
@@ -166,51 +200,25 @@ $(document).ready(function(){
 			  cache: false,
 			  processData:false,
 			  success: function(response) {
-				  form.find("input[type=button]").click();
-				  const author = form.find("input[name=author]").val();
-				  const div = form.parent().parent();
-				  const list = $(".document-list",div);
-				  list.find("h6").hide();
-				  var count = 0;
-				  const files = new Array();
-				  const date = new Date();
 				  $.each($("input[type=file]",form),function(i,node){
 					  const input = $(node);
-					  const file = {};
-					  file.name = input.val();
-					  if(file.name) {
-						file.name = file.name.split(/(\\|\/)/g).pop();
-						file.project_id = project_id;
-					  	files.push(file);
-					  	input.val(""); 
-					  	count++;
-					  }
-					  file.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
-					  file.date+=" "+(date.getHours()<10 ? "0"+date.getHours() : date.getHours())+":"+(date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes())+":"+(date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds());
-					  file.author = author;
-				  });
-				  page.details.showDocuments(files,function(){
-					  page.release();
-					  $("#wait .progression").remove();
-					  if(count>1){
-						  alert("vos documents ont &edot;t&edot; bien envoy&edot;s");
-					  }else {
-						  alert("votre document a &edot;t&edot; bien envoy&edot;");
-					  }
+					  input.val(""); 
 				  });
 				  const url  = form.find("input[name=url]").val();
 				  const upload = {};
 				  upload.id = project_id;
 				  upload.documents = files;
 				  $.ajax({
-						  type: "POST",
-						  url: url,
-						  data: JSON.stringify(upload),
-						  contentType : "application/json",
-						  success: function(response) {
-						  },
-						  dataType: "json"
-					});
+					  type: "POST",
+					  url: url,
+					  data: JSON.stringify(upload),
+					  contentType : "application/json",
+					  dataType: "json"
+				 });
+			  },
+			  error : function(){
+				  page.release();
+				  alert("erreur lors de la connexion au serveur");
 			  },
 			  dataType : "json"
 		});
