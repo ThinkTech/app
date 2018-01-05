@@ -315,19 +315,18 @@ span.progression{
 
 .window > div .message-list > div > div {
    border-left : 1px solid #05d2ff;
-   border-right : 1px solid #05d2ff;	
+   border-right : 1px solid #05d2ff;
+   border-bottom : 1px solid #05d2ff;
 }
 
 .window > div .message-list > div > div:nth-child(odd) {
 	background : #e2f6f5;
-	margin-top : -10px;
 	padding-top : 10px;
 	
 }
 
 .window > div .message-list > div > div:nth-child(even) {
 	background : #fff;
-	margin-top : -10px;
 	padding-top : 10px;
 }
 

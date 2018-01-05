@@ -248,7 +248,6 @@
 	   	  	    <b>Date :</b> {date}
 	   	  	</div>
 	   	  	<span><a><i class="fa fa-info" aria-hidden="true"></i></a></span>
-	   	  	 <hr/>
 	   	  </div>
    	  {/.}
   </template>
