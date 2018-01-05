@@ -75,7 +75,7 @@ $(document).ready(function(){
 			const div = $(this).next(".info-message");
 			$("p",div).hide();
 			$("p[data-status='"+project.status+"']",div).show();
-			div.css({top : event.pageY-20,left : event.pageX-div.width()-70}).toggle();
+			div.css({top : event.pageY-20,left : event.pageX-div.width()-40}).toggle();
 			return false;
 		});
 		$(".description form",container).submit(function(event){
@@ -131,6 +131,19 @@ $(document).ready(function(){
 	page.details.uploadDocuments = function(form){
 		page.wait({top : form.offset().top});
 		$.ajax({
+			  xhr: function() {
+			    const xhr = new window.XMLHttpRequest();
+			    const span = $("<span class='progression'/>").appendTo($("#wait"));
+			    xhr.upload.addEventListener("progress", function(evt) {
+			      span.html("0%");
+			      if(evt.lengthComputable) {
+			        var percentComplete = evt.loaded / evt.total;
+			        percentComplete = parseInt(percentComplete * 100);
+			        span.html(percentComplete+"%");
+			      }
+			    }, false);
+			    return xhr;
+			  },
 			  type: "POST",
 			  enctype: 'multipart/form-data',
 			  url: form.attr("action"),
@@ -163,6 +176,7 @@ $(document).ready(function(){
 				  });
 				  page.details.showDocuments(files,function(){
 					  page.release();
+					  $("#wait .progression").remove();
 					  if(count>1){
 						  alert("vos documents ont &edot;t&edot; bien envoy&edot;s");
 					  }else {

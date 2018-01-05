@@ -154,6 +154,10 @@
     font-weight : bold;
 }
 
+.window > div .document-list ol {
+    list-style-position: outside;
+}
+
 .window > div ul li, .window > div ol li {
     padding-left : 5px;
 }
@@ -288,6 +292,17 @@
 	display : inline-block;
 	text-align : right;
 }
+
+span.progression{
+   position : relative;
+   top : -57px;
+   font-size : 14px;
+   padding-left : 3px;
+   font-family : Tahoma;
+   font-weight : bold;
+   color : #05d2ff;
+}
+
 
 .window > div .info-tasks{
 	background: #fff;
