@@ -200,7 +200,7 @@ class ModuleAction extends ActionSupport {
 		      br()
 		      p("Mot de passe : <b>$user.password</b>")
 		      br()
-		      p("Vous pouvez le modifier ensuite en vous connectant &aacute; <a href='$url'>votre compte</a>")
+		      p("Vous pouvez le modifier en vous connectant &aacute; <a href='$url'>votre compte</a>")
 		    }
 		  }
 		  
