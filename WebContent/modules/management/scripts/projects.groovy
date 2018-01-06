@@ -64,7 +64,7 @@ class ModuleAction extends ActionSupport {
          }
        }
 	   connection.close()
-	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
+	   def mailConfig = new MailConfig(context.getInitParameter("smtp.email"),context.getInitParameter("smtp.password"),"smtp.thinktech.sn")
 	   def mailSender = new MailSender(mailConfig)
 	   def mail = new Mail("$user.name","$user.email","Projet : ${project.subject}",template)
 	   mailSender.sendMail(mail) 

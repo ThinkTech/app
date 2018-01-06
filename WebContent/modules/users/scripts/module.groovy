@@ -47,7 +47,7 @@ class ModuleAction extends ActionSupport {
 	    def params = ["Réinitialisation de votre mot de passe",template,user.id,user.structure.id]
        	connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?, ?)', params
        	connection.close()
-	   	def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
+	   	def mailConfig = new MailConfig(context.getInitParameter("smtp.email"),context.getInitParameter("smtp.password"),"smtp.thinktech.sn")
 	   	def mailSender = new MailSender(mailConfig)
 	   	def mail = new Mail("$user.name","$user.email","Réinitialisation de votre mot de passe",template)
 	   	mailSender.sendMail(mail)

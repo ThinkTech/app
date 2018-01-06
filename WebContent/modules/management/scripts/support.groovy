@@ -44,7 +44,7 @@ class ModuleAction extends ActionSupport {
 	   params = [ticket.subject,ticket.service,ticket.message,ticket.priority,user.id,user.structure.id]
        def result = connection.executeInsert 'insert into tickets(subject,service,message,priority,user_id,structure_id) values (?, ?, ?, ?,?,?)', params
 	   connection.close()
-	   def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
+	   def mailConfig = new MailConfig(context.getInitParameter("smtp.email"),context.getInitParameter("smtp.password"),"smtp.thinktech.sn")
 	   def mailSender = new MailSender(mailConfig)
 	   def mail = new Mail("$user.name","$user.email","Ticket : ${ticket.subject}",template)
 	   mailSender.sendMail(mail)
