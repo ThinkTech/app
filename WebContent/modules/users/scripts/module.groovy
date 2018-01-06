@@ -74,42 +74,6 @@ class ModuleAction extends ActionSupport {
 		response.sendRedirect(request.contextPath+"/")
 	}
 	
-	def getPasswordTemplate(user) {
-	    TemplateConfiguration config = new TemplateConfiguration()
-		MarkupTemplateEngine engine = new MarkupTemplateEngine(config)
-		def text = '''\
-		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
-		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
-		    img(src : "https://www.thinktech.sn/images/logo.png", style : "display:block;margin : 0 auto")
-		    div(style : "margin-top:10px;padding:10px;height:90px;text-align:center;background:#eee") {
-		      h4(style : "font-size: 200%;color: rgb(0, 0, 0);margin: 3px") {
-		        span("R&edot;initialisation de votre mot de passe")
-		      }
-		      p(style : "font-size:150%;color:rgb(100,100,100)"){
-		         span("r&edot;initialisation reussie")
-		      }
-		    }
-		    div(style : "width:90%;margin:auto;margin-top : 30px;margin-bottom:30px") {
-		      p("Votre mot de passe a &edot;t&edot; r&edot;initialis&edot;")
-		      br()
-		      p("Mot de passe : <b>$user.password</b>")
-		      br()
-		      p("Vous pouvez le modifier ensuite en vous connectant &aacute; <a href='$url'>votre compte</a>")
-		    }
-		  }
-		  
-		  div(style :"margin: 10px;margin-top:10px;font-size : 11px;text-align:center") {
-		      p("Vous recevez cet email parce que vous (ou quelqu'un utilisant cet email)")
-		      p("a envoy&edot; une demande en utilisant cette adresse")
-		  }
-		  
-		   
-		 }
-		'''
-		def template = engine.createTemplate(text).make([user:user,url : baseUrl])
-		template.toString()
-	}
-	
 	def subscribe() {
        response.addHeader("Access-Control-Allow-Origin", "*");
        response.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -122,10 +86,8 @@ class ModuleAction extends ActionSupport {
 	      }else{
 	        def params = [subscription.structure]
             def result = connection.executeInsert 'insert into structures(name) values (?)', params
-	        params = [subscription.name,subscription.email,subscription.password,"administrateur",true,result[0][0]]
-            result = connection.executeInsert 'insert into users(name,email,password,role,owner,structure_id) values (?, ?, ?,?,?,?)', params
             def structure_id = result[0][0]
-            params = [subscription.name,subscription.email,subscription.password,"administrateur",true,structure_id]
+	        params = [subscription.name,subscription.email,subscription.password,"administrateur",true,structure_id]
             result = connection.executeInsert 'insert into users(name,email,password,role,owner,structure_id) values (?, ?, ?,?,?,?)', params
             def user_id = result[0][0]
             def template = getSubscriptionTemplate(subscription)
@@ -136,14 +98,22 @@ class ModuleAction extends ActionSupport {
        		def id = result[0][0]
        		def bill = createBill(subscription)
        		if(bill.amount){
-          		params = [bill.fee,bill.amount,id]
-       	  		connection.executeInsert 'insert into bills(fee,amount,project_id) values (?,?,?)', params
-       	  		params = ["Contrat et Caution",id]
-       	  		connection.executeInsert 'insert into tasks(name,project_id) values (?, ?)', params
-       		}else{
-          		params = ["Acceptation",id]
-       	  		connection.executeInsert 'insert into tasks(name,project_id) values (?, ?)', params
-       		}
+		       params = [bill.fee,bill.amount,id]
+		       connection.executeInsert 'insert into bills(fee,amount,project_id) values (?,?,?)', params
+		       def query = 'insert into projects_tasks(task_id,project_id) values (?, ?)'
+		       connection.withBatch(query){ ps ->
+		          9.times{
+		              ps.addBatch(it+1,id)
+		          } 
+		       }
+	         }else{
+		       def query = 'insert into projects_tasks(task_id,project_id) values (?, ?)'
+		      	  connection.withBatch(query){ ps ->
+		         	 9.times{
+		              if(it!=0) ps.addBatch(it+1,id)
+		          	}
+		        }
+	        }
 	        def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
 		    def mailSender = new MailSender(mailConfig)
 		    def mail = new Mail(subscription.contact,subscription.email,"${subscription.contact}, confirmer votre souscription au ${subscription.plan}",template)
@@ -207,6 +177,42 @@ class ModuleAction extends ActionSupport {
 		 }
 		'''
 		def template = engine.createTemplate(text).make([subscription:subscription,url : baseUrl])
+		template.toString()
+	}
+	
+	def getPasswordTemplate(user) {
+	    TemplateConfiguration config = new TemplateConfiguration()
+		MarkupTemplateEngine engine = new MarkupTemplateEngine(config)
+		def text = '''\
+		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
+		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
+		    img(src : "https://www.thinktech.sn/images/logo.png", style : "display:block;margin : 0 auto")
+		    div(style : "margin-top:10px;padding:10px;height:90px;text-align:center;background:#eee") {
+		      h4(style : "font-size: 200%;color: rgb(0, 0, 0);margin: 3px") {
+		        span("R&edot;initialisation de votre mot de passe")
+		      }
+		      p(style : "font-size:150%;color:rgb(100,100,100)"){
+		         span("r&edot;initialisation reussie")
+		      }
+		    }
+		    div(style : "width:90%;margin:auto;margin-top : 30px;margin-bottom:30px") {
+		      p("Votre mot de passe a &edot;t&edot; r&edot;initialis&edot;")
+		      br()
+		      p("Mot de passe : <b>$user.password</b>")
+		      br()
+		      p("Vous pouvez le modifier ensuite en vous connectant &aacute; <a href='$url'>votre compte</a>")
+		    }
+		  }
+		  
+		  div(style :"margin: 10px;margin-top:10px;font-size : 11px;text-align:center") {
+		      p("Vous recevez cet email parce que vous (ou quelqu'un utilisant cet email)")
+		      p("a envoy&edot; une demande en utilisant cette adresse")
+		  }
+		  
+		   
+		 }
+		'''
+		def template = engine.createTemplate(text).make([user:user,url : baseUrl])
 		template.toString()
 	}
 	

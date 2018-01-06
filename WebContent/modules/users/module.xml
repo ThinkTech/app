@@ -9,6 +9,7 @@
 	<license>GNU/GPL</license>
 	<version>1.0</version>
 	<actions>
+	    <action  url="subscribe"  method="subscribe" />
 		<action  url="login"  method="login" />
 		<action  url="account" page="account"/>
 		<action  url="password/change"  method="changePassword" />
