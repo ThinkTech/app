@@ -128,8 +128,8 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def getConnection()  {
-		def db = [url:context.getInitParameter("db.url"), user:context.getInitParameter("db.user"), password:context.getInitParameter("db.password"), driver:'com.mysql.jdbc.Driver']
-        Sql.newInstance(db.url, db.user, db.password, db.driver)
+		def ds =  new javax.naming.InitialContext().lookup("java:comp/env/jdbc/db");
+		new Sql(ds)
 	}
 	
 }

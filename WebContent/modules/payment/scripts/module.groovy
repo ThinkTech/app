@@ -19,8 +19,8 @@ class ModuleAction extends ActionSupport {
    }
    
    def getConnection()  {
-	  def db = [url:'jdbc:mysql://localhost/thinktech', user:'root', password:'thinktech', driver:'com.mysql.jdbc.Driver']
-      Sql.newInstance(db.url, db.user, db.password, db.driver)
+		def ds =  new javax.naming.InitialContext().lookup("java:comp/env/jdbc/db");
+		new Sql(ds)
    }
 }
 
