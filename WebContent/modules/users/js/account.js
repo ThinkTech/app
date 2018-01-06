@@ -41,7 +41,7 @@ jQuery(document).ready(function( $ ) {
 		$(".user a").show();
 	});
 	
-	$(".profile-edition form").submit(function(event){
+	$(".profile form").submit(function(event){
 		const form = $(this);
 		const user = {};
 		user.structure = {};
