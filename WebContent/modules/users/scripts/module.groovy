@@ -38,8 +38,10 @@ class ModuleAction extends ActionSupport {
 	   def connection = getConnection()
 	   user = connection.firstRow("select * from users where email = ?", [user.email])
 	   if(user){
-	    user.password = "123456789"
-	    user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
+	    def alphabet = (('A'..'N')+('P'..'Z')+('a'..'k')+('m'..'z')+('2'..'9')).join()  
+ 		def n = 15 
+ 		user.password = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
+        user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
 	   	connection.executeUpdate 'update users set password = ? where email = ?', [user.password,user.email]
 	   	def template = getPasswordTemplate(user) 
 	    def params = ["Réinitialisation de votre mot de passe",template,user.id,user.structure.id]
