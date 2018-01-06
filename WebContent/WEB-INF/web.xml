@@ -12,6 +12,22 @@
    <context-param>
      <param-name>smtp.password</param-name>
      <param-value>qW#^csufU8</param-value>
-   </context-param>    
+   </context-param>
+   
+   <context-param>
+     <param-name>db.user</param-name>
+     <param-value>root</param-value>
+   </context-param>
+   
+   <context-param>
+     <param-name>db.password</param-name>
+     <param-value>thinktech</param-value>
+   </context-param>
+   
+   <context-param>
+     <param-name>db.url</param-name>
+     <param-value>jdbc:mysql://localhost/thinktech</param-value>
+   </context-param> 
+      
          
 </web-app>
