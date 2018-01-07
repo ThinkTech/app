@@ -64,6 +64,10 @@
 	cursor : pointer;
 }
 
+.window > div a.close-ticket {
+	color : #f32525;
+}
+
 .window > div a.pay {
 	color : #5cb85c;
 }
@@ -387,12 +391,13 @@ h1 .fa-tasks {
 }
 
 legend {
-	font-size : 17px;
+	font-size : 15px;
 	color : #05d2ff;
 	font-weight : bold;
 	padding: 3px;
     background: #ffe;
     border : 1px solid #05d2ff;
+    width : 100.3%;
 }
 
 legend a {
@@ -425,7 +430,7 @@ legend a i.fa {
 }
 
 .window > div .document-upload {
-	margin-top: -26px;
+	margin-top: -20px;
 	display : none;
 }
 
