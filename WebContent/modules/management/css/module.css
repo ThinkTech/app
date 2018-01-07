@@ -390,7 +390,9 @@ legend {
 	font-size : 17px;
 	color : #05d2ff;
 	font-weight : bold;
-	padding-bottom : 3px;
+	padding: 3px;
+    background: #ffe;
+    border : 1px solid #05d2ff;
 }
 
 legend a {
