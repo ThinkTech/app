@@ -455,9 +455,7 @@
   <template>
   <div> 
   <section>
-    <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Création Projet Reussie</h1>
-	<hr/>
-	<span>Merci pour votre souscription au {plan}</span>
+    <span>Merci pour votre souscription au {plan}</span>
 	<h2><span class="number">1</span> Etape 1 : Contrat et Caution</h2>
 	<div class="col-md-12">
 		  <div class="content-process">
@@ -495,6 +493,11 @@
 			</div>
 		   </div>	
 	   </div>
+	   <h2>Projet Description</h2>
+	   <p>
+	     {description|s}
+	   </p>
+	   <hr/>
 	   <p>
 	    Les informations fournies seront utilisées pour générer le contrat vous liant à ThinkTech et ce dernier sera ajouté aux documents du projet. La facture pour le paiement de la caution a été créée. Vous pouvez choisir d'effectuer le paiement maintenant en cliquant sur le bouton Terminer afin que votre projet soit traité au plus vite par notre équipe de développement. 
 	    <span class="terms-agreement">
@@ -506,8 +509,7 @@
 	</div>
   </section>
   <section>
-    <h1><i class="fa fa-briefcase" aria-hidden="true"></i>Paiement Caution Reussie</h1>
-	<span>Merci pour votre souscription au {plan}</span>
+   <span>Merci pour votre souscription au {plan}</span>
 	<h2><span class="number">2</span> Etape 2 : Développement</h2>
 	<div class="col-md-12">
 		  <div class="content-process">
