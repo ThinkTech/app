@@ -144,7 +144,8 @@
 }
 
 .checkout-wizard-content fieldset label{
-	font-size: 1.3em;
+	font-size: 16px;
+	text-align : right;
     position: relative;
     top: 0px;
     font-family: Tahoma;
@@ -221,6 +222,8 @@
     display: inline-block;
     text-align: center;
     white-space: nowrap;
+    font-size: 14px;
+    background: #fafafa;
 }
 
 

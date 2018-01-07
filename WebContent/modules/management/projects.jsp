@@ -395,7 +395,7 @@
 	    <select name="subject">
 		  <option value="création site web">création site web</option>
 		  <option value="refonte site web">refonte site web</option>
-		  <option value="création site web">création application web</option>
+		  <option value="création application web">création application web</option>
 		</select>
 		<span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span>
 		<input type="text" name="service" value="web dev" readonly="readonly">

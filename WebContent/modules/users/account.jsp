@@ -48,15 +48,15 @@
 									    <span class="text-right">Email </span>
 										<input type="email" name="email" value="${user.email}" required>
 										<span class="text-right">Profession </span>
-   										<input name="profession" type="text" value="${user.profession}" required>
+   										<input name="profession" type="text" value="${user.profession}">
 										<span class="text-right">Téléphone </span>
 										<input name="telephone" value="${user.telephone}" type="text">
 										<span class="text-right">Role </span>
    										<span>${user.role}</span>
 										<span class="text-right">Structure </span>
-   										<input name="structure" value="${user.structure.name}" type="text" required>
+   										<input name="structure" value="${user.structure.name}" type="text">
    										<span class="text-right">Ninea </span>
-   										<input name="ninea" value="${user.structure.ninea}" type="text" required>
+   										<input name="ninea" value="${user.structure.ninea}" type="text">
    								    <div class="submit">
    								      <input type="submit" value="Modifier">
    								      <input type="button" value="Annuler">
