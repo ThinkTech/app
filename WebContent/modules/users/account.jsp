@@ -25,20 +25,22 @@
 								</div>
 								<div>
 								   <fieldset class="profile-details">
-								        <span class="text-right">Prénom et Nom </span>
-										<span id="name">${user.name}</span>
-									    <span class="text-right">Email </span>
-										<span id="email">${user.email}</span>
-										<span class="text-right">Profession </span>
-   										<span id="profession">${user.profession}</span>
-										<span class="text-right">Téléphone </span>
-										<span id="telephone">${user.telephone}</span>
-										<span class="text-right">Role </span>
-   										<span id="role">${user.role}</span>
-										<span class="text-right">Structure </span>
-   										<span id="structure">${user.structure.name}</span>
-   										<span class="text-right">Ninea </span>
-   										<span id="ninea">${user.structure.ninea}</span>
+								        <span class="text-right">&nbsp;Prénom et Nom </span>
+										<span id="name">&nbsp;${user.name}</span>
+									    <span class="text-right">&nbsp;Email </span>
+										<span id="email">&nbsp;${user.email}</span>
+										<span class="text-right">&nbsp;Profession </span>
+   										<span id="profession">&nbsp;${user.profession}</span>
+										<span class="text-right">&nbsp;Téléphone </span>
+										<span id="telephone">&nbsp;${user.telephone}</span>
+										<span class="text-right">&nbsp;Role </span>
+   										<span id="role">&nbsp;${user.role}</span>
+										<span class="text-right">&nbsp;Structure </span>
+   										<span id="structure">&nbsp;${user.structure.name}</span>
+   										<span class="text-right">&nbsp;Activité </span>
+   										<span id="business">&nbsp;${user.structure.business}</span>
+   										<span class="text-right">&nbsp;Ninea </span>
+   										<span id="ninea">&nbsp;${user.structure.ninea}</span>
    								 </fieldset>
    								 <a class="text-center">[ modifier ]</a>
    								 <form action="${url}/profile/update">
@@ -55,6 +57,8 @@
    										<span>${user.role}</span>
 										<span class="text-right">Structure </span>
    										<input name="structure" value="${user.structure.name}" type="text">
+   										<span class="text-right">Activité </span>
+   										<input name="business" value="${user.structure.business}" type="text">
    										<span class="text-right">Ninea </span>
    										<input name="ninea" value="${user.structure.ninea}" type="text">
    								    <div class="submit">
