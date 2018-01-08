@@ -54,12 +54,12 @@
 						</thead>
 						<tbody>
 						  <s:iterator value="#request.messages" var="message" status="status">
-	                            <tr id="${message.properties['id']}" style="font-weight:${message.properties['unread']?'700':'normal'}">
+	                            <tr id="${message.properties.id}" style="font-weight:${message.properties.unread?'700':'normal'}">
 	                                <td><span class="number">${status.index+1}</span></td>
-	                                <td>${message.properties['subject']}</td>
+	                                <td>${message.properties.subject}</td>
 								    <td><i class="fa fa-user" aria-hidden="true"></i> ThinkTech</td>
-								    <td><i class="fa fa-user" aria-hidden="true"></i> ${message.properties['user']}</td>
-								    <td><s:date name="properties['date']" format="dd/MM/yyyy" /></td>
+								    <td><i class="fa fa-user" aria-hidden="true"></i> ${message.properties.user}</td>
+								    <td><s:date name="properties.date" format="dd/MM/yyyy" /></td>
 	                            </tr>
 	                      </s:iterator>
 						</tbody>

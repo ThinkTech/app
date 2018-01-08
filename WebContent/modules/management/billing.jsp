@@ -54,15 +54,15 @@
                               </thead>
                               <tbody>
                                <s:iterator value="#request.bills" var="bill" status="status">
-	                                <tr id="${bill.properties['id']}" class="${bill.properties['status']=='finished' ? 'paid' : ''}">
+	                                <tr id="${bill.properties.id}" class="${bill.properties.status=='finished' ? 'paid' : ''}">
 	                                  <td><span class="number">${status.index+1}</span></td>
-	                                  <td>${bill.properties['fee']}</td>
-	                                  <td>${bill.properties['project']}</td>
-	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${bill.properties['service']}</td>
-                                  	  <td><s:date name="properties['date']" format="dd/MM/yyyy" /></td>
-                                  	  <td><span class="digit">${bill.properties['amount']}</span> F</td>                                        
-	                                  <td><span class="label ${bill.properties['status']=='in progress' ? 'label-danger' : '' } ${bill.properties['status']=='finished' ? 'label-success' : '' } ${bill.properties['status']=='stand by' ? 'label-info' : '' }">
-	                                  ${bill.properties['status']=='in progress' ? 'en cours' : '' } ${bill.properties['status']=='finished' ? 'terminé' : '' } ${bill.properties['status']=='stand by' ? 'en attente' : '' }
+	                                  <td>${bill.properties.fee}</td>
+	                                  <td>${bill.properties.project}</td>
+	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${bill.properties.service}</td>
+                                  	  <td><s:date name="properties.date" format="dd/MM/yyyy" /></td>
+                                  	  <td><span class="digit">${bill.properties.amount}</span> F</td>                                        
+	                                  <td><span class="label ${bill.properties.status=='in progress' ? 'label-danger' : '' } ${bill.properties.status=='finished' ? 'label-success' : '' } ${bill.properties.status=='stand by' ? 'label-info' : '' }">
+	                                  ${bill.properties.status=='in progress' ? 'en cours' : '' } ${bill.properties.status=='finished' ? 'terminé' : '' } ${bill.properties.status=='stand by' ? 'en attente' : '' }
 	                                  </span></td>
 	                              </tr>
 	                          </s:iterator>

@@ -57,16 +57,16 @@
                               </thead>
                               <tbody>
                                <s:iterator value="#request.tickets" var="ticket" status="status">
-	                                <tr id="${ticket.properties['id']}">
+	                                <tr id="${ticket.properties.id}">
 	                                  <td><span class="number">${status.index+1}</span></td>
-	                                  <td>${ticket.properties['subject']}</td>
-	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${ticket.properties['service']}</td>
-                                      <td><i class="fa fa-user" aria-hidden="true"></i> ${ticket.properties['author']}</td>
-                                      <td><s:date name="properties['date']" format="dd/MM/yyyy" /></td>                                       
-	                                  <td><span class="label ${ticket.properties['status']=='in progress' ? 'label-danger' : '' } ${ticket.properties['status']=='finished' ? 'label-success' : '' } ${ticket.properties['status']=='stand by' ? 'label-info' : '' }">
-	                                  ${ticket.properties['status']=='in progress' ? 'en cours' : '' } ${ticket.properties['status']=='finished' ? 'terminé' : '' } ${ticket.properties['status']=='stand by' ? 'en attente' : '' }
+	                                  <td>${ticket.properties.subject}</td>
+	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${ticket.properties.service}</td>
+                                      <td><i class="fa fa-user" aria-hidden="true"></i> ${ticket.properties.author}</td>
+                                      <td><s:date name="properties.date" format="dd/MM/yyyy" /></td>                                       
+	                                  <td><span class="label ${ticket.properties.status=='in progress' ? 'label-danger' : '' } ${ticket.properties.status=='finished' ? 'label-success' : '' } ${ticket.properties.status=='stand by' ? 'label-info' : '' }">
+	                                  ${ticket.properties.status=='in progress' ? 'en cours' : '' } ${ticket.properties.status=='finished' ? 'terminé' : '' } ${ticket.properties.status=='stand by' ? 'en attente' : '' }
 	                                  </span></td>
-	                                  <td><span class="badge badge-info">${ticket.properties['progression']}%</span></td>
+	                                  <td><span class="badge badge-info">${ticket.properties.progression}%</span></td>
 	                              </tr>
 	                          </s:iterator>
                               <template>
