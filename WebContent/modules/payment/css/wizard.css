@@ -214,6 +214,9 @@
     white-space: nowrap;
     background: transparent;
     border: none;
+    font-family: Tahoma;
+    font-size: 15px;
+    margin-bottom : 5px;
 }
 
 .shopping-amount > span > span:last-of-type{

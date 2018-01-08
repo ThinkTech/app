@@ -134,6 +134,7 @@ class ModuleAction extends ActionSupport {
         def connection = getConnection()
         connection.executeUpdate 'update accounts set activated = true where activation_code = ?', [activationCode]
         connection.close()
+        session.setAttribute("email",getParameter("email"))
     	response.sendRedirect(request.contextPath+"/")
     }
     
@@ -176,7 +177,7 @@ class ModuleAction extends ActionSupport {
 		      p("Veuillez confirmer votre projet pour son traitement.")
 		    }
 		    div(style : "text-align:center;margin-bottom:10px") {
-		       a(href : "$url/users/subscription/confirm?activationCode=$subscription.activationCode",style : "font-size:150%;width:180px;margin:auto;text-decoration:none;background: #05d2ff;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
+		       a(href : "$url/users/subscription/confirm?email=$subscription.email&activationCode=$subscription.activationCode",style : "font-size:150%;width:180px;margin:auto;text-decoration:none;background: #05d2ff;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
 		         span("Confirmer")
 		       }
 		    }
