@@ -405,10 +405,6 @@ legend a {
 	cursor : pointer;
 }
 
-legend i {
-	color : #000000;
-	font-weight : bold;
-}
 
 legend a i.fa {
 	position: relative;
