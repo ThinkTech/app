@@ -399,6 +399,7 @@ legend {
     background: #f7fcfd;
     border : 1px solid #05d2ff;
     width : 100.3%;
+    margin-bottom: 22px;
 }
 
 legend a {
