@@ -98,8 +98,8 @@ class ModuleAction extends ActionSupport {
             def template = getSubscriptionTemplate(subscription)
             params = ["Projet : " +subscription.project,template,user_id,structure_id]
        		connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?, ?)', params
-	   		params = [subscription.project,"web dev",subscription.plan,user_id,structure_id]
-       		result = connection.executeInsert 'insert into projects(subject,service,plan,user_id,structure_id) values (?, ?, ?,?,?)', params
+	   		params = [subscription.project,subscription.project,"web dev",subscription.plan,user_id,structure_id]
+       		result = connection.executeInsert 'insert into projects(subject,description,service,plan,user_id,structure_id) values (?,?,?,?,?,?)', params
        		def project_id = result[0][0]
        		def bill = createBill(subscription)
        		if(bill.amount){
@@ -210,7 +210,7 @@ class ModuleAction extends ActionSupport {
 		      }
 		    }
 		    div(style : "width:90%;margin:auto;margin-top : 30px;margin-bottom:30px") {
-		      p("Votre mot de passe a &edot;t&edot; r&edot;initialis&edot;")
+		      p("Votre mot de passe a &edot;t&edot; bien r&edot;initialis&edot;")
 		      br()
 		      p("Mot de passe : <b>$user.password</b>")
 		      br()

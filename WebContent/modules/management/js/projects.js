@@ -389,4 +389,22 @@ $(document).ready(function(){
 	$(".window.details").click(function(){
 		$(".plans").hide();
 	});
+	const $table = $(".table");
+	const url = $table.data("url");
+	const tr = $("tbody tr",$table);
+	const firstTime = localStorage.getItem("firsTime");
+	if(tr.length == 1 && !firstTime){
+		if($("td span.label-info",tr).length){
+			const id = tr.attr("id");
+    		$.ajax({
+				  type: "GET",
+				  url: url+"?id="+id,
+				  success: function(response) {
+					  page.details.showProjectWizard(response.entity);
+					  localStorage.setItem("firsTime",true);
+				  },
+				  dataType: "json"
+			});
+		}
+	}
 });

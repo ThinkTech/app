@@ -240,6 +240,7 @@
 
 .window > div .description .message-list > div:first-of-type {
 	margin-top : -10px;
+	font-size: 13px;
 }
 
 .window > div .message-list > div > div i {
