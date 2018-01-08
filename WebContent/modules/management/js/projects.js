@@ -50,6 +50,15 @@ $(document).ready(function(){
 					h3.html(parseInt(h3.text())+1);
 					h3 = $("h3.unpayed");
 					h3.html(parseInt(h3.text())-1);
+					const wizard = $(".project-wizard");
+					page.render(wizard, project, false, function() {
+						$("> div section:nth-child(1)",wizard).hide();
+						$("> div section:nth-child(2)",wizard).show();
+						$("> div section:nth-child(2) input[type=button]",wizard).click(function(event) {
+							  wizard.hide();
+						}); 
+					});
+					wizard.show();
 			    });
 			});
 		});
