@@ -14,7 +14,7 @@ class ModuleAction extends ActionSupport {
 	def login() {
 	   def user = new JsonSlurper().parse(request.inputStream) 
 	   def connection = getConnection()
-	   user = connection.firstRow("select * from users where email = ? and password = ?", [user.email,user.password])
+	   user = connection.firstRow("select u.* from users u, accounts a where u.email = ? and u.password = ? and a.activated = true and a.user_id = u.id", [user.email,user.password])
 	   if(user) {
 	    user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
         session.setAttribute("user",user)
@@ -79,7 +79,6 @@ class ModuleAction extends ActionSupport {
        response.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
        if(request.method == "POST") { 
           def subscription = new JsonSlurper().parse(request.inputStream)
-          println subscription
 	      def connection = getConnection()
 	      def user = connection.firstRow("select * from users where email = ?", [subscription.email])
 	      if(user) {
@@ -91,6 +90,11 @@ class ModuleAction extends ActionSupport {
 	        params = [subscription.name,subscription.email,subscription.password,"administrateur",true,structure_id]
             result = connection.executeInsert 'insert into users(name,email,password,role,owner,structure_id) values (?, ?, ?,?,?,?)', params
             def user_id = result[0][0]
+            def alphabet = (('A'..'N')+('P'..'Z')+('a'..'k')+('m'..'z')+('2'..'9')).join()  
+ 			def n = 30 
+ 		    subscription.activationCode = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
+ 		    params = [subscription.activationCode,user_id]
+       		connection.executeInsert 'insert into accounts(activation_code,user_id) values (?, ?)', params
             def template = getSubscriptionTemplate(subscription)
             params = ["Projet : " +subscription.project,template,user_id,structure_id]
        		connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?, ?)', params
@@ -123,6 +127,14 @@ class ModuleAction extends ActionSupport {
 	      }
 	     connection.close()
        }
+    }
+    
+    def confirm() {
+        def activationCode = getParameter("activationCode")
+        def connection = getConnection()
+        connection.executeUpdate 'update accounts set activated = true where activation_code = ?', [activationCode]
+        connection.close()
+    	response.sendRedirect(request.contextPath+"/")
     }
     
     def createBill(subscription){
@@ -164,7 +176,7 @@ class ModuleAction extends ActionSupport {
 		      p("Veuillez confirmer votre projet pour son traitement.")
 		    }
 		    div(style : "text-align:center;margin-bottom:10px") {
-		       a(href : "$url/registration/confirm",style : "font-size:150%;width:180px;margin:auto;text-decoration:none;background: #05d2ff;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
+		       a(href : "$url/users/subscription/confirm?activationCode=$subscription.activationCode",style : "font-size:150%;width:180px;margin:auto;text-decoration:none;background: #05d2ff;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
 		         span("Confirmer")
 		       }
 		    }
