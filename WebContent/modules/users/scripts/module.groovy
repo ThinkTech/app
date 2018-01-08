@@ -79,6 +79,7 @@ class ModuleAction extends ActionSupport {
        response.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
        if(request.method == "POST") { 
           def subscription = new JsonSlurper().parse(request.inputStream)
+          println subscription
 	      def connection = getConnection()
 	      def user = connection.firstRow("select * from users where email = ?", [subscription.email])
 	      if(user) {
@@ -91,32 +92,32 @@ class ModuleAction extends ActionSupport {
             result = connection.executeInsert 'insert into users(name,email,password,role,owner,structure_id) values (?, ?, ?,?,?,?)', params
             def user_id = result[0][0]
             def template = getSubscriptionTemplate(subscription)
-            params = ["Projet : " +subscription.subject,template,user_id,structure_id]
+            params = ["Projet : " +subscription.project,template,user_id,structure_id]
        		connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?, ?)', params
-	   		params = [subscription.subject,"web dev",subscription.plan,user_id,structure_id]
-       		result = connection.executeInsert 'insert into projects(subject,service,plan,user_id,structure_id) values (?, ?, ?,?,?,)', params
-       		def id = result[0][0]
+	   		params = [subscription.project,"web dev",subscription.plan,user_id,structure_id]
+       		result = connection.executeInsert 'insert into projects(subject,service,plan,user_id,structure_id) values (?, ?, ?,?,?)', params
+       		def project_id = result[0][0]
        		def bill = createBill(subscription)
        		if(bill.amount){
-		       params = [bill.fee,bill.amount,id]
+		       params = [bill.fee,bill.amount,project_id]
 		       connection.executeInsert 'insert into bills(fee,amount,project_id) values (?,?,?)', params
 		       def query = 'insert into projects_tasks(task_id,project_id) values (?, ?)'
 		       connection.withBatch(query){ ps ->
 		          9.times{
-		              ps.addBatch(it+1,id)
+		              ps.addBatch(it+1,project_id)
 		          } 
 		       }
 	         }else{
 		       def query = 'insert into projects_tasks(task_id,project_id) values (?, ?)'
 		      	  connection.withBatch(query){ ps ->
 		         	 9.times{
-		              if(it!=0) ps.addBatch(it+1,id)
+		              if(it!=0) ps.addBatch(it+1,project_id)
 		          	}
 		        }
 	        }
-	        def mailConfig = new MailConfig("info@thinktech.sn","qW#^csufU8","smtp.thinktech.sn")
+	        def mailConfig = new MailConfig(context.getInitParameter("smtp.email"),context.getInitParameter("smtp.password"),"smtp.thinktech.sn")
 		    def mailSender = new MailSender(mailConfig)
-		    def mail = new Mail(subscription.contact,subscription.email,"${subscription.contact}, confirmer votre souscription au ${subscription.plan}",template)
+		    def mail = new Mail(subscription.name,subscription.email,"${subscription.name}, confirmer votre souscription au ${subscription.plan}",template)
 		    mailSender.sendMail(mail)
 		    response.writer.write(json([status : 1]))
 	      }
@@ -158,6 +159,7 @@ class ModuleAction extends ActionSupport {
 		         span("Structure : $subscription.structure")
 		        }
 		      }
+		      p("Projet : ${subscription.project}")
 		      p("Merci pour votre souscription au ${subscription.plan}")
 		      p("Veuillez confirmer votre projet pour son traitement.")
 		    }
@@ -217,8 +219,7 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def getConnection()  {
-		def ds =  new javax.naming.InitialContext().lookup("java:comp/env/jdbc/db");
-		new Sql(ds)
+		new Sql(context.getAttribute("datasource"))
 	}
 	
 }

@@ -47,8 +47,7 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def getConnection()  {
-		def ds =  new javax.naming.InitialContext().lookup("java:comp/env/jdbc/db");
-		new Sql(ds)
+		new Sql(context.getAttribute("datasource"))
 	}
 	
 }
