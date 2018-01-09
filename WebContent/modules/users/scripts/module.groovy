@@ -11,6 +11,11 @@ import groovy.sql.Sql
 
 class ModuleAction extends ActionSupport {
 
+    def String execute(){
+       def user = session.getAttribute("user")
+       user ? SUCCESS : ERROR
+    }
+    
 	def login() {
 	   def user = new JsonSlurper().parse(request.inputStream) 
 	   def connection = getConnection()
