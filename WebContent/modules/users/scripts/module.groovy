@@ -65,6 +65,13 @@ class ModuleAction extends ActionSupport {
 	def updateProfil() {
 	   def user = new JsonSlurper().parse(request.inputStream)
 	   def connection = getConnection()
+	   def email = session.getAttribute("user").email
+	   if(user.email != email){
+	    if(connection.firstRow("select id from users where email = ?", [user.email])){
+	   	    response.writer.write(json([status: 0]))
+	   	    return
+	   	 }
+	   }
 	   connection.executeUpdate 'update users set name = ?, email = ?, profession = ?, telephone = ?  where id = ?', [user.name,user.email,user.profession,user.telephone,session.getAttribute("user").id]
 	   connection.executeUpdate 'update structures set name = ?, business = ?, ninea = ? where id = ?', [user.structure.name,user.structure.business,user.structure.ninea,session.getAttribute("user").structure.id]
 	   user = connection.firstRow("select * from users where id = ?", [session.getAttribute("user").id])

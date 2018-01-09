@@ -45,13 +45,13 @@ jQuery(document).ready(function( $ ) {
 		const form = $(this);
 		const user = {};
 		user.structure = {};
-		user.name = form.find("input[name=name]").val();
-		user.email = form.find("input[name=email]").val();
-		user.telephone = form.find("input[name=telephone]").val();
-		user.profession = form.find("input[name=profession]").val();
-		user.structure.name = form.find("input[name=structure]").val();
-		user.structure.business = form.find("input[name=business]").val();
-		user.structure.ninea = form.find("input[name=ninea]").val();
+		user.name = form.find("input[name=name]").val().trim();
+		user.email = form.find("input[name=email]").val().trim();
+		user.telephone = form.find("input[name=telephone]").val().trim();
+		user.profession = form.find("input[name=profession]").val().trim();
+		user.structure.name = form.find("input[name=structure]").val().trim();
+		user.structure.business = form.find("input[name=business]").val().trim();
+		user.structure.ninea = form.find("input[name=ninea]").val().trim();
 		page.wait({top : form.offset().top});
 		$.ajax({
 			  type: "POST",
@@ -73,6 +73,10 @@ jQuery(document).ready(function( $ ) {
 					  $(".profile-edition").hide();
 					  $(".user a").show();
 					  if(page.updateUserName) page.updateUserName(user.name);
+				  }else{
+					  alert("cet email est d&edot;ja utilis&edot; par un autre utilisateur",function(){
+						  form.find("input[name=email]").select().focus();
+					  });
 				  }
 				  page.release();
 			  },
