@@ -42,7 +42,7 @@
 			</div>
 			<div class="sub-main-w3 login">	
 				<form action="users/login" method="post">
-					<input placeholder="email" name="email" type="email" value="${email}" required>
+					<input placeholder="email" name="email" type="email"  required>
 					<input  placeholder="mot de passe" name="password" type="password" required>
 					<input type="submit" value="Connexion">
 					<div class="rem-w3">

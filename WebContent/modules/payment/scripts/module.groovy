@@ -14,7 +14,8 @@ class ModuleAction extends ActionSupport {
 	  connection.executeUpdate "update bills set status = 'finished', paidWith = ?, paidOn = NOW() where id = ?", [bill.paidWith,bill.id]
 	  if(bill.fee == "caution"){
 	  	connection.executeUpdate "update projects set status = 'in progress', progression = 5 where id = ?", [bill.project_id]
-	  	connection.executeUpdate "update projects_tasks set status = 'finished', progression = 100 where task_id = ? and project_id = ?", [1,bill.project_id]
+	  	def info = "le paiement de la caution a été éffectué et le contrat vous liant à ThinkTech a été généré et ajouté aux documents du projet"
+	  	connection.executeUpdate "update projects_tasks set status = 'finished', info = ? , progression = 100 where task_id = ? and project_id = ?", [info,1,bill.project_id]
 	  	connection.executeUpdate "update projects_tasks set status = 'in progress' where task_id = ? and project_id = ?", [2,bill.project_id]
 	  	def params = ["contrat.doc",bill.project_id,session.getAttribute("user").id]
 	    connection.executeInsert 'insert into documents(name,project_id,createdBy) values (?,?,?)',params

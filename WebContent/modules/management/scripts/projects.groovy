@@ -49,17 +49,17 @@ class ModuleAction extends ActionSupport {
        if(bill.amount){
           params = [bill.fee,bill.amount,id]
        	  connection.executeInsert 'insert into bills(fee,amount,project_id) values (?,?,?)', params
-       	  def query = 'insert into projects_tasks(task_id,project_id) values (?, ?)'
+       	  def query = 'insert into projects_tasks(task_id,info,project_id) values (?, ?, ?)'
       	  connection.withBatch(query){ ps ->
            9.times{
-              ps.addBatch(it+1,id)
+              ps.addBatch(it+1,"aucune information",id)
            } 
           }
        }else{
-          def query = 'insert into projects_tasks(task_id,project_id) values (?, ?)'
+          def query = 'insert into projects_tasks(task_id,info,project_id) values (?, ? , ?)'
       	  connection.withBatch(query){ ps ->
           9.times{
-              if(it!=0) ps.addBatch(it+1,id)
+              if(it!=0) ps.addBatch(it+1,"aucune information",id)
           }
          }
        }
@@ -113,12 +113,13 @@ class ModuleAction extends ActionSupport {
           project.documents << document
        })
        project.tasks = []
-	   connection.eachRow("select t.name,t.description, p.status, p.progression from tasks t, projects_tasks p where t.id = p.task_id and p.project_id = ?", [project.id],{ row -> 
+	   connection.eachRow("select t.name,t.description, p.info, p.status, p.progression from tasks t, projects_tasks p where t.id = p.task_id and p.project_id = ?", [project.id],{ row -> 
           def task = new Expando()
           task.name = row.name
           task.description = row.description
           task.status = row.status
           task.progression = row.progression
+          task.info = row.info
           project.tasks << task
        })
        if(project.status == "stand by" && project.plan != "plan social") {

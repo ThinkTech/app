@@ -117,19 +117,19 @@ class ModuleAction extends ActionSupport {
        		if(bill.amount){
 		       params = [bill.fee,bill.amount,project_id]
 		       connection.executeInsert 'insert into bills(fee,amount,project_id) values (?,?,?)', params
-		       def query = 'insert into projects_tasks(task_id,project_id) values (?, ?)'
-		       connection.withBatch(query){ ps ->
-		          9.times{
-		              ps.addBatch(it+1,project_id)
-		          } 
-		       }
-	         }else{
-		       def query = 'insert into projects_tasks(task_id,project_id) values (?, ?)'
-		      	  connection.withBatch(query){ ps ->
-		         	 9.times{
-		              if(it!=0) ps.addBatch(it+1,project_id)
-		          	}
-		        }
+	       	   def query = 'insert into projects_tasks(task_id,info,project_id) values (?, ?, ?)'
+	      	   connection.withBatch(query){ ps ->
+	             9.times{
+	               ps.addBatch(it+1,"aucune information",project_id)
+	            } 
+	           }
+	          }else{
+	           def query = 'insert into projects_tasks(task_id,info,project_id) values (?, ? , ?)'
+	      	   connection.withBatch(query){ ps ->
+	           9.times{
+	              if(it!=0) ps.addBatch(it+1,"aucune information",project_id)
+	           }
+	          }
 	        }
 	        def mailConfig = new MailConfig(context.getInitParameter("smtp.email"),context.getInitParameter("smtp.password"),"smtp.thinktech.sn")
 		    def mailSender = new MailSender(mailConfig)
@@ -146,7 +146,6 @@ class ModuleAction extends ActionSupport {
         def connection = getConnection()
         connection.executeUpdate 'update accounts set activated = true where activation_code = ?', [activationCode]
         connection.close()
-        session.setAttribute("email",getParameter("email"))
     	response.sendRedirect(request.contextPath+"/")
     }
     
@@ -189,7 +188,7 @@ class ModuleAction extends ActionSupport {
 		      p("Veuillez confirmer votre projet pour son traitement.")
 		    }
 		    div(style : "text-align:center;margin-bottom:10px") {
-		       a(href : "$url/users/subscription/confirm?email=$subscription.email&activationCode=$subscription.activationCode",style : "font-size:150%;width:180px;margin:auto;text-decoration:none;background: #05d2ff;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
+		       a(href : "$url/users/subscription/confirm?activationCode=$subscription.activationCode",style : "font-size:150%;width:180px;margin:auto;text-decoration:none;background: #05d2ff;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
 		         span("Confirmer")
 		       }
 		    }
