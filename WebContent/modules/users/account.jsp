@@ -37,7 +37,7 @@
    										<span id="role">&nbsp;${user.role}</span>
 										<span class="text-right">&nbsp;Structure </span>
    										<span id="structure">&nbsp;${user.structure.name}</span>
-   										<span class="text-right">&nbsp;Activité </span>
+   										<span class="text-right">&nbsp;Activité Principale </span>
    										<span id="business">&nbsp;${user.structure.business}</span>
    										<span class="text-right">&nbsp;Ninea </span>
    										<span id="ninea">&nbsp;${user.structure.ninea}</span>
@@ -54,10 +54,10 @@
 										<span class="text-right">Téléphone </span>
 										<input name="telephone" value="${user.telephone}" type="text">
 										<span class="text-right">Role </span>
-   										<span>${user.role}</span>
+   										<span>&nbsp;${user.role}</span>
 										<span class="text-right">Structure </span>
    										<input name="structure" value="${user.structure.name}" type="text">
-   										<span class="text-right">Activité </span>
+   										<span class="text-right">Activité Principale </span>
    										<input name="business" value="${user.structure.business}" type="text">
    										<span class="text-right">Ninea </span>
    										<input name="ninea" value="${user.structure.ninea}" type="text">
