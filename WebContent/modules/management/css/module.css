@@ -156,12 +156,8 @@
     background: #ffe;
     margin-bottom: 0;
     font-size: 13px;
-    list-style-position: inside;
-    font-weight : bold;
-}
-
-.window > div .document-list ol {
     list-style-position: outside;
+    font-weight : bold;
 }
 
 .window > div ul li, .window > div ol li {
