@@ -33,9 +33,9 @@ public class AppListener implements ServletContextListener {
 	private DataSource setupDataSource() {
 		  BasicDataSource ds = new BasicDataSource();
 		  ds.setDriverClassName("com.mysql.jdbc.Driver");
-		  ds.setUrl("jdbc:mysql://localhost/thinktech");
-		  ds.setUsername("root");
-		  ds.setPassword("thinktech");
+		  ds.setUrl("jdbc:mysql://lamineba.heliohost.org/lamineba_thinktech");
+		  ds.setUsername("lamineba_root");
+		  ds.setPassword("california");
 		  ds.setInitialSize(3);
 	      return ds;
 	}
