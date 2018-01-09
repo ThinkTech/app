@@ -51,14 +51,14 @@ class ModuleAction extends ActionSupport {
        	  connection.executeInsert 'insert into bills(fee,amount,project_id) values (?,?,?)', params
        	  def query = 'insert into projects_tasks(task_id,info,project_id) values (?, ?, ?)'
       	  connection.withBatch(query){ ps ->
-           9.times{
+           10.times{
               ps.addBatch(it+1,"aucune information",id)
            } 
           }
        }else{
           def query = 'insert into projects_tasks(task_id,info,project_id) values (?, ? , ?)'
       	  connection.withBatch(query){ ps ->
-          9.times{
+          10.times{
               if(it!=0) ps.addBatch(it+1,"aucune information",id)
           }
          }
