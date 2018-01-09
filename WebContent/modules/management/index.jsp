@@ -252,7 +252,7 @@
 	   	  </div>
    	  {/.}
   </template>
-   <template id="template-tasks">
+  <template id="template-tasks">
     {#.}
     <li data-name="{name}">
       <span><i class="fa fa-tasks" aria-hidden="true"></i> {name}</span> 
@@ -263,10 +263,14 @@
       <div class="info-message">
 	   	  {description}
 	  </div>
+      <span><a><i class="fa fa-question" aria-hidden="true"></i></a></span>
+      <div class="info-message">
+	   	  this is the info of the task
+	  </div>
       <span><a><i class="fa fa-info" aria-hidden="true"></i></a></span>
     </li>
 	{/.}  
-  </template>			
+  </template>
   </div>
      <div class="plans">
       <div data-plan="plan business" class="pricing business" style="display:none">

@@ -280,6 +280,10 @@
       <div class="info-message">
 	   	  {description}
 	  </div>
+      <span><a><i class="fa fa-question" aria-hidden="true"></i></a></span>
+      <div class="info-message">
+	   	  this is the info of the task
+	  </div>
       <span><a><i class="fa fa-info" aria-hidden="true"></i></a></span>
     </li>
 	{/.}  
