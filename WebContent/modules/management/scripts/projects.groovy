@@ -165,7 +165,7 @@ class ModuleAction extends ActionSupport {
 	   def user = session.getAttribute("user")
 	   def dir = "structure_"+user.structure.id+"/"+"project_"+getParameter("project_id")
 	   def name = getParameter("name")
-	   response.contentType = servletContext.getMimeType(name)
+	   response.contentType = context.getMimeType(name)
 	   response.setHeader("Content-disposition","attachment; filename=$name")
 	   def fileManager = new FileManager()
 	   fileManager.download(dir+"/"+name,response.outputStream)
