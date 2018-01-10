@@ -31,7 +31,6 @@ class ModuleAction extends ActionSupport {
       def structure = user.structure
       def folder =  module.folder.absolutePath + "\\contracts\\"
       Thread.start{
-        println "generate contract"
         if(project.service == "web dev"){
           def file = project.plan.replace(' ','-')+".doc"
 	      def document = new HWPFDocument(new POIFSFileSystem(new File(folder+file)))
