@@ -153,11 +153,12 @@
     border : none;
 }
 
-.window > div legend a i.fa {
+.window > div legend a i.fa,.window > div h1 a i.fa {
 	color : #212121;
+	font-size: 15px;
 }
 
-.window > div legend a {
+.window > div legend a, .window > div h1 a {
 	margin-right : 3px;
 }
 
@@ -606,7 +607,7 @@ legend a i.fa {
 	.window > div ol li span{margin-top:0px}
 	.window > div ul, .window > div ol {padding : 5px;list-style: none;}
 	.window > div .message-list > div > div div.message {width : 97%;}
-	.window > div ol li span.question{margin-left: 50px;position: relative; top: -2px;}
+	.window > div ol li span.question{width:20px;margin-left: 78%;position: relative; top: -2px;}
 }
 
 @media(max-width:480px){
