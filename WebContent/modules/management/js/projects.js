@@ -173,15 +173,15 @@ $(document).ready(function(){
 		  file.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
 		  file.date+=" "+(date.getHours()<10 ? "0"+date.getHours() : date.getHours())+":"+(date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes())+":"+(date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds());
 		  file.author = author;
-		});
+		});  
 		$.ajax({
 			  xhr: function() {
 			    const xhr = new window.XMLHttpRequest();
-			    const span = $("<span class='progression'/>").appendTo($("#wait"));
-			    xhr.upload.addEventListener("progress", function(evt) {
-			      span.html("0%");
+			    xhr.addEventListener("progress", function(evt) {
+			      const span = $("<span class='progression'/>").appendTo($("#wait"));
+				  span.html("0%"); 
 			      if(evt.lengthComputable) {
-			        var percentComplete = evt.loaded / evt.total;
+			        percentComplete = evt.loaded / evt.total;
 			        percentComplete = parseInt(percentComplete * 100);
 			        span.html(percentComplete+"%");
 			        if(percentComplete == 100){
@@ -199,6 +199,8 @@ $(document).ready(function(){
 						  }
 					   });
 			        }
+			      }else{
+			    	  span.html(percentComplete+"%");
 			      }
 			    }, false);
 			    return xhr;

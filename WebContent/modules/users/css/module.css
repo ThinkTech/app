@@ -139,6 +139,7 @@ legend {
     margin-bottom: 0;
     text-align : center;
     background : #dcf5fb;
+    border: 1px solid #bceef9;
 }
 
 legend a {
