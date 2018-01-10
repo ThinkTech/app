@@ -7,7 +7,7 @@
 				 <!--first-one-->
 				 <div class="col-md-4 first-one">
 				  <div class="first-one-inner">
-				     <h3 class="tittle">Mot de Passe</h3>
+				     <h3 class="tittle"><i class="fa fa-key"></i> Mot de Passe</h3>
 					<form class="password-form" action="${url}/password/change">
 						<input type="password" name="password" class="text" required>
 						<input type="password" name="confirm" required>
