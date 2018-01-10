@@ -28,6 +28,7 @@
      width: auto;
      border : none;
      padding: 2px;
+     padding-bottom: 3px;
      padding-left : 4px;
      padding-right : 4px;
 	 position: relative;
@@ -152,6 +153,14 @@
     border : none;
 }
 
+.window > div legend a i.fa {
+	color : #212121;
+}
+
+.window > div legend a {
+	margin-right : 3px;
+}
+
 .window > div ul, .window > div ol {
     background: #ffe;
     margin-bottom: 0;
@@ -181,6 +190,8 @@
 	display : inline-block;
 	width : 60%;
 	font-weight : bold;
+	position: relative;
+    top: -1px;
 }
 
 .window > div ol li > span {

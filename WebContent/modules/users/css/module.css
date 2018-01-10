@@ -133,6 +133,7 @@ legend {
     border: none;
     margin-bottom: 0;
     text-align : center;
+    background : #dcf5fb;
 }
 
 legend a {
@@ -143,7 +144,7 @@ legend a {
 legend a i.fa {
 	position: relative;
     top: 1px;
-    color: #05d2ff;
+    color: #212121;
     margin-left: 2px;
 }
 

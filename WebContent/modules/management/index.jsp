@@ -175,7 +175,9 @@
 	</fieldset>
 	<fieldset>
 	   <legend>
-	   <i class="fa fa-file"></i> Documents <a class="document-add"><i class="fa fa-plus" aria-hidden="true"></i></a>
+		   <i class="fa fa-file"></i> Documents <a class="document-add"><i class="fa fa-plus" aria-hidden="true"></i></a>
+		   <a class="document-list-ol"><i class="fa fa-list-ol" aria-hidden="true"></i></a>
+		   <a class="document-list-tree"><i class="fa fa-list-alt" aria-hidden="true"></i></a>
 	   </legend>
 	   <div class="documents">
 	        <div class="document-list">
