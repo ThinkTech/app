@@ -263,7 +263,7 @@
       <div class="info-message">
 	   	  {description}
 	  </div>
-      <span><a><i class="fa fa-question" aria-hidden="true"></i></a></span>
+      <span class="question"><a><i class="fa fa-question" aria-hidden="true"></i></a></span>
       <div class="info-message">
 	   	 {info}
 	  </div>
