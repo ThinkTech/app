@@ -28,7 +28,9 @@ $(document).ready(function(){
 						$("a",li).click(function(event){
 							 $(".info-message").hide();
 							 const info = $(this).parent().prev();
-							 info.css({top : event.pageY-20,left : event.pageX-info.width()-50}).toggle();
+							 var left = event.pageX-info.width()-50;
+							 left = left < 0 ? 5 : left;
+							 info.css({top : event.pageY-20,left : left}).toggle();
 							 return false;
 						});
 					}
