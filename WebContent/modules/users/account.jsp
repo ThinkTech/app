@@ -39,6 +39,19 @@
                       </table>
                       <div class="empty"><span>aucun collaborateur</span></div>
 				</div>
+				<div class="window form">
+				  <div>
+					<span title="fermer" class="close">X</span>
+	 				<h1><i class="fa fa-user" aria-hidden="true"></i> Nouveau Collaborateur</h1>
+	 				<form action="${url}/collaborators/add">
+						<fieldset>
+	  						<span class="text-right"><i class="fa fa-envelope" aria-hidden="true"></i> Email </span>
+	  						<span><input type="email" name="email" required></span>
+	  	                 </fieldset>
+	  	                 <div class="submit"><input type="submit" value="Ajouter"></div>
+	  	             </form>
+	              </div>
+				</div>
 				   </fieldset>
 			      </div>
 				 

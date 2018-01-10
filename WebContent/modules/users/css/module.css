@@ -1,6 +1,44 @@
 /*--search1 start profile--*/
 /*--web-forms--*/
 
+.window  {
+	position : absolute;
+	width: 100%;
+    z-index: 9999;
+    display: none;
+    top: 0;
+    bottom: 0;
+    left : 0;
+    background: rgba(100, 100, 100, 0.5);
+    padding-top: 30%;
+}
+
+.window > div {
+	width : 90%;
+	border : 1px solid #05d2ff;
+	border-radius : 5px;
+	height: 230px;
+	overflow-x : hidden; 
+	overflow-y : auto;
+	margin : auto;
+	background : #fff;
+	padding : 5px;
+	z-index: 9999;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.window > div input[type=email],.window > div fieldset > span {
+    width: 100%;
+    text-align: left;
+    padding : 10px;
+}
+
+.window > div h1 {
+	font-size: 1.2em;
+    padding: 5px;
+    font-weight: bold;
+}
+
 .first-one-inner {
     background: #ffe;
     padding: 2em;
@@ -283,6 +321,10 @@ legend a i.fa {
 		color: #858282;
 		font-size: 15px;
 	}
+	.window > div h1 {
+    font-size: 13px;
+	}
+	.window > div {height: 205px;}
 }
 @media (max-width:600px){
 	.first-one {

@@ -125,7 +125,10 @@
 		<span data-status="finished" style="display:none"><span class="label label-success">terminé</span></span>
 		<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Progression </span> <span class="badge badge-info">{progression}%</span> <a class="tasks"><i class="fa fa-info" aria-hidden="true"></i></a>
 		<div class="info-tasks">
-		  <h1><i class="fa fa-tasks" aria-hidden="true"></i> Tâches</h1>
+		   <h1><i class="fa fa-tasks" aria-hidden="true"></i> Tâches&nbsp;&nbsp;
+			  <a class="task-list-ol"><i class="fa fa-list-ol" aria-hidden="true"></i></a>
+			  <a class="task-list-chart"><i class="fa fa-line-chart" aria-hidden="true"></i></a>
+		  </h1>
 		  <ol data-template="tasks">
 		  </ol>
 		</div>

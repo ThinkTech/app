@@ -84,4 +84,8 @@ jQuery(document).ready(function( $ ) {
 		});
 		return false;
 	});
+	
+	$("legend a").click(function(event){
+		$(".window").show();
+	});
 });
