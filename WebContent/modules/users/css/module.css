@@ -125,14 +125,28 @@ h3.tittle {
   
 }
 
-.profile-details legend {
-	margin: 0;
-    text-align: center;
-    padding-left: 5px;
-    font-size: 15px;
+legend {
+	font-size: 20px;
+    color: #212121;
     font-weight: bold;
-    font-family : Tahoma;
+    padding: 4px;
+    border: none;
+    margin-bottom: 0;
+    text-align : center;
 }
+
+legend a {
+	cursor : pointer;
+}
+
+
+legend a i.fa {
+	position: relative;
+    top: 1px;
+    color: #05d2ff;
+    margin-left: 2px;
+}
+
 
 .profile-details  {
 	margin-bottom: 5px;

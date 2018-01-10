@@ -14,6 +14,32 @@
 						<div class="submit"><input type="submit" value="Changer" ></div>
 					</form>
 				   </div>
+				   <fieldset>
+					   <legend>
+					     <i class="fa fa-user"></i> Vos Collaborateurs <a class="user-add"><i class="fa fa-plus" aria-hidden="true"></i></a>
+					   </legend>
+					   <div class="table-responsive">
+					      <table  class="table table-hover">
+                                  <thead>
+                                    <tr>
+                                      <th></th>
+                                      <th>Email</th>
+                                  </tr>
+                              </thead>
+                              <tbody>              
+                              <template>
+							     {#.}
+							      <tr id="{id}">
+							            <td><span class="number"></span></td>
+							   	        <td>{email}</td>
+							   	    </tr>
+							     {/.}
+							   </template>
+                          </tbody>
+                      </table>
+                      <div class="empty"><span>aucun collaborateur</span></div>
+				</div>
+				   </fieldset>
 			      </div>
 				 
 				   <!--/third-one-->
