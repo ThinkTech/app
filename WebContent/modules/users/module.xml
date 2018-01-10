@@ -16,6 +16,7 @@
 		<action  url="password/change"  method="changePassword" />
 		<action  url="password/recover"  method="recoverPassword" />
 		<action  url="profile/update"  method="updateProfil" />
+		<action  url="collaborators/add"  method="addCollaborator" />
 		<action  url="logout"  method="logout"/>
 	</actions>
 </module>

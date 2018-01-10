@@ -43,7 +43,7 @@
 		</div>
 		<div class="clearfix"></div>
 	</div>
-	<div class="col-md-12 buttons">
+	<div class="col-md-12 buttons" style="display:${user.role == 'administrateur' ? 'block' : 'none'}">
         <a><i class="fa fa-plus" aria-hidden="true"></i></a>
     </div>
 	<!--info updates end here-->

@@ -73,12 +73,43 @@ class ModuleAction extends ActionSupport {
 	   	 }
 	   }
 	   connection.executeUpdate 'update users set name = ?, email = ?, profession = ?, telephone = ?  where id = ?', [user.name,user.email,user.profession,user.telephone,session.getAttribute("user").id]
-	   connection.executeUpdate 'update structures set name = ?, business = ?, ninea = ? where id = ?', [user.structure.name,user.structure.business,user.structure.ninea,session.getAttribute("user").structure.id]
 	   user = connection.firstRow("select * from users where id = ?", [session.getAttribute("user").id])
+	   if(user.role == "administrateur"){
+	   	 connection.executeUpdate 'update structures set name = ?, business = ?, ninea = ? where id = ?', [user.structure.name,user.structure.business,user.structure.ninea,session.getAttribute("user").structure.id]
+	   }
 	   user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
        session.setAttribute("user",user) 
 	   connection.close() 
 	   response.writer.write(json([status: 1]))
+	}
+	
+	def addCollaborator(){
+	   def user = new JsonSlurper().parse(request.inputStream)
+	   def connection = getConnection()
+	   if(user.email == session.getAttribute("user").email){
+	     response.writer.write(json([status : 0]))
+	   }
+	   else if(connection.firstRow("select id from users where email = ?", [user.email])) {
+		  response.writer.write(json([status : 0]))
+	   }else{
+	      def structure_id = session.getAttribute("user").structure.id
+	      def alphabet = (('A'..'N')+('P'..'Z')+('a'..'k')+('m'..'z')+('2'..'9')).join()  
+ 		  def n = 30 
+ 		  user.password = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
+ 		  user.activationCode = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
+	      def params = [user.email,user.email,user.password,"collaborateur",false,structure_id]
+          def result = connection.executeInsert 'insert into users(name,email,password,role,owner,structure_id) values (?,?,?,?,?,?)', params
+          def id = result[0][0]
+          params = [user.activationCode,id]
+       	  connection.executeInsert 'insert into accounts(activation_code,user_id) values (?, ?)', params
+       	  def template = getCollaborationTemplate(user) 
+	      def mailConfig = new MailConfig(context.getInitParameter("smtp.email"),context.getInitParameter("smtp.password"),"smtp.thinktech.sn")
+	   	  def mailSender = new MailSender(mailConfig)
+	   	  def mail = new Mail("$user.email","$user.email","Veuillez confirmer votre collaboration",template)
+	   	  mailSender.sendMail(mail)
+          response.writer.write(json([id : id]))
+ 	   }
+ 	   connection.close()
 	}
 	
 	def logout() {
@@ -199,7 +230,6 @@ class ModuleAction extends ActionSupport {
 		      p("a cr&edot;&edot; un projet en utilisant cette adresse")
 		  }
 		  
-		   
 		 }
 		'''
 		def template = engine.createTemplate(text).make([subscription:subscription,url : baseUrl])
@@ -239,6 +269,45 @@ class ModuleAction extends ActionSupport {
 		 }
 		'''
 		def template = engine.createTemplate(text).make([user:user,url : baseUrl])
+		template.toString()
+	}
+	
+	
+	def getCollaborationTemplate(user) {
+	    TemplateConfiguration config = new TemplateConfiguration()
+		MarkupTemplateEngine engine = new MarkupTemplateEngine(config)
+		def text = '''\
+		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
+		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
+		    img(src : "https://www.thinktech.sn/images/logo.png", style : "display:block;margin : 0 auto")
+		    div(style : "margin-top:10px;padding:10px;height:90px;text-align:center;background:#eee") {
+		      h4(style : "font-size: 200%;color: rgb(0, 0, 0);margin: 3px") {
+		        span("Demande de collaboration")
+		      }
+		      p(style : "font-size:150%;color:rgb(100,100,100)"){
+		         span("cliquer sur le bouton pour confirmer")
+		      }
+		    }
+		    div(style : "width:90%;margin:auto;margin-top : 30px;margin-bottom:30px") {
+		      br()
+		      p("Mot de passe : <b>$user.password</b>")
+		      br()
+		      p("Vous pouvez le modifier en vous connectant &aacute; votre compte")
+		       div(style : "text-align:center;margin-bottom:10px") {
+		       a(href : "$url/users/subscription/confirm?activationCode=$user.activationCode",style : "font-size:150%;width:180px;margin:auto;text-decoration:none;background: #05d2ff;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
+		         span("Confirmer")
+		       }
+		     }
+		    }
+		  }
+		  div(style :"margin: 10px;margin-top:10px;font-size : 11px;text-align:center") {
+		      p("Vous recevez cet email parce que $name ")
+		      p("a envoy&edot; une demande de collaboration en utilisant cette adresse")
+		  }
+		  
+		 }
+		'''
+		def template = engine.createTemplate(text).make([user:user,url : baseUrl,name : session.getAttribute("user").name])
 		template.toString()
 	}
 	

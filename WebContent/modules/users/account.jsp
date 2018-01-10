@@ -14,7 +14,7 @@
 						<div class="submit"><input type="submit" value="Changer" ></div>
 					</form>
 				   </div>
-				   <fieldset>
+				   <fieldset style="display:${user.role == 'administrateur' ? 'block' : 'none'}">
 					   <legend>
 					     <i class="fa fa-user"></i> Vos Collaborateurs <a class="user-add"><i class="fa fa-plus" aria-hidden="true"></i></a>
 					   </legend>
@@ -74,12 +74,12 @@
 										<span id="telephone">&nbsp;${user.telephone}</span>
 										<span class="text-right">&nbsp;Role </span>
    										<span id="role">&nbsp;${user.role}</span>
-										<span class="text-right">&nbsp;Structure </span>
-   										<span id="structure">&nbsp;${user.structure.name}</span>
-   										<span class="text-right">&nbsp;Activité Principale </span>
-   										<span id="business">&nbsp;${user.structure.business}</span>
-   										<span class="text-right">&nbsp;Ninea </span>
-   										<span id="ninea">&nbsp;${user.structure.ninea}</span>
+   										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;Structure </span>
+   										<span id="structure" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;${user.structure.name}</span>
+   										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;Activité Principale </span>
+   										<span id="business" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;${user.structure.business}</span>
+   										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;Ninea </span>
+   										<span id="ninea" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;${user.structure.ninea}</span>
    								 </fieldset>
    								 <a class="text-center">[ modifier ]</a>
    								 <form action="${url}/profile/update">
@@ -94,12 +94,12 @@
 										<input name="telephone" value="${user.telephone}" type="text">
 										<span class="text-right">Role </span>
    										<span>&nbsp;${user.role}</span>
-										<span class="text-right">Structure </span>
-   										<input name="structure" value="${user.structure.name}" type="text">
-   										<span class="text-right">Activité Principale </span>
-   										<input name="business" value="${user.structure.business}" type="text">
-   										<span class="text-right">Ninea </span>
-   										<input name="ninea" value="${user.structure.ninea}" type="text">
+										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Structure </span>
+   										<input name="structure" value="${user.structure.name}" type="text" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
+   										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Activité Principale </span>
+   										<input name="business" value="${user.structure.business}" type="text" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
+   										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Ninea </span>
+   										<input name="ninea" value="${user.structure.ninea}" type="text" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
    								    <div class="submit">
    								      <input type="submit" value="Modifier">
    								      <input type="button" value="Annuler">

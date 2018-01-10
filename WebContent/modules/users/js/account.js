@@ -80,12 +80,54 @@ jQuery(document).ready(function( $ ) {
 				  }
 				  page.release();
 			  },
+			  error : function(){
+				  page.release();
+				  alert("erreur lors de la connexion au serveur");
+			  },
 			  dataType: "json"
 		});
 		return false;
 	});
 	
 	$("legend a").click(function(event){
-		$(".window").show();
+		const window = $(".window").show();
+		$("form input[type=email]",window).val("");
 	});
+	
+	$(".window form").submit(function(event){
+		const window = $(".window").hide();
+		const form = $(this);
+		const user = {};
+		user.email = form.find("input[name=email]").val().trim();
+		page.wait({top : form.offset().top});
+		$.ajax({
+			  type: "POST",
+			  url: form.attr("action"),
+			  data: JSON.stringify(user),
+			  contentType : "application/json",
+			  success: function(response) {
+				  if(response.id){
+					  form.find("input[type=password]").val("");
+					  user.id = response.id;
+					  page.table.addRow(user,function(){
+						  page.release();
+						  alert("votre collaborateur a &edot;t&edot; bien ajout&edot;");
+					  });
+				  }else{
+					  alert("cet email est d&edot;ja utilis&edot; par un autre utilisateur",function(){
+						  window.show();
+						  form.find("input[name=email]").select().focus();
+					  });
+				  }
+				  page.release();
+			  },
+			  error : function(){
+				  page.release();
+				  alert("erreur lors de la connexion au serveur");
+			  },
+			  dataType: "json"
+		});
+		return false;
+	});
+	
 });

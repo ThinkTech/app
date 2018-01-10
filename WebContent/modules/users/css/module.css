@@ -10,7 +10,7 @@
     bottom: 0;
     left : 0;
     background: rgba(100, 100, 100, 0.5);
-    padding-top: 30%;
+    padding-top: 29%;
 }
 
 .window > div {
@@ -170,7 +170,7 @@ h3.tittle {
 
 legend {
 	font-size: 22px;
-    color: #212121;
+    color: #05d2ff;
     font-weight: bold;
     padding: 4px;
     border: none;
