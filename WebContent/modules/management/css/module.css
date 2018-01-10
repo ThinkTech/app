@@ -66,7 +66,7 @@
 }
 
 .window > div a.close-ticket {
-	color : #f32525;
+	color : #212121;
 }
 
 .window > div a.pay {
@@ -447,7 +447,8 @@ legend a i.fa {
 }
 
 .window > div input[type=text], .window > div select {
-	padding: 3.4px;
+	padding: 1px;
+	padding-left : 2px;
 	width : 50%;
 }
 

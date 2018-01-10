@@ -57,6 +57,7 @@ class ModuleAction extends ActionSupport {
 	   def ticket = connection.firstRow("select t.*, u.name from tickets t,users u where t.id = ? and t.user_id = u.id", [id])
 	   if(ticket.subject.length()>40) ticket.subject = ticket.subject.substring(0,40)+"..."
 	   ticket.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(ticket.date)
+	   if(ticket.closedOn) ticket.closedOn = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(ticket.closedOn)
 	   ticket.comments = []
 	   connection.eachRow("select c.id, c.message, c.date, u.name from tickets_comments c, users u where c.createdBy = u.id and c.ticket_id = ?", [ticket.id],{ row -> 
           def comment = new Expando()
@@ -82,7 +83,7 @@ class ModuleAction extends ActionSupport {
 	def closeTicket() {
 	   def ticket = new JsonSlurper().parse(request.inputStream) 
 	   def connection = getConnection()
-	   connection.executeUpdate "update tickets set progression = 100, status = 'finished' where id = ?", [ticket.id] 
+	   connection.executeUpdate "update tickets set progression = 100, status = 'finished', closedOn = NOW() where id = ?", [ticket.id] 
 	   connection.close()
 	   response.writer.write(json([status : 1]))
 	}

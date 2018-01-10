@@ -136,15 +136,15 @@
 			<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">staff technique</span> <a href="${url}/support/tickets/close" class="close-ticket"><i class="fa fa-window-close"></i></a></span>
 			<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  
 			<span data-status="finished" style="display:none"><span class="label label-success">terminé</span></span>
+			<span class="text-right" data-status="finished" style="display:none"><i class="fa fa-calendar" aria-hidden="true"></i> Date Fermeture </span> <span data-status="finished" style="display:none">{closedOn}</span>
 			<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Progression </span> <span class="badge badge-info">{progression}%</span>
 		</fieldset>
-		
 		<fieldset>
 		<fieldset>
 		 <legend>
 	      <i class="fa fa-file-text-o" aria-hidden="true"></i> Description
 	   	 </legend>
-	   	 <div class="description" style="margin-top:-10px;margin-bottom:-5px">
+	   	 <div class="description" style="margin-top:-10px;">
 	   	  {message|s}
 	   	 </div>
 		</fieldset>
