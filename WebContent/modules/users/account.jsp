@@ -46,7 +46,7 @@
 	 				<form action="${url}/collaborators/add">
 						<fieldset>
 	  						<span class="text-right"><i class="fa fa-envelope" aria-hidden="true"></i> Email </span>
-	  						<span><input type="email" name="email" required></span>
+	  						<input type="email" name="email" required>
 	  	                 </fieldset>
 	  	                 <div class="submit"><input type="submit" value="Ajouter"></div>
 	  	             </form>
