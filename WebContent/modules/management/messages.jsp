@@ -37,9 +37,7 @@
 		<div class="col-md-12 chit-chat-layer1-left">
 			<div class="work-progres">
 				<div class="chit-chat-heading">
-					<h3 class="tlt">
-						<i class="fa fa-envelope-o" aria-hidden="true"></i> Vos Messages
-					</h3>
+					<h3 class="tlt">Vos Messages</h3>
 				</div>
 				<div class="table-responsive">
 					<table data-url="${url}/messages/info" class="table table-hover">

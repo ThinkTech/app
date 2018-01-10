@@ -37,7 +37,7 @@
 	<div class="col-md-12 chit-chat-layer1-left">
                <div class="work-progres">
                             <div class="chit-chat-heading">
-                                  <h3 class="tlt"><i class="fa fa-money" aria-hidden="true"></i> Vos Factures</h3>
+                                  <h3 class="tlt">Vos Factures</h3>
                             </div>
                             <div class="table-responsive">
                                 <table data-url="${url}/billing/info" class="billing table table-hover">
