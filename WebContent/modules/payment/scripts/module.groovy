@@ -11,7 +11,7 @@ class ModuleAction extends ActionSupport {
    def pay(){
       def bill = new JsonSlurper().parse(request.inputStream) 
       def connection = getConnection()
-	  connection.executeUpdate "update bills set status = 'finished', paidWith = ?, paidOn = NOW() where id = ?", [bill.paidWith,bill.id]
+	  connection.executeUpdate "update bills set status = 'finished', paidWith = ?, paidOn = NOW(), paidBy = ? where id = ?", [bill.paidWith,session.getAttribute("user").id,bill.id]
 	  if(bill.fee == "caution"){
 	  	connection.executeUpdate "update projects set status = 'in progress', progression = 5 where id = ?", [bill.project_id]
 	  	def info = "le paiement de la caution a été éffectué et le contrat vous liant à ThinkTech a été généré et ajouté aux documents du projet"

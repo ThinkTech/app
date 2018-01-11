@@ -38,7 +38,11 @@ class ModuleAction extends ActionSupport {
 	   def connection = getConnection()
 	   def bill = connection.firstRow("select b.*,p.subject,p.service from bills b, projects p where b.project_id = p.id and b.id = ?", [id])
 	   bill.date = new java.text.SimpleDateFormat("dd/MM/yyyy").format(bill.date)
-	   if(bill.paidOn) bill.paidOn = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(bill.paidOn)
+	   if(bill.paidOn) {
+	     bill.paidOn = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(bill.paidOn)
+	     def user = connection.firstRow("select u.name from users u, bills b where u.id = b.paidBy and b.id = ?", [id])
+	     bill.paidBy = user.name 
+	   }
 	   connection.close()
 	   response.writer.write(json([entity : bill]))
 	}
