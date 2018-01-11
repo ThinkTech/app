@@ -14,7 +14,7 @@
 }
 
 .window > div {
-	width : 90%;
+	width : 95%;
 	border : 1px solid #05d2ff;
 	border-radius : 5px;
 	height: 220px;
@@ -38,10 +38,18 @@
     margin-top: 10px;
 }
 
+.window.details > div fieldset > span:nth-child(2n) {
+    width: 58%;
+}
+
 .window > div h1 {
 	font-size: 1.2em;
     padding: 5px;
     font-weight: bold;
+}
+
+.window > div h1 i {
+	color: #05d2ff;
 }
 
 .first-one-inner {
