@@ -29,6 +29,7 @@
 	                                   <td>
 	                                   	 <i class="fa fa-check" style="display:${collaborator.properties.active ? 'inline-block' : 'none'}"></i>
 	                                   	 <i class="fa fa-envelope" style="display:${collaborator.properties.active ? 'none' : 'inline-block'}"></i>
+	                                   	 <a href="${url}/collaborators/remove?id=${collaborator.properties.id}"><i class="fa fa-remove" style="display:${collaborator.properties.active ? 'none' : 'inline-block'}"></i></a>
 	                                   	 <i class="fa fa-lock" style="display:${collaborator.properties.locked ? 'inline-block' : 'none'}"></i>
 	                                   </td>
 	                          	   </tr>
@@ -38,7 +39,10 @@
 							      <tr id="{id}">
 							            <td><span class="number"></span></td>
 							   	        <td>{email}</td>
-							   	        <td><i class="fa fa-envelope"></i></td>
+							   	        <td>
+							   	        <i class="fa fa-envelope"></i>
+							   	        <a href="${url}/collaborators/remove?id={id}"><i class="fa fa-remove"></i></a>
+							   	        </td>
 							   	    </tr>
 							     {/.}
 							   </template>
@@ -68,8 +72,6 @@
 						<fieldset>
 							<span class="text-right">Nom </span> <span>&nbsp;{name}</span>
 							<span class="text-right">Email </span> <span>&nbsp;{email}</span>
-							<span class="text-right">Profession </span> <span>&nbsp;{profession}</span>
-							<span class="text-right">Téléphone </span> <span>&nbsp;{telephone}</span>
 							<span class="text-right">Role </span> <span>&nbsp;{role}</span>
 							<span class="text-right">Compte Actif </span> <span>&nbsp;{active}</span>
 							<a class="invite" href="${url}/collaborators/invite" style="display:none"><i class="fa fa-envelope"></i></a>

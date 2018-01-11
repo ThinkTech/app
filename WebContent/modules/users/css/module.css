@@ -58,6 +58,12 @@
     margin-left : 5px;
 }
 
+.table a {
+	margin-left: 5px;
+    position: relative;
+    left: 1px;
+}
+
 .window > div h1 i {
 	color: #05d2ff;
 }

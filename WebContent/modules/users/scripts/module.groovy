@@ -91,6 +91,7 @@ class ModuleAction extends ActionSupport {
 	   }
 	   connection.executeUpdate 'update users set name = ?, email = ?, profession = ?, telephone = ?  where id = ?', [user.name,user.email,user.profession,user.telephone,session.getAttribute("user").id]
 	   def structure = user.structure
+	   structure.id = session.getAttribute("user").structure.id
 	   user = connection.firstRow("select * from users where id = ?", [session.getAttribute("user").id])
 	   if(user.role == "administrateur"){
 	   	 connection.executeUpdate 'update structures set name = ?, business = ?, ninea = ? where id = ?', [structure.name,structure.business,structure.ninea,structure.id]
@@ -145,6 +146,17 @@ class ModuleAction extends ActionSupport {
 	   	def mail = new Mail("$user.email","$user.email","Veuillez confirmer cette demande de collaboration",template)
 	   	mailSender.sendMail(mail)
 	   	response.writer.write(json([status : 1]))
+	}
+	
+	def removeCollaborator(){
+	   def id = getParameter("id")
+	   Thread.start{
+	   	 def connection = getConnection()
+      	 connection.execute 'delete from users where id = ?',[id]
+         connection.execute 'delete from accounts where user_id = ?',[id]
+         connection.close()
+       } 
+	   response.writer.write(json([id : id]))
 	}
 	
 	def getCollaboratorInfo(){

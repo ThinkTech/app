@@ -195,9 +195,13 @@ jQuery(document).ready(function( $ ) {
 				  if(response.id){
 					  form.find("input[type=password]").val("");
 					  user.id = response.id;
-					  page.table.addRow(user,function(){
+					  page.table.addRow(user,function(row){
 						  page.release();
 						  alert("votre collaborateur a &edot;t&edot; bien ajout&edot;");
+						  $("a",row).click(function(event){
+								page.details.removeCollaborator($(this).attr("href"));
+								return false;
+						  });
 					  });
 				  }else{
 					  alert("cet email est d&edot;ja utilis&edot; par un autre utilisateur",function(){
@@ -216,4 +220,27 @@ jQuery(document).ready(function( $ ) {
 		return false;
 	});
 	
+	$(".table a").click(function(event){
+		page.details.removeCollaborator($(this).attr("href"));
+		return false;
+	});
+	
+	page.details.removeCollaborator = function(url){
+		confirm("&ecirc;tes vous s&ucirc;r de vouloir supprimer ce collaborateur?",function(){
+			$.ajax({
+				  type: "GET",
+				  url: url,
+				  success: function(response) {
+					  if(response.id){
+						  alert("votre collaborateur a &edot;t&edot; bien supprim&edot;");
+						  $(".table tr[id="+response.id+"]").remove();
+					  }
+				  },
+				  error : function(){
+					  alert("erreur lors de la connexion au serveur");
+				  },
+				  dataType: "json"
+			});
+		});
+	};
 });

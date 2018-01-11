@@ -20,6 +20,7 @@
 		<action  url="profile/update"  method="updateProfil"/>
 		<action  url="collaborators/add"  method="addCollaborator"/>
 		<action  url="collaborators/invite"  method="inviteCollaborator"/>
+		<action  url="collaborators/remove"  method="removeCollaborator"/>
 		<action  url="collaborators/info"  method="getCollaboratorInfo"/>
 		<action  url="logout"  method="logout"/>
 	</actions>
