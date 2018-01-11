@@ -17,11 +17,12 @@ class ModuleAction extends ActionSupport {
          def connection = getConnection()
          def collaborators = []
          def structure_id = user.structure.id
-         connection.eachRow("select u.id, u.name,a.activated from users u, accounts a where u.structure_id = ? and u.owner = false and a.user_id = u.id", [structure_id], { row -> 
+         connection.eachRow("select u.id, u.name,a.activated,a.locked from users u, accounts a where u.structure_id = ? and u.owner = false and a.user_id = u.id", [structure_id], { row -> 
            def collaborator = new Expando()
            collaborator.id = row.id
            collaborator.name = row.name
            collaborator.active = row.activated
+           collaborator.locked = row.locked
            collaborators << collaborator
          })
          connection.close()
@@ -35,7 +36,7 @@ class ModuleAction extends ActionSupport {
 	def login() {
 	   def user = new JsonSlurper().parse(request.inputStream) 
 	   def connection = getConnection()
-	   user = connection.firstRow("select u.* from users u, accounts a where u.email = ? and u.password = ? and u.type = 'customer' and a.activated = true and a.user_id = u.id", [user.email,user.password])
+	   user = connection.firstRow("select u.* from users u, accounts a where u.email = ? and u.password = ? and u.type = 'customer' and a.activated = true and a.locked = false and a.user_id = u.id", [user.email,user.password])
 	   if(user) {
 	    user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
         session.setAttribute("user",user)
@@ -132,8 +133,9 @@ class ModuleAction extends ActionSupport {
 	def getCollaboratorInfo(){
 	   def id = getParameter("id")
 	   def connection = getConnection()
-	   def user = connection.firstRow("select u.*, a.activated from users u, accounts a where u.id = ? and u.id = a.user_id", [id])
+	   def user = connection.firstRow("select u.*, a.activated, a.locked from users u, accounts a where u.id = ? and u.id = a.user_id", [id])
 	   user.active = user.activated ? "oui" : "non"
+	   user.locked = user.locked ? "oui" : "non"
 	   connection.close()
 	   response.writer.write(json([entity : user]))
 	}

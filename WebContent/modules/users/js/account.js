@@ -1,4 +1,23 @@
 jQuery(document).ready(function( $ ) {
+	page.details.bind = function(container,user) {
+		$("a.lock",container).click(function(event){
+			$(this).hide();
+			$("a.unlock",container).show();
+			$(this).prev().html("&nbsp;non");
+		});
+		$("a.unlock",container).click(function(event){
+			$(this).hide();
+			$("a.lock",container).show();
+			$(this).prev().prev().html("&nbsp;oui");
+		});
+		if(user.locked == "oui") {
+			$("a.lock",container).hide();
+			$("a.unlock",container).show();
+		}else{
+			$("a.lock",container).show();
+			$("a.unlock",container).hide();
+		}
+	};
 	$(".password-form").submit(function(event){
 		const form = $(this);
 		const user = {};

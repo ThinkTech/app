@@ -29,6 +29,7 @@
 	                                   <td>
 	                                   	 <i class="fa fa-check" style="display:${collaborator.properties.active ? 'inline-block' : 'none'}"></i>
 	                                   	 <i class="fa fa-envelope" style="display:${collaborator.properties.active ? 'none' : 'inline-block'}"></i>
+	                                   	 <i class="fa fa-lock" style="display:${collaborator.properties.locked ? 'inline-block' : 'none'}"></i>
 	                                   </td>
 	                          	   </tr>
 	                          	</s:iterator>             
@@ -70,7 +71,10 @@
 							<span class="text-right">Profession </span> <span>&nbsp;{profession}</span>
 							<span class="text-right">Téléphone </span> <span>&nbsp;{telephone}</span>
 							<span class="text-right">Role </span> <span>&nbsp;{role}</span>
-							<span class="text-right">Actif </span> <span>&nbsp;{active}</span>
+							<span class="text-right">Compte Actif </span> <span>&nbsp;{active}</span>
+							<span class="text-right">Compte Bloqué </span> <span>&nbsp;{locked}</span>
+							<a class="lock" style="display:none"><i class="fa fa-lock"></i></a>
+							<a class="unlock" style="display:none"><i class="fa fa-unlock"></i></a>
 						</fieldset>
 						</template>
 						</section>

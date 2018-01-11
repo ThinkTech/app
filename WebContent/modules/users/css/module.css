@@ -17,7 +17,7 @@
 	width : 95%;
 	border : 1px solid #05d2ff;
 	border-radius : 5px;
-	height: 220px;
+	height: 240px;
 	overflow-x : hidden; 
 	overflow-y : auto;
 	margin : auto;
@@ -39,13 +39,19 @@
 }
 
 .window.details > div fieldset > span:nth-child(2n) {
-    width: 58%;
+    width: 52%;
+    margin-right : 5px;
 }
 
 .window > div h1 {
 	font-size: 1.2em;
     padding: 5px;
     font-weight: bold;
+}
+
+.window.details > div a{
+	color : #212121;
+	cursor : pointer;
 }
 
 .window > div h1 i {
