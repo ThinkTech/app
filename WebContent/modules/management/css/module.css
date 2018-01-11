@@ -609,6 +609,7 @@ legend a i.fa {
 	.window > div ul, .window > div ol {padding : 5px;list-style: none;}
 	.window > div .message-list > div > div div.message {width : 97%;}
 	.window > div ol li span.question{width:20px;margin-left: 78%;position: relative; top: -2px;}
+	legend a i.fa {position: relative;top: -1px;}
 }
 
 @media(max-width:480px){
@@ -947,6 +948,9 @@ span.line {
 }
 
 @media (max-width: 768px){
+.content-process {
+    margin-top: -20px;
+}
 .shipment {
     margin-top: 5%;
 }
