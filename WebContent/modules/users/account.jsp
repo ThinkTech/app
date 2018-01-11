@@ -132,8 +132,8 @@
    										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Ninea </span>
    										<input name="ninea" value="${user.structure.ninea}" type="text" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
    								    <div class="submit">
-   								      <input type="submit" value="Modifier">
    								      <input type="button" value="Annuler">
+   								      <input type="submit" value="Modifier">
    								    </div>
    								 </fieldset>
    								</form>

@@ -110,9 +110,9 @@
 		<span data-status="finished" style="display:none"><span class="label label-success">terminé</span></span>
 		<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Progression </span> <span class="badge badge-info">{progression}%</span> <a class="tasks"><i class="fa fa-info" aria-hidden="true"></i></a>
 		<div class="info-tasks">
-		  <h1><i class="fa fa-tasks" aria-hidden="true"></i> Tâches&nbsp;&nbsp;
-		  <a class="task-list-ol"><i class="fa fa-list-ol" aria-hidden="true"></i></a>
-		  <a class="task-list-chart"><i class="fa fa-line-chart" aria-hidden="true"></i></a>
+		   <h1><i class="fa fa-tasks" aria-hidden="true"></i> Tâches&nbsp;&nbsp;
+			  <a class="task-list-ol"><i class="fa fa-list-ol" aria-hidden="true"></i></a>
+			  <a class="task-list-chart"><i class="fa fa-line-chart" aria-hidden="true"></i></a>
 		  </h1>
 		  <ol data-template="tasks">
 		  </ol>
@@ -169,8 +169,8 @@
    		 		<textarea id="textarea-description" name="description">{description}</textarea>
    		 		<input name="id" type="hidden" value={id}>
    		 		<div class="submit">
-			      <input type="submit" value="Modifier">
 			      <input type="button" value="Annuler">
+			      <input type="submit" value="Modifier">
 			    </div>
 			    </form>
    		 	</div>
@@ -178,10 +178,10 @@
 	</fieldset>
 	<fieldset>
 	   <legend>
-		   <i class="fa fa-file"></i> Documents <a class="document-add"><i class="fa fa-plus" aria-hidden="true"></i></a>
-		   <a class="document-list-ol"><i class="fa fa-list-ol" aria-hidden="true"></i></a>
-		   <a class="document-list-tree"><i class="fa fa-list-alt" aria-hidden="true"></i></a>
-		   <a class="document-list-icons"><i class="fa fa-th-list" aria-hidden="true"></i></a>
+	   <i class="fa fa-file"></i> Documents <a class="document-add"><i class="fa fa-plus" aria-hidden="true"></i></a>
+	   <a class="document-list-ol"><i class="fa fa-list-ol" aria-hidden="true"></i></a>
+	   <a class="document-list-tree"><i class="fa fa-list-alt" aria-hidden="true"></i></a>
+	   <a class="document-list-icons"><i class="fa fa-th-list" aria-hidden="true"></i></a>
 	   </legend>
 	   <div class="documents">
 	        <div class="document-list">
@@ -201,8 +201,8 @@
 				<input name="author" type="hidden" value="${user.name}">
 				</fieldset>
 				<div class="submit">
-			      <input type="submit" value="Envoyer">
 			      <input type="button" value="Annuler">
+			      <input type="submit" value="Envoyer">
 			    </div>
 			  </form>  
    		 	</div>
@@ -224,8 +224,8 @@
    		 		<input name="id" type="hidden" value={id}>
    		 		<input name="author" type="hidden" value="${user.name}">
    		 		<div class="submit">
-			      <input type="submit" value="Ajouter">
 			      <input type="button" value="Annuler">
+			      <input type="submit" value="Ajouter">
 			    </div>
 			   </form>
    		 	</div>
@@ -271,12 +271,12 @@
 	  </div>
       <span class="question"><a><i class="fa fa-question" aria-hidden="true"></i></a></span>
       <div class="info-message">
-	   	 {info}
+	   	  {info}
 	  </div>
       <span><a><i class="fa fa-info" aria-hidden="true"></i></a></span>
     </li>
 	{/.}  
-  </template>
+  </template>	
   </div>
      <div class="plans">
       <div data-plan="plan business" class="pricing business" style="display:none">

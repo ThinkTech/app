@@ -184,8 +184,8 @@
    		 		<textarea id="textarea-description" name="description">{description}</textarea>
    		 		<input name="id" type="hidden" value={id}>
    		 		<div class="submit">
-			      <input type="submit" value="Modifier">
 			      <input type="button" value="Annuler">
+			      <input type="submit" value="Modifier">
 			    </div>
 			    </form>
    		 	</div>
@@ -216,8 +216,8 @@
 				<input name="author" type="hidden" value="${user.name}">
 				</fieldset>
 				<div class="submit">
-			      <input type="submit" value="Envoyer">
 			      <input type="button" value="Annuler">
+			      <input type="submit" value="Envoyer">
 			    </div>
 			  </form>  
    		 	</div>
@@ -239,8 +239,8 @@
    		 		<input name="id" type="hidden" value={id}>
    		 		<input name="author" type="hidden" value="${user.name}">
    		 		<div class="submit">
-			      <input type="submit" value="Ajouter">
 			      <input type="button" value="Annuler">
+			      <input type="submit" value="Ajouter">
 			    </div>
 			   </form>
    		 	</div>
@@ -428,8 +428,8 @@
 		<input type="checkbox" checked disabled> J'accepte les <a class="read-terms">Termes</a>
 	</div>
 	<div class="submit">
-		 <input type="submit" value="Créér">
 		 <input type="button" value="Annuler">
+		 <input type="submit" value="Créér">
 	</div>
 	   <div class="terms">
 	       <div>

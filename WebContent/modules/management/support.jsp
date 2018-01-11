@@ -112,8 +112,8 @@
 		<textarea name="message"></textarea>
 	</fieldset>
 	<div class="submit">
-		 <input type="submit" value="Créér">
 		 <input type="button" value="Annuler">
+		 <input type="submit" value="Créér">
 	</div>
 	</form>
 	</div>
@@ -164,8 +164,8 @@
 	   		 		<input name="id" type="hidden" value="{id}">
 	   		 		<input name="author" type="hidden" value="${user.name}">
 	   		 		<div class="submit">
-				      <input type="submit" value="Ajouter">
 				      <input type="button" value="Annuler">
+				      <input type="submit" value="Ajouter">
 				    </div>
 				    </form>
 	   		 	</div>
