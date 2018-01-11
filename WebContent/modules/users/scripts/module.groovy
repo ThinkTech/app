@@ -138,7 +138,7 @@ class ModuleAction extends ActionSupport {
 	    user.activationCode = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
  		def connection = getConnection()
  		def params = [user.activationCode,user.id]
-       	connection.executeInsert 'update accounts set activated = false and activation_code = ? where user_id = ?', params 
+       	connection.executeUpdate 'update accounts set activated = false,activation_code = ? where user_id = ?', params 
  		connection.close()
 	   	def template = getCollaborationTemplate(user) 
 	    def mailConfig = new MailConfig(context.getInitParameter("smtp.email"),context.getInitParameter("smtp.password"),"smtp.thinktech.sn")
