@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <div class="inner-block">
  <div class="logo-name">
 	<h1><i class="fa fa-user" aria-hidden="true"></i>Votre Compte</h1> 								
@@ -23,15 +24,27 @@
                                   <thead>
                                     <tr>
                                       <th></th>
-                                      <th>Email</th>
+                                      <th>Collaborateur</th>
+                                      <th></th>
                                   </tr>
                               </thead>
-                              <tbody>              
+                              <tbody> 
+                             	 <s:iterator value="#request.collaborators" var="collaborator" status="status">
+	                                <tr id="${collaborator.properties.id}">
+	                                   <td><span class="number">${status.index+1}</span></td>
+	                                   <td>${collaborator.properties.name}</td>
+	                                   <td>
+	                                   	 <i class="fa fa-check" style="display:${collaborator.properties.active ? 'inline-block' : 'none'}"></i>
+	                                   	 <i class="fa fa-envelope" style="display:${collaborator.properties.active ? 'none' : 'inline-block'}"></i>
+	                                   </td>
+	                          	   </tr>
+	                          	</s:iterator>             
                               <template>
 							     {#.}
 							      <tr id="{id}">
 							            <td><span class="number"></span></td>
 							   	        <td>{email}</td>
+							   	        <td><i class="fa fa-envelope"></i></td>
 							   	    </tr>
 							     {/.}
 							   </template>
@@ -42,7 +55,7 @@
 				<div class="window form">
 				  <div>
 					<span title="fermer" class="close">X</span>
-	 				<h1><i class="fa fa-user" aria-hidden="true"></i> Nouveau Collaborateur</h1>
+	 				<h1><i class="fa fa-user-plus" aria-hidden="true"></i> Nouveau Collaborateur</h1>
 	 				<form action="${url}/collaborators/add">
 						<fieldset>
 	  						<span class="text-right"><i class="fa fa-envelope" aria-hidden="true"></i> Email </span>

@@ -13,7 +13,22 @@ class ModuleAction extends ActionSupport {
 
     def String execute(){
        def user = session.getAttribute("user")
-       user ? SUCCESS : ERROR
+       if(user){
+         def connection = getConnection()
+         def collaborators = []
+         def structure_id = user.structure.id
+         connection.eachRow("select u.name,a.activated from users u, accounts a where u.structure_id = ? and u.owner = false and a.user_id = u.id", [structure_id], { row -> 
+           def collaborator = new Expando()
+           collaborator.name = row.name
+           collaborator.active = row.activated
+           collaborators << collaborator
+         })
+         connection.close()
+         request.setAttribute("collaborators",collaborators)
+         SUCCESS
+       }else{
+         ERROR
+       }
     }
     
 	def login() {
