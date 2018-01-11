@@ -21,13 +21,6 @@
 					   </legend>
 					   <div class="table-responsive">
 					      <table data-url="${url}/collaborators/info" class="table table-hover">
-                                  <thead>
-                                    <tr>
-                                      <th></th>
-                                      <th>Collaborateur</th>
-                                      <th></th>
-                                  </tr>
-                              </thead>
                               <tbody> 
                              	 <s:iterator value="#request.collaborators" var="collaborator" status="status">
 	                                <tr id="${collaborator.properties.id}">
