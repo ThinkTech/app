@@ -17,12 +17,13 @@
 	width : 95%;
 	border : 1px solid #05d2ff;
 	border-radius : 5px;
-	height: 240px;
+	height: auto;
 	overflow-x : hidden; 
 	overflow-y : auto;
 	margin : auto;
 	background : #fff;
 	padding : 5px;
+	padding-bottom : 10px;
 	z-index: 9999;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
@@ -36,6 +37,10 @@
     text-align: left;
     padding : 10px;
     margin-top: 10px;
+}
+
+.window.details > div fieldset {
+	width : 100%;
 }
 
 .window.details > div fieldset > span:nth-child(2n) {
@@ -95,6 +100,7 @@ h3.tittle {
 
 .first-one .table-responsive {
 	min-height : 100px;
+	background: #fff;
 }
 
 .first-one input[type="password"]{
@@ -273,6 +279,11 @@ legend a i.fa {
 	}
 }
 @media (max-width:991px){
+	.window{padding-top : 2%}
+	.window.details > div fieldset > span:nth-child(2n) {
+    width: 100%;
+    margin-right : 5px;
+}
 	.profile-edition input[type=text], .profile-edition input[type=email] {
       width: 100%;
       text-align: left;
@@ -343,7 +354,7 @@ legend a i.fa {
 	.window > div h1 {
     font-size: 13px;
 	}
-	.window > div {height: 205px;}
+	.window.form > div {height: 205px;}
 }
 @media (max-width:600px){
 	.first-one {

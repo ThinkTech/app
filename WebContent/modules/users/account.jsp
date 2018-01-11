@@ -66,15 +66,15 @@
 						 <template>
 						 <h1><i class="fa fa-user" aria-hidden="true"></i> Collaborateur</h1>
 						<fieldset>
-							<span class="text-right">Prénom et Nom </span> <span>&nbsp;{name}</span>
+							<span class="text-right">Nom </span> <span>&nbsp;{name}</span>
 							<span class="text-right">Email </span> <span>&nbsp;{email}</span>
 							<span class="text-right">Profession </span> <span>&nbsp;{profession}</span>
 							<span class="text-right">Téléphone </span> <span>&nbsp;{telephone}</span>
 							<span class="text-right">Role </span> <span>&nbsp;{role}</span>
 							<span class="text-right">Compte Actif </span> <span>&nbsp;{active}</span>
 							<span class="text-right">Compte Bloqué </span> <span>&nbsp;{locked}</span>
-							<a class="lock" style="display:none"><i class="fa fa-lock"></i></a>
-							<a class="unlock" style="display:none"><i class="fa fa-unlock"></i></a>
+							<a class="lock" href="${url}/account/lock" style="display:none"><i class="fa fa-lock"></i></a>
+							<a class="unlock" href="${url}/account/unlock" style="display:none"><i class="fa fa-unlock"></i></a>
 						</fieldset>
 						</template>
 						</section>

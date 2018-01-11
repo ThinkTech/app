@@ -1,14 +1,54 @@
 jQuery(document).ready(function( $ ) {
 	page.details.bind = function(container,user) {
 		$("a.lock",container).click(function(event){
-			$(this).hide();
-			$("a.unlock",container).show();
-			$(this).prev().html("&nbsp;non");
+			const link = $(this);
+			const url = link.attr("href");
+			user.locked = true;
+			$.ajax({
+				  type: "POST",
+				  url: url,
+				  data: JSON.stringify(user),
+				  contentType : "application/json",
+				  success: function(response) {
+					  if(response.status){
+						  link.hide();
+						  $("a.unlock",container).show();
+						  link.prev().html("&nbsp;oui");
+						  const tr = $(".table tr[id="+user.id+"]");
+						  $("i.fa-lock",tr).show();
+					  }
+				  },
+				  error : function(){
+					  alert("erreur lors de la connexion au serveur");
+				  },
+				  dataType: "json"
+			});
+			return false;
 		});
 		$("a.unlock",container).click(function(event){
-			$(this).hide();
-			$("a.lock",container).show();
-			$(this).prev().prev().html("&nbsp;oui");
+			const link = $(this);
+			const url = link.attr("href");
+			user.locked = false;
+			$.ajax({
+				  type: "POST",
+				  url: url,
+				  data: JSON.stringify(user),
+				  contentType : "application/json",
+				  success: function(response) {
+					  if(response.status){
+						  link.hide();
+						  $("a.lock",container).show();
+						  link.prev().prev().html("&nbsp;non");
+						  const tr = $(".table tr[id="+user.id+"]");
+						  $("i.fa-lock",tr).hide();
+					  }
+				  },
+				  error : function(){
+					  alert("erreur lors de la connexion au serveur");
+				  },
+				  dataType: "json"
+			});
+			return false;
 		});
 		if(user.locked == "oui") {
 			$("a.lock",container).hide();
@@ -41,6 +81,10 @@ jQuery(document).ready(function( $ ) {
 					  alert("votre mot de passe a &edot;t&edot; bien modifi&edot;");
 				  }
 				  page.release();
+			  },
+			  error : function(){
+				  page.release();
+				  alert("erreur lors de la connexion au serveur");
 			  },
 			  dataType: "json"
 		});

@@ -140,6 +140,26 @@ class ModuleAction extends ActionSupport {
 	   response.writer.write(json([entity : user]))
 	}
 	
+	def lockAccount(){
+	    def user = new JsonSlurper().parse(request.inputStream)
+	    def connection = getConnection()
+	    Thread.start{
+	      connection.executeUpdate 'update accounts set locked = true  where user_id = ?', [user.id] 
+	      connection.close()
+	    }
+		response.writer.write(json([status: 1]))
+	}
+	
+	def unlockAccount(){
+	    def user = new JsonSlurper().parse(request.inputStream)
+	    def connection = getConnection()
+	    Thread.start{
+	      connection.executeUpdate 'update accounts set locked = false  where user_id = ?', [user.id] 
+	      connection.close()
+	    }
+		response.writer.write(json([status: 1]))
+	}
+	
 	def logout() {
 	    session.invalidate()
 		response.sendRedirect(request.contextPath+"/")
