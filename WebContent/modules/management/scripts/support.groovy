@@ -95,11 +95,11 @@ class ModuleAction extends ActionSupport {
 		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
 		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
 		    img(src : "https://www.thinktech.sn/images/logo.png", style : "display:block;margin : 0 auto")
-		    div(style : "margin-top:10px;padding:10px;height:90px;text-align:center;background:#eee") {
-		      h4(style : "font-size: 200%;color: rgb(0, 0, 0);margin: 3px") {
+		    div(style : "margin-top:10px;padding-top:2%;height:100px;text-align:center;background:#05d2ff") {
+		      h4(style : "font-size: 200%;color: #fff;margin: 3px") {
 		        span("Nouveau Ticket")
 		      }
-		      p(style : "font-size:150%;color:rgb(100,100,100)"){
+		      p(style : "font-size:150%;color:#fff"){
 		         span("votre ticket a &edot;t&edot; bien cr&edot;&edot;")
 		      }
 		    }
