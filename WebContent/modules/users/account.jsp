@@ -20,7 +20,7 @@
 					     <i class="fa fa-user"></i> Vos Collaborateurs <a class="user-add"><i class="fa fa-plus" aria-hidden="true"></i></a>
 					   </legend>
 					   <div class="table-responsive">
-					      <table  class="table table-hover">
+					      <table data-url="${url}/collaborators/info" class="table table-hover">
                                   <thead>
                                     <tr>
                                       <th></th>
@@ -64,6 +64,24 @@
 	  	                 <div class="submit"><input type="submit" value="Ajouter"></div>
 	  	             </form>
 	              </div>
+				</div>
+				<div class="window details">
+				     <div>
+						<span title="fermer" class="close">X</span>
+						<section>
+						 <template>
+						 <h1><i class="fa fa-user" aria-hidden="true"></i> Collaborateur</h1>
+						<fieldset>
+							<span class="text-right">Prénom et Nom </span> <span>&nbsp;{name}</span>
+							<span class="text-right">Email </span> <span>&nbsp;{email}</span>
+							<span class="text-right">Profession </span> <span>&nbsp;{profession}</span>
+							<span class="text-right">Téléphone </span> <span>&nbsp;{telephone}</span>
+							<span class="text-right">Role </span> <span>&nbsp;{role}</span>
+							<span class="text-right">Actif </span> <span>&nbsp;{active}</span>
+						</fieldset>
+						</template>
+						</section>
+					</div>
 				</div>
 				   </fieldset>
 			      </div>

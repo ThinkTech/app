@@ -90,7 +90,7 @@ jQuery(document).ready(function( $ ) {
 	});
 	
 	$("legend a").click(function(event){
-		const window = $(".window").show();
+		const window = $(".window.form").show();
 		$("form input[type=email]",window).val("");
 	});
 	

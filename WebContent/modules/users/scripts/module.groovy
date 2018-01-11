@@ -17,8 +17,9 @@ class ModuleAction extends ActionSupport {
          def connection = getConnection()
          def collaborators = []
          def structure_id = user.structure.id
-         connection.eachRow("select u.name,a.activated from users u, accounts a where u.structure_id = ? and u.owner = false and a.user_id = u.id", [structure_id], { row -> 
+         connection.eachRow("select u.id, u.name,a.activated from users u, accounts a where u.structure_id = ? and u.owner = false and a.user_id = u.id", [structure_id], { row -> 
            def collaborator = new Expando()
+           collaborator.id = row.id
            collaborator.name = row.name
            collaborator.active = row.activated
            collaborators << collaborator
@@ -88,9 +89,10 @@ class ModuleAction extends ActionSupport {
 	   	 }
 	   }
 	   connection.executeUpdate 'update users set name = ?, email = ?, profession = ?, telephone = ?  where id = ?', [user.name,user.email,user.profession,user.telephone,session.getAttribute("user").id]
+	   def structure = user.structure
 	   user = connection.firstRow("select * from users where id = ?", [session.getAttribute("user").id])
 	   if(user.role == "administrateur"){
-	   	 connection.executeUpdate 'update structures set name = ?, business = ?, ninea = ? where id = ?', [user.structure.name,user.structure.business,user.structure.ninea,session.getAttribute("user").structure.id]
+	   	 connection.executeUpdate 'update structures set name = ?, business = ?, ninea = ? where id = ?', [structure.name,structure.business,structure.ninea,structure.id]
 	   }
 	   user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
        session.setAttribute("user",user) 
@@ -125,6 +127,15 @@ class ModuleAction extends ActionSupport {
           response.writer.write(json([id : id]))
  	   }
  	   connection.close()
+	}
+	
+	def getCollaboratorInfo(){
+	   def id = getParameter("id")
+	   def connection = getConnection()
+	   def user = connection.firstRow("select u.*, a.activated from users u, accounts a where u.id = ? and u.id = a.user_id", [id])
+	   user.active = user.activated ? "oui" : "non"
+	   response.writer.write(json([entity : user]))
+	   connection.close()
 	}
 	
 	def logout() {
@@ -190,7 +201,7 @@ class ModuleAction extends ActionSupport {
     def confirm() {
         def activationCode = getParameter("activationCode")
         def connection = getConnection()
-        connection.executeUpdate 'update accounts set activated = true where activation_code = ?', [activationCode]
+        connection.executeUpdate 'update accounts set activated = true, activation_code = null where activation_code = ?', [activationCode]
         connection.close()
     	response.sendRedirect(request.contextPath+"/")
     }

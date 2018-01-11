@@ -9,14 +9,15 @@
 	<license>GNU/GPL</license>
 	<version>1.0</version>
 	<actions>
-	    <action  url="subscribe"  method="subscribe" />
+	    <action  url="subscribe"  method="subscribe"/>
 	    <action  url="subscription/confirm" method="confirm"/>
-		<action  url="login"  method="login" />
+		<action  url="login"  method="login"/>
 		<action  url="account" page="account"/>
-		<action  url="password/change"  method="changePassword" />
-		<action  url="password/recover"  method="recoverPassword" />
-		<action  url="profile/update"  method="updateProfil" />
-		<action  url="collaborators/add"  method="addCollaborator" />
+		<action  url="password/change"  method="changePassword"/>
+		<action  url="password/recover"  method="recoverPassword"/>
+		<action  url="profile/update"  method="updateProfil"/>
+		<action  url="collaborators/add"  method="addCollaborator"/>
+		<action  url="collaborators/info"  method="getCollaboratorInfo"/>
 		<action  url="logout"  method="logout"/>
 	</actions>
 </module>
