@@ -131,10 +131,7 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def inviteCollaborator(){
-	    println "inviting collaborator"
-	    try{
 	    def user = new JsonSlurper().parse(request.inputStream)
-	    println user
 	    def alphabet = (('A'..'N')+('P'..'Z')+('a'..'k')+('m'..'z')+('2'..'9')).join()
 	    def n = 15
 	    user.activationCode = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
@@ -147,9 +144,6 @@ class ModuleAction extends ActionSupport {
 	   	def mailSender = new MailSender(mailConfig)
 	   	def mail = new Mail("$user.email","$user.email","Veuillez confirmer cette demande de collaboration",template)
 	   	mailSender.sendMail(mail)
-	   	}catch(e){
-	   	 println e
-	   	}
 	   	response.writer.write(json([status : 1]))
 	}
 	
