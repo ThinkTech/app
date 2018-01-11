@@ -123,11 +123,34 @@ class ModuleAction extends ActionSupport {
        	  def template = getCollaborationTemplate(user) 
 	      def mailConfig = new MailConfig(context.getInitParameter("smtp.email"),context.getInitParameter("smtp.password"),"smtp.thinktech.sn")
 	   	  def mailSender = new MailSender(mailConfig)
-	   	  def mail = new Mail("$user.email","$user.email","Veuillez confirmer votre collaboration",template)
+	   	  def mail = new Mail("$user.email","$user.email","Veuillez confirmer cette demande de collaboration",template)
 	   	  mailSender.sendMail(mail)
           response.writer.write(json([id : id]))
  	   }
  	   connection.close()
+	}
+	
+	def inviteCollaborator(){
+	    println "inviting collaborator"
+	    try{
+	    def user = new JsonSlurper().parse(request.inputStream)
+	    println user
+	    def alphabet = (('A'..'N')+('P'..'Z')+('a'..'k')+('m'..'z')+('2'..'9')).join()
+	    def n = 15
+	    user.activationCode = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
+ 		def connection = getConnection()
+ 		def params = [user.activationCode,user.id]
+       	connection.executeInsert 'update accounts set activation_code = ? where user_id = ?', params 
+ 		connection.close()
+	   	def template = getCollaborationTemplate(user) 
+	    def mailConfig = new MailConfig(context.getInitParameter("smtp.email"),context.getInitParameter("smtp.password"),"smtp.thinktech.sn")
+	   	def mailSender = new MailSender(mailConfig)
+	   	def mail = new Mail("$user.email","$user.email","Veuillez confirmer cette demande de collaboration",template)
+	   	mailSender.sendMail(mail)
+	   	}catch(e){
+	   	 println e
+	   	}
+	   	response.writer.write(json([status : 1]))
 	}
 	
 	def getCollaboratorInfo(){

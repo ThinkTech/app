@@ -90,12 +90,16 @@ page.table.paginate = function() {
 	    	const id = $(this).attr("id");
 	    	const url = $table.data("url");
 	    	if(url) {
-	    		page.wait({top : $table.offset().top});
+	    		page.wait({top : $(this).offset().top});
 	    		$.ajax({
 					  type: "GET",
 					  url: url+"?id="+id,
 					  success: function(response) {
 						  page.details.show(response.entity);
+					  },
+					  error : function(){
+						  page.release();
+						  alert("erreur lors de la connexion au serveur");
 					  },
 					  dataType: "json"
 				});

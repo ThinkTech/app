@@ -1,9 +1,13 @@
 jQuery(document).ready(function( $ ) {
 	page.details.bind = function(container,user) {
+		if(user.active == "oui"){
+			$("a.invite",container).hide();
+		}else{
+			$("a.invite",container).show();
+		}
 		$("a.lock",container).click(function(event){
 			const link = $(this);
 			const url = link.attr("href");
-			user.locked = true;
 			$.ajax({
 				  type: "POST",
 				  url: url,
@@ -28,7 +32,6 @@ jQuery(document).ready(function( $ ) {
 		$("a.unlock",container).click(function(event){
 			const link = $(this);
 			const url = link.attr("href");
-			user.locked = false;
 			$.ajax({
 				  type: "POST",
 				  url: url,
@@ -57,6 +60,26 @@ jQuery(document).ready(function( $ ) {
 			$("a.lock",container).show();
 			$("a.unlock",container).hide();
 		}
+		$("a.invite",container).click(function(){
+			const link = $(this);
+			const url = link.attr("href");
+			$.ajax({
+				  type: "POST",
+				  url: url,
+				  data: JSON.stringify(user),
+				  contentType : "application/json",
+				  success: function(response) {
+					  if(response.status){
+						 alert("la demande de collaboration a &edot;t&edot; bien renvoy&edot;e")
+					  }
+				  },
+				  error : function(){
+					  alert("erreur lors de la connexion au serveur");
+				  },
+				  dataType: "json"
+			});
+			return false;
+		});
 	};
 	$(".password-form").submit(function(event){
 		const form = $(this);

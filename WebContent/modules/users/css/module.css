@@ -43,11 +43,6 @@
 	width : 100%;
 }
 
-.window.details > div fieldset > span:nth-child(2n) {
-    width: 52%;
-    margin-right : 5px;
-}
-
 .window > div h1 {
 	font-size: 1.2em;
     padding: 5px;
@@ -57,6 +52,10 @@
 .window.details > div a{
 	color : #212121;
 	cursor : pointer;
+	display: inline-block;
+    width: auto;
+    font-size: 12px;
+    margin-left : 5px;
 }
 
 .window > div h1 i {
@@ -68,14 +67,7 @@
     padding: 2em;
     padding-top : 2em;
     padding-bottom : 1.5em;
-    border-top-left-radius: 0.3em;
-    -o-border-top-left-radius: 0.3em;
-    -moz-border-top-left-radius: 0.3em;
-    -webkit-border-top-right-radius: 0.3em;
-    border-top-right-radius: 0.3em;
-    -o-border-top-right-radius: 0.3em;
-    -moz-border-top-right-radius: 0.3em;
-    -webkit-border-top-right-radius: 0.3em;
+    border-radius: 0.3em;
     border: 1px solid #dff9ff;
 }
 h3.tittle {
@@ -89,13 +81,8 @@ h3.tittle {
 /*--first-one--*/
 .first-one{
     border-top-left-radius: 0.3em;
-    -o-border-top-left-radius: 0.3em;
-    -moz-border-top-left-radius: 0.3em;
-    -webkit-border-top-right-radius: 0.3em;
-    border-top-right-radius: 0.3em;
-    -o-border-top-right-radius: 0.3em;
-    -moz-border-top-right-radius: 0.3em;
-    -webkit-border-top-right-radius: 0.3em;
+    border-radius: 0.3em;
+  
 }
 
 .first-one .table-responsive {
@@ -112,13 +99,7 @@ h3.tittle {
     font-weight: 500;
     border: 2px solid #05d2ff;
     border-radius: 0.3em;
-    -o-border-radius: 0.3em;
-    -moz-border-radius: 0.3em;
     margin: 0.7em 0;
-		transition: 0.5s all;
-  -webkit-transition: 0.5s all;
-  -moz-transition: 0.5s all;
-  -o-transition: 0.5s all;
 }
   .first-one input[type="password"]:hover{
    border: 2px solid #05d2ff;
@@ -137,19 +118,11 @@ h3.tittle {
     width: 48%;
     background: #212121;
     border-radius: 0.3em;
-    -o-border-radius: 0.3em;
-    -webkit-border-radius: 0.3em;
-    -moz-border-radius: 0.3em;
     text-transform: uppercase;
 }
 .first-one input[type="submit"]:hover,.first-one input[type="button"]:hover{
   background:#fff;
   color : #212121;
-  transition: 0.5s all;
-  -webkit-transition: 0.5s all;
-  -moz-transition: 0.5s all;
-  -o-transition: 0.5s all;
-
 }
 /* Bounce To Bottom */
 /*--//first-one--*/

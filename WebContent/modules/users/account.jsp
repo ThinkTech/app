@@ -72,6 +72,7 @@
 							<span class="text-right">Téléphone </span> <span>&nbsp;{telephone}</span>
 							<span class="text-right">Role </span> <span>&nbsp;{role}</span>
 							<span class="text-right">Compte Actif </span> <span>&nbsp;{active}</span>
+							<a class="invite" href="${url}/collaborators/invite" style="display:none"><i class="fa fa-envelope"></i></a>
 							<span class="text-right">Compte Bloqué </span> <span>&nbsp;{locked}</span>
 							<a class="lock" href="${url}/account/lock" style="display:none"><i class="fa fa-lock"></i></a>
 							<a class="unlock" href="${url}/account/unlock" style="display:none"><i class="fa fa-unlock"></i></a>
