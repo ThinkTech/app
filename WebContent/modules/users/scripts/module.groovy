@@ -134,8 +134,8 @@ class ModuleAction extends ActionSupport {
 	   def connection = getConnection()
 	   def user = connection.firstRow("select u.*, a.activated from users u, accounts a where u.id = ? and u.id = a.user_id", [id])
 	   user.active = user.activated ? "oui" : "non"
-	   response.writer.write(json([entity : user]))
 	   connection.close()
+	   response.writer.write(json([entity : user]))
 	}
 	
 	def logout() {
