@@ -34,7 +34,7 @@ class ModuleAction extends ActionSupport {
     }
     
     def getBillInfo() {
-	   def id = getParameter("id") as int
+	   def id = getParameter("id")
 	   def connection = getConnection()
 	   def bill = connection.firstRow("select b.*,p.subject,p.service from bills b, projects p where b.project_id = p.id and b.id = ?", [id])
 	   bill.date = new java.text.SimpleDateFormat("dd/MM/yyyy").format(bill.date)

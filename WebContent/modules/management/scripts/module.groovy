@@ -58,7 +58,7 @@ class ModuleAction extends ActionSupport {
     }
     
     def getMessageInfo() {
-	   def id = getParameter("id") as int
+	   def id = getParameter("id")
 	   def connection = getConnection()
 	   def message = connection.firstRow("select m.*, u.name from messages m, users u where m.user_id=u.id and m.id = ?", [id])
 	   if(message.subject.length()>40) message.subject = message.subject.substring(0,40)+"..."

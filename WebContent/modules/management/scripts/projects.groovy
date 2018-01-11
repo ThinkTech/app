@@ -87,7 +87,7 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def getProjectInfo() {
-	   def id = getParameter("id") as int
+	   def id = getParameter("id")
 	   def connection = getConnection()
 	   def project = connection.firstRow("select p.*,u.name from projects p,users u where p.id = ? and p.user_id = u.id", [id])
 	   project.end = connection.firstRow("select date_add(date,interval duration month) as end from projects where id = ?", [id]).end
@@ -131,7 +131,7 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def getProjectBill() {
-	   def id = getParameter("id") as int
+	   def id = getParameter("id")
 	   def connection = getConnection()
        def bill = connection.firstRow("select b.*,p.service from bills b, projects p where b.project_id = p.id and p.id = ?", [id])
 	   bill.date = new java.text.SimpleDateFormat("dd/MM/yyyy").format(bill.date)
@@ -150,7 +150,7 @@ class ModuleAction extends ActionSupport {
 	
 	def saveDocuments() {
 	   def upload = new JsonSlurper().parse(request.inputStream) 
-	   def id = upload.id as int
+	   def id = upload.id
 	   def connection = getConnection()
 	   def query = 'insert into documents(name,project_id,createdBy) values (?,?,?)'
        connection.withBatch(query){ ps ->

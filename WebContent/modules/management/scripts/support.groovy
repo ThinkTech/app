@@ -52,7 +52,7 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def getTicketInfo() {
-	   def id = getParameter("id") as int
+	   def id = getParameter("id")
 	   def connection = getConnection()
 	   def ticket = connection.firstRow("select t.*, u.name from tickets t,users u where t.id = ? and t.user_id = u.id", [id])
 	   if(ticket.subject.length()>40) ticket.subject = ticket.subject.substring(0,40)+"..."
