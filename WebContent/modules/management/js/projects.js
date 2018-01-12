@@ -7,7 +7,10 @@ $(document).ready(function(){
 				$(".quality .imgcircle,.quality .line",container).addClass("active");
 			}
 		}
-		if(project.status == "finished") {
+		if(project.status == "stand by") {
+			$(".document-add,.document-list-ol,.document-list-tree",container).hide();
+		}
+		else if(project.status == "finished") {
 			$("legend a",container).hide();
 			$(".imgcircle,.line",container).addClass("active");
 		}
