@@ -14,9 +14,7 @@ $(document).ready(function(){
 		$("a.document-list-tree",container).click(function(){
 			page.details.showDocumentsTree(project.documents);
 		}).hide();
-		if(project.status == "stand by") {
-			$(".document-add",container).hide();
-		}
+		if(project.status == "stand by") $(".document-add",container).hide();
 		else if(project.status == "finished") {
 			$("legend a",container).hide();
 			$(".imgcircle,.line",container).addClass("active");
