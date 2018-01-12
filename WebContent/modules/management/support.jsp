@@ -137,6 +137,7 @@
 			<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  
 			<span data-status="finished" style="display:none"><span class="label label-success">terminé</span></span>
 			<span class="text-right" data-status="finished" style="display:none"><i class="fa fa-calendar" aria-hidden="true"></i> Date Fermeture </span> <span data-status="finished" style="display:none">{closedOn}</span>
+			<span class="text-right" data-status="finished" style="display:none"><i class="fa fa-user" aria-hidden="true"></i> Fermé Par </span> <span data-status="finished" style="display:none">{closedBy}</span>
 			<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Progression </span> <span class="badge badge-info">{progression}%</span>
 		</fieldset>
 		<fieldset>
