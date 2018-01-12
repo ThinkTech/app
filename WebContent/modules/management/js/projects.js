@@ -220,10 +220,7 @@ $(document).ready(function(){
 			  cache: false,
 			  processData:false,
 			  success: function(response) {
-				  $.each($("input[type=file]",form),function(i,node){
-					  const input = $(node);
-					  input.val(""); 
-				  });
+				  $("input[type=file]",form).val(""); 
 				  const url  = form.find("input[name=url]").val();
 				  const upload = {};
 				  upload.id = project_id;
