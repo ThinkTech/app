@@ -189,12 +189,9 @@ $(document).ready(function(){
 			  xhr: function() {
 			    const xhr = new window.XMLHttpRequest();
 			    xhr.addEventListener("progress", function(evt) {
-			      const span = $("<span class='progression'/>").appendTo($("#wait"));
-				  span.html("0%"); 
-			      if(evt.lengthComputable) {
+				  if(evt.lengthComputable) {
 			        percentComplete = evt.loaded / evt.total;
 			        percentComplete = parseInt(percentComplete * 100);
-			        span.html(percentComplete+"%");
 			        if(percentComplete == 100){
 			        	form.find("input[type=button]").click(); 
 						const div = form.parent().parent();
@@ -202,7 +199,6 @@ $(document).ready(function(){
 						list.find("h6").hide();
 					    page.details.showDocuments(files,function(){
 						  page.release();
-						  $("#wait .progression").remove();
 						  if(count>1){
 							  alert("vos documents ont &edot;t&edot; bien envoy&edot;s");
 						  }else {
@@ -212,8 +208,6 @@ $(document).ready(function(){
 						  $(".tree",list).hide();
 					   });
 			        }
-			      }else{
-			    	  span.html(percentComplete+"%");
 			      }
 			    }, false);
 			    return xhr;
