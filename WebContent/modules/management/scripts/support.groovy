@@ -87,7 +87,7 @@ class ModuleAction extends ActionSupport {
 	def closeTicket() {
 	   def ticket = new JsonSlurper().parse(request.inputStream) 
 	   def connection = getConnection()
-	   connection.executeUpdate "update tickets set progression = 100, status = 'finished', closedOn = NOW() where id = ?", [ticket.id] 
+	   connection.executeUpdate "update tickets set progression = 100, status = 'finished', closedOn = NOW(), closedBy = ? where id = ?", [session.getAttribute("user").id,ticket.id] 
 	   connection.close()
 	   response.writer.write(json([status : 1]))
 	}
