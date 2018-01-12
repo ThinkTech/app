@@ -17,7 +17,18 @@ $(document).ready(function(){
 			$("> div",list).html(project.description);
 		}
 		if(project.comments.length) page.details.showComments(project.comments);
-		if(project.documents.length) page.details.showDocuments(project.documents);
+		if(project.documents.length) {
+			$("a.document-list-ol",container).click(function(){
+				$(".document-list ol",container).show();
+			});
+			$("a.document-list-tree",container).click(function(){
+				page.details.showDocumentsTree(project.documents);
+			});
+			$("a.document-list-icons",container).click(function(){
+				page.details.showDocumentsIcons(project.documents);
+			});
+			page.details.showDocuments(project.documents);
+		}
 		if(project.tasks) {
 			const ol = $(".info-tasks ol",container);
 			page.render(ol,project.tasks,true,function(){
@@ -247,6 +258,14 @@ $(document).ready(function(){
 				 return false;
 			});
 		 });
+		 if(callback) callback();
+	};
+	page.details.showDocumentsTree = function(documents,callback){
+		 $(".documents .document-list ol").hide();
+		 if(callback) callback();
+	};
+	page.details.showDocumentsIcons = function(documents,callback){
+		 $(".documents .document-list ol").hide();
 		 if(callback) callback();
 	};
 	page.details.createProject = function(form){
