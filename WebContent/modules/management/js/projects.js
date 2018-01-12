@@ -7,8 +7,15 @@ $(document).ready(function(){
 				$(".quality .imgcircle,.quality .line",container).addClass("active");
 			}
 		}
+		$("a.document-list-ol",container).click(function(){
+			$(".document-list ol",container).show();
+			$(".tree",container).hide();
+		}).hide();
+		$("a.document-list-tree",container).click(function(){
+			page.details.showDocumentsTree(project.documents);
+		}).hide();
 		if(project.status == "stand by") {
-			$(".document-add,.document-list-ol,.document-list-tree",container).hide();
+			$(".document-add",container).hide();
 		}
 		else if(project.status == "finished") {
 			$("legend a",container).hide();
@@ -20,16 +27,7 @@ $(document).ready(function(){
 			$("> div",list).html(project.description);
 		}
 		if(project.comments.length) page.details.showComments(project.comments);
-		if(project.documents.length) {
-			$("a.document-list-ol",container).click(function(){
-				$(".document-list ol",container).show();
-				$(".tree",container).hide();
-			});
-			$("a.document-list-tree",container).click(function(){
-				page.details.showDocumentsTree(project.documents);
-			});
-			page.details.showDocuments(project.documents);
-		}
+		if(project.documents.length) page.details.showDocuments(project.documents);
 		if(project.tasks) {
 			const ol = $(".info-tasks ol",container);
 			page.render(ol,project.tasks,true,function(){
@@ -255,6 +253,7 @@ $(document).ready(function(){
 	};
 	page.details.showDocuments = function(documents,callback){
 		 const list = $(".documents .document-list");
+		 $(".document-list-ol,.document-list-tree").show();
 		 list.find("h6").hide();
 		 page.render($("ol",list).addClass("not-empty"),documents,true,function(div){
 		    $("span a",div).click(function(event){
