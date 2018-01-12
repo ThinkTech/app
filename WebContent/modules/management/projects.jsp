@@ -196,13 +196,26 @@
 	   <i class="fa fa-file"></i> Documents <a class="document-add"><i class="fa fa-plus" aria-hidden="true"></i></a>
 	   <a class="document-list-ol"><i class="fa fa-list-ol" aria-hidden="true"></i></a>
 	   <a class="document-list-tree"><i class="fa fa-list-alt" aria-hidden="true"></i></a>
-	   <a class="document-list-icons"><i class="fa fa-th-list" aria-hidden="true"></i></a>
 	   </legend>
 	   <div class="documents">
 	        <div class="document-list">
    		 		<h6>pas de documents</h6>
    		 		<ol data-template="documents">
    		 		</ol>
+			   <ul class="tree">
+				  <li>
+				    <input type="checkbox" checked="checked" id="c1" />
+				    <label class="tree_label" for="c1">Documents</label>
+				    <ul class="tree-docs">
+				    </ul>
+				  </li>
+				  <li>
+				    <input type="checkbox" id="c2" />
+				    <label class="tree_label" for="c2">Images</label>
+				    <ul class="tree-images">
+				    </ul>
+				  </li>
+			 </ul>
    		 	</div>
    		 	<div class="document-upload">
    		 	  <form method="POST" enctype="multipart/form-data" action="documents/upload.html">
@@ -210,8 +223,6 @@
    		 	    <span class="text-right"><i class="fa fa-file"></i> Document 1 </span> <input name="file1" type="file" required>
 				<span class="text-right"><i class="fa fa-file"></i> Document 2 </span> <input name="file2" type="file">
 				<span class="text-right"><i class="fa fa-file"></i> Document 3 </span> <input name="file3" type="file">
-				<input name="project_id" type="hidden" value="{id}">
-				<input name="structure_id" type="hidden" value="${user.structure.id}">
 				<input name="url" type="hidden" value="${url}/projects/documents/save"/>
 				<input name="author" type="hidden" value="${user.name}">
 				</fieldset>

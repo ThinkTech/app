@@ -95,6 +95,7 @@ page.table.paginate = function() {
 					  type: "GET",
 					  url: url+"?id="+id,
 					  success: function(response) {
+						  page.details.entity = response.entity;
 						  page.details.show(response.entity);
 					  },
 					  error : function(){

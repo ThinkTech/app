@@ -20,12 +20,10 @@ $(document).ready(function(){
 		if(project.documents.length) {
 			$("a.document-list-ol",container).click(function(){
 				$(".document-list ol",container).show();
+				$(".tree",container).hide();
 			});
 			$("a.document-list-tree",container).click(function(){
 				page.details.showDocumentsTree(project.documents);
-			});
-			$("a.document-list-icons",container).click(function(){
-				page.details.showDocumentsIcons(project.documents);
 			});
 			page.details.showDocuments(project.documents);
 		}
@@ -165,12 +163,14 @@ $(document).ready(function(){
 	};
 	page.details.uploadDocuments = function(form){
 		page.wait({top : form.offset().top});
-		const project_id  =  form.find("input[name=project_id]").val();
-		const structure_id  =  form.find("input[name=structure_id]").val();
+		const project = page.details.entity;
+		const project_id = project.id;
+		const structure_id = project.structure_id;
 		const files = new Array();
 		const date = new Date();
 		const author = form.find("input[name=author]").val();
 		var count = 0;
+		project.documents ? project.documents : new Array(); 
 		$.each($("input[type=file]",form),function(i,node){
 		  const input = $(node);
 		  const file = {};
@@ -179,6 +179,7 @@ $(document).ready(function(){
 			file.name = file.name.split(/(\\|\/)/g).pop();
 			file.project_id = project_id;
 		  	files.push(file);
+		  	project.documents.push(file);
 		  	count++;
 		  }
 		  file.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
@@ -208,6 +209,8 @@ $(document).ready(function(){
 						  }else {
 							  alert("votre document a &edot;t&edot; bien envoy&edot;");
 						  }
+						  $("ol",list).show();
+						  $(".tree",list).hide();
 					   });
 			        }
 			      }else{
@@ -262,10 +265,21 @@ $(document).ready(function(){
 	};
 	page.details.showDocumentsTree = function(documents,callback){
 		 $(".documents .document-list ol").hide();
-		 if(callback) callback();
-	};
-	page.details.showDocumentsIcons = function(documents,callback){
-		 $(".documents .document-list ol").hide();
+		 const tree = $(".documents .tree");
+		 const docs = $(".tree-docs",tree).empty();
+		 const images = $(".tree-images",tree).empty();
+		 for(var i = 0; i <documents.length;i++){
+			 var name = documents[i].name.toLowerCase();
+			 const li = $("<li><a class='tree_label'/></li>");
+			 const id = page.details.entity.id;
+			 $("a",li).html('<i class="fa fa-file" aria-hidden="true"></i> '+name).attr("href",location.href+"/documents/download?name="+name+"&project_id="+id);
+			 if(name.endsWith(".png") || name.endsWith(".gif") || name.endsWith(".jpeg") || name.endsWith(".jpg")){
+				 images.append(li);
+			 }else {
+				 docs.append(li);
+			 }
+		 }
+		 tree.show();
 		 if(callback) callback();
 	};
 	page.details.createProject = function(form){
