@@ -20,11 +20,11 @@
 			<div class="col-md-4 info-update-gd">
 				<div class="info-update-block clr-block-3">
 					<div class="col-md-8 info-update-left">
-						<h3>${messages_count}</h3>
-						<h4>nouveaux messages</h4>
+						<h3>${tickets_unsolved}</h3>
+						<h4>tickets non résolus</h4>
 					</div>
 					<div class="col-md-4 info-update-right">
-						<i class="fa fa-envelope-o"> </i>
+						<i class="fa fa-question-circle-o"></i>
 					</div>
 				  <div class="clearfix"> </div>
 				</div>
