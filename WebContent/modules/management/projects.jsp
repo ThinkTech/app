@@ -209,7 +209,7 @@
 				    </ul>
 				  </li>
 				  <li>
-				    <input type="checkbox" id="c2" />
+				    <input type="checkbox" checked="checked" id="c2" />
 				    <label class="tree_label" for="c2">Images</label>
 				    <ul class="tree-images">
 				    </ul>
