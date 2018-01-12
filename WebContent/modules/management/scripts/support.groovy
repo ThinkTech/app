@@ -36,7 +36,7 @@ class ModuleAction extends ActionSupport {
 	
 	def createTicket() {
 	   def ticket = new JsonSlurper().parse(request.inputStream) 
-	   def template = getTicketTemplate(ticket)
+	   def template = getUserTicketTemplate(ticket)
 	   def connection = getConnection()
 	   def user = session.getAttribute("user")
 	   def params = ["Ticket : "+ticket.subject,template,user.id,user.structure.id]
@@ -95,7 +95,7 @@ class ModuleAction extends ActionSupport {
 	   response.writer.write(json([status : 1]))
 	}
 	
-	def getTicketTemplate(ticket) {
+	def getUserTicketTemplate(ticket) {
 	    TemplateConfiguration config = new TemplateConfiguration()
 		MarkupTemplateEngine engine = new MarkupTemplateEngine(config)
 		def text = '''\
