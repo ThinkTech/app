@@ -48,6 +48,9 @@ class ModuleAction extends ActionSupport {
 	   def mailSender = new MailSender(mailConfig)
 	   def mail = new Mail("$user.name","$user.email","Ticket : ${ticket.subject}",template)
 	   mailSender.sendMail(mail)
+	   ticket.user = user
+	   mail = new Mail("support@thinktech.sn","support@thinktech.sn","Ticket : ${ticket.subject}",getSupportTicketTemplate(ticket))
+	   mailSender.sendMail(mail)
 	   response.writer.write(json([id: result[0][0]]))
 	}
 	
@@ -122,6 +125,54 @@ class ModuleAction extends ActionSupport {
 		  
 		  div(style :"margin: 10px;margin-top:10px;font-size : 11px;text-align:center") {
 		      p("Vous recevez cet email parce que vous (ou quelqu'un utilisant cet email)")
+		      p("a cr&edot;&edot; un ticket en utilisant cette adresse")
+		  }
+		  
+		   
+		 }
+		'''
+		def template = engine.createTemplate(text).make([ticket:ticket,url : baseUrl])
+		template.toString()
+	}
+	
+	def getSupportTicketTemplate(ticket) {
+	    TemplateConfiguration config = new TemplateConfiguration()
+		MarkupTemplateEngine engine = new MarkupTemplateEngine(config)
+		def text = '''\
+		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
+		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
+		    img(src : "https://www.thinktech.sn/images/logo.png", style : "display:block;margin : 0 auto")
+		    div(style : "margin-top:10px;padding-top:2%;height:100px;text-align:center;background:#05d2ff") {
+		      h4(style : "font-size: 200%;color: #fff;margin: 3px") {
+		        span("Nouveau Ticket")
+		      }
+		       p(style : "font-size:150%;color:#fff"){
+		         span("ce ticket a &edot;t&edot; bien cr&edot;&edot;")
+		      }
+		    }
+		    div(style : "width:90%;margin:auto;margin-top : 30px;margin-bottom:30px") {
+		      h5(style : "font-size: 120%;color: rgb(0, 0, 0);margin-bottom: 15px") {
+		         span("Service : $ticket.service")
+		      }
+		      if(ticket.user.structure.name){
+		      	h5(style : "font-size: 120%;color: rgb(0, 0, 0);margin-bottom: 15px") {
+		        	 span("Structure : $ticket.user.structure.name")
+		      	}
+		      }
+		      h5(style : "font-size: 120%;color: rgb(0, 0, 0);margin-bottom: 15px") {
+		         span("Client : $ticket.user.name")
+		      }
+		      h5(style : "font-size: 120%;color: rgb(0, 0, 0);margin-bottom: 15px") {
+		         span("Message")
+		      }
+		      p("$ticket.message")
+		      br()
+		      p("ce ticket est en attente de traitement.")
+		    }
+		  }
+		  
+		  div(style :"margin: 10px;margin-top:10px;font-size : 11px;text-align:center") {
+		      p("Vous recevez cet email parce que $ticket.user.name")
 		      p("a cr&edot;&edot; un ticket en utilisant cette adresse")
 		  }
 		  
