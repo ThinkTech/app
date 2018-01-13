@@ -10,11 +10,17 @@ $(document).ready(function(){
 		$("a.document-list-ol",container).click(function(){
 			$(".document-list ol",container).show();
 			$(".tree,.icons",container).hide();
+			container.find(".document-list").show();
+			container.find(".document-upload").hide();
 		}).hide();
 		$("a.document-list-tree",container).click(function(){
+			container.find(".document-list").show();
+			container.find(".document-upload").hide();
 			page.details.showDocumentsTree(project.documents);
 		}).hide();
 		$("a.document-list-icons",container).click(function(){
+			container.find(".document-list").show();
+			container.find(".document-upload").hide();
 			page.details.showDocumentsIcons(project.documents);
 		}).hide();
 		if(project.status == "stand by") $(".document-add",container).hide();

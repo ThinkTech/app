@@ -1009,7 +1009,8 @@ fieldset > span {
     overflow : hidden;
 }
 .table-responsive > .table > tbody > tr > td, .table-responsive > .table > tbody > tr > th, .table-responsive > .table > tfoot > tr > td, .table-responsive > .table > tfoot > tr > th, .table-responsive > .table > thead > tr > td, .table-responsive > .table > thead > tr > th {
-	white-space : normal;
+	white-space: nowrap;
+    font-size: 11px;
 }
 .sidebar-menu h1 a{display : none}
 .sidebar-menu {
