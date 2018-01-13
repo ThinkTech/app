@@ -166,7 +166,6 @@
    		 	<div class="message-edition description">
    		 	    <form action="${url}/projects/description/update">
    		 		<textarea id="textarea-description" name="description">{description}</textarea>
-   		 		<input name="id" type="hidden" value={id}>
    		 		<div class="submit">
 			      <input type="submit" value="Modifier">
 			      <input type="button" value="Annuler">
@@ -233,7 +232,6 @@
    		 	<div class="message-edition">
    		 	   <form action="${url}/projects/comments/create">
    		 		<textarea id="textarea-message" name="message"></textarea>
-   		 		<input name="id" type="hidden" value={id}>
    		 		<input name="author" type="hidden" value="${user.name}">
    		 		<div class="submit">
 			      <input type="submit" value="Ajouter">

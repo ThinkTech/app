@@ -140,7 +140,7 @@ $(document).ready(function(){
 			return false;
 	});
 	page.details.updateDescription = function(form){
-		const project = {};
+		const project = page.details.entity;
 		project.description =  tinyMCE.get("textarea-description").getContent();
 		if(tinyMCE.get("textarea-description").getContent({format: 'text'}).trim() == ""){
 			alert("vous devez entrer une description",function(){
@@ -148,7 +148,6 @@ $(document).ready(function(){
 			});
 			return false;
 		}
-		project.id =  form.find("input[name=id]").val();
 		page.wait({top : form.offset().top});
 		$.ajax({
 			  type: "POST",
@@ -415,7 +414,7 @@ $(document).ready(function(){
 			});
 			return false;
 		}
-		comment.project =  form.find("input[name=id]").val();
+		comment.project =  page.details.entity.id;
 		comment.author =  form.find("input[name=author]").val();
 		const date = new Date();
 		comment.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();

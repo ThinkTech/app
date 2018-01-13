@@ -717,6 +717,7 @@ label.tree_label:before {
 @media(max-width:480px){
 	.project-wizard p {text-align : center}
 	.window p {word-break : break-word;}
+	legend {width: 100.5%;}
 }
 
 /*-- pricing --*/
