@@ -200,6 +200,7 @@ legend {
     right: 0;
     margin-left: auto;
     margin-right: auto;
+    max-height: 200px;
 }
 
 .window > div ul a, .window > div ol a {

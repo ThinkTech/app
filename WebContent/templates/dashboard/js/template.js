@@ -17,7 +17,8 @@ page.details = {};
 
 page.details.show = function(entity) {
 	const div = $(".window.details");
-	page.details.url = div.data("url").replace("//","/");
+	page.details.url = div.data("url");
+	if(page.details.url) page.details.url = page.details.url.replace("//","/");
 	page.render($("section",div), entity, false, function(section) {
 		$("[data-status='"+entity.status+"']",section).show();
 		 $.each($("[data-template]",section),function(i,node){
