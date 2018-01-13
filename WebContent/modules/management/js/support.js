@@ -70,7 +70,7 @@ $(document).ready(function(){
 			});
 			return false;
 		}
-		comment.ticket =   form.find("input[name=id]").val();
+		comment.ticket =  page.details.entity.id;
 		comment.author =  form.find("input[name=author]").val();
 		const date = new Date();
 		comment.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
