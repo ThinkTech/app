@@ -9,10 +9,13 @@ $(document).ready(function(){
 		}
 		$("a.document-list-ol",container).click(function(){
 			$(".document-list ol",container).show();
-			$(".tree",container).hide();
+			$(".tree,.icons",container).hide();
 		}).hide();
 		$("a.document-list-tree",container).click(function(){
 			page.details.showDocumentsTree(project.documents);
+		}).hide();
+		$("a.document-list-icons",container).click(function(){
+			page.details.showDocumentsIcons(project.documents);
 		}).hide();
 		if(project.status == "stand by") $(".document-add",container).hide();
 		else if(project.status == "finished") {
@@ -205,7 +208,7 @@ $(document).ready(function(){
 							  alert("votre document a &edot;t&edot; bien envoy&edot;");
 						  }
 						  $("ol",list).show();
-						  $(".tree",list).hide();
+						  $(".tree,.icons",list).hide();
 					   });
 			        }
 			      }
@@ -242,7 +245,7 @@ $(document).ready(function(){
 	};
 	page.details.showDocuments = function(documents,callback){
 		 const list = $(".documents .document-list");
-		 $(".document-list-ol,.document-list-tree").show();
+		 $(".document-list-ol,.document-list-tree,.document-list-icons").show();
 		 list.find("h6").hide();
 		 page.render($("ol",list).addClass("not-empty"),documents,true,function(div){
 		    $("span a",div).click(function(event){
@@ -255,15 +258,16 @@ $(document).ready(function(){
 		 if(callback) callback();
 	};
 	page.details.showDocumentsTree = function(documents,callback){
-		 $(".documents .document-list ol").hide();
-		 const tree = $(".documents .tree");
+		 const div = $(".documents");
+		 $(".document-list ol,.document-list .icons",div).hide();
+		 const tree = $(".tree",div);
 		 const docs = $(".tree-docs",tree).empty();
 		 const images = $(".tree-images",tree).empty();
+		 const id = page.details.entity.id;
 		 for(var i = 0; i <documents.length;i++){
 			 var name = documents[i].name.toLowerCase();
 			 const li = $("<li><a class='tree_label'/></li>");
-			 const id = page.details.entity.id;
-			 $("a",li).html('<i class="fa fa-file" aria-hidden="true"></i> '+name).attr("href",location.href+"/documents/download?name="+name+"&project_id="+id);
+			 $("a",li).html('<i class="fa fa-file" aria-hidden="true"></i> '+name).attr("href",page.details.url+"/projects/documents/download?name="+name+"&project_id="+id);
 			 if(name.endsWith(".png") || name.endsWith(".gif") || name.endsWith(".jpeg") || name.endsWith(".jpg")){
 				 images.append(li);
 			 }else {
@@ -271,6 +275,36 @@ $(document).ready(function(){
 			 }
 		 }
 		 tree.show();
+		 if(callback) callback();
+	};
+	page.details.showDocumentsIcons = function(documents,callback){
+		 const root = $(".documents");
+		 $(".document-list ol,.tree",root).hide();
+		 const icons = $(".icons",root).empty();
+		 const url = icons.data("path");
+		 const id = page.details.entity.id;
+		 for(var i = 0; i <documents.length;i++){
+			 var name = documents[i].name.toLowerCase();
+			 const div = $("<div/>");
+			 const img = $("<img/>");
+			 div.append(img);
+			 div.append($("<a/>").html(name).attr("href",page.details.url+"/projects/documents/download?name="+name+"&project_id="+id));
+			 icons.append(div);
+			 if(name.endsWith(".png") || name.endsWith(".gif") || name.endsWith(".jpeg") || name.endsWith(".jpg")){
+				 img.attr("src",page.details.url+"/projects/documents/download?name="+name+"&project_id="+id);
+				 img.css("cursor","pointer");
+				 img.click(function(event){
+					 $(".modal",root).remove();
+					 const modal = $("<img class='modal'/>").attr("src",$(this).attr("src")).appendTo(root);
+					 modal.css("top",event.pageY-100);
+					 return false;
+				 });
+				 
+			 }else {
+				img.attr("src",url+"/images/document.png");
+			 }
+		 }
+		 icons.show();
 		 if(callback) callback();
 	};
 	page.details.createProject = function(form){
@@ -416,6 +450,7 @@ $(document).ready(function(){
 	
 	$(".window.details").click(function(){
 		$(".plans").hide();
+		$(".modal").remove();
 	});
 	const $table = $(".table");
 	const url = $table.data("url");

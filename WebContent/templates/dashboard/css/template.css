@@ -89,6 +89,10 @@ legend {
 	border-bottom : 1px solid #05d2ff;
 }
 
+legend a {
+	cursor : pointer;
+}
+
 .label {
 	padding: 4px;
     font-size: 10px;
@@ -243,6 +247,7 @@ fieldset > span {
 	border: 1px solid #05d2ff;
 	font-family : Tahoma;
 	margin-top : 4px;
+	box-shadow : 0 0px 0px 0 rgba(0, 0, 0, 0.05), 0 0px 8px 0 rgba(0, 0, 0, 0.04);
 }
 
 fieldset > span.text-right {
