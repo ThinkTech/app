@@ -79,19 +79,25 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def addTicketComment() {
-	   def comment = new JsonSlurper().parse(request.inputStream) 
-	   def connection = getConnection()
-	   def params = [comment.message,comment.ticket,session.getAttribute("user").id]
-       connection.executeInsert 'insert into tickets_comments(message,ticket_id,createdBy) values (?,?,?)', params
-	   connection.close()
+	   def comment = new JsonSlurper().parse(request.inputStream)
+	   def user_id = session.getAttribute("user").id
+	   Thread.start {
+	     def connection = getConnection()
+	     def params = [comment.message,comment.ticket,user_id]
+         connection.executeInsert 'insert into tickets_comments(message,ticket_id,createdBy) values (?,?,?)', params
+	     connection.close()
+	   } 
 	   response.writer.write(json([status: 1]))
 	}
 	
 	def closeTicket() {
-	   def ticket = new JsonSlurper().parse(request.inputStream) 
-	   def connection = getConnection()
-	   connection.executeUpdate "update tickets set progression = 100, status = 'finished', closedOn = NOW(), closedBy = ? where id = ?", [session.getAttribute("user").id,ticket.id] 
-	   connection.close()
+	   def ticket = new JsonSlurper().parse(request.inputStream)
+	   def user_id = session.getAttribute("user").id 
+	   Thread.start {
+	      def connection = getConnection()
+	      connection.executeUpdate "update tickets set progression = 100, status = 'finished', closedOn = NOW(), closedBy = ? where id = ?", [user_id,ticket.id] 
+	      connection.close()
+	   }
 	   response.writer.write(json([status : 1]))
 	}
 	

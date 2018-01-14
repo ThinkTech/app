@@ -155,12 +155,15 @@ class ModuleAction extends ActionSupport {
 	def saveDocuments() {
 	   def upload = new JsonSlurper().parse(request.inputStream) 
 	   def id = upload.id
-	   def connection = getConnection()
-	   def query = 'insert into documents(name,size,project_id,createdBy) values (?,?,?,?)'
-       connection.withBatch(query){ ps ->
-           for(def document : upload.documents) ps.addBatch(document.name,document.size,id,session.getAttribute("user").id)
-       }
-	   connection.close()
+	   def user_id = session.getAttribute("user").id
+	   Thread.start {
+	     def connection = getConnection()
+	     def query = 'insert into documents(name,size,project_id,createdBy) values (?,?,?,?)'
+         connection.withBatch(query){ ps ->
+           for(def document : upload.documents) ps.addBatch(document.name,document.size,id,user_id)
+         }
+	     connection.close()
+	   }
 	   response.writer.write(json([status: 1]))
 	}
 	
@@ -176,9 +179,11 @@ class ModuleAction extends ActionSupport {
 	
 	def updateProjectDescription() {
 	   def project = new JsonSlurper().parse(request.inputStream)
-	   def connection = getConnection()
-	   connection.executeUpdate "update projects set description = ? where id = ?", [project.description,project.id] 
-	   connection.close()
+	   Thread.start {
+	   	 def connection = getConnection()
+	     connection.executeUpdate "update projects set description = ? where id = ?", [project.description,project.id] 
+	     connection.close()
+	   }
 	   response.writer.write(json([status: 1]))
 	}
 		
