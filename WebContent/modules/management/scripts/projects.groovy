@@ -142,10 +142,13 @@ class ModuleAction extends ActionSupport {
 	
 	def addComment() {
 	   def comment = new JsonSlurper().parse(request.inputStream) 
-	   def connection = getConnection()
-	   def params = [comment.message,comment.project,session.getAttribute("user").id]
-       connection.executeInsert 'insert into projects_comments(message,project_id,createdBy) values (?,?,?)', params
-	   connection.close()
+	   def user_id = session.getAttribute("user").id
+	   Thread.start { 
+	   	 def connection = getConnection()
+	     def params = [comment.message,comment.project,user_id]
+         connection.executeInsert 'insert into projects_comments(message,project_id,createdBy) values (?,?,?)', params
+	     connection.close()
+	   }
 	   response.writer.write(json([status: 1]))
 	}
 	

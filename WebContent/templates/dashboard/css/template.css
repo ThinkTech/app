@@ -256,6 +256,10 @@ fieldset > span.text-right {
     padding-right: 6px;
 }
 
+fieldset > span.text-right i{
+	color : #05d2ff;
+}
+
 fieldset > span.text-right.full {
     width : 100.3%;
     text-align : left;
