@@ -293,7 +293,7 @@ class ModuleAction extends ActionSupport {
 		      }
 		      p("Projet : ${subscription.project}")
 		      p("Merci pour votre souscription au ${subscription.plan}")
-		      p("Veuillez confirmer votre projet pour son traitement.")
+		      p("Veuillez confirmer votre souscription pour le traitement de votre projet.")
 		    }
 		    div(style : "text-align:center;margin-top:30px;margin-bottom:10px") {
 		       a(href : "$url/users/registration/confirm?activationCode=$subscription.activationCode",style : "font-size:150%;width:180px;margin:auto;text-decoration:none;background: #05d2ff;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {

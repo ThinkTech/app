@@ -104,12 +104,13 @@ class ModuleAction extends ActionSupport {
           project.comments << comment
        })
        project.documents = []
-	   connection.eachRow("select d.project_id, d.name, d.date, u.name as author from documents d, users u where d.createdBy = u.id and d.project_id = ?", [project.id],{ row -> 
+	   connection.eachRow("select d.project_id, d.name, d.size, d.date, u.name as author from documents d, users u where d.createdBy = u.id and d.project_id = ?", [project.id],{ row -> 
           def document = new Expando()
           document.project_id = row.project_id
           document.author = row.author
           document.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(row.date)
           document.name = row.name
+          document.size = org.apache.commons.io.FileUtils.byteCountToDisplaySize(row.size as long)
           project.documents << document
        })
        project.tasks = []
@@ -152,11 +153,9 @@ class ModuleAction extends ActionSupport {
 	   def upload = new JsonSlurper().parse(request.inputStream) 
 	   def id = upload.id
 	   def connection = getConnection()
-	   def query = 'insert into documents(name,project_id,createdBy) values (?,?,?)'
+	   def query = 'insert into documents(name,size,project_id,createdBy) values (?,?,?,?)'
        connection.withBatch(query){ ps ->
-           for(def document : upload.documents){
-              ps.addBatch(document.name,id,session.getAttribute("user").id)
-           }
+           for(def document : upload.documents) ps.addBatch(document.name,document.size,id,session.getAttribute("user").id)
        }
 	   connection.close()
 	   response.writer.write(json([status: 1]))

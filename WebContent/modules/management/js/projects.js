@@ -182,9 +182,10 @@ $(document).ready(function(){
 		  const input = $(node);
 		  const file = {};
 		  file.name = input.val();
-		  if(file.name) {
+		  if(file.name){
 			file.name = file.name.split(/(\\|\/)/g).pop();
 			file.project_id = project_id;
+			file.size = node.files[0].size;
 		  	files.push(file);
 		  	project.documents.push(file);
 		  	count++;

@@ -17,8 +17,8 @@ class ModuleAction extends ActionSupport {
 	  	def info = "le paiement de la caution a été éffectué et le contrat vous liant à ThinkTech a été généré et ajouté aux documents du projet"
 	  	connection.executeUpdate "update projects_tasks set status = 'finished', info = ? , progression = 100 where task_id = ? and project_id = ?", [info,1,bill.project_id]
 	  	connection.executeUpdate "update projects_tasks set status = 'in progress' where task_id = ? and project_id = ?", [2,bill.project_id]
-	  	def params = ["contrat.doc",bill.project_id,session.getAttribute("user").id]
-	    connection.executeInsert 'insert into documents(name,project_id,createdBy) values (?,?,?)',params
+	  	def params = ["contrat.doc",50000,bill.project_id,session.getAttribute("user").id]
+	    connection.executeInsert 'insert into documents(name,size,project_id,createdBy) values (?,?,?,?)',params
 	  	def project = connection.firstRow("select * from projects  where id = ?", [bill.project_id])
 	  	generateContract(project)
 	  }

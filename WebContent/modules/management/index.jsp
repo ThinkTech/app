@@ -249,7 +249,8 @@
 				<a href="${url}/projects/documents/download?name={name}&project_id={project_id}"><i class="fa fa-file" aria-hidden="true"></i> {name}</a>
 				<div class="info-message">
 	   	  	    	<b>Auteur :</b> {author}<br>
-	   	  	    	<b>Date :</b> {date}
+	   	  	    	<b>Date :</b> {date}<br>
+	   	  	    	<b>Taille :</b> {size}
 	   	  		</div>
 	   	  		<span><a><i class="fa fa-info" aria-hidden="true"></i></a></span>
 			</li>
