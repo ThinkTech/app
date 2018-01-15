@@ -6,6 +6,8 @@ $(document).ready(function(){
 			if(project.progression >= 95) {
 				$(".quality .imgcircle,.quality .line",container).addClass("active");
 			}
+		}else if(project.status == "stand by") {
+			$(".plan-edit",container).show();
 		}
 		$("a.document-list-ol",container).click(function(){
 			$(".document-list ol",container).show();

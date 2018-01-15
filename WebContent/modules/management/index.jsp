@@ -93,7 +93,7 @@
 	<fieldset>
 	    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span> <span>{name}</span>
 	    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>{service}</span>
-		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span> <span>{plan}</span> <a data-plan="{plan}" class="plan"><i class="fa fa-info" aria-hidden="true"></i></a>
+		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span> <span>{plan}</span> <a data-plan="{plan}" class="plan"><i class="fa fa-info" aria-hidden="true"></i></a> <a class="plan-edit" style="display:none"><i class="fa fa-edit" aria-hidden="true"></i></a>
 		<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date}</span>
 		<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span> 
 		<span data-status="normal" style="display:none">normale</span>
