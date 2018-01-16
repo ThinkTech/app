@@ -1,7 +1,11 @@
 $(document).ready(function(){
 	page.details.bind = function(container,ticket) {
 		$("[data-status='"+ticket.priority+"']",container).show();
-		if(ticket.status == "finished") $("legend a",container).hide();
+		if(ticket.status == "finished"){
+			$("legend a",container).hide();
+		}else if(ticket.status == "stand by"){
+			$(".priority-edit,.service-edit",container).show();
+		}
 		if(ticket.comments.length) page.details.showComments(ticket.comments);
 		$(".messages form",container).submit(function(event){
 			page.details.addComment($(this));

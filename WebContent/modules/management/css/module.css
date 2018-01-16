@@ -653,6 +653,7 @@ label.tree_label:before {
      }
      .window > div a.pay,.window > div a.close-ticket{position : relative; top : -2px}
      .info-tasks li span:first-of-type {width : 100%;}
+     .window > div fieldset a {position: relative;top: 3px;}
 }
 
 @media (max-width:768px){
