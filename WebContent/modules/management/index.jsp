@@ -98,7 +98,7 @@
 		<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span> 
 		<span data-status="normal" style="display:none">normale</span>
 		<span data-status="medium" style="display:none">moyenne</span>
-		<span data-status="high" style="display:none">élevée</span>
+		<span data-status="high" style="display:none">élevée</span> <a class="priority-edit" style="display:none"><i class="fa fa-edit" aria-hidden="true"></i></a>
 		<span class="text-right"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Durée </span> <span>{duration} mois</span> <a class="duration"><i class="fa fa-info" aria-hidden="true"></i></a>
 		<div class="info-message">
 		   <p data-status="stand by">la durée du projet est estimée à {duration} mois dans l'attente du paiement de la caution que vous devez effectuer</p>

@@ -7,7 +7,7 @@ $(document).ready(function(){
 				$(".quality .imgcircle,.quality .line",container).addClass("active");
 			}
 		}else if(project.status == "stand by") {
-			$(".plan-edit",container).show();
+			$(".plan-edit,.priority-edit",container).show();
 		}
 		$("a.document-list-ol",container).click(function(){
 			$(".document-list ol",container).show();
