@@ -126,7 +126,7 @@
 		 <h1><i class="fa fa-question-circle-o" aria-hidden="true"></i>Ticket : {subject}</h1>
 		<fieldset>
 		    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span> <span>{name}</span>
-		    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>{service}</span> <a class="service-edit" style="display:none"><i class="fa fa-edit" aria-hidden="true"></i></a>
+		    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>{service}</span>
 		    <span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date}</span>
 			<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span> 
 			<span data-status="normal" style="display:none">normale</span>
