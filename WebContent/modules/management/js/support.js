@@ -15,6 +15,37 @@ $(document).ready(function(){
 			page.details.closeTicket($(this).attr("href"),ticket);
 			return false;
 		});
+		$(".priority-edit",container).click(function(event){
+			$(".info-message").hide();
+			 const div = $(this).prev();
+			 var left = event.pageX-div.width()-50;
+			 if(left<0) left = 10;
+			 div.css({top : event.pageY-20,left : left}).toggle();
+			 return false;
+		});
+		$(".priority-edition a",container).click(function(event){
+			const url = $(this).attr("href");
+			ticket.priority = $(".priority-edition select",container).val();
+			$.ajax({
+				  type: "POST",
+				  url: url,
+				  data: JSON.stringify(ticket),
+				  contentType : "application/json",
+				  success: function(response) {
+					  if(response.status){
+						  $(".priority-edition",container).hide();
+						  $(".status",container).hide();
+						  $("[data-status='"+ticket.priority+"']",container).show();
+					  }
+				  },
+				  dataType: "json"
+			});
+			return false;
+		});
+		
+		$(".info-message").click(function(event){
+			return false;
+		});
 	};
 	$(".window > div > form").submit(function(event){
 		    page.details.addTicket($(this));

@@ -332,6 +332,15 @@ legend {
 	text-align : right;
 }
 
+.window > div .entity-edition select {
+	font-size: 13px;
+    width: 81%;
+    margin-right: 5px;
+}
+
+.window > div fieldset .entity-edition a {
+	top : 0px
+}
 
 .window > div .info-tasks{
 	background: #fff;
@@ -654,6 +663,7 @@ label.tree_label:before {
      .window > div a.pay,.window > div a.close-ticket{position : relative; top : -2px}
      .info-tasks li span:first-of-type {width : 100%;}
      .window > div fieldset a {position: relative;top: 3px;}
+     .window > div .entity-edition select {font-size: 11px;}
 }
 
 @media (max-width:768px){

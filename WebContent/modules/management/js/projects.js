@@ -87,16 +87,42 @@ $(document).ready(function(){
 	    	$("a.pay",container).hide().prev().hide().prev().hide();
 	    }
 		$("a.plan",container).click(function(event) {
-			const plan = $(this).data("plan");
 			const plans = $(".plans");
 			$(".pricing",plans).hide();
 		    const top = event.pageY;
 		    plans.css("top",top-50);
-			$("div[data-plan='"+plan+"']",plans).show();
+			$("div[data-plan='"+project.plan+"']",plans).show();
 			plans.toggle();
 			return false;
 		});
 		$(".plans").hide();
+		$(".priority-edit",container).click(function(event){
+			$(".info-message").hide();
+			 const div = $(this).prev();
+			 var left = event.pageX-div.width()-50;
+			 if(left<0) left = 10;
+			 div.css({top : event.pageY-20,left : left}).toggle();
+			 return false;
+		});
+		$(".priority-edition a",container).click(function(event){
+			const url = $(this).attr("href");
+			project.priority = $(".priority-edition select",container).val();
+			$.ajax({
+				  type: "POST",
+				  url: url,
+				  data: JSON.stringify(project),
+				  contentType : "application/json",
+				  success: function(response) {
+					  if(response.status){
+						  $(".priority-edition",container).hide();
+						  $(".status",container).hide();
+						  $("[data-status='"+project.priority+"']",container).show();
+					  }
+				  },
+				  dataType: "json"
+			});
+			return false;
+		});
 		$("a.tasks",container).click(function(event) {
 			$(".info-tasks",container).toggle();
 		});
@@ -132,6 +158,9 @@ $(document).ready(function(){
 				}
 			});
 			if(found) alert("un fichier portant ce nom existe d&edot;ja");
+		});
+		$(".info-message").click(function(event){
+			return false;
 		});
 	};
 	$(".window a.read-terms").click(function(event) {

@@ -129,9 +129,18 @@
 		    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>{service}</span>
 		    <span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date}</span>
 			<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span> 
-			<span data-status="normal" style="display:none">normale</span>
-			<span data-status="medium" style="display:none">moyenne</span>
-			<span data-status="high" style="display:none">élevée</span> <a class="priority-edit" style="display:none"><i class="fa fa-edit" aria-hidden="true"></i></a>
+			<span data-status="normal" class="status" style="display:none">normale</span>
+		    <span data-status="medium" class="status" style="display:none">moyenne</span>
+		    <span data-status="high" class="status" style="display:none">élevée</span> 
+		    <div class="info-message entity-edition priority-edition">
+		      <select>
+			    <option value="normal">normale</option>
+		        <option value="medium">moyenne</option>
+		        <option value="high">élevée</option>
+		      </select>
+			 <a href="${url}/tickets/priority/update"><i class="fa fa-check" aria-hidden="true"></i></a>
+		    </div>
+		    <a class="priority-edit" style="display:none"><i class="fa fa-edit" aria-hidden="true"></i></a>
 			<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Traitement </span> 
 			<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">équipe technique</span> <a href="${url}/support/tickets/close" class="close-ticket"><i class="fa fa-window-close"></i></a></span>
 			<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  

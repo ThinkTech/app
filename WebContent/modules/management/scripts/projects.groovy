@@ -152,6 +152,16 @@ class ModuleAction extends ActionSupport {
 	   response.writer.write(json([status: 1]))
 	}
 	
+	def updateProjectPriority(){
+	    def project = new JsonSlurper().parse(request.inputStream) 
+	    Thread.start {
+	   	   def connection = getConnection()
+	       connection.executeUpdate "update projects set priority = ? where id = ?", [project.priority,project.id] 
+	       connection.close()
+	    }
+		response.writer.write(json([status: 1]))
+	}
+	
 	def saveDocuments() {
 	   def upload = new JsonSlurper().parse(request.inputStream) 
 	   def id = upload.id
