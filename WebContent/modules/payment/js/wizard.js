@@ -54,6 +54,7 @@ page.wizard.init = function(){
       	    			button.unbind("click").click(function(){
       	    				page.wizard.bill.code = currentStep.find("input[type='number']").val();
       	    				if(page.wizard.bill.code){
+      	    					 page.wizard.bill.paidWith = "Wari";
       	    					page.wizard.submit();	
       	    				}else {
       	    					alert("veuillez saisir votre code Wari");

@@ -187,6 +187,7 @@
 .payment > div input {
 	margin-right: 5px;
     width: 90px;
+    font-size: 14px;
 }
 
 .payment > div input[type="button"] {
@@ -194,8 +195,9 @@
     font-family: Tahoma;
     background: #212121;
     color: #fff;
-    width: 80px;
+    width: 90px;
     font-size: 14px;
+    font-weight: bold;
 }
 
 .shopping-payment {
@@ -549,7 +551,9 @@
 	.shopping-payment .help {display:inline-block}
 	.shopping-payment{margin-top:-9px}
 	.checkout-wizard-content {width: 65%;padding:0px}
-	}
+	.payment > div input {font-size: 12px;}
+    .payment > div input[type="button"] {font-size: 12px;}
+}
 @media (max-width: 600px){
 	.checkout-wizard-content .register input[type="text"],.checkout-wizard-content .register input[type="email"],.checkout-wizard-content .register input[type="password"] {
 		font-size: 13px;
