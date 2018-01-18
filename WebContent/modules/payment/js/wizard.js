@@ -49,6 +49,16 @@ page.wizard.init = function(){
                     		  V.on("payment.error", function(response, error){ 
                     		  });
                       });
+      	    		}else if (val == "wari"){
+      	    			const button = currentStep.find("input[type='button']");
+      	    			button.unbind("click").click(function(){
+      	    				page.wizard.bill.code = currentStep.find("input[type='number']").val();
+      	    				if(page.wizard.bill.code){
+      	    					page.wizard.submit();	
+      	    				}else {
+      	    					alert("veuillez saisir votre code Wari");
+      	    				}
+      	    			});
       	    		}	
 		    		$("."+val+"-payment",div).show();
 		    	}

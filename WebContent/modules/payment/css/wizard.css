@@ -185,7 +185,8 @@
 }
 
 .payment > div input {
-	margin-right : 5px;
+	margin-right: 5px;
+    width: 90px;
 }
 
 .payment > div input[type="button"] {
@@ -193,7 +194,8 @@
     font-family: Tahoma;
     background: #212121;
     color: #fff;
-    width: 100px;
+    width: 80px;
+    font-size: 14px;
 }
 
 .shopping-payment {
