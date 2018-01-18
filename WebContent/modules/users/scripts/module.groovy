@@ -113,7 +113,7 @@ class ModuleAction extends ActionSupport {
 	   }else{
 	      def structure_id = session.getAttribute("user").structure.id
 	      def alphabet = (('A'..'N')+('P'..'Z')+('a'..'k')+('m'..'z')+('2'..'9')).join()  
- 		  def n = 30 
+ 		  def n = 15 
  		  user.password = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
  		  user.activationCode = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
 	      def params = [user.email,user.email,user.password,"collaborateur",false,structure_id]
