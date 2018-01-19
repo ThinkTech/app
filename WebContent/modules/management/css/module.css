@@ -592,13 +592,9 @@ legend a i.fa {
 
 .tree > li:last-child { padding-bottom: 0; }
 
-/* ————————————————————–
-  Tree labels
-*/
 .tree_label {
   position: relative;
   display: inline-block;
-  background: #fff;
   margin : 0;
 }
 
