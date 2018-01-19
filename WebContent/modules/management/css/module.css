@@ -330,12 +330,15 @@ legend {
 
 .window > div .entity-edition select {
 	font-size: 13px;
-    width: 81%;
+    width: 83%;
     margin-right: 5px;
+    display : inline-block;
 }
 
 .window > div fieldset .entity-edition a {
-	top : 0px
+	top : 0px;
+	width: 10px;
+    display: inline-block;
 }
 
 .window > div .info-tasks{
