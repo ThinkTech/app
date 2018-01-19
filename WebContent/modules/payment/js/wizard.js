@@ -126,7 +126,7 @@ page.wizard.submit = function(){
 			  if(response.status){
 				  page.release();
 				  wizard.fadeOut();
-				  alert("le paiement de votre facture a &edot;t&edot; bien effectu&edot;e");
+				  alert("le paiement de votre facture a &edot;t&edot; bien effectu&edot;");
 				  if(page.wizard.callback) page.wizard.callback()
 			  }
 		  },

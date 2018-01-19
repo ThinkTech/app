@@ -33,7 +33,7 @@ public class AppListener implements ServletContextListener {
 	private DataSource setupDataSource() {
 		  BasicDataSource ds = new BasicDataSource();
 		  ds.setDriverClassName("com.mysql.jdbc.Driver");
-		  ds.setUrl("jdbc:mysql://us-cdbr-iron-east-05.cleardb.net/heroku_f55a18f0ecfd999?useUnicode=true&characterEncoding=latin1");
+		  ds.setUrl("jdbc:mysql://us-cdbr-iron-east-05.cleardb.net/heroku_f55a18f0ecfd999?useUnicode=true&characterEncoding=Cp1252");
 		  ds.setUsername("bb9837ece01288");
 		  ds.setPassword("fe21ab0a");
 		  ds.setInitialSize(3);
