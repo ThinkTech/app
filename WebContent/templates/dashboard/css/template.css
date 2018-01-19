@@ -988,6 +988,9 @@ li.dropdown.head-dpdn a.dropdown-toggle {
     float: right;
     width: 49%;
 }
+
+.text-right .fa {display: none;}
+
 }
 @media (max-width:768px){
 

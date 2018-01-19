@@ -48,7 +48,7 @@ $(document).ready(function(){
 							 $(".info-message").hide();
 							 const info = $(this).parent().prev();
 							 var left = event.pageX-info.width()-50;
-							 left = left < 0 ? 5 : left;
+							 left = left < 0 ? 2 : left;
 							 info.css({top : event.pageY-20,left : left}).show();
 							 return false;
 						});
