@@ -328,6 +328,10 @@ legend {
 	text-align : right;
 }
 
+.window > div .entity-edition{
+    width: 150px;
+}
+
 .window > div .entity-edition select {
 	font-size: 13px;
     width: 83%;
@@ -337,7 +341,7 @@ legend {
 
 .window > div fieldset .entity-edition a {
 	top : 0px;
-	width: 10px;
+	width: auto;
     display: inline-block;
 }
 
