@@ -307,7 +307,7 @@
 	  </div>
       <span class="question"><a><i class="fa fa-question" aria-hidden="true"></i></a></span>
       <div class="info-message">
-	   	  {info}
+	   	  {info|s}
 	  </div>
       <span><a><i class="fa fa-info" aria-hidden="true"></i></a></span>
     </li>
