@@ -30,8 +30,7 @@ class ModuleAction extends ActionSupport {
       def user = session.getAttribute("user")
       def structure = user.structure
       def folder =  module.folder.absolutePath + "\\contracts\\"
-      Thread.start{
-        if(project.service == "web dev"){
+      if(project.service == "web dev"){
           def file = project.plan.replace(' ','-')+".doc"
 	      def document = new HWPFDocument(new POIFSFileSystem(new File(folder+file)))
 	      document.range.replaceText("structure_name",structure.name)
@@ -42,7 +41,6 @@ class ModuleAction extends ActionSupport {
 	      def dir = "structure_"+structure.id+"/"+"project_"+project.id
 	      def manager = new FileManager()
 	      manager.upload(dir+"/contrat.doc",new ByteArrayInputStream(out.toByteArray()))
-        }
       }
    }
    
