@@ -90,7 +90,11 @@ $(document).ready(function(){
 			const plans = $(".plans");
 			$(".pricing",plans).hide();
 		    const top = event.pageY;
-		    plans.css("top",top-50);
+		    if(window.innerWidth>=1024){
+		    	plans.css("top",top-50);	
+		    }else {
+		    	plans.css("top","41px");
+		    }
 			$("div[data-plan='"+project.plan+"']",plans).show();
 			plans.toggle();
 			return false;
