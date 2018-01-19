@@ -51,7 +51,7 @@ class ModuleAction extends ActionSupport {
 	   ticket.user = user
 	   mail = new Mail("support@thinktech.sn","support@thinktech.sn","Ticket : ${ticket.subject}",getSupportTicketTemplate(ticket))
 	   mailSender.sendMail(mail)
-	   response.writer.write(json([id: result[0][0]]))
+	   write(json([id: result[0][0]]))
 	}
 	
 	def getTicketInfo() {
@@ -75,7 +75,7 @@ class ModuleAction extends ActionSupport {
           ticket.comments << comment
        })
 	   connection.close()
-	   response.writer.write(json([entity : ticket]))
+	   write(json([entity : ticket]))
 	}
 	
 	def addTicketComment() {
@@ -87,7 +87,7 @@ class ModuleAction extends ActionSupport {
          connection.executeInsert 'insert into tickets_comments(message,ticket_id,createdBy) values (?,?,?)', params
 	     connection.close()
 	   } 
-	   response.writer.write(json([status: 1]))
+	   write(json([status: 1]))
 	}
 	
 	def updateTicketPriority(){
@@ -97,7 +97,7 @@ class ModuleAction extends ActionSupport {
 	       connection.executeUpdate "update tickets set priority = ? where id = ?", [ticket.priority,ticket.id] 
 	       connection.close()
 	    }
-		response.writer.write(json([status: 1]))
+		write(json([status: 1]))
 	}
 	
 	def closeTicket() {
@@ -108,7 +108,7 @@ class ModuleAction extends ActionSupport {
 	      connection.executeUpdate "update tickets set progression = 100, status = 'finished', closedOn = NOW(), closedBy = ? where id = ?", [user_id,ticket.id] 
 	      connection.close()
 	   }
-	   response.writer.write(json([status : 1]))
+	   write(json([status : 1]))
 	}
 	
 	def getUserTicketTemplate(ticket) {

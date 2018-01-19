@@ -68,7 +68,7 @@ class ModuleAction extends ActionSupport {
 	   def mailSender = new MailSender(mailConfig)
 	   def mail = new Mail("$user.name","$user.email","Projet : ${project.subject}",template)
 	   mailSender.sendMail(mail) 
-	   response.writer.write(json([id: id]))
+	   write(json([id: id]))
 	}
 	
 	def createBill(project){
@@ -128,7 +128,7 @@ class ModuleAction extends ActionSupport {
 	  	 project.bill.date = new java.text.SimpleDateFormat("dd/MM/yyyy").format(project.bill.date)
        }
 	   connection.close() 
-	   response.writer.write(json([entity : project]))
+	   write(json([entity : project]))
 	}
 	
 	def getProjectBill() {
@@ -136,7 +136,7 @@ class ModuleAction extends ActionSupport {
 	   def connection = getConnection()
        def bill = connection.firstRow("select b.*,p.service from bills b, projects p where b.project_id = p.id and p.id = ?", [id])
 	   bill.date = new java.text.SimpleDateFormat("dd/MM/yyyy").format(bill.date)
-	   response.writer.write(json([entity : bill]))
+	   write(json([entity : bill]))
 	   connection.close()
 	}
 	
@@ -149,7 +149,7 @@ class ModuleAction extends ActionSupport {
          connection.executeInsert 'insert into projects_comments(message,project_id,createdBy) values (?,?,?)', params
 	     connection.close()
 	   }
-	   response.writer.write(json([status: 1]))
+	   write(json([status: 1]))
 	}
 	
 	def updateProjectPriority(){
@@ -159,7 +159,7 @@ class ModuleAction extends ActionSupport {
 	       connection.executeUpdate "update projects set priority = ? where id = ?", [project.priority,project.id] 
 	       connection.close()
 	    }
-		response.writer.write(json([status: 1]))
+		write(json([status: 1]))
 	}
 	
 	def saveDocuments() {
@@ -174,7 +174,7 @@ class ModuleAction extends ActionSupport {
          }
 	     connection.close()
 	   }
-	   response.writer.write(json([status: 1]))
+	   write(json([status: 1]))
 	}
 	
 	def downloadDocument(){
@@ -194,7 +194,7 @@ class ModuleAction extends ActionSupport {
 	     connection.executeUpdate "update projects set description = ? where id = ?", [project.description,project.id] 
 	     connection.close()
 	   }
-	   response.writer.write(json([status: 1]))
+	   write(json([status: 1]))
 	}
 		
 	def getProjectTemplate(project) {

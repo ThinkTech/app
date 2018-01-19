@@ -65,7 +65,7 @@ class ModuleAction extends ActionSupport {
 	   message.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(message.date)
 	   connection.executeUpdate 'update messages set unread = false where id = ?', [id] 
 	   connection.close()
-	   response.writer.write(json([entity : message]))
+	   write(json([entity : message]))
 	}
     
 	def showServices(){

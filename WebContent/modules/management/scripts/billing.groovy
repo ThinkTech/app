@@ -44,7 +44,7 @@ class ModuleAction extends ActionSupport {
 	     bill.paidBy = user.name 
 	   }
 	   connection.close()
-	   response.writer.write(json([entity : bill]))
+	   write(json([entity : bill]))
 	}
 	
 	def getConnection()  {

@@ -23,7 +23,7 @@ class ModuleAction extends ActionSupport {
 	  	generateContract(project)
 	  }
 	  connection.close()
-      response.writer.write(json([status: 1]))
+      write(json([status: 1]))
    }
    
    def generateContract(project) {

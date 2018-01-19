@@ -40,9 +40,9 @@ class ModuleAction extends ActionSupport {
 	   if(user) {
 	    user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
         session.setAttribute("user",user)
-	   	response.writer.write(json([url: request.contextPath+"/dashboard"]))
+	   	write(json([url: request.contextPath+"/dashboard"]))
 	   }else{
-	    response.writer.write(json([status : 1]))
+	    write(json([status : 1]))
 	   }
 	   connection.close()
 	}
@@ -52,7 +52,7 @@ class ModuleAction extends ActionSupport {
 	   def connection = getConnection()
 	   connection.executeUpdate 'update users set password = ? where id = ?', [user.password,session.getAttribute("user").id] 
 	   connection.close()
-	   response.writer.write(json([status: 1]))
+	   write(json([status: 1]))
 	}
 	
 	def recoverPassword() {
@@ -73,9 +73,9 @@ class ModuleAction extends ActionSupport {
 	   	def mailSender = new MailSender(mailConfig)
 	   	def mail = new Mail("$user.name","$user.email","Réinitialisation de votre mot de passe",template)
 	   	mailSender.sendMail(mail)
-	   	response.writer.write(json([status: 1]))
+	   	write(json([status: 1]))
 	   }else {
-	   	response.writer.write(json([status: 0]))
+	   	write(json([status: 0]))
 	   }
 	}
 	
@@ -85,7 +85,7 @@ class ModuleAction extends ActionSupport {
 	   def email = session.getAttribute("user").email
 	   if(user.email != email){
 	    if(connection.firstRow("select id from users where email = ?", [user.email])){
-	   	    response.writer.write(json([status: 0]))
+	   	    write(json([status: 0]))
 	   	    return
 	   	 }
 	   }
@@ -99,17 +99,17 @@ class ModuleAction extends ActionSupport {
 	   user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
        session.setAttribute("user",user) 
 	   connection.close() 
-	   response.writer.write(json([status: 1]))
+	   write(json([status: 1]))
 	}
 	
 	def addCollaborator(){
 	   def user = new JsonSlurper().parse(request.inputStream)
 	   def connection = getConnection()
 	   if(user.email == session.getAttribute("user").email){
-	     response.writer.write(json([status : 0]))
+	     write(json([status : 0]))
 	   }
 	   else if(connection.firstRow("select id from users where email = ?", [user.email])) {
-		  response.writer.write(json([status : 0]))
+		  write(json([status : 0]))
 	   }else{
 	      def structure_id = session.getAttribute("user").structure.id
 	      def alphabet = (('A'..'N')+('P'..'Z')+('a'..'k')+('m'..'z')+('2'..'9')).join()  
@@ -126,7 +126,7 @@ class ModuleAction extends ActionSupport {
 	   	  def mailSender = new MailSender(mailConfig)
 	   	  def mail = new Mail("$user.email","$user.email","Veuillez confirmer cette demande de collaboration",template)
 	   	  mailSender.sendMail(mail)
-          response.writer.write(json([id : id]))
+          write(json([id : id]))
  	   }
  	   connection.close()
 	}
@@ -145,7 +145,7 @@ class ModuleAction extends ActionSupport {
 	   	def mailSender = new MailSender(mailConfig)
 	   	def mail = new Mail("$user.email","$user.email","Veuillez confirmer cette demande de collaboration",template)
 	   	mailSender.sendMail(mail)
-	   	response.writer.write(json([status : 1]))
+	   	write(json([status : 1]))
 	}
 	
 	def removeCollaborator(){
@@ -156,7 +156,7 @@ class ModuleAction extends ActionSupport {
          connection.execute 'delete from accounts where user_id = ?',[id]
          connection.close()
        } 
-	   response.writer.write(json([id : id]))
+	   write(json([id : id]))
 	}
 	
 	def getCollaboratorInfo(){
@@ -166,7 +166,7 @@ class ModuleAction extends ActionSupport {
 	   user.active = user.activated ? "oui" : "non"
 	   user.locked = user.locked ? "oui" : "non"
 	   connection.close()
-	   response.writer.write(json([entity : user]))
+	   write(json([entity : user]))
 	}
 	
 	def lockAccount(){
@@ -176,7 +176,7 @@ class ModuleAction extends ActionSupport {
 	      connection.executeUpdate 'update accounts set locked = true  where user_id = ?', [user.id] 
 	      connection.close()
 	    }
-		response.writer.write(json([status: 1]))
+		write(json([status: 1]))
 	}
 	
 	def unlockAccount(){
@@ -186,7 +186,7 @@ class ModuleAction extends ActionSupport {
 	      connection.executeUpdate 'update accounts set locked = false  where user_id = ?', [user.id] 
 	      connection.close()
 	    }
-		response.writer.write(json([status: 1]))
+		write(json([status: 1]))
 	}
 	
 	def logout() {
@@ -202,7 +202,7 @@ class ModuleAction extends ActionSupport {
 	      def connection = getConnection()
 	      def user = connection.firstRow("select * from users where email = ?", [subscription.email])
 	      if(user) {
-		    response.writer.write(json([status : 0]))
+		    write(json([status : 0]))
 	      }else{
 	        def params = [subscription.structure]
             def result = connection.executeInsert 'insert into structures(name) values (?)', params
@@ -243,7 +243,7 @@ class ModuleAction extends ActionSupport {
 		    def mailSender = new MailSender(mailConfig)
 		    def mail = new Mail(subscription.name,subscription.email,"${subscription.name}, confirmer votre souscription au ${subscription.plan}",template)
 		    mailSender.sendMail(mail)
-		    response.writer.write(json([status : 1]))
+		    write(json([status : 1]))
 	      }
 	     connection.close()
        }
