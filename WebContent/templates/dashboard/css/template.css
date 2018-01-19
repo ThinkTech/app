@@ -1141,7 +1141,7 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 }
 .badge, .label {
     display: inline-block;
-    top: 1px;
+    top: 0px;
     position: relative;
 }
 .table .badge, .table .label {

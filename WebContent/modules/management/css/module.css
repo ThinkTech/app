@@ -27,7 +27,7 @@
 .window > div .label, .window > div .badge {
      width: auto;
      border : none;
-     padding: 2px;
+     padding: 3px;
      padding-bottom: 3px;
      padding-left : 4px;
      padding-right : 4px;
@@ -660,7 +660,7 @@ label.tree_label:before {
       float : right;
      }
      .window > div a.pay,.window > div a.close-ticket{position : relative; top : -2px}
-     .info-tasks li span:first-of-type {width : 100%;}
+     .info-tasks li span:first-of-type {width : 100%;padding-top: 4px;padding-bottom: 4px;}
      .window > div fieldset a {position: relative;top: 3px;}
      .window > div .entity-edition select {font-size: 11px;}
 }
