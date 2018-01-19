@@ -342,7 +342,7 @@ $(document).ready(function(){
 				 });
 				 
 			 }else {
-				img.attr("src",url+"/images/document.png");
+				img.attr("src",url+"images/document.png");
 			 }
 		 }
 		 icons.show();
