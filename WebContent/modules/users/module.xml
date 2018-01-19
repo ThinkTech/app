@@ -1,13 +1,6 @@
 <module>
 	<name>users</name>
 	<type>back-end</type>
-	<author>Mamadou Lamine Ba</author>
-	<authorEmail>laminba2003@yahoo.fr</authorEmail>
-	<description>module to manage users</description>
-	<creationDate>2016-09-01</creationDate>
-	<copyright>© 2016</copyright>
-	<license>GNU/GPL</license>
-	<version>1.0</version>
 	<actions>
 	    <action  url="subscribe"  method="subscribe"/>
 	    <action  url="registration/confirm" method="confirm"/>
