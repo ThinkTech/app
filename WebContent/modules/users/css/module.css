@@ -96,6 +96,12 @@ h3.tittle {
 	background: #fff;
 }
 
+td span {
+	float: right;
+    position: relative;
+    top: -2px;
+}
+
 .first-one input[type="password"]{
    width: 100%;
     padding: 1em 4em 1em 1em;
