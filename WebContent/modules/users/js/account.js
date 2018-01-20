@@ -232,7 +232,7 @@ jQuery(document).ready(function( $ ) {
 				  url: url,
 				  success: function(response) {
 					  if(response.id){
-						  alert("votre collaborateur a &edot;t&edot; bien supprim&edot;");
+						  alert("ce collaborateur a &edot;t&edot; bien supprim&edot;");
 						  $(".table tr[id="+response.id+"]").remove();
 					  }
 				  },
