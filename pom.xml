@@ -73,7 +73,7 @@
 				<configuration>
 					<appName>thinktech-app</appName>
 					<processTypes>
-     					<web>java $JAVA_OPTS -jar target/dependency/webapp-runner.jar $WEBAPP_RUNNER_OPTS --enable-compression true --port $PORT target/app-1.0.war</web>
+     					<web>java $JAVA_OPTS -jar target/dependency/webapp-runner.jar --enable-compression true --port $PORT target/app-1.0.war</web>
   					</processTypes>
 				</configuration>
 			</plugin>
