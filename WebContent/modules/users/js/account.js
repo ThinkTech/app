@@ -181,7 +181,7 @@ jQuery(document).ready(function( $ ) {
 	});
 	
 	$(".window form").submit(function(event){
-		const window = $(".window").hide();
+		const window = $(".window.form").hide();
 		const form = $(this);
 		const user = {};
 		user.email = form.find("input[name=email]").val().trim();
