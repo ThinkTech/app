@@ -189,18 +189,4 @@ $(document).ready(function(){
 	});
 	$("#confirm-dialog-ok").html("Oui");
 	$("#confirm-dialog-cancel").html("Annuler");
-	if (!("Notification" in window)) {
-	}
-	else if (Notification.permission === "granted") {
-	}
-	else if (Notification.permission !== 'denied') {
-	    Notification.requestPermission(function (permission) {
-	      if (permission === "granted") {
-	    	  var n = new Notification('Notification', { 
-	    			body: 'Activation reussie!',
-	    			icon: 'images/favicon.png' // optional
-	    		});
-	      }
-	    });
-	}
  });
