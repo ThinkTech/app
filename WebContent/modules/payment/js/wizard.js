@@ -17,7 +17,7 @@ page.wizard.init = function(){
 		    		$(".payment",currentStep).hide();
 		    		const input = prevStep.find("select[name='method']");
 	    			const val = input.val();
-                    if(val == "visa") {
+                    if(val == "visa" || val == "mastercard") {
                       page.wait({top : form.offset().top+80});
                       head.load("https://sandbox-assets.secure.checkout.visa.com/checkout-widget/resources/js/integration/v1/sdk.js",function(){
                     	  page.release();

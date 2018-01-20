@@ -288,13 +288,20 @@ $(document).ready(function(){
 		 const list = $(".documents .document-list");
 		 $(".document-list-ol,.document-list-tree,.document-list-icons").show();
 		 list.find("h6").hide();
-		 page.render($("ol",list).addClass("not-empty"),documents,true,function(div){
-		    $("span a",div).click(function(event){
+		 page.render($("ol",list).addClass("not-empty"),documents,true,function(li){
+		    $("> span > a",li).click(function(event){
 		    	$(".info-message").hide();
 				 const info = $(this).parent().prev();
 				 info.css({top : event.pageY-20,left : event.pageX-info.width()-50}).toggle();
 				 return false;
 			});
+		    $("> a",li).click(function(event){
+				 const href = $(this).attr("href");
+				 confirm("&ecirc;tes vous s&ucirc;r de vouloir t&edot;l&edot;charger ce document?",function(){
+					 location.href = href;
+				 });
+				 return false;
+			 });
 		 });
 		 if(callback) callback();
 	};
@@ -308,7 +315,14 @@ $(document).ready(function(){
 		 for(var i = 0; i <documents.length;i++){
 			 var name = documents[i].name.toLowerCase();
 			 const li = $("<li><a class='tree_label'/></li>");
-			 $("a",li).html('<i class="fa fa-file" aria-hidden="true"></i> '+name).attr("href",page.details.url+"/projects/documents/download?name="+name+"&project_id="+id);
+			 const link = $("a",li).html('<i class="fa fa-file" aria-hidden="true"></i> '+name).attr("href",page.details.url+"/projects/documents/download?name="+name+"&project_id="+id);
+			 link.click(function(event){
+				 const href = $(this).attr("href");
+				 confirm("&ecirc;tes vous s&ucirc;r de vouloir t&edot;l&edot;charger ce document?",function(){
+					 location.href = href;
+				 });
+				 return false;
+			 });
 			 if(name.endsWith(".png") || name.endsWith(".gif") || name.endsWith(".jpeg") || name.endsWith(".jpg")){
 				 images.append(li);
 			 }else {
@@ -330,6 +344,13 @@ $(document).ready(function(){
 			 const img = $("<img/>");
 			 div.append(img);
 			 div.append($("<a/>").html(name).attr("href",page.details.url+"/projects/documents/download?name="+name+"&project_id="+id));
+			 $("a",div).click(function(event){
+				 const href = $(this).attr("href");
+				 confirm("&ecirc;tes vous s&ucirc;r de vouloir t&edot;l&edot;charger ce document?",function(){
+					 location.href = href;
+				 });
+				 return false;
+			 });
 			 icons.append(div);
 			 if(name.endsWith(".png") || name.endsWith(".gif") || name.endsWith(".jpeg") || name.endsWith(".jpg")){
 				 img.attr("src",page.details.url+"/projects/documents/download?name="+name+"&project_id="+id);
