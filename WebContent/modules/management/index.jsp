@@ -303,7 +303,7 @@
       <div data-plan="plan business" class="pricing business" style="display:none">
 			<div class="pricing-top green-top">
 				<h3>Business</h3>
-				<p>20 000 F/mois</p>
+				<p>25 000 F/mois</p>
 			</div>
 			<div class="pricing-bottom">
 				<div class="pricing-bottom-top">
@@ -329,7 +329,7 @@
     <div data-plan="plan corporate" class="pricing corporate" style="display:none">
 		<div class="pricing-top blue-top">
 			<h3>Corporate</h3>
-			<p>15 000 F/mois</p>
+			<p>20 000 F/mois</p>
 		</div>
 		<div class="pricing-bottom">
 			<div class="pricing-bottom-top">
@@ -354,7 +354,7 @@
 	<div data-plan="plan personal" class="pricing personal" style="display:none">
 		<div class="pricing-top">
 			<h3>Personal</h3>
-			<p>10 000 F/mois</p>
+			<p>15 000 F/mois</p>
 		</div>
 		<div class="pricing-bottom">
 			<div class="pricing-bottom-top">
