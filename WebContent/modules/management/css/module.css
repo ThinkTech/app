@@ -462,8 +462,13 @@ legend a i.fa {
 
 .window > div input[type=text], .window > div select {
 	padding: 1px;
-	padding-left : 2px;
+	padding-left : 4px;
 	width : 50%;
+}
+
+.window > div select {
+   text-indent: 0px;
+    padding-left: 0;
 }
 
 .window > div .badge {

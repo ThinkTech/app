@@ -72,6 +72,11 @@ input, select, textarea {
 	font-size : 14px;
 }
 
+select {
+	text-indent: 0px;
+    padding-left: 0;
+}
+
 input:focus, select:focus, textarea:focus {
     border: 1px solid #05d2ff;
 }
