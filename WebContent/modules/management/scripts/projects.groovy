@@ -76,11 +76,11 @@ class ModuleAction extends ActionSupport {
 	   if(project.service == "web dev") {
 	      bill.fee = "caution"
 	      if(project.plan == "plan business") {
-	         bill.amount = 20000 * 3
+	         bill.amount = 25000 * 3
 	      }else if(project.plan == "plan corporate") {
-	         bill.amount = 15000 * 3
+	         bill.amount = 20000 * 3
 	      }else if(project.plan == "plan personal") {
-	         bill.amount = 10000 * 3
+	         bill.amount = 15000 * 3
 	      }
 	   }
 	   bill

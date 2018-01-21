@@ -41,8 +41,7 @@ page.wizard.init = function(){
                     		  } 
                     		  });
                     		  V.on("payment.success", function(response){
-                    			  console.log(response);
-                    			  page.wizard.bill.paidWith = "Carte Visa";
+                    			  page.wizard.bill.paidWith = val == 'visa' ? "Visa" : "MasterCard";
                     			  page.wizard.submit();
                     		  });
                     		  V.on("payment.cancel", function(response){ 
