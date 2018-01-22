@@ -36,6 +36,7 @@ public class AppListener implements ServletContextListener {
 		  ds.setUsername("bb9837ece01288");
 		  ds.setPassword("fe21ab0a");
 		  ds.setInitialSize(3);
+		  ds.setMaxTotal(10);
 	      return ds;
 	}
 		 

@@ -36,7 +36,7 @@ class ModuleAction extends ActionSupport {
 	def login() {
 	   def user = new JsonSlurper().parse(request.inputStream) 
 	   def connection = getConnection()
-	   user = connection.firstRow("select u.* from users u, accounts a where u.email = ? and u.password = ? and u.type = 'customer' and a.activated = true and a.locked = false and a.user_id = u.id", [user.email,user.password])
+	   user = connection.firstRow("select u.* from users u, accounts a where u.email = ? and u.password = sha(?) and u.type = 'customer' and a.activated = true and a.locked = false and a.user_id = u.id", [user.email,user.password])
 	   if(user) {
 	    user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
         session.setAttribute("user",user)
@@ -50,7 +50,7 @@ class ModuleAction extends ActionSupport {
 	def changePassword() {
 	   def user = new JsonSlurper().parse(request.inputStream)
 	   def connection = getConnection()
-	   connection.executeUpdate 'update users set password = ? where id = ?', [user.password,session.getAttribute("user").id] 
+	   connection.executeUpdate 'update users set password = sha(?) where id = ?', [user.password,session.getAttribute("user").id] 
 	   connection.close()
 	   write(json([status: 1]))
 	}
@@ -64,7 +64,7 @@ class ModuleAction extends ActionSupport {
  		def n = 15 
  		user.password = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
         user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
-	   	connection.executeUpdate 'update users set password = ? where email = ?', [user.password,user.email]
+	   	connection.executeUpdate 'update users set password = sha(?) where email = ?', [user.password,user.email]
 	   	def template = getPasswordTemplate(user) 
 	    def params = ["Réinitialisation de votre mot de passe",template,user.id,user.structure.id]
        	connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?, ?)', params
@@ -117,7 +117,7 @@ class ModuleAction extends ActionSupport {
  		  user.password = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
  		  user.activationCode = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
 	      def params = [user.email,user.email,user.password,"collaborateur",false,structure_id]
-          def result = connection.executeInsert 'insert into users(name,email,password,role,owner,structure_id) values (?,?,?,?,?,?)', params
+          def result = connection.executeInsert 'insert into users(name,email,password,role,owner,structure_id) values (?,?,sha(?),?,?,?)', params
           def id = result[0][0]
           params = [user.activationCode,id]
        	  connection.executeInsert 'insert into accounts(activation_code,user_id) values (?, ?)', params
@@ -208,7 +208,7 @@ class ModuleAction extends ActionSupport {
             def result = connection.executeInsert 'insert into structures(name) values (?)', params
             def structure_id = result[0][0]
 	        params = [subscription.name,subscription.email,subscription.password,"administrateur",true,structure_id]
-            result = connection.executeInsert 'insert into users(name,email,password,role,owner,structure_id) values (?, ?, ?,?,?,?)', params
+            result = connection.executeInsert 'insert into users(name,email,password,role,owner,structure_id) values (?,?,sha(?),?,?,?)', params
             def user_id = result[0][0]
             def alphabet = (('A'..'N')+('P'..'Z')+('a'..'k')+('m'..'z')+('2'..'9')).join()  
  			def n = 30 
