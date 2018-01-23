@@ -939,6 +939,7 @@ td a.pay i {
 .inner-block {
     padding-top: 30px;
     padding-right : 0px;
+    padding-left: 18px;
 }
 .left-content {
     width: 80%;
@@ -1282,5 +1283,8 @@ ul.dropdown-menu {
 }
 .profile_details ul li ul.dropdown-menu.drp-mnu {
     min-width: 160px;
+}
+.inner-block {
+    padding-left: 13px;
 }
 }
