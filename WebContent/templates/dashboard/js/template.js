@@ -3,7 +3,7 @@ page.form = {};
 page.form.show = function(){
 	const form = $(".window.form");
 	const area = $('textarea',form);
-	if(area.length) tinymce.init({target:area[0],height:"150",language: 'fr_FR',menubar:false,statusbar: false});
+	if(area.length) tinymce.init({target:area[0],skin: "xenmce",height:"150",language: 'fr_FR',menubar:false,statusbar: false});
 	setTimeout(function(){
 		form.show();
 	},1000);
@@ -66,7 +66,7 @@ page.details.show = function(entity) {
 		  if(areas.length) {
 			  tinymce.remove();
 			  $.each(areas,function(i,node){
-				  tinymce.init({target:node,height:"120",language: 'fr_FR',menubar:false,statusbar: false}); 
+				  tinymce.init({target:node,skin: "xenmce",height:"120",language: 'fr_FR',menubar:false,statusbar: false}); 
 			  });
 		  }
 		  div.show(10,function(){
