@@ -240,6 +240,12 @@ td i.fa-user {
 	background: #05d2ff;
 }
 
+fieldset {
+	border: none;
+	padding: 0;
+    margin: 0;
+}
+
 fieldset > span {
 	width : 50%;
 	display : inline-block;
@@ -259,6 +265,7 @@ fieldset > span.text-right {
 	width: 40%;
     background: #ffe;
     padding-right: 6px;
+    text-align : right;
 }
 
 fieldset > span.text-right i{
@@ -931,6 +938,7 @@ td a.pay i {
  }
 .inner-block {
     padding-top: 30px;
+    padding-right : 0px;
 }
 .left-content {
     width: 80%;

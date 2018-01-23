@@ -7,7 +7,7 @@
 			    <div class="web-forms">
 				 <!--first-one-->
 				 <div class="col-md-4 first-one">
-				  <div class="first-one-inner">
+				  <div class="first-one-inner password-area">
 				     <h3 class="tittle"><i class="fa fa-key"></i> Mot de Passe</h3>
 					<form class="password-form" action="${url}/password/change">
 						<input type="password" name="password" class="text" required>
@@ -89,7 +89,7 @@
 			      </div>
 				 
 				   <!--/third-one-->
-				   <div class="col-md-6 first-one">
+				   <div class="col-md-5 first-one">
 					    <div class="first-one-inner lost">
 						    <div class="user profile">
 								<div class="profile-bottom">
@@ -125,8 +125,6 @@
    										<input name="profession" type="text" value="${user.profession}">
 										<span class="text-right">Téléphone </span>
 										<input name="telephone" value="${user.telephone}" type="text">
-										<span class="text-right">Role </span>
-   										<span>&nbsp;${user.role}</span>
 										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Structure </span>
    										<input name="structure" value="${user.structure.name}" type="text" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
    										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Activité Principale </span>

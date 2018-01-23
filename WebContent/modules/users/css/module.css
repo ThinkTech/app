@@ -69,13 +69,14 @@
 }
 
 .first-one-inner {
-    background: #ffe;
     padding: 2em;
-    padding-top : 2em;
     padding-bottom : 1.5em;
-    border-radius: 0.3em;
-    border: 1px solid #dff9ff;
 }
+
+.password-area {
+	background: #ffe;
+}
+
 h3.tittle {
     text-align: center;
     margin-bottom: 1em;
@@ -83,12 +84,6 @@ h3.tittle {
     color: #171819;
     text-shadow: 1px 0px #000000;
     font-size: 1.6em;
-}
-/*--first-one--*/
-.first-one{
-    border-top-left-radius: 0.3em;
-    border-radius: 0.3em;
-  
 }
 
 .first-one .table-responsive {
@@ -149,7 +144,7 @@ td span {
 }
 
 .profile-edition input[type=text], .profile-edition input[type=email] {
-	padding: 0px;
+	padding: 2px;
 	width : 50%;
 	padding-left : 2px;
 }
@@ -165,6 +160,11 @@ td span {
 
 .profile {
     text-align: center;
+    vertical-align: top;
+    margin-top: -2em;
+    min-height: 459px;
+    padding-top: 1em;
+    background : #05d2ff;
 }
 .profile a {
 	position: relative;
@@ -173,10 +173,11 @@ td span {
     color: #fff;
     cursor : pointer;
 }
-.first-one-inner.lost{
-  background:#05d2ff;
-  
+
+.profile fieldset {
+	padding : 10px;
 }
+
 
 legend {
  font-size: 22px;
@@ -187,7 +188,7 @@ legend {
  margin-bottom: 0;
  text-align: center;
  background: #05d2ff;
- border: 1px solid #bceef9;
+ width : 100%;
 }
 
 legend a {
@@ -236,14 +237,16 @@ legend a i.fa {
 }
 @media (max-width:1280px){
 	.profile a {
-    	top: 10px;
+    	top: -10px;
     	font-size: 13px;
 	}
 	.first-one input[type="password"] {
        margin: 0.5em 0;
 	}
+	.profile{min-height: 445px;}
 }
 @media (max-width:1024px){
+	.profile{min-height: 453px;}
    .first-one-inner {
       padding: 2em 1em;
 	}
@@ -260,6 +263,9 @@ legend a i.fa {
 	}
 }
 @media (max-width:991px){
+	fieldset > span.text-right {
+    margin-bottom: 5px;
+}
 	.window{padding-top : 2%}
 	.window.details > div fieldset > span:nth-child(2n) {
     width: 100%;
@@ -378,7 +384,7 @@ legend a i.fa {
 		font-size: 15px;
 	}
 	.first-one input[type="submit"],.first-one input[type="button"] {
-		font-size: 12px;
+		font-size: 11px;
 		padding: 11px 15px;
 		width: 48%;
 	}
@@ -398,7 +404,7 @@ legend a i.fa {
 		font-size: 15px;
 	}
 	.first-one input[type="submit"],.first-one input[type="button"] {
-		font-size: 13px;
+		font-size: 10px;
 		padding: 10px 15px;
 	}
     
