@@ -261,6 +261,10 @@ fieldset > span {
 	box-shadow : 0 0px 0px 0 rgba(0, 0, 0, 0.05), 0 0px 8px 0 rgba(0, 0, 0, 0.04);
 }
 
+.text-center {
+	text-align : center;
+}
+
 fieldset > span.text-right {
 	width: 40%;
     background: #ffe;
