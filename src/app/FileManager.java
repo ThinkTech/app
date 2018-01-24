@@ -24,5 +24,4 @@ public class FileManager {
     public void download(String name,OutputStream out) throws Exception {
     	client.files().downloadBuilder("/"+name).start().download(out);
     }
-    
 }
