@@ -8,6 +8,7 @@ import static groovy.json.JsonOutput.toJson as json
 import groovy.json.JsonSlurper
 import app.FileManager
 import groovy.sql.Sql
+import static org.apache.commons.io.FileUtils.byteCountToDisplaySize as byteCount
 
 class ModuleAction extends ActionSupport {
 
@@ -103,7 +104,7 @@ class ModuleAction extends ActionSupport {
           document.author = row.author
           document.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(row.date)
           document.name = row.name
-          document.size = org.apache.commons.io.FileUtils.byteCountToDisplaySize(row.size as long)
+          document.size = byteCount(row.size as long)
           project.documents << document
        })
        project.tasks = []
