@@ -207,6 +207,8 @@ class ModuleAction extends ActionSupport {
 	        def params = [subscription.structure]
             def result = connection.executeInsert 'insert into structures(name) values (?)', params
             def structure_id = result[0][0]
+            params = ["web dev",structure_id]
+            connection.executeInsert 'insert into subscriptions(service,structure_id) values (?,?)', params
 	        params = [subscription.name,subscription.email,subscription.password,"administrateur",true,structure_id]
             result = connection.executeInsert 'insert into users(name,email,password,role,owner,structure_id) values (?,?,sha(?),?,?,?)', params
             def user_id = result[0][0]
