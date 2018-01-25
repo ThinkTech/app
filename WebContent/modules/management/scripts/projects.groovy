@@ -37,12 +37,9 @@ class ModuleAction extends ActionSupport {
 
    def createProject() {
 	   def project = new JsonSlurper().parse(request.inputStream) 
-	   def template = getProjectTemplate(project)
 	   def connection = getConnection()
 	   def user = session.getAttribute("user")
-	   def params = ["Projet : " +project.subject,template,user.id,user.structure.id]
-       connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?, ?)', params
-	   params = [project.subject,project.priority,project.service,project.plan, project.description,user.id,user.structure.id]
+	   def params = [project.subject,project.priority,project.service,project.plan, project.description,user.id,user.structure.id]
        def result = connection.executeInsert 'insert into projects(subject,priority,service,plan,description,user_id,structure_id) values (?, ?, ?,?,?,?,?)', params
        def id = result[0][0]
        def bill = createBill(project)
@@ -64,10 +61,6 @@ class ModuleAction extends ActionSupport {
          }
        }
 	   connection.close()
-	   def mailConfig = new MailConfig(context.getInitParameter("smtp.email"),context.getInitParameter("smtp.password"),"smtp.thinktech.sn")
-	   def mailSender = new MailSender(mailConfig)
-	   def mail = new Mail("$user.name","$user.email","Projet : ${project.subject}",template)
-	   mailSender.sendMail(mail) 
 	   write(json([id: id]))
 	}
 	
@@ -195,49 +188,6 @@ class ModuleAction extends ActionSupport {
 	     connection.close()
 	   }
 	   write(json([status: 1]))
-	}
-		
-	def getProjectTemplate(project) {
-	    TemplateConfiguration config = new TemplateConfiguration()
-		MarkupTemplateEngine engine = new MarkupTemplateEngine(config)
-		def text = '''\
-		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
-		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
-		    img(src : "https://www.thinktech.sn/images/logo.png", style : "display:block;margin : 0 auto")
-		    div(style : "margin-top:10px;padding-top:2%;height:100px;text-align:center;background:#05d2ff") {
-		      h4(style : "font-size: 200%;color: #fff;margin: 3px") {
-		        span("Souscription reussie")
-		      }
-		      p(style : "font-size:150%;color:#fff"){
-		         span("votre projet a &edot;t&edot; bien cr&edot;&edot;")
-		      }
-		    }
-		    div(style : "width:90%;margin:auto;margin-top : 30px;margin-bottom:30px") {
-		      if(project.structure) {
-		        h5(style : "font-size: 120%;color: rgb(0, 0, 0);margin-bottom: 15px") {
-		         span("Structure : $project.structure")
-		        }
-		      }
-		      p("Merci pour votre souscription au ${project.plan}")
-		      h5(style : "font-size: 120%;color: rgb(0, 0, 0);margin-bottom: 15px") {
-		         span("Description du projet")
-		      }
-		      p("$project.description")
-		      br()
-		      p("Votre projet est en attente de traitement.")
-		    }
-		  }
-		  
-		  div(style :"margin: 10px;margin-top:10px;font-size : 11px;text-align:center") {
-		      p("Vous recevez cet email parce que vous (ou quelqu'un utilisant cet email)")
-		      p("a cr&edot;&edot; un projet en utilisant cette adresse")
-		  }
-		  
-		   
-		 }
-		'''
-		def template = engine.createTemplate(text).make([project:project,url : baseUrl])
-		template.toString()
 	}
 	
 	def getConnection()  {

@@ -39,17 +39,13 @@ class ModuleAction extends ActionSupport {
 	   def template = getUserTicketTemplate(ticket)
 	   def connection = getConnection()
 	   def user = session.getAttribute("user")
-	   def params = ["Ticket : "+ticket.subject,template,user.id,user.structure.id]
-       connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?,?)', params
-	   params = [ticket.subject,ticket.service,ticket.message,ticket.priority,user.id,user.structure.id]
+	   def params = [ticket.subject,ticket.service,ticket.message,ticket.priority,user.id,user.structure.id]
        def result = connection.executeInsert 'insert into tickets(subject,service,message,priority,user_id,structure_id) values (?, ?, ?, ?,?,?)', params
 	   connection.close()
+	   ticket.user = user
 	   def mailConfig = new MailConfig(context.getInitParameter("smtp.email"),context.getInitParameter("smtp.password"),"smtp.thinktech.sn")
 	   def mailSender = new MailSender(mailConfig)
-	   def mail = new Mail("$user.name","$user.email","Ticket : ${ticket.subject}",template)
-	   mailSender.sendMail(mail)
-	   ticket.user = user
-	   mail = new Mail("support@thinktech.sn","support@thinktech.sn","Ticket : ${ticket.subject}",getSupportTicketTemplate(ticket))
+	   def mail = new Mail("support@thinktech.sn","support@thinktech.sn","Ticket : ${ticket.subject}",getSupportTicketTemplate(ticket))
 	   mailSender.sendMail(mail)
 	   write(json([id: result[0][0]]))
 	}
@@ -201,6 +197,7 @@ class ModuleAction extends ActionSupport {
 	
 	def getConnection()  {
 		new Sql(dataSource)
+		
 	}
 	
 }
