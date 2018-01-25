@@ -79,7 +79,7 @@ class ModuleAction extends ActionSupport {
     }
 			
 	def getConnection()  {
-		new Sql(context.getAttribute("datasource"))
+		new Sql(dataSource)
 	}
 	
 }
