@@ -26,11 +26,6 @@ page.details.show = function(entity) {
 			 const id = "#template-"+node.data("template");
 			 node.append($(id,div).clone());
 		 });
-		 $.each($(".digit",section),function(i,node){
-			 node = $(node);
-			 const val = parseInt(node.text());
-			 node.html(val.toLocaleString("fr-FR"));
-		 });
 		 $("a.message-add",section).click(function(event) {
 				const div = $(this).parent().next();
 				const list = div.find(".message-list");
@@ -61,17 +56,22 @@ page.details.show = function(entity) {
 				div.find(".message-edition,.document-upload").hide();
 				return false;
 		  });
-		  if(page.details.bind) page.details.bind(div,entity);
-		  const areas = $("textarea",div); 
-		  if(areas.length) {
-			  tinymce.remove();
-			  $.each(areas,function(i,node){
-				  tinymce.init({target:node,skin: "xenmce",height:"120",language: 'fr_FR',menubar:false,statusbar: false}); 
-			  });
-		  }
-		  div.show(10,function(){
+		  div.show(1,function(){
 			  page.release();
+			  $.each($(".digit",section),function(i,node){
+				 node = $(node);
+				 const val = parseInt(node.text());
+				 node.html(val.toLocaleString("fr-FR"));
+			  });
+			  const areas = $("textarea",div); 
+			  if(areas.length) {
+				  tinymce.remove();
+				  $.each(areas,function(i,node){
+					  tinymce.init({target:node,skin: "xenmce",height:"120",language: 'fr_FR',menubar:false,statusbar: false}); 
+				  });
+			  }
 		  });
+		  if(page.details.bind) page.details.bind(div,entity);
 	});
 	
 };
