@@ -701,7 +701,6 @@ label.tree_label:before {
 	   font-size: 13px;
 	   padding: 10px 15px;
 	   width: 45%;
-	   border: none;
 	}
 	.window > div input[type=text], .window > div select, .window > div input[type=file] {
        font-size: 12px;
