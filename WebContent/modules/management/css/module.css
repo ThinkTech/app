@@ -123,7 +123,7 @@
 	width: 90%;
     margin: auto;
     margin-top : 5px;
-    padding-left: 10%;
+    text-align: center;
 }
 
 .window > div input[type="submit"],.window > div input[type="button"]{
@@ -133,7 +133,7 @@
     cursor: pointer;
     outline: none;
     padding: 15px 15px;
-    width: 44%;
+    width: 34%;
     margin: auto;
     margin-right: 10px;
     display: inline-block;
