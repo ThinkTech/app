@@ -86,17 +86,9 @@
 </div>
 <script>
 <%@include file="/js/jquery-3.1.1.min.js"%>
-</script>
-<script>
 <%@include file="/js/metamorphosis.js"%>
-</script> 
-<script>
 <%@include file="/templates/dashboard/js/template.js"%>
-</script>
-<script>
 <%@include file="/templates/dashboard/js/bootstrap.js"%>
-</script>
-<script>
 <%@include file="/js/dust-full.min.js"%>
 </script>
 </body>
