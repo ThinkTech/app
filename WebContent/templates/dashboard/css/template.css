@@ -921,18 +921,6 @@ td a.pay i {
 .user-name {
     margin-right: 22px;
 }
-.billing th:nth-child(6), .billing td:nth-child(6) {
-    display: block;
-}
-.projects th:nth-child(5), .projects td:nth-child(5) {
-    display: block;
-}
-.projects th:nth-child(5),.support th:nth-child(6),.billing th:nth-child(6) {
-    font-size : 0px;
-}
-.support th:nth-child(6), .support td:nth-child(6) {
-    display: block;
-}
 .table > thead > tr > th, .table > tbody > tr > td {
     font-size: 11.5px;
     overflow : hidden;
