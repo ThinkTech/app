@@ -102,7 +102,7 @@ body {
 .header-w3l h1 span {
 	color: #05d2ff;
 	display: inline-block;
-	border: 8px solid;
+	border: 11px solid;
 	padding: 0 .2em;
 	text-shadow: none;
 }
@@ -594,7 +594,7 @@ a.w3-pass {
 		margin-bottom : 0px;
 	}
 	.main-content-agile {
-		width: 89%;
+		width: 92.2%;
 		margin-top: -20px;
 	}
 	span.icon1, span.icon2 {
