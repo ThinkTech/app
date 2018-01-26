@@ -121,6 +121,9 @@ class ModuleAction extends ActionSupport {
          project.bill = connection.firstRow("select b.*,p.service from bills b, projects p where b.project_id = p.id and p.id = ?", [id])
 	  	 project.bill.date = new java.text.SimpleDateFormat("dd/MM/yyyy").format(project.bill.date)
        }
+       if(project.status == "finished"){
+         response.setHeader("Cache-control", "private, max-age=78840000")
+       }
 	   connection.close() 
 	   write(json([entity : project]))
 	}

@@ -65,6 +65,7 @@ class ModuleAction extends ActionSupport {
 	   message.date = new java.text.SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(message.date)
 	   connection.executeUpdate 'update messages set unread = false where id = ?', [id] 
 	   connection.close()
+	   response.setHeader("Cache-control", "private, max-age=78840000")
 	   write(json([entity : message]))
 	}
     
