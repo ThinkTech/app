@@ -180,7 +180,6 @@ class ModuleAction extends ActionSupport {
 		      }
 		      p("$ticket.message")
 		      br()
-		      p("ce ticket est en attente de traitement.")
 		    }
 		  }
 		  
