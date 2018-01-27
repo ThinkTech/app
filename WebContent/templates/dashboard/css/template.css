@@ -60,6 +60,7 @@ div.empty span{
 
 .table tr td:first-of-type {
 	min-width : 30px;
+	vertical-align: top;
 }
 
 .table tr {
