@@ -306,6 +306,8 @@ legend a i.fa {
 	}
 	.first-one-inner.lost {
 		padding-top: 40px;
+		padding-left: 0px;
+        padding-right: 0px;
 	}
 	.first-one-inner {
 		padding: 2em 2em;
