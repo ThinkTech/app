@@ -61,6 +61,7 @@ page.details.show = function(entity) {
 			  $.each($(".digit",section),function(i,node){
 				 node = $(node);
 				 const val = parseInt(node.text());
+				 
 				 node.html(val.toLocaleString("fr-FR"));
 			  });
 			  const areas = $("textarea",div); 
