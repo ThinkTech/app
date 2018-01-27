@@ -85,7 +85,6 @@
 <%@include file="/js/metamorphosis.js"%>
 <%@include file="/templates/dashboard/js/template.js"%>
 <%@include file="/templates/dashboard/js/bootstrap.js"%>
-<%@include file="/js/dust-full.min.js"%>
 </script>
 </body>
 </html>                     
