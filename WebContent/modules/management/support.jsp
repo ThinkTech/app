@@ -109,7 +109,7 @@
 		  <option value="high">élevée</option>
 		</select>
 	   <span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du probléme</span>
-		<textarea name="message"></textarea>
+		<textarea style="height:150px" name="message"></textarea>
 	</fieldset>
 	<div class="submit">
 		 <input type="submit" value="Créér">

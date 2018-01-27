@@ -445,8 +445,7 @@
 		  <option value="high">élevée</option>
 		</select>
 		<span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du projet</span>
-		<textarea name="description" placeholder="entrer votre description"></textarea>
-		<input name="structure" type="hidden" value="${user.structure.name}">
+		<textarea style="height:150px" name="description" placeholder="entrer votre description"></textarea>
 	</fieldset>
 	<div class="terms-agreement">
 		<input type="checkbox" checked disabled> J'accepte les <a class="read-terms">Termes</a>
