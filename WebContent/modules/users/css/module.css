@@ -62,6 +62,7 @@
 	margin-left: 5px;
     position: relative;
     left: 1px;
+    display: inline-block;
 }
 
 .window > div h1 i {
