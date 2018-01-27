@@ -65,13 +65,10 @@ class ModuleAction extends ActionSupport {
  		user.password = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
         user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
 	   	connection.executeUpdate 'update users set password = sha(?) where email = ?', [user.password,user.email]
-	   	def template = getPasswordTemplate(user) 
-	    def params = ["Réinitialisation de votre mot de passe",template,user.id,user.structure.id]
-       	connection.executeInsert 'insert into messages(subject,message,user_id,structure_id) values (?, ?, ?, ?)', params
-       	connection.close()
+	   	connection.close()
 	   	def mailConfig = new MailConfig(context.getInitParameter("smtp.email"),context.getInitParameter("smtp.password"),"smtp.thinktech.sn")
 	   	def mailSender = new MailSender(mailConfig)
-	   	def mail = new Mail("$user.name","$user.email","Réinitialisation de votre mot de passe",template)
+	   	def mail = new Mail("$user.name","$user.email","Réinitialisation de votre mot de passe",getPasswordTemplate(user))
 	   	mailSender.sendMail(mail)
 	   	write(json([status: 1]))
 	   }else {
@@ -139,11 +136,10 @@ class ModuleAction extends ActionSupport {
  		def connection = getConnection()
  		def params = [user.activationCode,user.id]
        	connection.executeUpdate 'update accounts set activated = false,activation_code = ? where user_id = ?', params 
- 		connection.close()
-	   	def template = getCollaborationTemplate(user) 
+ 		connection.close() 
 	    def mailConfig = new MailConfig(context.getInitParameter("smtp.email"),context.getInitParameter("smtp.password"),"smtp.thinktech.sn")
 	   	def mailSender = new MailSender(mailConfig)
-	   	def mail = new Mail("$user.email","$user.email","Veuillez confirmer cette demande de collaboration",template)
+	   	def mail = new Mail("$user.email","$user.email","Veuillez confirmer cette demande de collaboration",getCollaborationTemplate(user))
 	   	mailSender.sendMail(mail)
 	   	write(json([status : 1]))
 	}
