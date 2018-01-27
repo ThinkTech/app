@@ -43,6 +43,19 @@
 	width : 100%;
 }
 
+.window.details > div fieldset > span {
+	padding-left : 0px;
+}
+.window.details > div fieldset > span,.window.details > div fieldset > span.text-right {
+    width: 100%;
+    margin-right : 5px;
+    text-align : left;
+}
+	
+.window.details > div fieldset > span.text-right {
+    padding-left : 3px;
+}
+	
 .window > div h1 {
 	font-size: 1.2em;
     padding: 5px;
@@ -259,6 +272,7 @@ legend a i.fa {
 		color: #858282;
 		font-size: 15px;
 	}
+	.window > div h1 {font-size: 1em}
 }
 @media (max-width:991px){
 	.profile a {
@@ -268,10 +282,6 @@ legend a i.fa {
     margin-bottom: 0px;
 }
 	.window{padding-top : 2%}
-	.window.details > div fieldset > span:nth-child(2n) {
-    width: 100%;
-    margin-right : 5px;
-}
 	.profile-edition input[type=text], .profile-edition input[type=email] {
       width: 100%;
       text-align: left;
