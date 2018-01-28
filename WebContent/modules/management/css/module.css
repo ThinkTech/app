@@ -144,7 +144,8 @@
 }
 
 .window > div input[type="submit"]:hover,.window > div input[type="button"]:hover{
-  background:#05d2ff;
+  background: #fff;
+  color: #000;
 }
 
 .window > div fieldset input[type=file] {
