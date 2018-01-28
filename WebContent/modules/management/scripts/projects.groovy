@@ -1,11 +1,5 @@
-import org.metamorphosis.core.ActionSupport
-import org.metamorphosis.core.Mail
-import org.metamorphosis.core.MailConfig
-import org.metamorphosis.core.MailSender
 import groovy.text.markup.TemplateConfiguration
 import groovy.text.markup.MarkupTemplateEngine
-import static groovy.json.JsonOutput.toJson as json
-import groovy.json.JsonSlurper
 import app.FileManager
 import groovy.sql.Sql
 import static org.apache.commons.io.FileUtils.byteCountToDisplaySize as byteCount
@@ -37,7 +31,7 @@ class ModuleAction extends ActionSupport {
    }
 
    def createProject() {
-	   def project = new JsonSlurper().parse(request.inputStream) 
+	   def project = parse(request) 
 	   def connection = getConnection()
 	   def user = session.getAttribute("user")
 	   def params = [project.subject,project.priority,project.service,project.plan, project.description,user.id,user.structure.id]
@@ -62,7 +56,7 @@ class ModuleAction extends ActionSupport {
          }
        }
 	   connection.close()
-	   write(json([id: id]))
+	   json([id: id])
 	}
 	
 	def createBill(project){
@@ -125,7 +119,7 @@ class ModuleAction extends ActionSupport {
          response.setHeader("Cache-control", "private, max-age=78840000")
        }
 	   connection.close() 
-	   write(json([entity : project]))
+	   json([entity : project])
 	}
 	
 	def getProjectBill() {
@@ -133,12 +127,12 @@ class ModuleAction extends ActionSupport {
 	   def connection = getConnection()
        def bill = connection.firstRow("select b.*,p.service from bills b, projects p where b.project_id = p.id and p.id = ?", [id])
 	   bill.date = new java.text.SimpleDateFormat("dd/MM/yyyy").format(bill.date)
-	   write(json([entity : bill]))
+	   json([entity : bill])
 	   connection.close()
 	}
 	
 	def addComment() {
-	   def comment = new JsonSlurper().parse(request.inputStream) 
+	   def comment = parse(request) 
 	   def user_id = session.getAttribute("user").id
 	   Thread.start { 
 	   	 def connection = getConnection()
@@ -146,21 +140,21 @@ class ModuleAction extends ActionSupport {
          connection.executeInsert 'insert into projects_comments(message,project_id,createdBy) values (?,?,?)', params
 	     connection.close()
 	   }
-	   write(json([status: 1]))
+	   json([status: 1])
 	}
 	
 	def updateProjectPriority(){
-	    def project = new JsonSlurper().parse(request.inputStream) 
+	    def project = parse(request) 
 	    Thread.start {
 	   	   def connection = getConnection()
 	       connection.executeUpdate "update projects set priority = ? where id = ?", [project.priority,project.id] 
 	       connection.close()
 	    }
-		write(json([status: 1]))
+		json([status: 1])
 	}
 	
 	def saveDocuments() {
-	   def upload = new JsonSlurper().parse(request.inputStream) 
+	   def upload = parse(request) 
 	   def id = upload.id
 	   def user_id = session.getAttribute("user").id
 	   Thread.start {
@@ -171,7 +165,7 @@ class ModuleAction extends ActionSupport {
          }
 	     connection.close()
 	   }
-	   write(json([status: 1]))
+	   json([status: 1])
 	}
 	
 	def downloadDocument(){
@@ -185,13 +179,13 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def updateProjectDescription() {
-	   def project = new JsonSlurper().parse(request.inputStream)
+	   def project = parse(request)
 	   Thread.start {
 	   	 def connection = getConnection()
 	     connection.executeUpdate "update projects set description = ? where id = ?", [project.description,project.id] 
 	     connection.close()
 	   }
-	   write(json([status: 1]))
+	   json([status: 1])
 	}
 	
 	def getConnection()  {

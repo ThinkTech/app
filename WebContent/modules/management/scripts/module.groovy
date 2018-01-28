@@ -1,11 +1,5 @@
-import org.metamorphosis.core.ActionSupport
-import org.metamorphosis.core.Mail
-import org.metamorphosis.core.MailConfig
-import org.metamorphosis.core.MailSender
 import groovy.text.markup.TemplateConfiguration
 import groovy.text.markup.MarkupTemplateEngine
-import static groovy.json.JsonOutput.toJson as json
-import groovy.json.JsonSlurper
 import groovy.sql.Sql
 
 
@@ -66,7 +60,7 @@ class ModuleAction extends ActionSupport {
 	   connection.executeUpdate 'update messages set unread = false where id = ?', [id] 
 	   connection.close()
 	   response.setHeader("Cache-control", "private, max-age=78840000")
-	   write(json([entity : message]))
+	   json([entity : message])
 	}
     
 	def showServices(){

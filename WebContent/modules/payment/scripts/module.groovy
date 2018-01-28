@@ -1,6 +1,3 @@
-import org.metamorphosis.core.ActionSupport 
-import static groovy.json.JsonOutput.toJson as json
-import groovy.json.JsonSlurper
 import groovy.sql.Sql
 import org.apache.poi.hwpf.HWPFDocument
 import org.apache.poi.poifs.filesystem.POIFSFileSystem
@@ -9,7 +6,7 @@ import app.FileManager
 class ModuleAction extends ActionSupport {
 
    def pay(){
-      def bill = new JsonSlurper().parse(request.inputStream) 
+      def bill = parse(request) 
       def connection = getConnection()
 	  connection.executeUpdate "update bills set code = ?, status = 'finished', paidWith = ?, paidOn = NOW(), paidBy = ? where id = ?", [bill.code,bill.paidWith,session.getAttribute("user").id,bill.id]
 	  if(bill.fee == "caution"){
@@ -23,13 +20,13 @@ class ModuleAction extends ActionSupport {
 	  	generateContract(project)
 	  }
 	  connection.close()
-      write(json([status: 1]))
+	  json([status: 1])
    }
    
    def generateContract(project) {
       def user = session.getAttribute("user")
       def structure = user.structure
-      def folder =  module.folder.absolutePath + "/contracts/"
+      def folder =  currentModule.folder.absolutePath + "/contracts/"
       Thread.start{
         if(project.service == "web dev"){
           def file = project.plan.replace(' ','-')+".doc"
