@@ -139,7 +139,7 @@ legend a {
 /*--header main start here--*/
 td{
 	font-size : 13px;
-	color : #212121;
+	color : #000000;
 }
 
 td i {
@@ -188,7 +188,7 @@ td i.fa-user {
 }
 
 .badge {
-	background : #212121;
+	background : #000000;
 }
 
 .badge, .label {
@@ -229,7 +229,7 @@ td i.fa-user {
 .page-number {
 	padding-top: 1px;
     background: #ffe;
-    color: #212121;
+    color: #000000;
     height: 21px;
     width: 21px;
     display: inline-block;
@@ -735,7 +735,7 @@ ul.dropdown-menu.drp-mnu li {
 }
 
 .info-update-right i.fa-question-circle-o {
-	color : #212121;
+	color : #000000;
 }
 
 .info-update-left,.info-update-right {

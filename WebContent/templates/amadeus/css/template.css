@@ -109,8 +109,8 @@ body {
 
 .header-w3l h1 {
 	font-size: 4.75em;
-	color: #212121;
-	text-shadow: 1px 1px #212121;
+	color: #000000;
+	text-shadow: 1px 1px #000000;
 	font-weight: bold;
 	letter-spacing: 4px;
 	text-transform: uppercase;
@@ -311,7 +311,7 @@ a.w3-pass {
 .footer p {
 	font-size: 12px;
 	font-weight: bold;
-	color: #212121;
+	color: #000000;
 	letter-spacing: 2px;
 	font-family: 'Tahoma', sans-serif;
 }
