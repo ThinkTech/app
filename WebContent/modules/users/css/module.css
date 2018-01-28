@@ -63,7 +63,7 @@
 }
 
 .window.details > div a{
-	color : #212121;
+	color : #000000;
 	cursor : pointer;
 	display: inline-block;
     width: auto;
@@ -79,7 +79,7 @@
 }
 
 .window > div h1 i {
-	color: #212121;
+	color: #000000;
 }
 
 .first-one-inner {
@@ -140,13 +140,13 @@ td span {
     outline: none;
     padding: 15px 15px;
     width: 48%;
-    background: #212121;
+    background: #000000;
     border-radius: 0.3em;
     text-transform: uppercase;
 }
 .first-one input[type="submit"]:hover,.first-one input[type="button"]:hover{
   background:#fff;
-  color : #212121;
+  color : #000000;
 }
 .profile-edition {
 	display : none;
@@ -164,7 +164,7 @@ td span {
 
 .first-one .profile-edition input[type="submit"]:hover {
 	background : #fff;
-	color : #212121;
+	color : #000000;
 }
 
 .profile {
@@ -208,7 +208,7 @@ legend a {
 legend a i.fa {
 	position: relative;
     top: 1px;
-    color: #212121;
+    color: #000000;
     margin-left: 2px;
 }
 
