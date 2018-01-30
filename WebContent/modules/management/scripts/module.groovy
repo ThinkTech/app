@@ -1,5 +1,3 @@
-import groovy.text.markup.TemplateConfiguration
-import groovy.text.markup.MarkupTemplateEngine
 import groovy.sql.Sql
 
 

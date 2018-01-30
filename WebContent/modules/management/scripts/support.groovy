@@ -1,4 +1,3 @@
-import groovy.text.markup.TemplateConfiguration
 import groovy.text.markup.MarkupTemplateEngine
 import groovy.sql.Sql
 
@@ -103,8 +102,7 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def getUserTicketTemplate(ticket) {
-	    TemplateConfiguration config = new TemplateConfiguration()
-		MarkupTemplateEngine engine = new MarkupTemplateEngine(config)
+	    MarkupTemplateEngine engine = new MarkupTemplateEngine()
 		def text = '''\
 		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
 		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
@@ -143,8 +141,7 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def getSupportTicketTemplate(ticket) {
-	    TemplateConfiguration config = new TemplateConfiguration()
-		MarkupTemplateEngine engine = new MarkupTemplateEngine(config)
+	    MarkupTemplateEngine engine = new MarkupTemplateEngine()
 		def text = '''\
 		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
 		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
