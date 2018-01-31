@@ -42,7 +42,7 @@ $(document).ready(function(){
 				 $(".info-message").hide();
 				 const info = link.parent().prev();
 				 var left = event.pageX-info.width()-50;
-				 left = left < 0 ? 2 : left;
+				 left = left < 0 ? 5 : left;
 				 info.css({top : event.pageY-20,left : left}).show();
 			};
 			const ol = $(".info-tasks ol",container);
