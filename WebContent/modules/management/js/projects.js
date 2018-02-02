@@ -3,9 +3,12 @@ $(document).ready(function(){
 		$("[data-status='"+project.priority+"']",container).show();
 		if(project.status == "in progress") {
 			$(".confirm .imgcircle,.confirm .line,.process .imgcircle",container).addClass("active");
-			if(project.progression >= 95) {
-				$(".quality .imgcircle,.quality .line",container).addClass("active");
-			}
+			if(project.progression >= 70) {
+				$(".process .line,.quality .imgcircle",container).addClass("active");
+		    }
+		    if(project.progression >= 90) {
+				$(".quality .imgcircle,.quality .line,.delivery .imgcircle",container).addClass("active");
+		    }
 		}else if(project.status == "stand by") {
 			$(".plan-edit,.priority-edit",container).show();
 		}
