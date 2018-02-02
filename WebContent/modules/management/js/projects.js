@@ -76,7 +76,7 @@ $(document).ready(function(){
 			    page.wizard.show(project.bill,top,function(){
 			    	const tr = $(".table tr[id="+project.id+"]");
 					$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
-					$(".badge",tr).html("5%");
+					$(".badge",tr).html("10%");
 					var h3 = $("h3.unactive");
 					h3.html(parseInt(h3.text())-1);
 					h3 = $("h3.active");
@@ -458,7 +458,7 @@ $(document).ready(function(){
 										    page.wizard.show(bill,top,function(){
 										    	const tr = $(".table tr[id="+project.id+"]");
 												$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
-												$(".badge",tr).html("5%");
+												$(".badge",tr).html("10%");
 												var h3 = $("h3.unactive");
 												h3.html(parseInt(h3.text())-1);
 												h3 = $("h3.active");
