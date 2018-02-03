@@ -3,6 +3,7 @@ $(document).ready(function(){
 		$("[data-status='"+ticket.priority+"']",container).show();
 		if(ticket.status == "finished"){
 			$("legend a",container).hide();
+			$("a.refresh",container).hide();
 		}else if(ticket.status == "stand by"){
 			$(".priority-edit,.service-edit",container).show();
 		}
@@ -42,7 +43,9 @@ $(document).ready(function(){
 			});
 			return false;
 		});
-		
+		$("a.refresh",container).click(function(){
+			page.details.refresh();
+		});
 		$(".info-message").click(function(event){
 			return false;
 		});
