@@ -76,7 +76,13 @@ class ModuleAction extends ActionSupport {
 	   def id = getParameter("id")
 	   def connection = getConnection()
 	   def project = connection.firstRow("select p.*,u.name from projects p,users u where p.id = ? and p.user_id = u.id", [id])
-	   project.end = connection.firstRow("select date_add(date,interval duration month) as end from projects where id = ?", [id]).end
+	   if(project.status=='finished'){
+	      project.end = project.closedOn
+	      project.duration = connection.firstRow("select TIMESTAMPDIFF(MONTH,date,closedOn) as duration from projects where id = ?", [id]).duration
+	   }
+	   else{ 
+	   	project.end = connection.firstRow("select date_add(date,interval duration month) as end from projects where id = ?", [id]).end
+	   }
 	   if(project.subject.length()>40) project.subject = project.subject.substring(0,40)+"..."
 	   project.date = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(project.date)
 	   project.end = new SimpleDateFormat("dd/MM/yyyy").format(project.end)
