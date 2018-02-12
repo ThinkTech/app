@@ -34,7 +34,15 @@ $(document).ready(function(){
 			page.details.showDocumentsIcons(project.documents);
 		}).hide();
 		$("a.refresh",container).click(function(){
-			page.details.refresh();
+			const div = $(".info-tasks",container);
+			const visible = div.is(":visible");
+			if(visible){
+				page.details.refresh(function(){
+					$(".info-tasks",container).show();
+				});
+			}else{
+				page.details.refresh();
+			}
 		});
 		if(project.description){
 			const list = $(".description .message-list",container);
