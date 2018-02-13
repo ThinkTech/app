@@ -49,7 +49,9 @@ $(document).ready(function(){
 					const tr = $(".table tr[id="+ticket.id+"]");
 					 $("span.label",tr).html("termin&edot;").removeClass().addClass("label label-success");
 					 $(".badge",tr).html("100%");
-				};
+				}else{
+					$(".badge",tr).html(+ticket.progression+"%");
+				}
 			});
 		});
 		$(".info-message").click(function(event){
