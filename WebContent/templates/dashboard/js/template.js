@@ -86,7 +86,7 @@ page.details.refresh = function(callback){
 		  success: function(response) {
 			  page.details.entity = response.entity;
 			  page.details.show(response.entity);
-			  if(callback) callback();
+			  if(callback) callback(response.entity);
 		  },
 		  error : function(){
 			  page.release();
