@@ -6,7 +6,7 @@ class ModuleAction extends ActionSupport {
        def connection = getConnection()
        def bills = []
        def id = session.getAttribute("user").structure.id
-       connection.eachRow("select b.id,b.fee,b.amount,b.date,b.status,p.subject,p.service from bills b,projects p where b.project_id = p.id and p.structure_id = ?",[id], { row -> 
+       connection.eachRow("select b.id,b.fee,b.amount,b.date,b.status,p.subject,p.service from bills b,projects p where b.project_id = p.id and p.structure_id = ? order by b.date DESC",[id], { row -> 
           def bill = new Expando()
           bill.id = row.id
           bill.fee = row.fee

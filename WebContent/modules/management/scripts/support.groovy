@@ -7,7 +7,7 @@ class ModuleAction extends ActionSupport {
        def connection = getConnection()
        def tickets = []
        def id = session.getAttribute("user").structure.id
-       connection.eachRow("select t.id,t.subject,t.message,t.date,t.service,t.status,t.progression, u.name from tickets t, users u where t.user_id = u.id and t.structure_id = ? ", [id], { row -> 
+       connection.eachRow("select t.id,t.subject,t.message,t.date,t.service,t.status,t.progression, u.name from tickets t, users u where t.user_id = u.id and t.structure_id = ? order by t.date DESC", [id], { row -> 
           def ticket = new Expando()
           ticket.id = row.id
           ticket.author =  row.name
