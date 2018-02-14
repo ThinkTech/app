@@ -232,7 +232,7 @@ class ModuleAction extends ActionSupport {
 	        }
 	        def mailConfig = new MailConfig(context.getInitParameter("smtp.email"),context.getInitParameter("smtp.password"),"smtp.thinktech.sn")
 		    def mailSender = new MailSender(mailConfig)
-		    def mail = new Mail(subscription.name,subscription.email,"${subscription.name}, confirmer votre souscription au ${subscription.plan}",template)
+		    def mail = new Mail(subscription.name,subscription.email,"${subscription.name}, veuillez confirmer votre souscription au ${subscription.plan}",template)
 		    mailSender.sendMail(mail)
 		    json([status : 1])
 	      }
