@@ -2,7 +2,6 @@
 	<name>users</name>
 	<type>back-end</type>
 	<actions>
-	    <action  url="subscribe"  method="subscribe"/>
 	    <action  url="registration/confirm" method="confirm"/>
 		<action  url="login"  method="login"/>
 		<action  url="account" page="account"/>
