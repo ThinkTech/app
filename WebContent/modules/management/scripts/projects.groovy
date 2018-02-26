@@ -38,19 +38,19 @@ class ModuleAction extends ActionSupport {
        def tasks = getTasks()
        def bill = createBill(project)
        if(bill.amount){
-	       params = [bill.fee,bill.amount,project_id]
+	       params = [bill.fee,bill.amount,id]
 	       connection.executeInsert 'insert into bills(fee,amount,project_id) values (?,?,?)', params
        	   def query = 'insert into projects_tasks(name,description,info,project_id) values (?, ?, ?, ?)'
       	   connection.withBatch(query){ ps ->
              tasks.each{
-               ps.addBatch(it.name,it.description,"aucune information",project_id)
+               ps.addBatch(it.name,it.description,"aucune information",id)
             } 
            }
 	    }else{
            def query = 'insert into projects_tasks(name,description,info,project_id) values (?, ?, ?, ?)'
       	   connection.withBatch(query){ ps ->
              tasks.eachWithIndex { it, i ->
-              if(i!=0) ps.addBatch(it.name,it.description,"aucune information",project_id)
+              if(i!=0) ps.addBatch(it.name,it.description,"aucune information",id)
             }
           }
 	   }
