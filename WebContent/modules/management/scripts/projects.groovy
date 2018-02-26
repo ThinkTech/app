@@ -35,6 +35,7 @@ class ModuleAction extends ActionSupport {
 	   def params = [project.subject,project.priority,project.service,project.plan, project.description,user.id,user.structure.id]
        def result = connection.executeInsert 'insert into projects(subject,priority,service,plan,description,user_id,structure_id) values (?, ?, ?,?,?,?,?)', params
        def id = result[0][0]
+       def tasks = getTasks()
        def bill = createBill(project)
        if(bill.amount){
 	       params = [bill.fee,bill.amount,project_id]
