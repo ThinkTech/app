@@ -40,17 +40,17 @@ class ModuleAction extends ActionSupport {
        if(bill.amount){
 	       params = [bill.fee,bill.amount,id]
 	       connection.executeInsert 'insert into bills(fee,amount,project_id) values (?,?,?)', params
-       	   def query = 'insert into projects_tasks(name,description,info,project_id) values (?, ?, ?, ?)'
+       	   def query = 'insert into projects_tasks(id,name,description,info,project_id) values (?,?, ?, ?, ?)'
       	   connection.withBatch(query){ ps ->
              tasks.each{
-               ps.addBatch(it.name,it.description,"aucune information",id)
+               ps.addBatch(it.id,it.name,it.description,"aucune information",id)
             } 
            }
 	    }else{
            def query = 'insert into projects_tasks(name,description,info,project_id) values (?, ?, ?, ?)'
       	   connection.withBatch(query){ ps ->
              tasks.eachWithIndex { it, i ->
-              if(i!=0) ps.addBatch(it.name,it.description,"aucune information",id)
+              if(i!=0) ps.addBatch(it.id,it.name,it.description,"aucune information",id)
             }
           }
 	   }
@@ -75,25 +75,25 @@ class ModuleAction extends ActionSupport {
 	
 	def getTasks(){
 	   def tasks = []
-	   def task = new Expando(name :"Contrat et Caution",description :"cette phase intiale établit la relation légale qui vous lie à ThinkTech")
+	   def task = new Expando(id : 1,name :"Contrat et Caution",description :"cette phase intiale établit la relation légale qui vous lie à ThinkTech")
 	   tasks << task
-	   task = new Expando(name :"Traitement",description : "cette phase d'approbation est celle où notre équipe technique prend en charge votre projet")
+	   task = new Expando(id : 2,name :"Traitement",description : "cette phase d'approbation est celle où notre équipe technique prend en charge votre projet")
        tasks << task
-       task = new Expando(name :"Analyse du projet",description : "cette phase est celle de l'analyse de votre projet pour une meilleure compréhension des objectifs")
+       task = new Expando(id : 3,name :"Analyse du projet",description : "cette phase est celle de l'analyse de votre projet pour une meilleure compréhension des objectifs")
 	   tasks << task
-	   task = new Expando(name :"Définition des fonctionnalités",description : "cette phase est celle de la définition des fonctionnalités du produit")
+	   task = new Expando(id : 4,name :"Définition des fonctionnalités",description : "cette phase est celle de la définition des fonctionnalités du produit")
 	   tasks << task
-	   task = new Expando(name :"Conception de l'interface",description : "cette phase est celle de la conception de l'interface utilisateur")
+	   task = new Expando(id : 5,name :"Conception de l'interface",description : "cette phase est celle de la conception de l'interface utilisateur")
        tasks << task
-       task = new Expando(name :"Développement des fonctionnalités",description : "cette phase est celle du développement des fonctionnalités du produit")
+       task = new Expando(id : 6,name :"Développement des fonctionnalités",description : "cette phase est celle du développement des fonctionnalités du produit")
        tasks << task
-       task = new Expando(name :"Tests",description : "cette phase permet de tester les fonctionnalités du produit")
+       task = new Expando(id : 7,name :"Tests",description : "cette phase permet de tester les fonctionnalités du produit")
        tasks << task
-       task = new Expando(name :"Validation",description : "cette phase est celle de la validation des fonctionnalités du produit")
+       task = new Expando(id : 8,name :"Validation",description : "cette phase est celle de la validation des fonctionnalités du produit")
        tasks << task
-       task = new Expando(name :"Livraison du produit",description : "cette phase est celle du deploiement du produit final")
+       task = new Expando(id : 9,name :"Livraison du produit",description : "cette phase est celle du deploiement du produit final")
        tasks << task
-       task = new Expando(name :"Formation",description : "cette phase finale est celle de la formation pour une prise en main du produit")
+       task = new Expando(id : 10,name :"Formation",description : "cette phase finale est celle de la formation pour une prise en main du produit")
 	   tasks << task
 	   tasks
 	}
