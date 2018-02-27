@@ -524,13 +524,8 @@
 			</div>
 		   </div>	
 	   </div>
-	   <h2>Projet Description</h2>
 	   <p>
-	     {description|s}
-	   </p>
-	   <hr/>
-	   <p>
-	    Les informations fournies seront utilisées pour générer le contrat vous liant à ThinkTech et ce dernier sera ajouté aux documents du projet. La facture pour le paiement de la caution a été créée. Vous pouvez choisir d'effectuer le paiement maintenant en cliquant sur le bouton Terminer afin que votre projet soit traité au plus vite par notre équipe de développement. 
+	    Vos informations fournies seront utilisées pour générer le contrat vous liant à ThinkTech et ce dernier sera ajouté aux documents du projet. La facture pour le paiement de la caution a été créée. Vous pouvez choisir d'effectuer le paiement maintenant en cliquant sur le bouton Terminer afin que votre projet soit traité au plus vite par notre équipe de développement. 
 	    <span class="terms-agreement">
 	      <input type="checkbox" checked> Payer la caution
 	    </span>
