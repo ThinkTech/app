@@ -422,7 +422,7 @@
  <div>
    <span title="fermer" class="close">X</span>
 	<h1><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i>Nouveau Projet</h1>
-   <form action="${url}/projects/create">
+   <form action="https://thinktech-platform.herokuapp.com">
 	<fieldset>
 	  	<span class="text-right"><i class="fa fa-file-code-o" aria-hidden="true"></i> Objet </span>
 	    <select name="subject">
@@ -430,7 +430,7 @@
 		  <option value="refonte site web">refonte site web</option>
 		</select>
 		<span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span>
-		<input type="text" name="service" value="web dev" readonly="readonly">
+		<input type="text" name="service" value="webdev" readonly="readonly">
 		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span>
 		<select name="plan">
 		  <option value="plan business">plan business</option>
@@ -446,6 +446,8 @@
 		</select>
 		<span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du projet</span>
 		<textarea style="height:150px" name="description" placeholder="entrer votre description"></textarea>
+	    <input type="hidden" name="user" value="${user.id}">
+	    <input type="hidden" name="structure" value="${user.structure.id}">
 	</fieldset>
 	<div class="terms-agreement">
 		<input type="checkbox" checked disabled> J'accepte les <a class="read-terms">Termes</a>
