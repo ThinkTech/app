@@ -430,7 +430,9 @@
 		  <option value="refonte site web">refonte site web</option>
 		</select>
 		<span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span>
-		<input type="text" name="service" value="webdev" readonly="readonly">
+		<select name="service">
+		  <option value="webdev">web dev</option>
+		</select>
 		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span>
 		<select name="plan">
 		  <option value="plan business">plan business</option>

@@ -4,7 +4,6 @@
   <type>back-end</type>
   <actions>
     <action url="projects" page="projects" method="showProjects" script="projects.groovy"/>
-    <action url="projects/create"  method="createProject" script="projects.groovy"/>
     <action url="projects/info"  method="getProjectInfo" script="projects.groovy"/>
     <action url="projects/bill"  method="getProjectBill" script="projects.groovy"/>
     <action url="projects/documents/save"  method="saveDocuments" script="projects.groovy"/>

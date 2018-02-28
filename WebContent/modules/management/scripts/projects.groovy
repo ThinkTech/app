@@ -27,78 +27,8 @@ class ModuleAction extends ActionSupport {
        request.setAttribute("unactive",unactive)
        SUCCESS
    }
-
-   def createProject() {
-	   def project = parse(request) 
-	   def connection = getConnection()
-	   def user = session.getAttribute("user")
-	   def params = [project.subject,project.priority,project.service,project.plan, project.description,user.id,user.structure.id]
-       def result = connection.executeInsert 'insert into projects(subject,priority,service,plan,description,user_id,structure_id) values (?, ?, ?,?,?,?,?)', params
-       def id = result[0][0]
-       def tasks = getTasks()
-       def bill = createBill(project)
-       if(bill.amount){
-	       params = [bill.fee,bill.amount,id]
-	       connection.executeInsert 'insert into bills(fee,amount,project_id) values (?,?,?)', params
-       	   def query = 'insert into projects_tasks(name,description,info,project_id) values (?, ?, ?, ?)'
-      	   connection.withBatch(query){ ps ->
-             tasks.each{
-               ps.addBatch(it.name,it.description,"aucune information",id)
-            } 
-           }
-	    }else{
-           def query = 'insert into projects_tasks(name,description,info,project_id) values (?, ?, ?, ?)'
-      	   connection.withBatch(query){ ps ->
-             tasks.eachWithIndex { it, i ->
-              if(i!=0) ps.addBatch(it.name,it.description,"aucune information",id)
-            }
-          }
-	   }
-	   connection.close()
-	   json([id: id])
-	}
 	
-	def createBill(project){
-	   def bill = new Expando()
-	   if(project.service == "web dev") {
-	      bill.fee = "caution"
-	      if(project.plan == "plan business") {
-	         bill.amount = 25000 * 3
-	      }else if(project.plan == "plan corporate") {
-	         bill.amount = 20000 * 3
-	      }else if(project.plan == "plan personal") {
-	         bill.amount = 15000 * 3
-	      }
-	   }
-	   bill
-	}
-	
-	def getTasks(){
-	   def tasks = []
-	   def task = new Expando(name :"Contrat et Caution",description :"cette phase intiale &edot;tablit la relation l&edot;gale qui vous lie &agrave; ThinkTech")
-	   tasks << task
-	   task = new Expando(name :"Traitement",description : "cette phase d'approbation est celle o&ugrave; notre &edot;quipe technique prend en charge votre projet")
-       tasks << task
-       task = new Expando(name :"Analyse du projet",description : "cette phase est celle de l'analyse de votre projet pour une meilleure compr&edot;hension des objectifs")
-	   tasks << task
-	   task = new Expando(name :"D&edot;finition des fonctionnalit&edot;s",description : "cette phase est celle de la d&edot;finition des fonctionnalit&edot;s du produit")
-	   tasks << task
-	   task = new Expando(name :"Conception de l'interface",description : "cette phase est celle de la conception de l'interface utilisateur")
-       tasks << task
-       task = new Expando(name :"D&edot;veloppement des fonctionnalit&edot;s",description : "cette phase est celle du d&edot;veloppement des fonctionnalit&edot;s du produit")
-       tasks << task
-       task = new Expando(name :"Tests",description : "cette phase permet de tester les fonctionnalit&edot;s du produit")
-       tasks << task
-       task = new Expando(name :"Validation",description : "cette phase est celle de la validation des fonctionnalit&edot;s du produit")
-       tasks << task
-       task = new Expando(name :"Livraison du produit",description : "cette phase est celle du deploiement du produit final")
-       tasks << task
-       task = new Expando(name :"Formation",description : "cette phase finale est celle de la formation pour une prise en main du produit")
-	   tasks << task
-	   tasks
-	}
-	
-	def getProjectInfo() {
+   def getProjectInfo() {
 	   def id = getParameter("id")
 	   def connection = getConnection()
 	   def project = connection.firstRow("select p.*,u.name from projects p,users u where p.id = ? and p.user_id = u.id", [id])
