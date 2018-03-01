@@ -6,7 +6,7 @@ class ModuleAction extends ActionSupport {
    def String execute(){
        def connection = getConnection()
        def projects = []
-       def id = session.getAttribute("user").structure.id
+       def id = user.structure.id
        connection.eachRow("select p.id,p.subject,p.date,p.status,p.progression, u.name from projects p, users u where p.user_id = u.id and p.structure_id = ? order by p.date DESC", [id], { row -> 
           def project = new Expando()
           project.id = row.id
@@ -31,7 +31,7 @@ class ModuleAction extends ActionSupport {
    def showMessages(){
 	   def connection = getConnection()
        def messages = []
-       def id = session.getAttribute("user").structure.id
+       def id = user.structure.id
        connection.eachRow("select m.id,m.subject,m.message,m.date,m.unread,u.name from messages m, users u where m.structure_id = ? and m.user_id = u.id order by m.date DESC",[id], { row -> 
           def message = new Expando()
           message.id = row.id

@@ -7,7 +7,7 @@ class ModuleAction extends ActionSupport {
    def showProjects(){
        def connection = getConnection()
        def projects = []
-       def id = session.getAttribute("user").structure.id
+       def id = user.structure.id
        connection.eachRow("select p.id,p.subject,p.date,p.status,p.progression,u.name from projects p, users u where p.user_id = u.id and p.structure_id = ? order by p.date DESC", [id], { row -> 
           def project = new Expando()
           project.id = row.id
@@ -73,6 +73,7 @@ class ModuleAction extends ActionSupport {
        })
        if(project.status == "stand by" && project.plan != "plan social") {
          project.bill = connection.firstRow("select b.*,p.service from bills b, projects p where b.project_id = p.id and p.id = ?", [id])
+         project.bill.user = user
 	  	 project.bill.date = new SimpleDateFormat("dd/MM/yyyy").format(project.bill.date)
        }
        if(project.status == "finished"){
@@ -86,6 +87,7 @@ class ModuleAction extends ActionSupport {
 	   def id = getParameter("id")
 	   def connection = getConnection()
        def bill = connection.firstRow("select b.*,p.service from bills b, projects p where b.project_id = p.id and p.id = ?", [id])
+	   bill.user = user
 	   bill.date = new SimpleDateFormat("dd/MM/yyyy").format(bill.date)
 	   json([entity : bill])
 	   connection.close()
@@ -93,7 +95,7 @@ class ModuleAction extends ActionSupport {
 	
 	def addComment() {
 	   def comment = parse(request) 
-	   def user_id = session.getAttribute("user").id
+	   def user_id = user.id
 	   Thread.start { 
 	   	 def connection = getConnection()
 	     def params = [comment.message,comment.project,user_id]
@@ -116,7 +118,7 @@ class ModuleAction extends ActionSupport {
 	def saveDocuments() {
 	   def upload = parse(request) 
 	   def id = upload.id
-	   def user_id = session.getAttribute("user").id
+	   def user_id = user.id
 	   Thread.start {
 	     def connection = getConnection()
 	     def query = 'insert into documents(name,size,project_id,createdBy) values (?,?,?,?)'
@@ -129,7 +131,6 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def downloadDocument(){
-	   def user = session.getAttribute("user")
 	   def dir = "structure_"+user.structure.id+"/"+"project_"+getParameter("project_id")
 	   def name = getParameter("name")
 	   response.contentType = context.getMimeType(name)

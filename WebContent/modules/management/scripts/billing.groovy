@@ -5,7 +5,7 @@ class ModuleAction extends ActionSupport {
    def showBills(){
        def connection = getConnection()
        def bills = []
-       def id = session.getAttribute("user").structure.id
+       def id = user.structure.id
        connection.eachRow("select b.id,b.fee,b.amount,b.date,b.status,p.subject,p.service from bills b,projects p where b.project_id = p.id and p.structure_id = ? order by b.date DESC",[id], { row -> 
           def bill = new Expando()
           bill.id = row.id
@@ -34,6 +34,8 @@ class ModuleAction extends ActionSupport {
 	     bill.paidOn = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(bill.paidOn)
 	     def user = connection.firstRow("select u.name from users u, bills b where u.id = b.paidBy and b.id = ?", [id])
 	     bill.paidBy = user.name 
+	   }else{
+	   	 bill.user = user
 	   }
 	   connection.close()
 	   json([entity : bill])
