@@ -131,6 +131,10 @@ page.wizard.submit = function(){
 				  if(page.wizard.callback) page.wizard.callback()
 			  }
 		  },
+		  error : function(){
+			  page.release();
+			  alert("erreur lors de la connexion au serveur");
+		  },
 		  dataType: "json"
 	});
 };
