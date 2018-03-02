@@ -422,6 +422,7 @@ $(document).ready(function(){
 	};
 	page.details.createProject = function(form){
 		const project = {};
+		project.service = form.find("select[name=service]").val();
 		project.user = form.find("input[name=user]").val();
 		project.structure = form.find("input[name=structure]").val();
 		project.subject = form.find("select[name=subject]").val();
@@ -440,10 +441,9 @@ $(document).ready(function(){
 			page.form.hide();
 			const top = form.offset().top+200;
 			page.wait({top : top});
-			const service = form.find("select[name=service]").val();
 			$.ajax({
 				  type: "POST",
-				  url: form.attr("action")+"/"+service+"/projects/create",
+				  url: form.attr("action"),
 				  data: JSON.stringify(project),
 				  contentType : "application/json",
 				  success: function(response) {

@@ -422,7 +422,7 @@
  <div>
    <span title="fermer" class="close">X</span>
 	<h1><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i>Nouveau Projet</h1>
-   <form action="https://thinktech-platform.herokuapp.com">
+   <form action="https://thinktech-platform.herokuapp.com/services/projects/create">
 	<fieldset>
 	  	<span class="text-right"><i class="fa fa-file-code-o" aria-hidden="true"></i> Objet </span>
 	    <select name="subject">
@@ -431,7 +431,7 @@
 		</select>
 		<span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span>
 		<select name="service">
-		  <option value="webdev">web dev</option>
+		  <option value="web dev">web dev</option>
 		</select>
 		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span>
 		<select name="plan">
