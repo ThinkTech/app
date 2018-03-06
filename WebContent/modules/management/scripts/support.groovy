@@ -29,17 +29,11 @@ class ModuleAction extends ActionSupport {
 	
 	def createTicket() {
 	   def ticket = parse(request) 
-	   def template = getUserTicketTemplate(ticket)
 	   def connection = getConnection()
 	   def params = [ticket.subject,ticket.service,ticket.message,ticket.priority,user.id,user.structure.id]
        def result = connection.executeInsert 'insert into tickets(subject,service,message,priority,user_id,structure_id) values (?, ?, ?, ?,?,?)', params
-	   connection.close()
-	   ticket.user = user
-	   def mailConfig = new MailConfig(context.getInitParameter("smtp.email"),context.getInitParameter("smtp.password"),"smtp.thinktech.sn")
-	   def mailSender = new MailSender(mailConfig)
-	   def mail = new Mail("support@thinktech.sn","support@thinktech.sn","Ticket : ${ticket.subject}",getSupportTicketTemplate(ticket))
-	   mailSender.sendMail(mail)
 	   json([id: result[0][0]])
+	   connection.close()
 	}
 	
 	def getTicketInfo() {
@@ -100,94 +94,8 @@ class ModuleAction extends ActionSupport {
 	   json([status : 1])
 	}
 	
-	def getUserTicketTemplate(ticket) {
-	    MarkupTemplateEngine engine = new MarkupTemplateEngine()
-		def text = '''\
-		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
-		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
-		    img(src : "https://www.thinktech.sn/images/logo.png", style : "display:block;margin : 0 auto")
-		    div(style : "margin-top:10px;padding-top:2%;height:100px;text-align:center;background:#05d2ff") {
-		      h4(style : "font-size: 200%;color: #fff;margin: 3px") {
-		        span("Nouveau Ticket")
-		      }
-		      p(style : "font-size:150%;color:#fff"){
-		         span("votre ticket a &edot;t&edot; bien cr&edot;&edot;")
-		      }
-		    }
-		    div(style : "width:90%;margin:auto;margin-top : 30px;margin-bottom:30px") {
-		      h5(style : "font-size: 120%;color: rgb(0, 0, 0);margin-bottom: 15px") {
-		         span("Service : $ticket.service")
-		      }
-		      h5(style : "font-size: 120%;color: rgb(0, 0, 0);margin-bottom: 15px") {
-		         span("Message")
-		      }
-		      p("$ticket.message")
-		      br()
-		      p("Votre ticket est en attente de traitement.")
-		    }
-		  }
-		  
-		  div(style :"margin: 10px;margin-top:10px;font-size : 11px;text-align:center") {
-		      p("Vous recevez cet email parce que vous (ou quelqu'un utilisant cet email)")
-		      p("a cr&edot;&edot; un ticket en utilisant cette adresse")
-		  }
-		  
-		   
-		 }
-		'''
-		def template = engine.createTemplate(text).make([ticket:ticket,url : baseUrl])
-		template.toString()
-	}
-	
-	def getSupportTicketTemplate(ticket) {
-	    MarkupTemplateEngine engine = new MarkupTemplateEngine()
-		def text = '''\
-		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
-		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
-		    img(src : "https://www.thinktech.sn/images/logo.png", style : "display:block;margin : 0 auto")
-		    div(style : "margin-top:10px;padding-top:2%;height:100px;text-align:center;background:#05d2ff") {
-		      h4(style : "font-size: 200%;color: #fff;margin: 3px") {
-		        span("Nouveau Ticket")
-		      }
-		       p(style : "font-size:150%;color:#fff"){
-		         span("ce ticket a &edot;t&edot; bien cr&edot;&edot;")
-		      }
-		    }
-		    div(style : "width:90%;margin:auto;margin-top : 30px;margin-bottom:30px") {
-		      h5(style : "font-size: 120%;color: rgb(0, 0, 0);margin-bottom: 15px") {
-		         span("Service : $ticket.service")
-		      }
-		      if(ticket.user.structure.name){
-		      	h5(style : "font-size: 120%;color: rgb(0, 0, 0);margin-bottom: 15px") {
-		        	 span("Structure : $ticket.user.structure.name")
-		      	}
-		      }
-		      h5(style : "font-size: 120%;color: rgb(0, 0, 0);margin-bottom: 15px") {
-		         span("Client : $ticket.user.name")
-		      }
-		      h5(style : "font-size: 120%;color: rgb(0, 0, 0);margin-bottom: 15px") {
-		         span("Message")
-		      }
-		      p("$ticket.message")
-		      br()
-		    }
-		  }
-		  
-		  div(style :"margin: 10px;margin-top:10px;font-size : 11px;text-align:center") {
-		      p("Vous recevez cet email parce que $ticket.user.name")
-		      p("a cr&edot;&edot; un ticket en utilisant cette adresse")
-		  }
-		  
-		   
-		 }
-		'''
-		def template = engine.createTemplate(text).make([ticket:ticket,url : baseUrl])
-		template.toString()
-	}
-	
 	def getConnection()  {
-		new Sql(dataSource)
-		
+	   new Sql(dataSource)	
 	}
 	
 }
