@@ -93,7 +93,7 @@
 	<fieldset>
 	    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span> <span>{name}</span>
 	    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>{service}</span>
-		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span> <span>{plan}</span> <a class="plan"><i class="fa fa-info" aria-hidden="true"></i></a> 
+		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span> <span>{plan}</span> 
 		<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création </span> <span>{date}</span>
 		<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span> 
 		<span data-status="normal" class="status" style="display:none">normale</span>
@@ -299,126 +299,6 @@
 	{/.}  
   </template>	
   </div>
-    <div class="plans">
-      <div class="pricing business" style="display:none">
-	        <span class="close">X</span>
-			<div class="pricing-top green-top">
-				<h3>Business</h3>
-				<p>25 000 F/mois</p>
-			</div>
-			<div class="pricing-bottom">
-				<div class="pricing-bottom-top">
-					<p>1 site web</p>
-					<p>progressive</p>
-					<p>http/2</p>
-				</div>
-				<div class="pricing-bottom-bottom">
-					<p><span>1</span> Nom de domaine</p>
-					<p><span>1 </span> Certificat</p>
-					<p><span>1</span> Base de données [1 GB]</p>  
-					<p>adresses emails [5 GB]</p>
-					<p>Référencement</p>
-					<p>Sauvegarde</p>
-					<p>Mises à jour</p>
-					<p>Formation</p>
-					<p class="text"><span>24/7</span> Assistance</p>
-				</div>
-				<div class="buy-button">
-					<a class="subscribe" data-plan="business">Souscrire</a>
-				</div>
-			</div>
-	 </div>
-
-    <div class="pricing corporate" style="display:none">
-	    <span class="close">X</span>
-		<div class="pricing-top blue-top">
-			<h3>Corporate</h3>
-			<p>20 000 F/mois</p>
-		</div>
-		<div class="pricing-bottom">
-			<div class="pricing-bottom-top">
-				<p>1 site web</p>
-				<p>responsive</p>
-				<p>http/2</p>
-			</div>
-			<div class="pricing-bottom-bottom">
-				<p><span>1</span> Nom de domaine</p>
-				<p><span>1 </span> Certificat</p>
-				<p><span>1</span> Base de données [1 GB]</p>  
-				<p>adresses emails [5 GB]</p>
-				<p>Référencement</p>
-				<p>Sauvegarde</p>
-				<p>Mises à jour</p>
-				<p>Formation</p>
-				<p class="text"><span>24/7</span> Assistance</p>
-			</div>
-			<div class="buy-button">
-				<a class="subscribe" data-plan="corporate">Souscrire</a>
-			</div>
-		</div>
-	</div>
-	
-	<div class="pricing personal" style="display:none">
-	    <span class="close">X</span>
-		<div class="pricing-top">
-			<h3>Personal</h3>
-			<p>15 000 F/mois</p>
-		</div>
-		<div class="pricing-bottom">
-			<div 
-			class="pricing-bottom-top">
-				<p>1 site web</p>
-				<p>responsive</p>
-				<p>http/2</p>
-			</div>
-			<div class="pricing-bottom-bottom">
-				<p><span>1</span> Nom de domaine</p>
-				<p><span>1 </span> Certificat</p>
-				<p><span>1</span> Base de données [1 GB]</p>
-				<p>adresses emails [5 GB]</p>
-				<p>Référencement</p>
-				<p>Sauvegarde</p>							
-				<p>Mises à jour</p>
-				<p>Formation</p>
-				<p class="text"><span>24/7</span> Assistance</p>
-			</div>
-			<div class="buy-button">
-				<a class="subscribe" data-plan="personal">Souscrire</a>
-			</div>
-		</div>
-	</div>
-	
-	<div class="pricing social" style="display:none">
-	    <span class="close">X</span>
-		<div class="pricing-top black-top">
-			<h3>Social</h3>
-			<p>Gratuit</p>
-		</div>
-		<div class="pricing-bottom">
-			<div class="pricing-bottom-top">
-				<p>1 site web</p>
-				<p>responsive</p>
-				<p>http/2</p>
-			</div>
-			<div class="pricing-bottom-bottom">
-				<p><span>1</span> Nom de domaine</p>
-				<p><span>1 </span> Certificat</p>
-				<p><span>1</span> Base de données [5 MB]</p>
-				<p>adresses emails [5 GB]</p>
-				<p>Référencement</p>
-				<p>Sauvegarde</p>							
-				<p>Mises à jour</p>
-				<p>Formation</p>
-				<p class="text"><span>24/7</span> Assistance</p>
-			</div>
-			<div class="buy-button">
-				<a class="subscribe" data-plan="social">Souscrire</a>
-			</div>
-		</div>
-	</div>
-	
-   </div>
-	
 </div>
 </div>
 <div class="window project-wizard" data-url="${url}/projects/bill">

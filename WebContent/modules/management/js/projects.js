@@ -129,20 +129,6 @@ $(document).ready(function(){
 	    if(project.plan == "plan social") {
 	    	$("a.pay",container).hide().prev().hide().prev().hide();
 	    }
-		$("a.plan",container).click(function(event) {
-			const plans = $(".plans");
-			$(".pricing",plans).hide();
-		    const top = event.pageY;
-		    if(window.innerWidth>=1024){
-		    	plans.css("top",top-50);	
-		    }else {
-		    	plans.css("top","41px");
-		    }
-			$("div[data-plan='"+project.plan+"']",plans).show();
-			plans.toggle();
-			return false;
-		});
-		$(".plans").hide();
 		$(".priority-edit",container).click(function(event){
 			$(".info-message").hide();
 			 const div = $(this).prev();
