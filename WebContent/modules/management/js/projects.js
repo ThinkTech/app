@@ -12,7 +12,6 @@ $(document).ready(function(){
 		    }
 		}else if(project.status == "stand by") {
 			$(".plan-edit,.priority-edit",container).show();
-			$(".document-add",container).hide();
 		}else{
 			$("a.refresh",container).hide();
 			$("legend a",container).hide();
