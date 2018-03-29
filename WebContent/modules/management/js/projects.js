@@ -125,7 +125,7 @@ $(document).ready(function(){
 			    });
 			});
 		});
-	    if(project.plan == "plan social") {
+	    if(project.plan == "plan social" || project.plan == "plan custom") {
 	    	$("a.pay",container).hide().prev().hide().prev().hide();
 	    }
 		$(".priority-edit",container).click(function(event){
