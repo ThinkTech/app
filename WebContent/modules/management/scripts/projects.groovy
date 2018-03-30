@@ -34,7 +34,10 @@ class ModuleAction extends ActionSupport {
 	   def project = connection.firstRow("select p.*,u.name from projects p,users u where p.id = ? and p.user_id = u.id", [id])
 	   if(project.status=='finished'){
 	      project.end = project.closedOn
-	      project.duration = connection.firstRow("select TIMESTAMPDIFF(MONTH,date,closedOn) as duration from projects where id = ?", [id]).duration
+	      project.duration = connection.firstRow("select TIMESTAMPDIFF(MONTH,startedOn,closedOn) as duration from projects where id = ?", [id]).duration
+	   }
+	   else if(project.status=='in progress'){ 
+	   	project.end = connection.firstRow("select date_add(startedOn,interval duration month) as end from projects where id = ?", [id]).end
 	   }
 	   else{ 
 	   	project.end = connection.firstRow("select date_add(date,interval duration month) as end from projects where id = ?", [id]).end
