@@ -329,6 +329,8 @@
 	    <select name="subject">
 		  <option value="création site web">création site web</option>
 		  <option value="refonte site web">refonte site web</option>
+		  <option value="création application web">création application web</option>
+		  <option value="refonte application web">refonte application web</option>
 		</select>
 		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span>
 		<select name="plan">
@@ -336,6 +338,7 @@
 		  <option value="plan corporate">plan corporate</option>
 		  <option value="plan personal">plan personal</option>
 		  <option value="plan social">plan social</option>
+		  <option value="plan custom">plan custom</option>
 		</select>
 		<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span>
 		<select name="priority">

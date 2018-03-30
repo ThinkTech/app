@@ -564,6 +564,18 @@ $(document).ready(function(){
 		$(".plans").hide();
 		$(".modal").remove();
 	});
+	$(".window.form select[name=subject]").on("change",function(){
+		const val = $(this).val();
+		const select = $(".window.form select[name=plan]");
+		if(val.indexOf("application")!=-1){
+			$("option",select).hide();
+			$("option:last",select).show().prop('selected', true);
+		}else{
+			$("option",select).show();
+			$("option:last",select).hide();
+			$("option:first",select).prop('selected', true);
+		}
+	});
 	const $table = $(".table");
 	const url = $table.data("url");
 	const tr = $("tbody tr",$table);
