@@ -568,11 +568,11 @@ $(document).ready(function(){
 		const val = $(this).val();
 		const select = $(".window.form select[name=plan]");
 		if(val.indexOf("application")!=-1){
-			$("option",select).hide();
-			$("option:last",select).show().prop('selected', true);
+			$("option",select).hide().attr('disabled','disabled');
+			$("option:last",select).show().removeAttr('disabled').prop('selected', true);
 		}else{
-			$("option",select).show();
-			$("option:last",select).hide();
+			$("option",select).show().removeAttr('disabled');
+			$("option:last",select).hide().attr('disabled','disabled');
 			$("option:first",select).prop('selected', true);
 		}
 	});
