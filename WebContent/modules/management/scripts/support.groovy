@@ -46,7 +46,7 @@ class ModuleAction extends ActionSupport {
 	   	ticket.closedOn = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(ticket.closedOn)
 	   	def user = connection.firstRow("select u.name from users u, tickets t where u.id = t.closedBy and t.id = ?", [id])
 	    ticket.closedBy = user.name
-	    response.setHeader("Cache-control", "private, max-age=78840000")
+	    response.addHeader("Cache-control", "private, max-age=78840000")
 	   }
 	   ticket.comments = []
 	   connection.eachRow("select c.id, c.message, c.date, u.name from tickets_comments c, users u where c.createdBy = u.id and c.ticket_id = ?", [ticket.id],{ row -> 
