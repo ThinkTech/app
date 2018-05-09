@@ -80,7 +80,7 @@ class ModuleAction extends ActionSupport {
 	  	 project.bill.date = new SimpleDateFormat("dd/MM/yyyy").format(project.bill.date)
        }
        if(project.status == "finished"){
-         response.setHeader("Cache-control", "private, max-age=78840000")
+         response.addHeader("Cache-control", "private, max-age=78840000")
        }
 	   connection.close() 
 	   json([entity : project])
@@ -137,7 +137,7 @@ class ModuleAction extends ActionSupport {
 	   def dir = "structure_"+user.structure.id+"/"+"project_"+getParameter("project_id")
 	   def name = getParameter("name")
 	   response.contentType = context.getMimeType(name)
-	   response.setHeader("Content-disposition","attachment; filename=$name")
+	   response.addHeader("Content-disposition","attachment; filename=$name")
 	   def fileManager = new FileManager()
 	   fileManager.download(dir+"/"+name,response.outputStream)
 	}
