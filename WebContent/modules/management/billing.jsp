@@ -58,7 +58,7 @@
 	                                  <td>${bill.properties.fee}</td>
 	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${bill.properties.service}</td>
                                   	  <td><s:date name="properties.date" format="dd/MM/yyyy" /></td>
-                                  	  <td><span class="digit">${bill.properties.amount}</span> F</td>                                        
+                                  	  <td><span class="digit">${bill.properties.amount}</span></td>                                        
 	                                  <td><span class="label ${bill.properties.status=='in progress' ? 'label-danger' : '' } ${bill.properties.status=='finished' ? 'label-success' : '' } ${bill.properties.status=='stand by' ? 'label-info' : '' }">
 	                                  ${bill.properties.status=='in progress' ? 'en cours' : '' } ${bill.properties.status=='finished' ? 'terminé' : '' } ${bill.properties.status=='stand by' ? 'en attente' : '' }
 	                                  </span></td>
@@ -83,7 +83,7 @@
 			<span class="text-right"><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i> Frais </span> <span>{fee|s}</span>
 			<span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>{service}</span>
 			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date </span> <span>{date}</span>
-			<span class="text-right"><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i> Montant </span> <span><b class="digit">{amount}</b> F</span>
+			<span class="text-right"><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i> Montant </span> <span><b class="digit">{amount}</b></span>
 			<div class="payment-info">
 			   <fieldset>
 			    <span class="text-right"><i class="fa fa-check" aria-hidden="true"></i> Paiement </span> <span><span class="label label-success">terminé</span></span>
