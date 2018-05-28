@@ -84,7 +84,7 @@ img {
 }
 /*end reset*/
 html {
-	background-color: #dadada;
+	background-color: #f1f1f1;
 	background-image: url(templates/amadeus/images/background.jpg);
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
@@ -501,7 +501,7 @@ a.w3-pass {
 
 @media ( max-width : 480px) {
 	html {
-		background-color: #dadada;
+		background-color: #f1f1f1;
 		background-image: none;
 	}
 	.sub-main-w3 input[type="submit"] {
