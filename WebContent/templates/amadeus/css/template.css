@@ -101,7 +101,7 @@ body {
 }
 
 .header-w3l h1 span {
-	color: #08ccf7;
+	color: #3abfdd;
 	display: inline-block;
 	border: 11px solid;
 	padding: 0 .2em;
@@ -130,7 +130,7 @@ body {
 }
 
 .wthree-pro {
-	background: #08ccf7;
+	background: #3abfdd;
 	border: 1px solid #999;
 	background-size: cover;
 }
@@ -164,7 +164,7 @@ body {
 	outline: none;
 	font-size: 15px;
 	border: none;
-	border: 1px solid #08ccf7;
+	border: 1px solid #3abfdd;
 	background: none;
 	width: 75%;
 	color: #fff;
@@ -181,7 +181,7 @@ body {
 .sub-main-w3 input[type="submit"] {
 	color: #000;
 	background: #fff;
-	border: 1px solid #08ccf7;
+	border: 1px solid #3abfdd;
 	margin-bottom: 10px;
 	padding: .7em 3em;
 	outline: none;
@@ -195,7 +195,7 @@ body {
 }
 
 .sub-main-w3 input[type="submit"]:hover {
-	background: #08ccf7;
+	background: #3abfdd;
 	color: #fff;
 	border: 1px solid #c8ccd0;
 }
@@ -263,20 +263,20 @@ a.w3-pass {
 }
 
 #confirm-dialog-container>div, #alert-dialog-container>div {
-	border: 1px solid #08ccf7;
+	border: 1px solid #3abfdd;
 }
 
 #confirm-dialog-container span:nth-child(1), #alert-dialog-container span:nth-child(1)
 {
-	background: #08ccf7;
+	background: #3abfdd;
 	width : 96%;
 	height : 25px;
 }
 
 #confirm-dialog-container a, #alert-dialog-container a,
 	#alert-dialog-container span:nth-child(1) {
-	background: #08ccf7;
-	background-color: #08ccf7;
+	background: #3abfdd;
+	background-color: #3abfdd;
 }
 
 #confirm-dialog-container a, #alert-dialog-container a{
@@ -285,7 +285,7 @@ a.w3-pass {
 
 #confirm-dialog-container a:hover, #alert-dialog-container a:hover,
 	#confirm-dialog-container a:focus, #alert-dialog-container a:focus {
-	color: #08ccf7;
+	color: #3abfdd;
 	background-color: #fff;
 	border: 1px solid;
 	text-decoration: none;
@@ -299,7 +299,7 @@ a.w3-pass {
 
 #loader {
 	border: 16px solid #eee;
-	border-top: 16px solid #08ccf7;
+	border-top: 16px solid #3abfdd;
 }
 
 /*--//main--*/
@@ -318,7 +318,7 @@ a.w3-pass {
 }
 
 .footer p a {
-	color: #08ccf7;
+	color: #3abfdd;
 }
 
 .footer p a:hover {
