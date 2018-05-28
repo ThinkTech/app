@@ -225,6 +225,8 @@
    font-family : monospace;	
    float: right;
     margin-right: 15px;
+    white-space: nowrap;
+    overflow : hidden;
 }
 
 .shopping-amount > span {
