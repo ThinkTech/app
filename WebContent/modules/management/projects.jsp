@@ -323,7 +323,7 @@
 	<fieldset>
 	    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span>
 		<select name="service">
-		  <option value="web dev">web dev</option>
+		  <option value="webdev">webdev</option>
 		</select>
 	  	<span class="text-right"><i class="fa fa-file-code-o" aria-hidden="true"></i> Projet </span>
 	    <select name="subject">
