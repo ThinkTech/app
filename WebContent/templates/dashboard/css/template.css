@@ -21,7 +21,7 @@ a:focus {
 }
 
 tr:nth-child(even) {
-	background : #ffe;
+	background : #feffc7;
 }
 
 thead tr:nth-child(odd) {
@@ -229,7 +229,7 @@ td i.fa-user {
 
 .page-number {
 	padding-top: 1px;
-    background: #ffe;
+    background: #feffc7;
     color: #000000;
     height: 21px;
     width: 21px;
@@ -275,7 +275,7 @@ fieldset > span {
 
 fieldset > span.text-right {
 	width: 40%;
-    background: #ffe;
+    background: #feffc7;
     padding-right: 6px;
     text-align : right;
 }
