@@ -590,6 +590,9 @@
 	.shopping-amount b{font-size: 11px;}
 }
 @media (max-width:480px){
+	.shopping-amount > span > span:last-of-type{
+	  white-space: normal;
+	}
 	.checkout-wizard-content {width: 360px}
 	.payment-hide {display:none}
 	.wizard-title{padding-top: 2px;padding-left: 4px}
