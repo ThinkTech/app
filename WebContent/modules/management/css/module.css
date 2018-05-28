@@ -12,7 +12,7 @@
 
 .window > div {
 	width : 60%;
-	border : 1px solid #08ccf7;
+	border : 1px solid #3abfdd;
 	border-radius : 5px;
 	height: 600px;
 	overflow-x : hidden; 
@@ -56,7 +56,7 @@
     display : none;
     width: 61%;
     margin-left: -10px;
-    border : 1px solid #08ccf7;
+    border : 1px solid #3abfdd;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -277,7 +277,7 @@ legend {
 	font-size : 2em;
 	position : relative;
 	top : -6px;
-	color : #08ccf7;
+	color : #3abfdd;
 	margin-right : 5px;
 	margin-left : 5px;
 }
@@ -318,7 +318,7 @@ legend {
 	font-size : 12px;
 	padding : 10px;
 	max-width : 250px;
-	border : 1px solid #08ccf7;
+	border : 1px solid #3abfdd;
 	border-radius : 5px;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
@@ -360,9 +360,9 @@ legend {
 }
 
 .window > div .message-list > div > div {
-   border-left : 1px solid #08ccf7;
-   border-right : 1px solid #08ccf7;
-   border-bottom : 1px solid #08ccf7;
+   border-left : 1px solid #3abfdd;
+   border-right : 1px solid #3abfdd;
+   border-bottom : 1px solid #3abfdd;
    width: 100.3%;
 }
 
@@ -397,7 +397,7 @@ legend {
 .window > div h1 i.fa-money {top: 1px;}
 
 .text-right .fa {
-	color : #08ccf7;
+	color : #3abfdd;
 }
 
 .info-tasks ol {
@@ -439,7 +439,7 @@ legend {
 legend a i.fa {
 	position: relative;
     top: 1px;
-    color: #08ccf7;
+    color: #3abfdd;
     margin-left: 2px;
 }
 
@@ -490,7 +490,7 @@ legend a i.fa {
 .window > div hr {
 	margin-top: 0px;
     margin-bottom: 10px;
-    border-top: 1px solid #08ccf7;
+    border-top: 1px solid #3abfdd;
 }
 
 .project-wizard h2 {
@@ -795,7 +795,7 @@ label.tree_label:before {
 }
 
 .blue-top{
-	background:#08ccf7;
+	background:#3abfdd;
 }
 
 .black-top {
