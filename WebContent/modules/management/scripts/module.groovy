@@ -6,20 +6,21 @@ class ModuleAction extends ActionSupport {
    def String execute(){
        def connection = getConnection()
        def projects = []
-       def id = user.structure.id
-       connection.eachRow("select p.id,p.subject,p.date,p.status,p.progression, u.name from projects p, users u where p.user_id = u.id and p.structure_id = ? order by p.date DESC", [id], { row -> 
+       connection.eachRow("select p.id,p.subject,p.date,p.status,p.progression, u.name from projects p, users u where p.user_id = u.id and p.structure_id = ? order by p.date DESC", [user.structure.id], { row -> 
           def project = new Expando()
-          project.id = row.id
-          project.author =  row.name
-          project.subject = row.subject
-          project.date = row.date
-          project.status = row.status
-          project.progression = row.progression
+          project.with {
+         	id = row.id
+            author =  row.name
+            subject = row.subject
+            date = row.date
+            status = row.status
+            progression = row.progression  
+          }
           projects << project
        })
-       def projects_count = connection.firstRow("select count(*) AS num from projects where status = 'stand by' and structure_id = "+id).num
-       def tickets_unsolved = connection.firstRow("select count(*) AS num from tickets where status != 'finished' and structure_id = "+id).num
-       def bills_count = connection.firstRow("select count(*) AS num from bills b, projects p where b.project_id = p.id and b.status = 'stand by' and p.structure_id = "+id).num
+       def projects_count = connection.firstRow("select count(*) AS num from projects where status = 'stand by' and structure_id = "+ user.structure.id).num
+       def tickets_unsolved = connection.firstRow("select count(*) AS num from tickets where status != 'finished' and structure_id = "+ user.structure.id).num
+       def bills_count = connection.firstRow("select count(*) AS num from bills where status = 'stand by' and structure_id = "+ user.structure.id).num
        connection.close() 
        request.setAttribute("projects",projects)  
        request.setAttribute("projects_count",projects_count)
@@ -31,17 +32,18 @@ class ModuleAction extends ActionSupport {
    def showMessages(){
 	   def connection = getConnection()
        def messages = []
-       def id = user.structure.id
-       connection.eachRow("select m.id,m.subject,m.message,m.date,m.unread,u.name from messages m, users u where m.structure_id = ? and m.user_id = u.id order by m.date DESC",[id], { row -> 
+       connection.eachRow("select m.id,m.subject,m.message,m.date,m.unread,u.name from messages m, users u where m.structure_id = ? and m.user_id = u.id order by m.date DESC",[user.structure.id], { row -> 
           def message = new Expando()
-          message.id = row.id
-          message.subject = row.subject
-          message.date = row.date
-          message.user = row.name
-          message.unread = row.unread
-          messages << message
+          message.with{
+            id = row.id
+            subject = row.subject
+            date = row.date
+            user = row.name
+            unread = row.unread  
+          }
+		  messages << message
        })
-       def unread = connection.firstRow("select count(*) AS num from messages where unread = true and structure_id = "+id).num
+       def unread = connection.firstRow("select count(*) AS num from messages where unread = true and structure_id = "+user.structure.id).num
        connection.close() 
        request.setAttribute("messages",messages)  
        request.setAttribute("total",messages.size())

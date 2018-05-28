@@ -45,7 +45,6 @@
                                     <tr class="clr-block-6">
                                       <th></th>
                                       <th>Frais</th>
-                                      <th>Projet</th>
                                       <th>Service</th>
                                       <th>Date</th>  
                                       <th>Montant</th>                                                           
@@ -57,7 +56,6 @@
 	                                <tr id="${bill.properties.id}" class="${bill.properties.status=='finished' ? 'paid' : ''}">
 	                                  <td><span class="number">${status.index+1}</span></td>
 	                                  <td>${bill.properties.fee}</td>
-	                                  <td>${bill.properties.project}</td>
 	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${bill.properties.service}</td>
                                   	  <td><s:date name="properties.date" format="dd/MM/yyyy" /></td>
                                   	  <td><span class="digit">${bill.properties.amount}</span> F</td>                                        
@@ -83,7 +81,6 @@
 		 <h1><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i>Facture du {date}</h1>
 		<fieldset>
 			<span class="text-right"><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i> Frais </span> <span>{fee|s}</span>
-			<span class="text-right"><i class="fa fa-briefcase" aria-hidden="true"></i> Projet </span> <span>{subject}</span>
 			<span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>{service}</span>
 			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date </span> <span>{date}</span>
 			<span class="text-right"><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i> Montant </span> <span><b class="digit">{amount}</b> F</span>

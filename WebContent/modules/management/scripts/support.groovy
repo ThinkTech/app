@@ -6,20 +6,21 @@ class ModuleAction extends ActionSupport {
 	def showTickets(){
        def connection = getConnection()
        def tickets = []
-       def id = user.structure.id
-       connection.eachRow("select t.id,t.subject,t.message,t.date,t.service,t.status,t.progression, u.name from tickets t, users u where t.user_id = u.id and t.structure_id = ? order by t.date DESC", [id], { row -> 
+       connection.eachRow("select t.id,t.subject,t.message,t.date,t.service,t.status,t.progression, u.name from tickets t, users u where t.user_id = u.id and t.structure_id = ? order by t.date DESC", [user.structure.id], { row -> 
           def ticket = new Expando()
-          ticket.id = row.id
-          ticket.author =  row.name
-          ticket.subject = row.subject
-          ticket.message = row.message
-          ticket.date = row.date
-          ticket.service = row.service
-          ticket.status = row.status
-          ticket.progression = row.progression
+          ticket.with{
+            id = row.id
+            author =  row.name
+            subject = row.subject
+            message = row.message
+            date = row.date
+            service = row.service
+            status = row.status
+            progression = row.progression 
+          }
           tickets << ticket
        })
-       def unsolved = connection.firstRow("select count(*) AS num from tickets where status != 'finished' and structure_id = "+id).num
+       def unsolved = connection.firstRow("select count(*) AS num from tickets where status != 'finished' and structure_id = "+user.structure.id).num
        connection.close() 
        request.setAttribute("tickets",tickets)  
        request.setAttribute("total",tickets.size())
@@ -51,10 +52,12 @@ class ModuleAction extends ActionSupport {
 	   ticket.comments = []
 	   connection.eachRow("select c.id, c.message, c.date, u.name from tickets_comments c, users u where c.createdBy = u.id and c.ticket_id = ?", [ticket.id],{ row -> 
           def comment = new Expando()
-          comment.id = row.id
-          comment.author = row.name
-          comment.date = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(row.date)
-          comment.message = row.message
+          comment.with{
+            id = row.id
+            author = row.name
+            date = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(row.date)
+            message = row.message  
+          }
           ticket.comments << comment
        })
 	   connection.close()

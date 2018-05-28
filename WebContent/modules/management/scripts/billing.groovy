@@ -5,19 +5,19 @@ class ModuleAction extends ActionSupport {
    def showBills(){
        def connection = getConnection()
        def bills = []
-       def id = user.structure.id
-       connection.eachRow("select b.id,b.fee,b.amount,b.date,b.status,p.subject,p.service from bills b,projects p where b.project_id = p.id and p.structure_id = ? order by b.date DESC",[id], { row -> 
+       connection.eachRow("select id,fee,amount,date,status,service from bills where structure_id = ? order by date DESC",[user.structure.id], { row -> 
           def bill = new Expando()
-          bill.id = row.id
-          bill.fee = row.fee
-          bill.amount = row.amount
-          bill.date = row.date
-          bill.status = row.status
-          bill.project = row.subject
-          bill.service = row.service
+          bill.with {
+            id = row.id
+            fee = row.fee
+            amount = row.amount
+            date = row.date
+            status = row.status
+            service = row.service  
+          }
           bills << bill
        })
-       def unpayed = connection.firstRow("select count(*) AS num from bills b, projects p where b.project_id = p.id and b.status = 'stand by' and p.structure_id = "+id).num
+       def unpayed = connection.firstRow("select count(*) AS num from bills where status = 'stand by' and structure_id = "+user.structure.id).num
        connection.close() 
        request.setAttribute("bills",bills)  
        request.setAttribute("total",bills.size())
@@ -28,7 +28,7 @@ class ModuleAction extends ActionSupport {
     def getBillInfo() {
 	   def id = getParameter("id")
 	   def connection = getConnection()
-	   def bill = connection.firstRow("select b.*,p.subject,p.service from bills b, projects p where b.project_id = p.id and b.id = ?", [id])
+	   def bill = connection.firstRow("select * from bills where id = ?", [id])
 	   bill.date = new SimpleDateFormat("dd/MM/yyyy").format(bill.date)
 	   if(bill.paidOn) {
 	     bill.paidOn = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(bill.paidOn)
