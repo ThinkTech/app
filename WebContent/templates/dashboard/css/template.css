@@ -1139,16 +1139,9 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 }
 @media (max-width:480px){
 .table tbody tr td:nth-child(2)  {
-	text-align : left;
-	width : 170px;
-	max-width :163px;
-	overflow : hidden;
-}
-
-.table thead tr th:nth-child(2)  {
-	width : 170px;
-	max-width :163px;
-	overflow : hidden;
+	text-align: left;
+    white-space: pre-wrap;
+    word-break: break-all;
 }
 
 .table thead tr th:nth-child(1)  {
