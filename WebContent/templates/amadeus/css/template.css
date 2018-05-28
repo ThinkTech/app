@@ -89,6 +89,7 @@ html {
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	background-size: cover;
+	overflow : hidden;
 }
 
 body {
