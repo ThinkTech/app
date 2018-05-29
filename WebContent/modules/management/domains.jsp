@@ -5,11 +5,23 @@
  </div>
 <!--info updates updates-->
 	 <div class="info-updates">
+	        <div class="col-md-4 info-update-gd">
+				<div class="info-update-block clr-block-1">
+					<div class="col-md-8 info-update-left">
+						<h3>${total}</h3>
+						<h4>domaines</h4>
+					</div>
+					<div class="col-md-4 info-update-right">
+						<i class="fa fa-${activeItem.icon}"> </i>
+					</div>
+				  <div class="clearfix"> </div>
+				</div>
+			</div>
 			<div class="col-md-4 info-update-gd">
 				<div class="info-update-block clr-block-6">
 					<div class="col-md-8 info-update-left">
-						<h3>${total}</h3>
-						<h4>factures</h4>
+						<h3>${registered}</h3>
+						<h4>domaines enregistrés</h4>
 					</div>
 					<div class="col-md-4 info-update-right">
 						<i class="fa fa-${activeItem.icon}"> </i>
@@ -20,8 +32,8 @@
 			<div class="col-md-4 info-update-gd">
 				<div class="info-update-block clr-block-3">
 					<div class="col-md-8 info-update-left">
-						<h3 class="unpayed">${unpayed}</h3>
-						<h4>factures impayées</h4>
+						<h3 class="unpayed">${unregistered}</h3>
+						<h4>domaines en attente</h4>
 					</div>
 					<div class="col-md-4 info-update-right">
 						<i class="fa fa-${activeItem.icon}"> </i>
@@ -40,33 +52,33 @@
                                   <h3 class="tlt">Vos Domaines</h3>
                             </div>
                             <div class="table-responsive">
-                                <table data-url="${url}/domains/info" class="billing table table-hover">
+                                <table data-url="${url}/domains/info" class="domaining table table-hover">
                                   <thead>
                                     <tr class="clr-block-6">
                                       <th></th>
-                                      <th>Frais</th>
-                                      <th>Service</th>
+                                      <th>Domaine</th>
                                       <th>Date</th>  
+                                      <th>Durée</th>
                                       <th>Montant</th>                                                           
-                                      <th>Paiement</th>
+                                      <th>Enregistrement</th>
                                   </tr>
                               </thead>
                               <tbody>
-                               <s:iterator value="#request.bills" var="bill" status="status">
-	                                <tr id="${bill.properties.id}" class="${bill.properties.status=='finished' ? 'paid' : ''}">
+                               <s:iterator value="#request.domains" var="domain" status="status">
+	                                <tr id="${domain.properties.id}" class="${domain.properties.status=='finished' ? 'paid' : ''}">
 	                                  <td><span class="number">${status.index+1}</span></td>
-	                                  <td>${bill.properties.fee}</td>
-	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${bill.properties.service}</td>
-                                  	  <td><s:date name="properties.date" format="dd/MM/yyyy" /></td>
-                                  	  <td><span class="digit">${bill.properties.amount}</span> CFA</td>                                        
-	                                  <td><span class="label ${bill.properties.status=='in progress' ? 'label-danger' : '' } ${bill.properties.status=='finished' ? 'label-success' : '' } ${bill.properties.status=='stand by' ? 'label-info' : '' }">
-	                                  ${bill.properties.status=='in progress' ? 'en cours' : '' } ${bill.properties.status=='finished' ? 'terminé' : '' } ${bill.properties.status=='stand by' ? 'en attente' : '' }
+	                                  <td>${domain.properties.name}</td>
+	                                  <td><s:date name="properties.date" format="dd/MM/yyyy" /></td>
+	                                  <td>${domain.properties.year} an</td>
+                                  	  <td><span class="digit">${domain.properties.price}</span> CFA</td>                                        
+	                                  <td><span class="label ${domain.properties.status=='in progress' ? 'label-danger' : '' } ${domain.properties.status=='finished' ? 'label-success' : '' } ${domain.properties.status=='stand by' ? 'label-info' : '' }">
+	                                  ${domain.properties.status=='in progress' ? 'en cours' : '' } ${domain.properties.status=='finished' ? 'terminé' : '' } ${domain.properties.status=='stand by' ? 'en attente' : '' }
 	                                  </span></td>
 	                              </tr>
 	                          </s:iterator>
                           </tbody>
                       </table>
-                      <div class="empty"><span>aucun domain</span></div>
+                      <div class="empty"><span>aucun domaine</span></div>
                   </div>
              </div>
       </div>
@@ -103,4 +115,4 @@
 	</div>
 </div>
 </div>
-<script src="${js}/billing.js" defer></script>
+<script src="${js}/domains.js" defer></script>
