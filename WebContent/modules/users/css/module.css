@@ -290,7 +290,7 @@ legend a i.fa {
       font-size: 12px;
      }
 	.first-one {
-		width: 71%;
+		width: 88%;
 		padding: 0;
 		margin: 0 auto 4%;
 	}
@@ -311,7 +311,7 @@ legend a i.fa {
 }
 @media (max-width:768px){
 	.first-one {
-		width: 71%;
+		width: 88%;
 		padding: 0;
 		margin: 0 auto 4%;
 	}
@@ -353,9 +353,6 @@ legend a i.fa {
 		padding: 0.8em 4em 0.8em 1em;
 		color: #858282;
 		font-size: 15px;
-	}
-	.window > div h1 {
-    font-size: 13px;
 	}
 	.window.form > div {height: 205px;}
 }
@@ -411,6 +408,9 @@ legend a i.fa {
 	}
 }
 @media (max-width:320px){
+	.window > div h1 {
+     font-size: 0.95em;
+	}
 	.first-one-inner {
 		padding: 1em 1em;
 	}
