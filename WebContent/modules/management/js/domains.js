@@ -5,5 +5,10 @@ $(document).ready(function(){
 		}else {
 		   
 		}
+		if(domain.action == "Transfert"){
+			$(".eppCode",container).show();
+		}else{
+			$(".eppCode",container).hide();
+		}
 	};
  });
