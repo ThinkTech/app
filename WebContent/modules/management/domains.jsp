@@ -47,6 +47,28 @@
 <!--mainpage chit-chating-->
 <div class="chit-chat-layer1">
 	<div class="col-md-12 chit-chat-layer1-left">
+	    <div class="tld-domain-search-wrapper">
+			<div class="tld-domain-search">
+			<div class="input-container">
+				<span>www.</span>
+				<input placeholder="votre domaine web" type="text" maxlength="200">
+				<select>
+					<option value="com">.com</option>
+					<option value="net">.net</option>
+					<option value="org">.org</option>
+					<option value="biz">.biz</option>
+					<option value="info">.info</option>
+					<option value="tv">.tv</option>
+					<option value="press">.press</option>
+					<option value="news">.news</option>
+					<option value="tech">.tech</option>
+				</select>
+			</div>
+			<a  rel="nofollow" class="tld-search-button">
+			  <i class="fa fa-search" aria-hidden="true"></i>
+			</a>
+		 </div>
+		</div>
                <div class="work-progres">
                             <div class="chit-chat-heading">
                                   <h3 class="tlt">Vos Domaines</h3>

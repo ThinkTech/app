@@ -493,6 +493,61 @@ legend a i.fa {
     border-top: 1px solid #3abfdd;
 }
 
+.tld-domain-search-wrapper {
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    padding-top: 0;
+    padding-bottom: 15px;
+}
+
+.tld-domain-search .input-container input {
+   display: inline-block;
+    height: 48px;
+    line-height: 48px;
+    border: 1px solid #08ccf7;
+    padding-left: 10px;
+    width : 300px;
+}
+
+.tld-domain-search .input-container span {
+    border: 2px solid transparent;
+    display: inline-block;
+    height: 48px;
+    line-height: 48px;
+    font-weight : bold;
+}
+
+.tld-domain-search .tld-search-button {
+    background-color: #ca2233;
+    z-index : 10;
+    display: inline-block;
+    height: 47px;
+    margin-left: 0px;
+    width: 70px;
+    vertical-align: top;
+    font-size: 1.6em;
+    padding-top: 7px;
+    margin-top: 2px;
+    color: #fff;
+    cursor : pointer;
+    text-align : center;
+}
+
+.tld-domain-search > div {
+	display : inline-block;
+}
+
+.tld-domain-search select {
+    width: auto;
+    height: 48px;
+    line-height: 48px;
+    padding-left: 10px;
+    border: 1px solid #08ccf7;
+    background: #fff;
+}
+
+
 .project-wizard h2 {
 	margin-left : 10px;
 	margin-bottom : 10px;
@@ -730,6 +785,31 @@ label.tree_label:before {
 	.window > div img {width : 50%}
 	.message {font-size : 60%}
 	.window > div h1 {font-size: 1em;}
+	.tld-domain-search select {
+	    height: 36px;
+        line-height: 36px;
+        font-size: 11px;
+        margin-left: -1px;
+	}
+	.tld-domain-search .input-container input {
+	    height: 36px;
+        line-height: 36px;
+        width: 135px;
+        font-size: 11px;
+        margin-left: -5px;
+	}
+	.tld-domain-search .input-container span {
+      height: 36px;
+      line-height: 36px;
+      font-size: 11px;
+    }
+	.tld-domain-search .tld-search-button {
+	    height: 36px;
+        margin-left: -2px;
+        width: 45px;
+        font-size: 13px;
+        padding-top: 9px;
+	}
 	.project-wizard h5 {font-size: 0.9em;}
 	.project-wizard section > span {font-size: 0.8em;font-weight: bold;}
 	.window > div fieldset {padding-left: 0px;}
@@ -765,6 +845,27 @@ label.tree_label:before {
 	.project-wizard p {text-align : center}
 	.window p {word-break : break-word;}
 	legend {width: 100.5%;}
+}
+
+@media(max-width:360px){
+	.tld-domain-search-wrapper {
+    	text-align: left;
+    	white-space: nowrap;
+    	padding : 0;
+	}
+	.tld-domain-search .input-container input {
+    	width: 127px;
+    	font-size : 10px;
+	}
+	.tld-domain-search .input-container select {
+	   font-size : 10px;
+	}
+}
+
+@media(max-width:320px){
+	.tld-domain-search .input-container input {
+    	width: 110px;
+	}
 }
 
 /*-- pricing --*/
