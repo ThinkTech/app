@@ -21,9 +21,11 @@ class ModuleAction extends ActionSupport {
           tickets << ticket
        })
        def unsolved = connection.firstRow("select count(*) AS num from tickets where status != 'finished' and structure_id = "+user.structure.id).num
+       def solved = connection.firstRow("select count(*) AS num from tickets where status = 'finished' and structure_id = "+user.structure.id).num
        connection.close() 
        request.setAttribute("tickets",tickets)  
        request.setAttribute("total",tickets.size())
+       request.setAttribute("solved",solved)
        request.setAttribute("unsolved",unsolved)
        SUCCESS
     }

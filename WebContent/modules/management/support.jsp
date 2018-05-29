@@ -8,8 +8,20 @@
 	        <div class="col-md-4 info-update-gd">
 				<div class="info-update-block clr-block-1">
 					<div class="col-md-8 info-update-left">
-						<h3>${total}</h3>
+						<h3 class="total">${total}</h3>
 						<h4>tickets</h4>
+					</div>
+					<div class="col-md-4 info-update-right">
+						<i class="fa fa-${activeItem.icon}"> </i>
+					</div>
+				  <div class="clearfix"> </div>
+				</div>
+			</div>
+			<div class="col-md-4 info-update-gd">
+				<div class="info-update-block clr-block-6">
+					<div class="col-md-8 info-update-left">
+						<h3 class="solved">${solved}</h3>
+						<h4>tickets résolus</h4>
 					</div>
 					<div class="col-md-4 info-update-right">
 						<i class="fa fa-${activeItem.icon}"> </i>

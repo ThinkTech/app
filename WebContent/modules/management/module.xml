@@ -11,6 +11,8 @@
     <action url="projects/description/update"  method="updateProjectDescription" script="projects.groovy"/>
     <action url="projects/comments/create"  method="addComment" script="projects.groovy"/>
     <action url="projects/priority/update"  method="updateProjectPriority" script="projects.groovy"/>
+    <action url="domains"  page="domains" method="showDomains" script="domains.groovy"/>
+    <action url="domains/info"  method="getBillInfo" script="billing.groovy"/>
     <action url="support"  page="support" method="showTickets" script="support.groovy"/>
     <action url="support/tickets/create"  method="createTicket" script="support.groovy"/>
     <action url="support/tickets/info"  method="getTicketInfo" script="support.groovy"/>
@@ -26,6 +28,7 @@
 	<menu name="main">
 		<menuItem label="Dashboard" icon="television"/>
 		<menuItem label="Vos Projets" url="projects" icon="briefcase"/>
+		<menuItem label="Vos Domaines" url="domains" icon="globe"/>
 		<menuItem label="Assistance" url="support" icon="question-circle-o"/>
 		<menuItem label="Facturation" url="billing" icon="money"/>
 		<menuItem label="Nos Services" url="services" icon="ticket"/>
