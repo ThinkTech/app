@@ -35,6 +35,9 @@ class ModuleAction extends ActionSupport {
 	   domain.date = new SimpleDateFormat("dd/MM/yyyy").format(domain.date)
 	   domain.action = domain.action ? "Transfert" : "Achat"
 	   domain.eppCode = domain.eppCode ? domain.eppCode : "&nbsp;"
+	   if(domain.registeredOn) {
+	     domain.registeredOn = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(domain.registeredOn)
+	   }
 	   connection.close()
 	   json([entity : domain])
 	}

@@ -129,6 +129,7 @@
 			</div>
 			<div class="manage">
 			    <fieldset>
+			     <span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Enregistré le  </span> <span>{registeredOn}</span>
 			 	 <span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Management </span> <span><a href="https://cloudlogin.co" target="_blank" rel="nofollow">[ manage ]</a></span>
 			 	</fieldset>
 			</div>
