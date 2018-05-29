@@ -809,6 +809,7 @@ label.tree_label:before {
         width: 45px;
         font-size: 13px;
         padding-top: 9px;
+        margin-top: 2.5px;
 	}
 	.project-wizard h5 {font-size: 0.9em;}
 	.project-wizard section > span {font-size: 0.8em;font-weight: bold;}
