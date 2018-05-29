@@ -13,7 +13,7 @@ class ModuleAction extends ActionSupport {
             year = row.year
             price = row.price
             status = row.status
-            action = row.action
+            action = row.action ? "Transfert" : "Achat"
             date = row.date 
           }
           domains << domain
@@ -33,13 +33,8 @@ class ModuleAction extends ActionSupport {
 	   def connection = getConnection()
 	   def domain = connection.firstRow("select * from domains where id = ?", [id])
 	   domain.date = new SimpleDateFormat("dd/MM/yyyy").format(domain.date)
-	   if(domain.paidOn) {
-	     domain.paidOn = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(domain.paidOn)
-	     def user = connection.firstRow("select u.name from users u, domains b where u.id = b.paidBy and b.id = ?", [id])
-	     domain.paidBy = user.name 
-	   }else{
-	   	 domain.user = user
-	   }
+	   domain.action = domain.action ? "Transfert" : "Achat"
+	   domain.eppCode = domain.eppCode ? domain.eppCode : "&nbsp;"
 	   connection.close()
 	   json([entity : domain])
 	}

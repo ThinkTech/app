@@ -59,7 +59,8 @@
                                       <th>Domaine</th>
                                       <th>Date</th>  
                                       <th>Durée</th>
-                                      <th>Montant</th>                                                           
+                                      <th>Montant</th>
+                                      <th>Action</th>                                                           
                                       <th>Enregistrement</th>
                                   </tr>
                               </thead>
@@ -70,7 +71,8 @@
 	                                  <td>${domain.properties.name}</td>
 	                                  <td><s:date name="properties.date" format="dd/MM/yyyy" /></td>
 	                                  <td>${domain.properties.year} an</td>
-                                  	  <td><span class="digit">${domain.properties.price}</span> CFA</td>                                        
+                                  	  <td><span class="digit">${domain.properties.price}</span> CFA</td>
+                                  	   <td>${domain.properties.action}</td>                                        
 	                                  <td><span class="label ${domain.properties.status=='in progress' ? 'label-danger' : '' } ${domain.properties.status=='finished' ? 'label-success' : '' } ${domain.properties.status=='stand by' ? 'label-info' : '' }">
 	                                  ${domain.properties.status=='in progress' ? 'en cours' : '' } ${domain.properties.status=='finished' ? 'terminé' : '' } ${domain.properties.status=='stand by' ? 'en attente' : '' }
 	                                  </span></td>
@@ -90,26 +92,16 @@
 		<span title="fermer" class="close">X</span>
 		<section>
 		 <template>
-		 <h1><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i>Facture du {date}</h1>
+		 <h1><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i>Domaine</h1>
 		<fieldset>
-			<span class="text-right"><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i> Frais </span> <span>{fee|s}</span>
-			<span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>{service}</span>
+		    <span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Domaine </span> <span>{name}</span>
+			<span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>domainhosting</span>
 			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date </span> <span>{date}</span>
-			<span class="text-right"><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i> Montant </span> <span><b class="digit">{amount}</b> CFA</span>
-			<div class="payment-info">
-			   <fieldset>
-			    <span class="text-right"><i class="fa fa-check" aria-hidden="true"></i> Paiement </span> <span><span class="label label-success">terminé</span></span>
-			    <span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Effectué le </span> <span>{paidOn}</span>
-			    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Par </span> <span>{paidBy}</span>
-			    <span class="text-right"><i class="fa fa-credit-card" aria-hidden="true"></i> Par </span> <span>{paidWith}</span>
-			    <span class="code text-right"><i class="fa fa-credit-card" aria-hidden="true"></i> Code </span> <span>{code}</span>
-			   </fieldset>
-			</div>
+			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Durée </span> <span>{year} an</span>
+			<span class="text-right"><i class="fa fa-money" aria-hidden="true"></i> Montant </span> <span><b class="digit">{price}</b> CFA</span>
+			<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Action </span> <span>{action}</span>
+			<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> EPP Code </span> <span>{eppCode|s}</span>
 		</fieldset>
-		<div class="submit">
-		   <input type="submit" value="Payer">
-		   <input type="button" value="Annuler">
-		</div>
 		</template>
 		</section>
 	</div>
