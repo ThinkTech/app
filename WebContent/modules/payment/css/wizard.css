@@ -18,8 +18,9 @@
     margin-bottom: 3px;
     font-weight: bold;
     padding: 8px;
-    background: #000;
-    color: #fff;
+    background: #fff;
+    border: 1px solid #555;
+    color: #060606;
     border-radius: 50%;
     top: 2px;
     position: relative;
