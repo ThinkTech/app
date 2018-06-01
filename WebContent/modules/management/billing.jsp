@@ -88,7 +88,7 @@
 			   <fieldset>
 			    <span class="text-right"><i class="fa fa-check" aria-hidden="true"></i> Paiement </span> <span><span class="label label-success">terminé</span></span>
 			    <span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Effectué le </span> <span>{paidOn}</span>
-			    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Par </span> <span>{paidBy}</span>
+			    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Payé Par </span> <span>{paidBy}</span>
 			    <span class="text-right"><i class="fa fa-credit-card" aria-hidden="true"></i> Par </span> <span>{paidWith}</span>
 			    <span class="code text-right"><i class="fa fa-credit-card" aria-hidden="true"></i> Code </span> <span>{code}</span>
 			   </fieldset>
