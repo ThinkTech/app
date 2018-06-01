@@ -79,7 +79,7 @@
                                     <tr class="clr-block-6">
                                       <th></th>
                                       <th>Domaine</th>
-                                      <th>Date</th>  
+                                      <th>Date Création</th>  
                                       <th>Durée</th>
                                       <th>Montant</th>
                                       <th>Action</th>                                                           
@@ -117,8 +117,7 @@
 		 <h1><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i>Domaine</h1>
 		<fieldset>
 		    <span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Domaine </span> <span>{name}</span>
-			<span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span> <span>domainhosting</span>
-			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date </span> <span>{date}</span>
+			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création</span> <span>{date}</span>
 			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Durée </span> <span>{year} an</span>
 			<span class="text-right"><i class="fa fa-money" aria-hidden="true"></i> Montant </span> <span><b class="digit">{price}</b> CFA</span>
 			<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Action </span> <span>{action}</span>
