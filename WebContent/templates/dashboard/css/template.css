@@ -20,7 +20,18 @@ a:hover {
 a:focus {
     outline: none;
 }
-
+::placeholder {
+	color : #502626;
+	opacity : 1;
+}
+:-ms-input-placeholder {
+	color : #502626;
+	opacity : 1;
+}
+::-ms-input-placeholder {
+	color : #502626;
+	opacity : 1;
+}
 tr:nth-child(even) {
 	background : #feffc7;
 }
@@ -449,11 +460,6 @@ fieldset > span.text-right.full {
 .logo-name a {
     display:inline-block;
 }
-/*start search*/
-::-webkit-input-placeholder{
-   color:#7A7B78 !important;
-}
-/*--//search-ends --*/
 /*--- Progress Bar ----*/
 /*--- User Panel---*/
 .profile_details_left {
