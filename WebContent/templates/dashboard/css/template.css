@@ -650,6 +650,10 @@ ul.dropdown-menu.drp-mnu li {
     padding : 0em 1em 1em 1em;
 }
 
+.info-updates {
+	margin-top : -10px;
+}
+
 .info-update-block {
     padding: 2em 2em;
     background: #999;
@@ -1096,6 +1100,10 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 }
 }
 @media (max-width:640px){
+.info-updates {
+	margin-top : 0px;
+}
+	
 .profile_details {
     top: -16px;
 }
