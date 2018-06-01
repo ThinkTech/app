@@ -142,7 +142,7 @@ legend a {
 /*--header main start here--*/
 td{
 	font-size : 13px;
-	color : #000000;
+	color : #180101;
 }
 
 td i {
@@ -191,7 +191,7 @@ td i.fa-user {
 }
 
 .badge {
-	background : #000000;
+	background : #180101;
 }
 
 .badge, .label {
@@ -233,7 +233,7 @@ td i.fa-user {
 .page-number {
 	padding-top: 1px;
     background: #feffc7;
-    color: #000000;
+    color: #180101;
     height: 21px;
     width: 21px;
     display: inline-block;
@@ -325,7 +325,7 @@ fieldset > span.text-right.full {
 .sidebar-menu h1 a span {
     color: #ffffff;
     display: inline-block;
-    border: 5px solid #000000;
+    border: 5px solid #180101;
     padding: 0 .2em;
     text-shadow: none;
     margin-right: 2px;
@@ -429,7 +429,7 @@ fieldset > span.text-right.full {
     white-space: nowrap;
     text-decoration: none;
     font-family: Tahoma;
-    text-shadow: 1px 0px #000000;
+    text-shadow: 1px 0px #180101;
     width: 20px;
 }
 
@@ -504,7 +504,7 @@ ul.dropdown-menu li {
     border-top : 1px solid rgba(0, 0, 0, .175);
 }
 .notification_bottom a {
-    color: #000;
+    color: #180101;
     font-size: 14px;
     font-weight: bold;
     cursor : pointer;
@@ -625,7 +625,7 @@ ul.dropdown-menu.drp-mnu li {
     color: #0d0d0e;
     line-height: 1em;
     font-weight: bold;
-    text-shadow: 1px 0px #000000;
+    text-shadow: 1px 0px #180101;
     white-space : nowrap;
 }
 .user-name span {
@@ -746,7 +746,7 @@ ul.dropdown-menu.drp-mnu li {
 }
 
 .info-update-right i.fa-question-circle-o {
-	color : #000000;
+	color : #180101;
 }
 
 .info-update-left,.info-update-right {
@@ -767,7 +767,7 @@ h3.tlt {
     color: #180101;
     text-transform: uppercase;
    font-family: Tahoma;
-   text-shadow: 1px 0px #000000;
+   text-shadow: 1px 0px #180101;
 }
 
 h3 .fa {

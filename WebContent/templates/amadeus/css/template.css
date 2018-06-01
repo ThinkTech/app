@@ -110,8 +110,8 @@ body {
 
 .header-w3l h1 {
 	font-size: 4.75em;
-	color: #000000;
-	text-shadow: 1px 1px #000000;
+	color: #180101;
+	text-shadow: 1px 1px #180101;
 	font-weight: bold;
 	letter-spacing: 4px;
 	text-transform: uppercase;
@@ -179,7 +179,7 @@ body {
 }
 
 .sub-main-w3 input[type="submit"] {
-	color: #000;
+	color: #180101;
 	background: #fff;
 	border: 1px solid #3abfdd;
 	margin-bottom: 10px;
@@ -312,7 +312,7 @@ a.w3-pass {
 .footer p {
 	font-size: 12px;
 	font-weight: bold;
-	color: #000000;
+	color: #180101;
 	letter-spacing: 2px;
 	font-family: 'Tahoma', sans-serif;
 }
