@@ -600,6 +600,7 @@ ul.dropdown-menu {
     margin-top: 3px;
     margin-right: 55px;
     height: 35px;
+    text-transform: capitalize;
 }
 .user-name i {
 	 text-shadow : none;
