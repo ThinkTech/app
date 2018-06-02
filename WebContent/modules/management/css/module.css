@@ -696,13 +696,14 @@ label.tree_label:before {
 .service {
 	text-align: center;
     margin-top: 20px;
-    margin-right: 8%;
+    margin-right: 5%;
     padding: 5px;
     display: inline-block;
+    width: 128px;
 }
 
 .service h3 {
-	font-size : 16px;
+	font-size : 13px;
 	font-weight : bold;
 }
 
@@ -841,9 +842,11 @@ label.tree_label:before {
 	.window > div .message-list > div > div div.message {width : 97%;}
 	.window > div ol li span.question{width:20px;margin-left: 78%;position: relative; top: -2px;}
 	legend a i.fa {position: relative;top: -1px;}
+	.service h3 {font-size: 11px;}
 }
 
 @media(max-width:480px){
+	.service {margin-right: 5%; width: 43%}
 	.project-wizard p {text-align : center}
 	.window p {word-break : break-word;}
 	legend {width: 100.5%;}
