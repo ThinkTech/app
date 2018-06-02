@@ -237,6 +237,10 @@ td i.fa-user {
     font-family: Tahoma;
 }
 
+.close:hover {
+	opacity : 1;
+}
+
 .pager {
 	text-align : center;
 }
