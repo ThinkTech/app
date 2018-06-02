@@ -109,6 +109,55 @@
       
      <div class="clearfix"> </div>
 </div>
+<div class="modal modal-top">
+		<div class="search search-results">
+		   <span class="close">X</span>
+		   <h1><i class="fa fa-search" aria-hidden="true"></i> Résultats</h1>
+		   <div>
+		   	   <h3><i class="fa fa-check-circle-o" aria-hidden="true"></i> Le nom de domaine web <span class="domain-name"></span> est <span class="domain-availability"></span></h3>
+		   </div>
+		   <div>
+		   <table class="table table-sm table-striped">
+		 	<tbody>
+		 	</tbody>
+		 	</table>
+		   </div>
+		   <br><br>
+		</div>
+		<div class="search search-wizard">
+		   <span class="close">X</span>
+		   <h1><i class="fa fa-shopping-cart" aria-hidden="true"></i> Achat Domaine Web</h1>
+		   <div>
+		   	   <h3 class="green"><i class="fa fa-check-circle-o green" aria-hidden="true"></i> domaine web : <span class="domain-name"></span></h3>
+		   	   <h4>Durée Choisie : <span class="domain-year"></span> an</h4> <h4 class="price">Montant : <span class="domain-amount"></span> CFA</h4> <span class="domain-edit"><a>[ modifier ]</a></span>
+		   </div>
+		   <div class="wizard-message">
+		      <p>Selon votre besoin, vous devez maintenant souscrire à un de nos services. Un nom de domaine est inclus dans certains plans de nos offres de services, ce qui veut dire que dans la plupart des cas, cette étape est juste celle de la réversation ou du transfert de votre domaine web pour la durée choisie. 
+		      Vous pouvez bien entendu attendre d'avoir une meilleure compréhension de chacune de nos offres de services et de notre processus avant une éventuelle souscription.</p>
+		   </div>
+		   <div>
+		    <fieldset>    
+		       <legend>Nos Services</legend>
+		        <input type="radio"  id="domainhosting"
+			     name="service" value="domainhosting">
+			    <label for="domainhosting">Hébergement Domaine</label>
+			    <br>
+			    <input type="radio" checked="checked" id="mailhosting"
+			     name="service" value="mailhosting">
+			    <label for="maihosting">Hébergement Email</label>
+			    <br>
+			    <input type="radio" id="webdev"
+			     name="service" value="webdev">
+			    <label for="webdev">Développement Web</label>
+		    </fieldset>
+		   </div>
+		   <div class="buttons">
+		      <a class="finish">Souscrire</a>
+		      <a class="cancel">Annuler</a>
+		   </div>
+		   <br>
+		</div>
+		</div>
 <div class="window details">
      <div>
 		<span title="fermer" class="close">X</span>

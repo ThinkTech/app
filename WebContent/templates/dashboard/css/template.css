@@ -159,7 +159,6 @@ td{
 td i {
 	position : relative;
 	top : 1px;
-	color: #3abfdd;
 }
 
 td i.fa-briefcase {
@@ -783,7 +782,6 @@ h3.tlt {
 
 h3 .fa {
 	position: relative;
-    color: #3abfdd;
     text-shadow: none;
     font-weight: bold;
 }
@@ -1044,6 +1042,12 @@ fieldset > span {
     left: 0px;
     top: 3px;
     padding-left: 8px;
+}
+.green{
+	color : green;
+}
+.red {
+	color : red;
 }
 .table-responsive {
     border : none;
