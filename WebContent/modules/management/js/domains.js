@@ -146,9 +146,9 @@ page.initDomainSearch = function(){
 	    	         	  	    	 localStorage.setItem("purchase",JSON.stringify(purchase));
 	    	  	    	        	 $(".domain-name").html(purchase.domain).val(purchase.domain);
 	    	  	    	        	 $(".domain-year").html(purchase.year).val(purchase.year);
-	    	  	    	        	 $(".domain-price").html(pricing[event.data.extension]).val(pricing[event.data.extension]);
+	    	  	    	        	 $(".domain-price").html(pricing[event.data.extension].toLocaleString("fr-FR")).val(pricing[event.data.extension].toLocaleString("fr-FR"));
 	    	  	    	        	 $(".domain-amount").html(purchase.price.toLocaleString("fr-FR")).val(purchase.price.toLocaleString("fr-FR"));
-	    	  	    	        	 $(".epp-code").removeAttr("required").hide();
+	    	  	    	        	 $(".epp-code").hide();
 	    	  	    	          });
 	    	  	    	          tbody.append(tr);
 	    	  	    	    	}else {
@@ -179,8 +179,8 @@ page.initDomainSearch = function(){
 	    	  	    	        	 search.hide();
 	    	  	    	        	 const wizard = $(".search-wizard");
 	    	  	    	        	 if(button.data("wizard")!="hide"){
-	    	  	    	        		wizard.css("top",top).show(); 
-	    	  	    	        		$('html,body').animate({scrollTop:top-30},300);
+	    	  	    	        		wizard.css("top",20).show(); 
+	    	  	    	        		$('html,body').animate({scrollTop:20},300);
 	    	  	    	        	 }else{
 	    	  	    	        		search.parent().hide();
 	    	  	    	        		$('html,body').animate({scrollTop:top-150},300);
@@ -192,7 +192,7 @@ page.initDomainSearch = function(){
 	    	  	    	        	 $(".domain-year").html(purchase.year).val(purchase.year);
 	    	  	    	        	 $(".domain-price").html(pricing[event.data.extension].toLocaleString("fr-FR")).val(pricing[event.data.extension].toLocaleString("fr-FR"));
 	    	  	    	        	 $(".domain-amount").html(purchase.price.toLocaleString("fr-FR")).val(purchase.price.toLocaleString("fr-FR"));
-	    	  	    	        	 $(".epp-code").attr("required","true").show();
+	    	  	    	        	 $(".epp-code").show();
 	    	  	    	          });
 	    	  	    	          tbody.append(tr);
 	       	  	    	          tr.addClass("unavailable");

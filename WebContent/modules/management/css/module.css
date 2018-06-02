@@ -1083,6 +1083,10 @@ label.tree_label:before {
 	.window > div img {width : 50%}
 	.message {font-size : 60%}
 	.window > div h1 {font-size: 1.05em;}
+	.search h3 {margin: 0;font-size :13px}
+	.search.search-wizard h4 {font-size: 12px;}
+	.search-wizard div {margin-top: 5px;}
+	.search-wizard fieldset {margin-top: -4px;}
 	.tld-domain-search select {
 	    height: 36px;
         line-height: 36px;

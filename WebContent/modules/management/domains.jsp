@@ -132,27 +132,19 @@
 		   	   <h4>Durée Choisie : <span class="domain-year"></span> an</h4> <h4 class="price">Montant : <span class="domain-amount"></span> CFA</h4> <span class="domain-edit"><a>[ modifier ]</a></span>
 		   </div>
 		   <div class="wizard-message">
-		      <p>Selon votre besoin, vous devez maintenant souscrire à un de nos services. Un nom de domaine est inclus dans certains plans de nos offres de services, ce qui veut dire que dans la plupart des cas, cette étape est juste celle de la réversation ou du transfert de votre domaine web pour la durée choisie. 
-		      Vous pouvez bien entendu attendre d'avoir une meilleure compréhension de chacune de nos offres de services et de notre processus avant une éventuelle souscription.</p>
+		      <p>Selon l'action choisie, votre domaine web est en attente d'enregistrement. Celui-ci sera en cours dès que vous aurez payé votre facture d'hébergement qui sera générée automatiquement après votre confirmation.</p>
 		   </div>
-		   <div>
+		   <div style="border:none">
 		    <fieldset>    
-		       <legend>Nos Services</legend>
-		        <input type="radio"  id="domainhosting"
-			     name="service" value="domainhosting">
-			    <label for="domainhosting">Hébergement Domaine</label>
-			    <br>
-			    <input type="radio" checked="checked" id="mailhosting"
-			     name="service" value="mailhosting">
-			    <label for="maihosting">Hébergement Email</label>
-			    <br>
-			    <input type="radio" id="webdev"
-			     name="service" value="webdev">
-			    <label for="webdev">Développement Web</label>
+		         <span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Domaine </span> <span class="domain-name"></span>
+		         <span class="text-right"><i class="fa fa-money" aria-hidden="true"></i> Prix (CFA) </span> <span class="domain-price"></span>
+		         <span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Durée </span> <span class="domain-year"></span>
+		         <span class="text-right"><i class="fa fa-money" aria-hidden="true"></i> Montant (CFA) </span> <span class="domain-amount"></span>
+		         <span class="text-right epp-code"><i class="fa fa-money" aria-hidden="true"></i> EPP Code </span> <span class="epp-code"><input name="eppCode"></input></span>
 		    </fieldset>
 		   </div>
 		   <div class="buttons">
-		      <a class="finish">Souscrire</a>
+		      <a class="finish">Confirmer</a>
 		      <a class="cancel">Annuler</a>
 		   </div>
 		   <br>
