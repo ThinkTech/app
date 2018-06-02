@@ -224,7 +224,7 @@ td i.fa-user {
 
 .close {
 	opacity: 1;
-    margin-right: 5px;
+    margin-right: 0px;
     margin-bottom: 3px;
     font-weight: bold;
     padding: 8px;

@@ -786,7 +786,7 @@ label.tree_label:before {
 	.window > div {width: 100%;border-radius: 0px;height: 100%;}
 	.window > div img {width : 50%}
 	.message {font-size : 60%}
-	.window > div h1 {font-size: 1em;}
+	.window > div h1 {font-size: 1.05em;}
 	.tld-domain-search select {
 	    height: 36px;
         line-height: 36px;
