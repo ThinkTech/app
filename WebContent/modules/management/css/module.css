@@ -275,6 +275,7 @@
 
 .search .table tbody tr {
    display : block;
+   cursor: default;
 }
 
 .search .table tr td:first-of-type {
