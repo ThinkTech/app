@@ -114,7 +114,6 @@ page.initDomainSearch = function(){
     	  	    	if(result){
     	  	    		const search = $(".search-results").css("top",20).show();
     	  	    		search.parent().css("height",$('body').height()+"px").show();
-        	  	    	$('html,body').animate({scrollTop:20},300);
         	  	    	const tbody = $("table tbody",search).empty();
 	    	  	    	var tr;
 	    	  	    	var i;
@@ -158,13 +157,7 @@ page.initDomainSearch = function(){
 	    	  	    	        	 purchase.extension = event.data.extension;
 	    	  	    	        	 search.hide();
 	    	  	    	        	 const wizard = $(".search-wizard");
-	    	  	    	        	 if(button.data("wizard")!="hide"){
-	    	  	    	        		wizard.css("top",20).show(); 
-	    	  	    	        		$('html,body').animate({scrollTop:20},300);
-	    	  	    	        	 }else{
-	    	  	    	        		search.parent().hide();
-	    	  	    	        		$('html,body').animate({scrollTop:top-150},300);
-	    	  	    	        	 }
+	    	  	    	        	 wizard.css("top",20).show();
 	    	  	    	        	 purchase.domain = domain+"."+event.data.extension;
 	    	         	  	    	 localStorage.setItem("purchase",JSON.stringify(purchase));
 	    	  	    	        	 $(".domain-name").html(purchase.domain).val(purchase.domain);
@@ -201,13 +194,7 @@ page.initDomainSearch = function(){
 	    	  	    	        	 purchase.extension = event.data.extension;
 	    	  	    	        	 search.hide();
 	    	  	    	        	 const wizard = $(".search-wizard");
-	    	  	    	        	 if(button.data("wizard")!="hide"){
-	    	  	    	        		wizard.css("top",20).show(); 
-	    	  	    	        		$('html,body').animate({scrollTop:20},300);
-	    	  	    	        	 }else{
-	    	  	    	        		search.parent().hide();
-	    	  	    	        		$('html,body').animate({scrollTop:top-150},300);
-	    	  	    	        	 }
+	    	  	    	        	 wizard.css("top",20).show();
 	    	  	    	        	 purchase.action = "transfer";
 	    	  	    	        	 purchase.domain = domain+"."+event.data.extension;
 	    	         	  	    	 localStorage.setItem("purchase",JSON.stringify(purchase));
