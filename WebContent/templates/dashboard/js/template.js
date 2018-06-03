@@ -135,11 +135,6 @@ page.table.paginate = function() {
 	    }else{
 	    	$table.next(".empty").hide();
 	    }
-	    $.each($(".digit",$table),function(i,node){
-			 node = $(node);
-			 const val = parseInt(node.text());
-			 node.html(val.toLocaleString("fr-FR"));
-		});
 	    $table.bind('repaginate', function() {
 	        rows.hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
 	    });
@@ -169,6 +164,11 @@ page.table.addRow = function(entity,callback) {
 	const tbody = $("tbody",table);
 	page.render(tbody, [entity], true, function(row) {
 		$("td:first-child span.number",row).html($("tr",tbody).removeClass("active").length);
+		$.each($(".digit",row),function(i,node){
+			 node = $(node);
+			 const val = parseInt(node.text());
+			 node.html(val.toLocaleString("fr-FR"));
+		});
 		row.attr("id",entity.id).addClass("active");
 		page.table.paginate();
 		$("span.page-number:last").click();
@@ -181,6 +181,11 @@ page.updateUserName = function(name){
 };
 
 $(document).ready(function(){
+	$.each($(".digit"),function(i,node){
+		 node = $(node);
+		 const val = parseInt(node.text());
+		 node.html(val.toLocaleString("fr-FR"));
+	});
 	page.table.paginate();
 	$(".window .close").click(function(event) {
 		const div = $(this).parent().parent().hide();

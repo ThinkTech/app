@@ -30,9 +30,16 @@ page.initDomainSearch = function(){
 	});
     $(".search-wizard .finish").click(function(event){
     	const div = $(".search-wizard");
-    	const top = div.offset().top;
+    	const top = div.offset().top+div.height()/2;
     	const purchase = JSON.parse(localStorage.getItem('purchase'));
-    	if(purchase.action == "transfer"){
+    	const bill = {};
+    	bill.service = "domainhosting";
+    	bill.fee = "h&eacute;bergement domaine : "+purchase.domain;
+    	bill.amount = purchase.price;
+    	const date = new Date();
+		bill.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
+    	purchase.date = bill.date;
+		if(purchase.action == "transfer"){
     		const input = $("input[name=eppCode]",div);
     		const code = input.val().trim();
     		if(code){
@@ -41,7 +48,7 @@ page.initDomainSearch = function(){
     				page.table.addRow(purchase,function(){
     					page.wait({top : top});
         				head.load("modules/payment/js/wizard.js",function() {
-        				    page.wizard.show({},top,function(){
+        				    page.wizard.show(bill,top,function(){
         				    });
         				});  
 					});
@@ -57,14 +64,12 @@ page.initDomainSearch = function(){
 				page.table.addRow(purchase,function(){
 					page.wait({top : top});
     				head.load("modules/payment/js/wizard.js",function() {
-    				    page.wizard.show({},top,function(){
+    				    page.wizard.show(bill,top,function(){
     				    });
     				});  
 				});
 		  	});
     	}
-    	$("input[name=structure]").val(purchase.search);
-  	    $('html,body').animate({scrollTop:div.offset().top-20},300);
 	});
     $(".search-wizard .domain-edit a").click(function(event){
     	$(".search-wizard").hide();

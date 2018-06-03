@@ -81,8 +81,7 @@
                                       <th>Domaine</th>
                                       <th>Date Création</th>  
                                       <th>Durée</th>
-                                      <th>Montant</th>
-                                      <th>Action</th>                                                           
+                                      <th>Montant</th>                                                          
                                       <th>Enregistrement</th>
                                   </tr>
                               </thead>
@@ -93,8 +92,7 @@
 	                                  <td>${domain.properties.name}</td>
 	                                  <td><s:date name="properties.date" format="dd/MM/yyyy" /></td>
 	                                  <td>${domain.properties.year} an</td>
-                                  	  <td><span class="digit">${domain.properties.price}</span> CFA</td>
-                                  	   <td>${domain.properties.action}</td>                                        
+                                  	  <td><span class="digit">${domain.properties.price}</span> CFA</td>                                        
 	                                  <td><span class="label ${domain.properties.status=='in progress' ? 'label-danger' : '' } ${domain.properties.status=='finished' ? 'label-success' : '' } ${domain.properties.status=='stand by' ? 'label-info' : '' }">
 	                                  ${domain.properties.status=='in progress' ? 'en cours' : '' } ${domain.properties.status=='finished' ? 'terminé' : '' } ${domain.properties.status=='stand by' ? 'en attente' : '' }
 	                                  </span></td>
@@ -104,11 +102,10 @@
 							     {#.}
 							      <tr id="{id}">
 							            <td><span class="number"></span></td>
-							   	        <td>{name}</td>
+							   	        <td>{domain}</td>
 							   	        <td>{date}</td> 
-							   	        <td>{year}</td>
-							   	        <td>{price}</td>
-							   	        <td>{action}</td>  
+							   	        <td>{year} an</td>
+							   	        <td><span class="digit">{price}</span> CFA</td> 
 							            <td><span class="label label-info">en attente</span></td>
 							   	    </tr>
 							     {/.}
