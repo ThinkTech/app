@@ -1056,7 +1056,7 @@ label.tree_label:before {
      .info-tasks li span:first-of-type {width : 100%;padding-top: 4px;padding-bottom: 3px;}
      .window > div fieldset a {position: relative;top: 1px;}
      .window > div .entity-edition select {font-size: 11px;}
-     .domains th:nth-child(7), .domains td:nth-child(7) {display: block;}
+     .domains th:nth-child(6), .domains td:nth-child(6) {display: block;}
      .billing th:nth-child(6), .billing td:nth-child(6) {display: block;}
 	.projects th:nth-child(5), .projects td:nth-child(5) {display: block;}
     .domains > thead > tr > th:nth-child(7),.billing > thead > tr > th:nth-child(6), .projects > thead > tr > th:nth-child(5),.support > thead > tr > th:nth-child(6) {font-size : 0px;}
@@ -1186,7 +1186,7 @@ label.tree_label:before {
    	 	font-size: 13px;
 	    text-align: left;
 	    padding: 3px !important;
-	    padding-left: 5px !important;
+	    padding-left: 0px !important;
 	    margin-bottom: -10px;
 	    width: 100%;
 	    display: block;
