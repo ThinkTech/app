@@ -22,7 +22,26 @@ $(document).ready(function(){
 	   $(".modal").hide();
 	});
 	 
- });
+});
+
+page.details.addDomain = function(order){
+	$.ajax({
+		  type: "POST",
+		  url: "https://thinktech-platform.herokuapp.com/services/order",
+		  data: JSON.stringify(order),
+		  contentType : "application/json",
+		  success: function(response) {
+			  if(response.entity){
+				  page.release();
+			  }
+		  },
+		  error : function(){
+			  page.release();
+			  alert("erreur lors de la connexion au serveur");
+		  },
+		  dataType: "json"
+	});
+};
 
 page.initDomainSearch = function(){
 	$(".search label").click(function(event){
