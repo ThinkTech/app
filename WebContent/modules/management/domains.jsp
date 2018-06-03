@@ -138,7 +138,7 @@
 		    <fieldset>    
 		         <span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Domaine </span> <span class="domain-name"></span>
 		         <span class="text-right"><i class="fa fa-money" aria-hidden="true"></i> Prix (CFA) </span> <span class="domain-price"></span>
-		         <span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Durée </span> <span class="domain-year"></span>
+		         <span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Durée Choisie</span> <span class="domain-year"></span>
 		         <span class="text-right"><i class="fa fa-money" aria-hidden="true"></i> Montant (CFA) </span> <span class="domain-amount"></span>
 		         <span class="text-right epp-code"><i class="fa fa-money" aria-hidden="true"></i> EPP Code </span> <span class="epp-code"><input name="eppCode"></input></span>
 		    </fieldset>
