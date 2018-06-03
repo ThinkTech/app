@@ -138,7 +138,7 @@ page.initDomainSearch = function(){
     	  	    	page.release();
     	  	    	var result = response["1"].result;
     	  	    	if(result){
-    	  	    		const search = $(".search-results").css("top",20).show();
+    	  	    		const search = $(".search-results").css("top",10).show();
     	  	    		search.parent().css("height",$('body').height()+"px").show();
         	  	    	const tbody = $("table tbody",search).empty();
 	    	  	    	var tr;
@@ -168,22 +168,26 @@ page.initDomainSearch = function(){
 	    	  	    	          for(i=0;i<10;i++){
 	    	  	    	        	select.append("<option value='"+(i+1)+"'"+">"+(i+1)+" an</option>");
 	    	  	    	          }
-	    	  	    	          select.on("change",{td : td, price : pricing[extension]},function(event){
+	    	  	    	          select.on("change",{tr : tr,td : td, price : pricing[extension]},function(event){
 	    	  	    	        	  purchase.year = parseInt($(this).val());
 	    	  	    	        	  purchase.price = event.data.price * purchase.year;
 	    	  	    	        	  event.data.td.find("span").html(purchase.price.toLocaleString("fr-FR")+" CFA");
+	    	  	    	        	  $("tr",search).removeClass("selected");
+	    	  	    	        	  event.data.tr.addClass("selected");
 	    	  	    	          });
 	    	  	    	          td.append(select);
 	    	  	    	          td.append("<a class='buy'>Acheter</a>");
 	    	  	    	          tr.append(td);
-	    	  	    	          $("a",tr).on("click",{td : td,extension : extension},function(event){
+	    	  	    	          $("a",tr).on("click",{tr : tr,td : td,extension : extension},function(event){
 	    	  	    	        	 $("select",div).val(event.data.extension);
+	    	  	    	        	 $("tr",search).removeClass("selected");
+	    	  	    	        	 event.data.tr.addClass("selected");
 	    	  	    	        	 purchase.year = parseInt(event.data.td.find("select").val());
 	    	  	    	        	 purchase.price = purchase.year * pricing[event.data.extension];
 	    	  	    	        	 purchase.extension = event.data.extension;
 	    	  	    	        	 search.hide();
 	    	  	    	        	 const wizard = $(".search-wizard");
-	    	  	    	        	 wizard.css("top",20).show();
+	    	  	    	        	 wizard.css("top",10).show();
 	    	  	    	        	 purchase.domain = domain+"."+event.data.extension;
 	    	         	  	    	 localStorage.setItem("purchase",JSON.stringify(purchase));
 	    	  	    	        	 $(".domain-name").html(purchase.domain).val(purchase.domain);
@@ -205,22 +209,26 @@ page.initDomainSearch = function(){
 	    	  	    	          for(i=0;i<10;i++){
 	    	  	    	        	select.append("<option value='"+(i+1)+"'"+">"+(i+1)+" an</option>");
 	    	  	    	          }
-	    	  	    	          select.on("change",{td : td, price : pricing[extension]},function(event){
+	    	  	    	          select.on("change",{tr : tr,td : td, price : pricing[extension]},function(event){
 	    	  	    	        	  purchase.year = parseInt($(this).val());
 	    	  	    	        	  purchase.price = event.data.price * purchase.year;
 	    	  	    	        	  event.data.td.find("span").html(purchase.price.toLocaleString("fr-FR")+" CFA");
+	    	  	    	        	  $("tr",search).removeClass("selected");
+	    	  	    	        	  event.data.tr.addClass("selected");
 	    	  	    	          });
 	    	  	    	          td.append(select);
 	    	  	    	          td.append("<a class='buy'>Transf&eacute;rer</a>");
 	    	  	    	          tr.append(td);
-	    	  	    	          $("a",tr).on("click",{td : td,extension : extension},function(event){
+	    	  	    	          $("a",tr).on("click",{tr : tr,td : td,extension : extension},function(event){
 	    	  	    	        	 $("select",div).val(event.data.extension);
+	    	  	    	        	 $("tr",search).removeClass("selected");
+	    	  	    	        	 event.data.tr.addClass("selected");
 	    	  	    	        	 purchase.year = parseInt(event.data.td.find("select").val());
 	    	  	    	        	 purchase.price = purchase.year * pricing[event.data.extension];
 	    	  	    	        	 purchase.extension = event.data.extension;
 	    	  	    	        	 search.hide();
 	    	  	    	        	 const wizard = $(".search-wizard");
-	    	  	    	        	 wizard.css("top",20).show();
+	    	  	    	        	 wizard.css("top",10).show();
 	    	  	    	        	 purchase.action = "transfer";
 	    	  	    	        	 purchase.domain = domain+"."+event.data.extension;
 	    	         	  	    	 localStorage.setItem("purchase",JSON.stringify(purchase));

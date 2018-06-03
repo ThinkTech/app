@@ -183,7 +183,7 @@
     padding: 20px;
     padding-bottom : 0px;
     display : none;
-    max-height: 95%;
+    max-height: 600px;
     overflow-y: auto;
 }
 
@@ -265,6 +265,10 @@
 
 .search table>tbody>tr:nth-of-type(odd).unavailable{
    background-color : #d13b2f;
+}
+
+.search table>tbody>tr.selected{
+  background-color: #d5fdd8;
 }
 
 .search table>tbody>tr:nth-of-type(even).unavailable{
