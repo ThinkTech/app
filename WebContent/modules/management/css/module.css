@@ -183,6 +183,8 @@
     padding: 20px;
     padding-bottom : 0px;
     display : none;
+    max-height: 95%;
+    overflow-y: auto;
 }
 
 .search-wizard {
@@ -261,26 +263,33 @@
 	text-align: center;
 }
 
-.search .table>tbody>tr:nth-of-type(odd).unavailable{
+.search table>tbody>tr:nth-of-type(odd).unavailable{
    background-color : #d13b2f;
 }
 
-.search .table>tbody>tr:nth-of-type(even).unavailable{
+.search table>tbody>tr:nth-of-type(even).unavailable{
    background-color : #d13b2f;
 }
 
-.search .table>tbody>tr.unavailable>td:first-of-type {
+.search table>tbody>tr.unavailable>td:first-of-type {
     color : #fff;
 }
 
-.search .table tbody tr {
+.search table tbody tr {
    display : block;
    cursor: default;
+   padding: 7px;
 }
 
-.search .table tr td:first-of-type {
+.search table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.search table tr td:first-of-type {
     min-width: 30px;
-    width : 70%;
+    width : 62%;
     vertical-align: middle;
     font-size: 15px;
     height: 50px;
@@ -428,7 +437,7 @@
     color : #fff;
 }
 
-.search-results .table {
+.search-results table {
 	margin-bottom : 0px;
 	margin-left: auto;
     margin-right: auto;
@@ -1160,20 +1169,20 @@ label.tree_label:before {
 	.search-results a {
         margin-left: 15px;
 	}
-	.table > tbody > tr > td:first-of-type {
+	table > tbody > tr > td:first-of-type {
    	 	font-size: 13px;
     }
-	.table > tbody > tr > td, .table > tfoot > tr > td {
+	table > tbody > tr > td, table > tfoot > tr > td {
     	font-size: 12px;
 	}
 	.search-results .table-striped>tbody>tr td:nth-child(2) {
     width: 100%;
     text-align: left;
 	}
-	.search-results .table > tbody > tr > td, .table > tfoot > tr > td {
+	.search-results table > tbody > tr > td, table > tfoot > tr > td {
     	display: inline-block;
 	}
-	.search-results .table > tbody > tr > td:first-of-type {
+	.search-results table > tbody > tr > td:first-of-type {
    	 	font-size: 13px;
 	    text-align: left;
 	    padding: 3px !important;
@@ -1181,7 +1190,9 @@ label.tree_label:before {
 	    margin-bottom: -10px;
 	    width: 100%;
 	    display: block;
-	    height: 30px;
+	    display: inline;
+        height: auto;
+    	word-break: break-all;
 	}
 	.search tr {
    	 text-align: left;
@@ -1234,6 +1245,7 @@ label.tree_label:before {
 	.project-wizard p {text-align : center}
 	.window p {word-break : break-word;}
 	legend {width: 100.5%;}
+	.search-results, .search-wizard { max-height: 100%;overflow-y: auto;}
 }
 
 @media(max-width:360px){

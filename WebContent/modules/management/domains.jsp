@@ -130,12 +130,11 @@
 		   	   <h3><i class="fa fa-check-circle-o" aria-hidden="true"></i> Le nom de domaine web <span class="domain-name"></span> est <span class="domain-availability"></span></h3>
 		   </div>
 		   <div>
-		   <table class="table table-sm table-striped">
+		   <table class="table-sm table-striped">
 		 	<tbody>
 		 	</tbody>
 		 	</table>
 		   </div>
-		   <br><br>
 		</div>
 		<div class="search search-wizard">
 		   <span class="close">X</span>
