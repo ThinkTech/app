@@ -132,7 +132,7 @@
 		   	   <h4>Durée Choisie : <span class="domain-year"></span> an</h4> <h4 class="price">Montant : <span class="domain-amount"></span> CFA</h4> <span class="domain-edit"><a>[ modifier ]</a></span>
 		   </div>
 		   <div class="wizard-message">
-		      <p>Selon l'action choisie, votre domaine web est en attente d'enregistrement. Celui-ci sera en cours dès que vous aurez payé votre facture d'hébergement qui sera générée automatiquement après votre confirmation.</p>
+		      <p>Selon l'action que vous avez choisie, votre domaine web est en attente d'enregistrement. Celui-ci sera marqué en cours dès que vous aurez payé votre facture d'hébergement qui sera générée automatiquement après confirmation de votre action.</p>
 		   </div>
 		   <div style="border:none">
 		    <fieldset>    
@@ -140,7 +140,7 @@
 		         <span class="text-right"><i class="fa fa-money" aria-hidden="true"></i> Prix (CFA) </span> <span class="domain-price"></span>
 		         <span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Durée Choisie</span> <span class="domain-year"></span>
 		         <span class="text-right"><i class="fa fa-money" aria-hidden="true"></i> Montant (CFA) </span> <span class="domain-amount"></span>
-		         <span class="text-right epp-code"><i class="fa fa-money" aria-hidden="true"></i> EPP Code </span> <span class="epp-code"><input name="eppCode"></input></span>
+		         <span class="text-right epp-code"><i class="fa fa-code" aria-hidden="true"></i> EPP Code </span> <span class="epp-code"><input name="eppCode"></input></span>
 		    </fieldset>
 		   </div>
 		   <div class="buttons">

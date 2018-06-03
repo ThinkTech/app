@@ -29,16 +29,35 @@ page.initDomainSearch = function(){
    	    $(this).prev().prop("checked", true);
 	});
     $(".search-wizard .finish").click(function(event){
-    	$(".modal").hide();
-    	const val = $(".search-wizard input:checked").val();
-    	var div = $("."+val);
-    	if(div.hasClass("modal")){
-    		div.css("height",$('body').height()+"px").show();
-    		div.show();
-    		div = $(".subscribe-form",div);
-    		div.css("top",$(this).offset().top+200).show();
-    	}
+    	const div = $(".search-wizard");
     	const purchase = JSON.parse(localStorage.getItem('purchase'));
+    	if(purchase.action == "transfer"){
+    		const input = $("input[name=eppCode]",div);
+    		const code = input.val().trim();
+    		if(code){
+    			confirm("&ecirc;tes vous s&ucirc;r de vouloir transf&eacute;rer ce domaine?",function(){
+    				$(".modal").hide();
+    				page.wait();
+    				head.load("modules/payment/js/wizard.js",function() {
+    				    page.wizard.show({},top,function(){
+    				    });
+    				});
+    		  	 });
+    		}else{
+    			alert("vous devez entrer votre EPP Code",function(){
+    				input.focus();
+    		  	});
+    		}
+    	}else{
+    		confirm("&ecirc;tes vous s&ucirc;r de vouloir acheter ce domaine?",function(){
+				$(".modal").hide();
+				page.wait();
+				head.load("modules/payment/js/wizard.js",function() {
+				    page.wizard.show({},top,function(){
+				    });
+				});
+		  	});
+    	}
     	$("input[name=structure]").val(purchase.search);
   	    $('html,body').animate({scrollTop:div.offset().top-20},300);
 	});

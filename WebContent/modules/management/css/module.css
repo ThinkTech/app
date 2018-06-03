@@ -197,6 +197,14 @@
     border: 1px solid #08ccf7;
 }
 
+.search-wizard fieldset > span {
+    width: 59.3%;
+}
+
+.search-wizard  fieldset > span.text-right {
+    width: 40%;
+}
+
 .search div:first-of-type {
 	background: #feffc7;
 	text-align: center;
@@ -1084,7 +1092,6 @@ label.tree_label:before {
 	.message {font-size : 60%}
 	.window > div h1 {font-size: 1.05em;}
 	.search h3 {margin: 0;font-size :13px}
-	.search.search-wizard h4 {font-size: 12px;}
 	.search-wizard div {margin-top: 5px;}
 	.search-wizard fieldset {margin-top: -4px;}
 	.tld-domain-search select {
@@ -1227,6 +1234,7 @@ label.tree_label:before {
 	.window > div ol li span.question{width:20px;margin-left: 78%;position: relative; top: -2px;}
 	legend a i.fa {position: relative;top: -1px;}
 	.service h3 {font-size: 11px;}
+	.search.search-wizard h4 {font-size: 12px;}
 }
 
 @media(max-width:480px){
