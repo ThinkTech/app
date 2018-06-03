@@ -30,6 +30,7 @@ page.initDomainSearch = function(){
 	});
     $(".search-wizard .finish").click(function(event){
     	const div = $(".search-wizard");
+    	const top = div.offset().top;
     	const purchase = JSON.parse(localStorage.getItem('purchase'));
     	if(purchase.action == "transfer"){
     		const input = $("input[name=eppCode]",div);
@@ -38,7 +39,7 @@ page.initDomainSearch = function(){
     			confirm("&ecirc;tes vous s&ucirc;r de vouloir transf&eacute;rer ce domaine?",function(){
     				$(".modal").hide();
     				page.table.addRow(purchase,function(){
-    					page.wait();
+    					page.wait({top : top});
         				head.load("modules/payment/js/wizard.js",function() {
         				    page.wizard.show({},top,function(){
         				    });
@@ -54,7 +55,7 @@ page.initDomainSearch = function(){
     		confirm("&ecirc;tes vous s&ucirc;r de vouloir acheter ce domaine?",function(){
 				$(".modal").hide();
 				page.table.addRow(purchase,function(){
-					page.wait();
+					page.wait({top : top});
     				head.load("modules/payment/js/wizard.js",function() {
     				    page.wizard.show({},top,function(){
     				    });

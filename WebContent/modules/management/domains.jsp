@@ -145,9 +145,9 @@
 		   	   <h4>Durée Choisie : <span class="domain-year"></span> an</h4> <h4 class="price">Montant : <span class="domain-amount"></span> CFA</h4> <span class="domain-edit"><a>[ modifier ]</a></span>
 		   </div>
 		   <div class="wizard-message">
-		      <p>Selon l'action que vous avez choisie, votre domaine web est en attente d'enregistrement. Celui-ci sera marqué en cours dès que vous aurez payé votre facture d'hébergement qui sera générée automatiquement après confirmation de votre action.</p>
+		      <p>Selon l'action que vous avez choisie, votre domaine web sera mis en attente d'enregistrement. Celui-ci sera marqué en cours dès que vous aurez payé votre facture d'hébergement de domaine qui sera générée automatiquement après la confirmation de votre action.</p>
 		   </div>
-		   <div style="border:none">
+		   <div style="border:none;text-align:center">
 		    <fieldset>    
 		         <span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Domaine </span> <span class="domain-name"></span>
 		         <span class="text-right"><i class="fa fa-money" aria-hidden="true"></i> Prix (CFA) </span> <span class="domain-price"></span>
