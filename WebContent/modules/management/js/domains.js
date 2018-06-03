@@ -44,6 +44,7 @@ page.initDomainSearch = function(){
     		const code = input.val().trim();
     		if(code){
     			confirm("&ecirc;tes vous s&ucirc;r de vouloir transf&eacute;rer ce domaine?",function(){
+    				purchase.eppCode = code;
     				$(".modal").hide();
     				page.table.addRow(purchase,function(){
     					page.wait({top : top});
