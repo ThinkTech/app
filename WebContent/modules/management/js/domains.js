@@ -37,11 +37,13 @@ page.initDomainSearch = function(){
     		if(code){
     			confirm("&ecirc;tes vous s&ucirc;r de vouloir transf&eacute;rer ce domaine?",function(){
     				$(".modal").hide();
-    				page.wait();
-    				head.load("modules/payment/js/wizard.js",function() {
-    				    page.wizard.show({},top,function(){
-    				    });
-    				});
+    				page.table.addRow(purchase,function(){
+    					page.wait();
+        				head.load("modules/payment/js/wizard.js",function() {
+        				    page.wizard.show({},top,function(){
+        				    });
+        				});  
+					});
     		  	 });
     		}else{
     			alert("vous devez entrer votre EPP Code",function(){
@@ -51,10 +53,12 @@ page.initDomainSearch = function(){
     	}else{
     		confirm("&ecirc;tes vous s&ucirc;r de vouloir acheter ce domaine?",function(){
 				$(".modal").hide();
-				page.wait();
-				head.load("modules/payment/js/wizard.js",function() {
-				    page.wizard.show({},top,function(){
-				    });
+				page.table.addRow(purchase,function(){
+					page.wait();
+    				head.load("modules/payment/js/wizard.js",function() {
+    				    page.wizard.show({},top,function(){
+    				    });
+    				});  
 				});
 		  	});
     	}

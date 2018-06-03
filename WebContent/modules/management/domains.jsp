@@ -100,6 +100,19 @@
 	                                  </span></td>
 	                              </tr>
 	                          </s:iterator>
+	                          <template>
+							     {#.}
+							      <tr id="{id}">
+							            <td><span class="number"></span></td>
+							   	        <td>{name}</td>
+							   	        <td>{date}</td> 
+							   	        <td>{year}</td>
+							   	        <td>{price}</td>
+							   	        <td>{action}</td>  
+							            <td><span class="label label-info">en attente</span></td>
+							   	    </tr>
+							     {/.}
+							   </template>
                           </tbody>
                       </table>
                       <div class="empty"><span>aucun domaine</span></div>
