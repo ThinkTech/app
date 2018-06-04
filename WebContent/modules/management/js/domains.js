@@ -53,7 +53,7 @@ page.details.addDomain = function(purchase){
 	page.wait({top : top});
 	$.ajax({
 		  type: "POST",
-		  url: "http://localhost:8080/platform/services/order",
+		  url: "https://thinktech-platform.herokuapp.com/services/order",
 		  data: JSON.stringify(purchase),
 		  contentType : "application/json",
 		  success: function(response) {
