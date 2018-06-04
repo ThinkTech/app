@@ -159,7 +159,7 @@
 		 <legend>
 	      <i class="fa fa-file-text-o" aria-hidden="true"></i> Description
 	   	 </legend>
-	   	 <div class="description" style="margin-top:-10px;">
+	   	 <div class="description" style="margin-top:-10px;margin-bottom: 10px;">
 	   	  {message|s}
 	   	 </div>
 		</fieldset>
