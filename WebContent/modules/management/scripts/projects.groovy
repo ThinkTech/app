@@ -115,16 +115,6 @@ class ModuleAction extends ActionSupport {
 	   json([status: 1])
 	}
 	
-	def updateProjectPriority(){
-	    def project = parse(request) 
-	    Thread.start {
-	   	   def connection = getConnection()
-	       connection.executeUpdate "update projects set priority = ? where id = ?", [project.priority,project.id] 
-	       connection.close()
-	    }
-		json([status: 1])
-	}
-	
 	def saveDocuments() {
 	   def upload = parse(request) 
 	   def id = upload.id

@@ -99,15 +99,6 @@
 		<span data-status="normal" class="status" style="display:none">normale</span>
 		<span data-status="medium" class="status" style="display:none">moyenne</span>
 		<span data-status="high" class="status" style="display:none">élevée</span> 
-		<div class="info-message entity-edition priority-edition">
-		   <select>
-			  <option value="normal">normale</option>
-		      <option value="medium">moyenne</option>
-		      <option value="high">élevée</option>
-		    </select>
-			<a href="${url}/projects/priority/update"><i class="fa fa-check" aria-hidden="true"></i></a>
-		</div>
-		<a class="priority-edit" style="display:none"><i class="fa fa-edit" aria-hidden="true"></i></a>
 		<span class="text-right"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Durée </span> <span>{duration} mois</span> <a class="duration"><i class="fa fa-info" aria-hidden="true"></i></a>
 		<div class="info-message">
 		   <p data-status="stand by">la durée maximale du projet est estimée à {duration} mois dans l'attente du paiement de la caution que vous devez effectuer</p>

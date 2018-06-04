@@ -12,10 +12,6 @@ $(document).ready(function(){
 			page.details.addComment($(this));
 			return false;
 		});
-		$(".close-ticket",container).click(function(event){
-			page.details.closeTicket($(this).attr("href"),ticket);
-			return false;
-		});
 		$("a.refresh",container).click(function(){
 			page.details.refresh(function(ticket){
 				const tr = $(".table tr[id="+ticket.id+"]");
@@ -142,35 +138,5 @@ $(document).ready(function(){
 				 $(".info-message").hide();
 			});
 	   });
-	};
-	page.details.closeTicket = function(url,ticket){
-		confirm("&ecirc;tes vous s&ucirc;r de vouloir fermer ce ticket?",function(){
-			page.wait();
-			$.ajax({
-				  type: "POST",
-				  url: url,
-				  data: JSON.stringify(ticket),
-				  contentType : "application/json",
-				  success: function(response) {
-					  if(response.status){
-						  page.release();
-						  page.details.hide();
-						  const tr = $(".table tr[id="+ticket.id+"]");
-						  $("span.label",tr).html("termin&edot;").removeClass().addClass("label label-success");
-						  $(".badge",tr).html("100%");
-						  alert("votre ticket a &edot;t&edot; bien ferm&edot;");
-						  var h3 = $("h3.unsolved");
-						  h3.html(parseInt(h3.text())-1);
-						  h3 = $("h3.solved");
-						  h3.html(parseInt(h3.text())+1);
-					  }
-				  },
-				  error : function(){
-					  page.release();
-					  alert("erreur lors de la connexion au serveur");
-				  },
-				  dataType: "json"
-			});
-		});
 	};
 });

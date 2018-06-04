@@ -128,33 +128,6 @@ $(document).ready(function(){
 	    if(project.plan == "plan social" || project.plan == "plan custom") {
 	    	$("a.pay",container).hide().prev().hide().prev().hide();
 	    }
-		$(".priority-edit",container).click(function(event){
-			$(".info-message").hide();
-			 const div = $(this).prev();
-			 var left = event.pageX-div.width()-50;
-			 if(left<0) left = 10;
-			 div.css({top : event.pageY-20,left : left}).toggle();
-			 return false;
-		});
-		$(".priority-edition a",container).click(function(event){
-			const url = $(this).attr("href");
-			project.priority = $(".priority-edition select",container).val();
-			$.ajax({
-				  type: "POST",
-				  url: url,
-				  data: JSON.stringify(project),
-				  contentType : "application/json",
-				  success: function(response) {
-					  if(response.status){
-						  $(".priority-edition",container).hide();
-						  $(".status",container).hide();
-						  $("[data-status='"+project.priority+"']",container).show();
-					  }
-				  },
-				  dataType: "json"
-			});
-			return false;
-		});
 		$("a.tasks",container).click(function(event) {
 			$(".info-tasks",container).toggle();
 		});

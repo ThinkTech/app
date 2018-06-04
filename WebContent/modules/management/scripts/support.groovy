@@ -78,27 +78,6 @@ class ModuleAction extends ActionSupport {
 	   json([status: 1])
 	}
 	
-	def updateTicketPriority(){
-	    def ticket = parse(request) 
-	    Thread.start {
-	   	   def connection = getConnection()
-	       connection.executeUpdate "update tickets set priority = ? where id = ?", [ticket.priority,ticket.id] 
-	       connection.close()
-	    }
-		json([status: 1])
-	}
-	
-	def closeTicket() {
-	   def ticket = parse(request)
-	   def user_id = user.id 
-	   Thread.start {
-	      def connection = getConnection()
-	      connection.executeUpdate "update tickets set progression = 100, status = 'finished', closedOn = NOW(), closedBy = ? where id = ?", [user_id,ticket.id] 
-	      connection.close()
-	   }
-	   json([status : 1])
-	}
-	
 	def getConnection()  {
 	   new Sql(dataSource)	
 	}
