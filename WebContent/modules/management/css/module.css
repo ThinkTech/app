@@ -1063,7 +1063,6 @@ label.tree_label:before {
      .domains th:nth-child(6), .domains td:nth-child(6) {display: block;}
      .billing th:nth-child(6), .billing td:nth-child(6) {display: block;}
 	.projects th:nth-child(5), .projects td:nth-child(5) {display: block;}
-    .domains > thead > tr > th:nth-child(7),.billing > thead > tr > th:nth-child(6), .projects > thead > tr > th:nth-child(5),.support > thead > tr > th:nth-child(6) {font-size : 0px;}
     .support th:nth-child(6), .support td:nth-child(6) {display: block;}
 }
 

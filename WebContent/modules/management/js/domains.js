@@ -1,9 +1,30 @@
 $(document).ready(function(){
 	page.details.bind = function(container,domain) {
 		if(domain.status == "finished"){
-			$(".manage",container).show();
+			$(".manage",container).show();  
 		}else {
 			$(".manage",container).hide();
+			
+		}
+		$(".submit",container).hide();  
+		if(domain.status == "stand by"){
+			const div = $(".submit",container).show();
+			$("input[type=submit]",div).click(function(event){
+				page.details.hide();
+				const top = $(".chit-chat-layer1").offset().top;
+				page.wait({top : top});
+				head.load("modules/payment/js/wizard.js",function() {
+					const bill = domain.bill;
+				    page.wizard.show(bill,top,function(){
+				    	const tr = $(".table tr[id="+bill.product_id+"]");
+  						$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
+				   });
+		        });
+		       return false;
+		   });
+		   $("input[type=button]",div).click(function(event) {
+				$(".window").hide();
+		   });
 		}
 		if(domain.action == "Transfert"){
 			$(".eppCode",container).show();
@@ -24,15 +45,45 @@ $(document).ready(function(){
 	 
 });
 
-page.details.addDomain = function(order){
+page.details.addDomain = function(purchase){
+	const div = $(".search-wizard");
+	const top = div.offset().top+div.height()/2; 
+    purchase.service = "domainhosting";
+	purchase.user_id = $("input[name=user]",div).val();
+	page.wait({top : top});
 	$.ajax({
 		  type: "POST",
-		  url: "https://thinktech-platform.herokuapp.com/services/order",
-		  data: JSON.stringify(order),
+		  url: "http://localhost:8080/platform/services/order",
+		  data: JSON.stringify(purchase),
 		  contentType : "application/json",
 		  success: function(response) {
 			  if(response.entity){
 				  page.release();
+				  purchase.id = response.entity.id;
+				  const bill = {};
+				  bill.product_id = purchase.id;
+				  bill.user = {};
+				  bill.user.id = purchase.user_id;
+				  bill.service = purchase.service;
+				  bill.fee = "h&eacute;bergement domaine : "+purchase.domain;
+				  bill.amount = purchase.price;
+				  const date = new Date();
+				  bill.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
+				  purchase.date = bill.date;
+				  bill.id = response.entity.bill_id;
+				  page.table.addRow(purchase,function(){
+				    var h3 = $("h3.domainCount");
+				    h3.html(parseInt(h3.text())+1);
+				    h3 = $("h3.domainUnregistered");
+				    h3.html(parseInt(h3.text())+1);
+  					page.wait({top : top});
+      				head.load("modules/payment/js/wizard.js",function() {
+      				    page.wizard.show(bill,top,function(){
+      				    	const tr = $(".table tr[id="+purchase.id+"]");
+      				    	$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
+      				    });
+      				});  
+				 });
 			  }
 		  },
 		  error : function(){
@@ -51,27 +102,14 @@ page.initDomainSearch = function(){
     	const div = $(".search-wizard");
     	const top = div.offset().top+div.height()/2;
     	const purchase = JSON.parse(localStorage.getItem('purchase'));
-    	const bill = {};
-    	bill.service = "domainhosting";
-    	bill.fee = "h&eacute;bergement domaine : "+purchase.domain;
-    	bill.amount = purchase.price;
-    	const date = new Date();
-		bill.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
-    	purchase.date = bill.date;
-		if(purchase.action == "transfer"){
+    	if(purchase.action == "transfer"){
     		const input = $("input[name=eppCode]",div);
     		const code = input.val().trim();
     		if(code){
     			confirm("&ecirc;tes vous s&ucirc;r de vouloir transf&eacute;rer ce domaine?",function(){
     				purchase.eppCode = code;
+    				page.details.addDomain(purchase);
     				$(".modal").hide();
-    				page.table.addRow(purchase,function(){
-    					page.wait({top : top});
-        				head.load("modules/payment/js/wizard.js",function() {
-        				    page.wizard.show(bill,top,function(){
-        				    });
-        				});  
-					});
     		  	 });
     		}else{
     			alert("vous devez entrer votre EPP Code",function(){
@@ -80,14 +118,8 @@ page.initDomainSearch = function(){
     		}
     	}else{
     		confirm("&ecirc;tes vous s&ucirc;r de vouloir acheter ce domaine?",function(){
+				page.details.addDomain(purchase);
 				$(".modal").hide();
-				page.table.addRow(purchase,function(){
-					page.wait({top : top});
-    				head.load("modules/payment/js/wizard.js",function() {
-    				    page.wizard.show(bill,top,function(){
-    				    });
-    				});  
-				});
 		  	});
     	}
 	});

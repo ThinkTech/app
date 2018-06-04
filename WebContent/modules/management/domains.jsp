@@ -8,7 +8,7 @@
 	        <div class="col-md-4 info-update-gd">
 				<div class="info-update-block clr-block-1">
 					<div class="col-md-8 info-update-left">
-						<h3>${total}</h3>
+						<h3 class="domainCount">${total}</h3>
 						<h4>domaines</h4>
 					</div>
 					<div class="col-md-4 info-update-right">
@@ -32,7 +32,7 @@
 			<div class="col-md-4 info-update-gd">
 				<div class="info-update-block clr-block-3">
 					<div class="col-md-8 info-update-left">
-						<h3 class="unpayed">${unregistered}</h3>
+						<h3 class="domainUnregistered">${unregistered}</h3>
 						<h4>domaines en attente</h4>
 					</div>
 					<div class="col-md-4 info-update-right">
@@ -151,6 +151,7 @@
 		         <span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Durée Choisie</span> <span class="domain-year"></span>
 		         <span class="text-right"><i class="fa fa-money" aria-hidden="true"></i> Montant (CFA) </span> <span class="domain-amount"></span>
 		         <span class="text-right epp-code"><i class="fa fa-code" aria-hidden="true"></i> EPP Code </span> <span class="epp-code"><input name="eppCode"></input></span>
+		         <input type="hidden" name="user" value="${user.id}">
 		    </fieldset>
 		   </div>
 		   <div class="buttons">
@@ -185,6 +186,10 @@
 			 	</fieldset>
 			</div>
 		</fieldset>
+		<div class="submit">
+		   <input type="submit" value="Payer">
+		   <input type="button" value="Annuler">
+		</div>
 		</template>
 		</section>
 	</div>

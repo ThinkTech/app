@@ -25,6 +25,6 @@ $(document).ready(function(){
 		});
 		$("input[type=button]",container).click(function(event) {
 			$(".window").hide();
-		})
+		});
 	};
  });

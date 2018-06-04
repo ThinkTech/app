@@ -228,7 +228,6 @@
    float: right;
     margin-right: 15px;
     white-space: nowrap;
-    overflow : hidden;
 }
 
 .shopping-amount > span {
@@ -593,7 +592,11 @@
 }
 @media (max-width:480px){
 	.shopping-amount > span > span:last-of-type{
-	  white-space: normal;
+	  word-break: break-word;
+      white-space: pre-wrap;
+      vertical-align: top;
+      margin-bottom: 10px;
+      width: 100%;
 	}
 	.checkout-wizard-content {width: 360px}
 	.payment-hide {display:none}
