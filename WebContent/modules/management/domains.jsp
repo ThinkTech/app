@@ -182,7 +182,7 @@
 			    <fieldset>
 			     <span class="text-right"><i class="fa fa-check" aria-hidden="true"></i> Enregistrement </span> <span><span class="label label-success">terminé</span></span>
 			     <span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Enregistré le  </span> <span>{registeredOn}</span>
-			 	 <span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Management </span> <span><a href="https://cloudlogin.co" target="_blank" rel="nofollow">[ manage ]</a></span>
+			 	 <span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Service DNS </span> <span><a href="https://cloudlogin.co" target="_blank" rel="nofollow">[ manage ]</a></span>
 			 	</fieldset>
 			</div>
 		</fieldset>
