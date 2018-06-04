@@ -1096,7 +1096,7 @@ label.tree_label:before {
 	.message {font-size : 60%}
 	.window > div h1 {font-size: 1.05em;}
 	.search h3 {margin: 0;font-size :13px}
-	.search-wizard div {margin-top: 5px;}
+	.search-wizard div {margin-top: 5px;width: 100%;}
 	.search-wizard fieldset {margin-top: -4px;}
 	.tld-domain-search select {
 	    height: 36px;
