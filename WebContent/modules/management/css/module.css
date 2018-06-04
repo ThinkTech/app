@@ -841,6 +841,41 @@ legend a i.fa {
 }
 
 
+.businessEmail h1{
+	background: #feffc7;
+    border: 1px solid #3abfdd;
+    margin-top: 4px;
+    border-radius: 3px;
+    margin-bottom : 5px;
+}
+
+.businessEmail input{
+	margin-left : 15px;
+}
+
+.businessEmail a {
+	display: block;
+    font-weight: 600;
+    color: #fff!important;
+    cursor: pointer;
+    outline: none;
+    padding: 7px;
+    width: 100px;
+    text-align: center;
+    margin-top: 7px;
+    margin-left: 25px;
+    background: #180101;
+    border-radius: 0.3em;
+    text-transform: uppercase;
+    font-size: 12px;
+    border: 1px solid #3abfdd;
+}
+
+.businessEmail label{ 
+	font-size : 13px;
+	font-weight: bold;
+}
+
 .project-wizard h2 {
 	margin-left : 10px;
 	margin-bottom : 10px;
@@ -1094,7 +1129,7 @@ label.tree_label:before {
 	.window > div {width: 100%;border-radius: 0px;height: 100%;}
 	.window > div img {width : 50%}
 	.message {font-size : 60%}
-	.window > div h1 {font-size: 1.05em;}
+	.window > div h1,.businessEmail h1 {font-size: 1.05em;}
 	.search h3 {margin: 0;font-size :13px}
 	.search-wizard div {margin-top: 5px;width: 100%;}
 	.search-wizard fieldset {margin-top: -4px;}

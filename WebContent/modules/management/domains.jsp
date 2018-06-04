@@ -182,8 +182,29 @@
 			    <fieldset>
 			     <span class="text-right"><i class="fa fa-check" aria-hidden="true"></i> Enregistrement </span> <span><span class="label label-success">terminé</span></span>
 			     <span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Enregistré le  </span> <span>{registeredOn}</span>
-			 	 <span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Service DNS </span> <span><a href="https://cloudlogin.co" target="_blank" rel="nofollow">[ manage ]</a></span>
+			 	 <span class="text-right"><i class="fa fa-building" aria-hidden="true"></i> Service DNS </span> <span><a href="https://cloudlogin.co" target="_blank" rel="nofollow">[manage]</a></span>
 			 	</fieldset>
+			</div>
+			<div class="businessEmail">
+			   <h1><i class="fa fa-envelope" aria-hidden="true"></i>Business Email</h1>
+			    <fieldset>    
+		         <input type="radio"  id="free"
+			     name="service" value="free">
+			    <label for="free">Plan Free</label>
+			    <br>
+			    <input type="radio" checked="checked" id="standard"
+			     name="service" value="standard">
+			    <label for="standard">Plan Standard</label>
+			    <br>
+			    <input type="radio" id="pro"
+			     name="service" value="pro">
+			    <label for="pro">Plan Pro</label>
+			    <br>
+			    <input type="radio" id="enterprise"
+			     name="service" value="enterprise">
+			    <label for="enterprise">Plan Enterprise</label>
+			    <a>Souscrire</a>
+		    </fieldset>
 			</div>
 		</fieldset>
 		<div class="submit">

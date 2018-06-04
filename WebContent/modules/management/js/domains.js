@@ -1,9 +1,9 @@
 $(document).ready(function(){
 	page.details.bind = function(container,domain) {
 		if(domain.status == "finished"){
-			$(".manage",container).show();  
+			$(".manage,.businessEmail",container).show();  
 		}else {
-			$(".manage",container).hide();
+			$(".manage,.businessEmail",container).hide();
 			
 		}
 		$(".submit",container).hide();  
