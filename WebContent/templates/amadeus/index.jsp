@@ -54,7 +54,7 @@
 			   <input placeholder="email" name="email" type="email" required>
 			   <input type="submit" value="Réinitialiser">
 			   <div class="rem-w3">
-					<a class="w3-pass"><i class="fa fa-sign-out" aria-hidden="true"></i> retourner</a>
+					<a class="w3-pass"><i class="fa fa-sign-out" aria-hidden="true"></i> retourner à l'identification</a>
 					<div class="clear"></div>
 			  </div>
 			  </form>
