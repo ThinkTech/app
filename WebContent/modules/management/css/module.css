@@ -718,6 +718,7 @@ h1 .fa-tasks {
 	width: 100%;
     margin: auto;
     margin-bottom: 0px;
+    margin-top: 1px;
 }
 
 .window > div .payment-info fieldset {
