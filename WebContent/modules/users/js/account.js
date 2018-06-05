@@ -138,39 +138,41 @@ jQuery(document).ready(function( $ ) {
 		user.structure.name = form.find("input[name=structure]").val().trim();
 		user.structure.business = form.find("input[name=business]").val().trim();
 		user.structure.ninea = form.find("input[name=ninea]").val().trim();
-		page.wait({top : form.offset().top});
-		$.ajax({
-			  type: "POST",
-			  url: form.attr("action"),
-			  data: JSON.stringify(user),
-			  contentType : "application/json",
-			  success: function(response) {
-				  if(response.status){
-					  form.find("input[type=password]").val("");
-					  alert("votre profil a &edot;t&edot; bien modifi&edot;");
-					  $(".profile-details #name").html("&nbsp;"+user.name);
-					  $(".profile-details #email").html("&nbsp;"+user.email);
-					  $(".profile-details #telephone").html("&nbsp;"+user.telephone);
-					  $(".profile-details #profession").html("&nbsp;"+user.profession);
-					  $(".profile-details #structure").html("&nbsp;"+user.structure.name);
-					  $(".profile-details #business").html("&nbsp;"+user.structure.business);
-					  $(".profile-details #ninea").html("&nbsp;"+user.structure.ninea);
-					  $(".profile-details").show();
-					  $(".profile-edition").hide();
-					  $(".user a").show();
-					  if(page.updateUserName) page.updateUserName(user.name);
-				  }else{
-					  alert("cet email est d&edot;ja utilis&edot; par un autre utilisateur",function(){
-						  form.find("input[name=email]").select().focus();
-					  });
-				  }
-				  page.release();
-			  },
-			  error : function(){
-				  page.release();
-				  alert("erreur lors de la connexion au serveur");
-			  },
-			  dataType: "json"
+		confirm("&ecirc;tes vous s&ucirc;r de vouloir modifier votre profil?",function(){
+			page.wait({top : form.offset().top});
+			$.ajax({
+				  type: "POST",
+				  url: form.attr("action"),
+				  data: JSON.stringify(user),
+				  contentType : "application/json",
+				  success: function(response) {
+					  if(response.status){
+						  form.find("input[type=password]").val("");
+						  alert("votre profil a &edot;t&edot; bien modifi&edot;");
+						  $(".profile-details #name").html("&nbsp;"+user.name);
+						  $(".profile-details #email").html("&nbsp;"+user.email);
+						  $(".profile-details #telephone").html("&nbsp;"+user.telephone);
+						  $(".profile-details #profession").html("&nbsp;"+user.profession);
+						  $(".profile-details #structure").html("&nbsp;"+user.structure.name);
+						  $(".profile-details #business").html("&nbsp;"+user.structure.business);
+						  $(".profile-details #ninea").html("&nbsp;"+user.structure.ninea);
+						  $(".profile-details").show();
+						  $(".profile-edition").hide();
+						  $(".user a").show();
+						  if(page.updateUserName) page.updateUserName(user.name);
+					  }else{
+						  alert("cet email est d&edot;ja utilis&edot; par un autre utilisateur",function(){
+							  form.find("input[name=email]").select().focus();
+						  });
+					  }
+					  page.release();
+				  },
+				  error : function(){
+					  page.release();
+					  alert("erreur lors de la connexion au serveur");
+				  },
+				  dataType: "json"
+			});
 		});
 		return false;
 	});
