@@ -33,7 +33,7 @@ a:focus {
 	opacity : 1;
 }
 tr:nth-child(even) {
-	background : #fafafa;
+	background : #efebeb;
 }
 
 thead tr:nth-child(odd) {
