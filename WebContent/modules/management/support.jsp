@@ -72,8 +72,8 @@
 	                                <tr id="${ticket.properties.id}">
 	                                  <td><span class="number">${status.index+1}</span></td>
 	                                  <td>${ticket.properties.subject}</td>
-	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${ticket.properties.service}</td>
-                                      <td><i class="fa fa-user" aria-hidden="true"></i> ${ticket.properties.author}</td>
+	                                  <td>${ticket.properties.service}</td>
+                                      <td>${ticket.properties.author}</td>
                                       <td><s:date name="properties.date" format="dd/MM/yyyy" /></td>                                       
 	                                  <td><span class="label ${ticket.properties.status=='in progress' ? 'label-danger' : '' } ${ticket.properties.status=='finished' ? 'label-success' : '' } ${ticket.properties.status=='stand by' ? 'label-info' : '' }">
 	                                  ${ticket.properties.status=='in progress' ? 'en cours' : '' } ${ticket.properties.status=='finished' ? 'terminé' : '' } ${ticket.properties.status=='stand by' ? 'en attente' : '' }
@@ -86,8 +86,8 @@
 							      <tr id="{id}">
 							            <td><span class="number"></span></td>
 							   	        <td>{subject}</td>
-                                  		<td><i class="fa fa-ticket" aria-hidden="true"></i> {service}</td>
-                                  		<td><i class="fa fa-user" aria-hidden="true"></i> ${user.name}</td>
+                                  		<td>{service}</td>
+                                  		<td>${user.name}</td>
                                   		<td>{date}</td>          
                                   		<td><span class="label label-info">en attente</span></td>
                                   		<td><span class="badge badge-info">0%</span></td>

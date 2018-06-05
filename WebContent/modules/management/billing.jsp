@@ -56,7 +56,7 @@
 	                                <tr id="${bill.properties.id}" class="${bill.properties.status=='finished' ? 'paid' : ''}">
 	                                  <td><span class="number">${status.index+1}</span></td>
 	                                  <td>${bill.properties.fee}</td>
-	                                  <td><i class="fa fa-ticket" aria-hidden="true"></i> ${bill.properties.service}</td>
+	                                  <td>${bill.properties.service}</td>
                                   	  <td><s:date name="properties.date" format="dd/MM/yyyy" /></td>
                                   	  <td><span class="digit">${bill.properties.amount}</span> CFA</td>                                        
 	                                  <td><span class="label ${bill.properties.status=='in progress' ? 'label-danger' : '' } ${bill.properties.status=='finished' ? 'label-success' : '' } ${bill.properties.status=='stand by' ? 'label-info' : '' }">
