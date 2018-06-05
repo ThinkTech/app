@@ -605,12 +605,12 @@
 	.wizard-title{padding-top: 2px;padding-left: 4px}
 	.easyWizardButtons .prev, .easyWizardButtons .next, .easyWizardButtons .submit, .checkout-wizard-content .register input[type="button"] {
 	   height: auto;
-       width: auto;
-       min-width: 85px;
-       font-size: 10px;
-       margin-top: 6px;
-       padding-top: 3px;
-       padding-bottom: 5px;
+	    width: auto;
+	    min-width: 85px;
+	    font-size: 11px;
+	    margin-top: 4px;
+	    padding-top: 3px;
+	    padding-bottom: 5px;
 	}
 	#checkout-wizard fieldset {min-height : 230px;}
 	.checkout-wizard-content fieldset > div > span {line-height: 1em;}
