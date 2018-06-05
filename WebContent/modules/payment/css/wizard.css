@@ -513,12 +513,14 @@
     }
     .shipping-address,.shopping-payment{width:90%;padding:5px}
     .easyWizardSteps li {
-       height: 10px;
-    width: 37px;
-    font-size: 0px;
-    padding-top: 1px;
-    position: relative;
-    top: 1px;
+     height: 10px;
+     width: auto;
+     padding-left: 10px;
+     padding-right: 10px;
+     font-size: 0px;
+     padding-top: 1px;
+     position: relative;
+     top: 1px;
     }
     .easyWizardSteps li span{font-size : 11px;}
     .checkout-wizard-content p{
