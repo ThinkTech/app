@@ -203,7 +203,7 @@
 			    <input type="radio" id="enterprise"
 			     name="service" value="enterprise">
 			    <label for="enterprise">Plan Enterprise</label>
-			    <a>Souscrire</a>
+			    <a>Activer</a>
 		    </fieldset>
 			</div>
 		</fieldset>
