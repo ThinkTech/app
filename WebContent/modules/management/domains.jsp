@@ -141,8 +141,7 @@
 		   	   <h4>Durée Choisie : <span class="domain-year"></span> an</h4> <h4 class="price">Montant : <span class="domain-amount"></span> CFA</h4> <span class="domain-edit"><a>[ modifier ]</a></span>
 		   </div>
 		   <div class="wizard-message">
-		      <p>Selon l'action choisie, votre domaine web sera en attente d'enregistrement. Il sera en cours dès que vous aurez payé votre facture d'hébergement qui sera générée automatiquement après votre confirmation d'achat ou de transfert. 
-		      Cliquer sur Confirmer pour valider et pour effectuer le paiement.</p>
+		      <p>Selon l'action choisie, votre domaine web sera en attente d'enregistrement. Il sera en cours dès que vous aurez payé votre facture d'hébergement qui sera générée après votre confirmation d'achat ou de transfert. Cliquer sur Confirmer pour valider votre transaction et pour effectuer le paiement.</p>
 		   </div>
 		   <div style="border:none;text-align:center">
 		    <fieldset>    
