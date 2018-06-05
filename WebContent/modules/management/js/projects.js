@@ -103,7 +103,7 @@ $(document).ready(function(){
 			const top = $(this).offset().top;
 			page.wait({top : top});
 			head.load("modules/payment/js/wizard.js",function() {
-			    page.wizard.show(project.bill,top,function(){
+			    payment.wizard.show(project.bill,top,function(){
 			    	const tr = $(".table tr[id="+project.id+"]");
 					$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
 					$(".badge",tr).html("10%");
@@ -446,7 +446,7 @@ $(document).ready(function(){
 								  success: function(response) {
 									  const bill = response.entity;
 									  head.load("modules/payment/js/wizard.js",function() {
-										    page.wizard.show(bill,top,function(){
+										    payment.wizard.show(bill,top,function(){
 										    	const tr = $(".table tr[id="+project.id+"]");
 												$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
 												$(".badge",tr).html("10%");

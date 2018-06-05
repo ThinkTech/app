@@ -15,7 +15,7 @@ $(document).ready(function(){
 				page.wait({top : top});
 				head.load("modules/payment/js/wizard.js",function() {
 					const bill = domain.bill;
-				    page.wizard.show(bill,top,function(){
+				    payment.wizard.show(bill,top,function(){
 				    	const tr = $(".table tr[id="+bill.product_id+"]");
   						$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
 				   });
@@ -78,7 +78,7 @@ page.details.addDomain = function(purchase){
 				    h3.html(parseInt(h3.text())+1);
   					page.wait({top : top});
       				head.load("modules/payment/js/wizard.js",function() {
-      				    page.wizard.show(bill,top,function(){
+      				    payment.wizard.show(bill,top,function(){
       				    	const tr = $(".table tr[id="+purchase.id+"]");
       				    	$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
       				    });

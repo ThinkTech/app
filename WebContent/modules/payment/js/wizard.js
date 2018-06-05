@@ -1,5 +1,6 @@
-page.wizard = {};
-page.wizard.init = function(){
+const payment = {};
+payment.wizard = {};
+payment.wizard.init = function(){
 	const wizard = $("#checkout-wizard").css("opacity","0").show();	
 	const form = $(".checkout-wizard-steps > form",wizard);
 	$.each($(".digit",form),function(i,node){
@@ -25,7 +26,7 @@ page.wizard.init = function(){
                     		  apikey: "5CUQJ9M76DYS2QYARXZZ21PcguqrizMxsdocAavPttpscAbNU",
                     		  paymentRequest:{
                     		    currencyCode: "USD",
-                    		    total : page.wizard.bill.amount
+                    		    total : payment.wizard.bill.amount
                     		  },
                     		  settings: {
                     			  locale: "fr_FR",
@@ -41,8 +42,8 @@ page.wizard.init = function(){
                     		  } 
                     		  });
                     		  V.on("payment.success", function(response){
-                    			  page.wizard.bill.paidWith = val == 'visa' ? "Visa" : "MasterCard";
-                    			  page.wizard.submit();
+                    			  payment.wizard.bill.paidWith = val == 'visa' ? "Visa" : "MasterCard";
+                    			  payment.wizard.submit();
                     		  });
                     		  V.on("payment.cancel", function(response){ 
                     		  });
@@ -52,11 +53,11 @@ page.wizard.init = function(){
       	    		}else if (val == "wari"){
       	    			const button = currentStep.find("input[type='button']");
       	    			button.unbind("click").click(function(){
-      	    				page.wizard.bill.code = currentStep.find("input[type='text']").val();
-      	    				if(page.wizard.bill.code){
-      	    					 page.wizard.bill.paidWith = "Wari";
+      	    				payment.wizard.bill.code = currentStep.find("input[type='text']").val();
+      	    				if(payment.wizard.bill.code){
+      	    					 payment.wizard.bill.paidWith = "Wari";
       	    					 confirm("&ecirc;tes vous s&ucirc;r de vouloir effectuer ce paiement?",function(){
-          	    					page.wizard.submit();
+          	    					payment.wizard.submit();
           	    				 });	
       	    				}else {
       	    					alert("veuillez saisir votre code Wari");
@@ -84,29 +85,29 @@ page.wizard.init = function(){
 	});
 	wizard.hide().css("opacity","1");
 };
-page.wizard.show = function(bill,top,callback){
-	page.wizard.bill = bill;
-	page.wizard.callback = callback;
-	page.wizard.top = top ? top : "15%";
+payment.wizard.show = function(bill,top,callback){
+	payment.wizard.bill = bill;
+	payment.wizard.callback = callback;
+	payment.wizard.top = top ? top : "15%";
 	page.wait({top : top});
 	head.load("modules/payment/js/jquery.easyWizard.js","modules/payment/css/wizard.css",
 	  function() {
-		if(!page.wizard.loaded){
+		if(!payment.wizard.loaded){
 			const container = $("<div id='wizard-container'/>").appendTo($("body"));
 			container.load("modules/payment/wizard.html", function() {
 				const wizard = $("#checkout-wizard");
 				page.render(wizard, bill, false, function() {
-					page.wizard.init();
-					page.wizard.loaded = true;
+					payment.wizard.init();
+					payment.wizard.loaded = true;
 					page.release();
 					wizard.show();
 				});
 			});
 		}
-		if(page.wizard.loaded){
+		if(payment.wizard.loaded){
 			const wizard = $("#checkout-wizard");
 			page.render(wizard, bill, false, function() {
-				page.wizard.init();
+				payment.wizard.init();
 				page.release();
 				wizard.show();
 			});
@@ -114,21 +115,21 @@ page.wizard.show = function(bill,top,callback){
 		
     });
 };
-page.wizard.submit = function(){
+payment.wizard.submit = function(){
 	const wizard = $("#checkout-wizard");
 	const form = $("form",wizard);
-	page.wait({top : page.wizard.top});
+	page.wait({top : payment.wizard.top});
 	$.ajax({
 		  type: "POST",
 		  url: form.attr("action"),
-		  data: JSON.stringify(page.wizard.bill),
+		  data: JSON.stringify(payment.wizard.bill),
 		  contentType : "application/json",
 		  success: function(response) {
 			  if(response.status){
 				  page.release();
 				  wizard.fadeOut();
 				  alert("le paiement de votre facture a &edot;t&edot; bien effectu&edot;");
-				  if(page.wizard.callback) page.wizard.callback()
+				  if(payment.wizard.callback) payment.wizard.callback()
 			  }
 		  },
 		  error : function(){
