@@ -187,11 +187,11 @@
 			<div class="businessEmail">
 			   <h1><i class="fa fa-envelope" aria-hidden="true"></i>Business Email</h1>
 			    <fieldset>    
-		         <input type="radio"  id="free"
+		         <input type="radio" checked="checked" id="free"
 			     name="service" value="free">
 			    <label for="free">Plan Free</label>
 			    <br>
-			    <input type="radio" checked="checked" id="standard"
+			    <input type="radio" id="standard"
 			     name="service" value="standard">
 			    <label for="standard">Plan Standard</label>
 			    <br>
@@ -202,6 +202,7 @@
 			    <input type="radio" id="enterprise"
 			     name="service" value="enterprise">
 			    <label for="enterprise">Plan Enterprise</label>
+			    <input type="hidden" name="user" value="${user.id}">
 			    <a>Activer</a>
 		    </fieldset>
 			</div>

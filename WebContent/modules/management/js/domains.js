@@ -31,6 +31,20 @@ $(document).ready(function(){
 		}else{
 			$(".eppCode",container).hide();
 		}
+		$(".businessEmail a",container).click(function(){
+			const button = $(this); 
+			confirm("&ecirc;tes vous s&ucirc;r de vouloir activer cette offre email?",function(){
+				 const order = {};
+				 order.service = "mailhosting";
+				 order.plan = $(".businessEmail input:checked",container).val();
+				 order.user_id = $(".businessEmail input[name=user]",container).val();
+				 order.product_id = domain.id;
+				 order.domainRegistered = true;
+				 page.details.addEmail(order,function(){
+					 button.hide();
+				 });
+		  	 });
+		});
 	};
 	
 	page.initDomainSearch();
@@ -84,6 +98,27 @@ page.details.addDomain = function(purchase){
       				    });
       				});  
 				 });
+			  }
+		  },
+		  error : function(){
+			  page.release();
+			  alert("erreur lors de la connexion au serveur");
+		  },
+		  dataType: "json"
+	});
+};
+
+page.details.addEmail = function(order,callback){
+	page.wait({top : top});
+	$.ajax({
+		  type: "POST",
+		  url: "https://thinktech-platform.herokuapp.com/services/order",
+		  data: JSON.stringify(order),
+		  contentType : "application/json",
+		  success: function(response) {
+			  if(response.entity){
+				  page.release();
+				  if(callback) callback();
 			  }
 		  },
 		  error : function(){
