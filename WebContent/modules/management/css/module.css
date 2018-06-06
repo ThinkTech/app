@@ -856,6 +856,7 @@ legend a i.fa {
     margin-top: 4px;
     border-radius: 3px;
     margin-bottom : 5px;
+    font-size : 14px!important;
 }
 
 .businessEmail input{
@@ -880,12 +881,17 @@ legend a i.fa {
     border: 1px solid #3abfdd;
 }
 
+.businessEmail h1 .fa {
+    color: #3abfdd;
+}
+
 .businessEmail label{ 
 	font-size: 12px;
     font-weight: bold;
     font-family: Tahoma;
     position: relative;
     top: -2px;
+    cursor : pointer;
 }
 
 .project-wizard h2 {
