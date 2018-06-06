@@ -871,7 +871,7 @@ legend a i.fa {
     padding: 7px;
     width: 100px;
     text-align: center;
-    margin-top: 7px;
+    margin-top: 4px;
     margin-left: 25px;
     background: #180101;
     border-radius: 0.3em;
@@ -884,6 +884,8 @@ legend a i.fa {
 	font-size: 12px;
     font-weight: bold;
     font-family: Tahoma;
+    position: relative;
+    top: -2px;
 }
 
 .project-wizard h2 {
