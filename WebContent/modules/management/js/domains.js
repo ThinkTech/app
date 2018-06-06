@@ -42,6 +42,7 @@ $(document).ready(function(){
 				 order.domainRegistered = true;
 				 page.details.addEmail(order,function(){
 					 button.hide();
+					 alert("Votre business email est en attente de configuration");
 				 });
 		  	 });
 		});
