@@ -36,6 +36,18 @@ tr:nth-child(even) {
 	background : #efebeb;
 }
 
+.table-hover>tbody>tr:nth-child(even):hover {
+	background : #efebeb;
+}
+
+tr.active {
+	background : #feffc7;
+}
+
+.table-hover>tbody>tr.active:hover {
+	background : #feffc7;
+}
+
 thead tr:nth-child(odd) {
 	background : #3abfdd;
 }
@@ -48,9 +60,6 @@ th {
     border-bottom: none;
 }
 
-tr.active {
-	background : #feffc7;
-}
 
 div.empty {
 	display : none;
@@ -150,7 +159,7 @@ legend a {
 }
 
 .table-hover>tbody>tr:hover {
-    background-color: #feffc7;
+    background-color: #fff;
 }
 
 /*--header main start here--*/

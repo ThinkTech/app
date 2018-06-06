@@ -33,7 +33,7 @@
 				<div class="info-update-block clr-block-3">
 					<div class="col-md-8 info-update-left">
 						<h3 class="domainUnregistered">${unregistered}</h3>
-						<h4>domaines en attente</h4>
+						<h4>domaines non enregistrés</h4>
 					</div>
 					<div class="col-md-4 info-update-right">
 						<i class="fa fa-${activeItem.icon}"> </i>
