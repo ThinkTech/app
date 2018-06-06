@@ -188,22 +188,22 @@
 			   <h1><i class="fa fa-envelope" aria-hidden="true"></i>Business Email</h1>
 			    <fieldset>    
 		         <input type="radio" checked="checked" id="free"
-			     name="service" value="free">
+			     name="plan" value="free">
 			    <label for="free">Plan Free</label>
 			    <br>
 			    <input type="radio" id="standard"
-			     name="service" value="standard">
+			     name="plan" value="standard">
 			    <label for="standard">Plan Standard</label>
 			    <br>
 			    <input type="radio" id="pro"
-			     name="service" value="pro">
+			     name="plan" value="pro">
 			    <label for="pro">Plan Pro</label>
 			    <br>
 			    <input type="radio" id="enterprise"
-			     name="service" value="enterprise">
+			     name="plan" value="enterprise">
 			    <label for="enterprise">Plan Enterprise</label>
 			    <input type="hidden" name="user" value="${user.id}">
-			    <a>Activer</a>
+			    <a class="activate">Activer</a>
 		    </fieldset>
 			</div>
 		</fieldset>

@@ -31,21 +31,27 @@ $(document).ready(function(){
 		}else{
 			$(".eppCode",container).hide();
 		}
-		$(".businessEmail a",container).click(function(){
-			const button = $(this); 
-			confirm("&ecirc;tes vous s&ucirc;r de vouloir activer cette offre email?",function(){
-				 const order = {};
-				 order.service = "mailhosting";
-				 order.plan = $(".businessEmail input:checked",container).val();
-				 order.user_id = $(".businessEmail input[name=user]",container).val();
-				 order.product_id = domain.id;
-				 order.domainRegistered = true;
-				 page.details.addEmail(order,function(){
-					 button.hide();
-					 alert("Votre business email est en attente de configuration");
-				 });
-		  	 });
-		});
+		if(domain.emailOn){
+			$(".businessEmail a.activate",container).hide();
+			$(".businessEmail input[type=radio]",container).val([domain.plan]).attr("disabled","disabled");
+		}else{
+			$(".businessEmail a.activate",container).click(function(){
+				const button = $(this); 
+				confirm("&ecirc;tes vous s&ucirc;r de vouloir activer cette offre email?",function(){
+					 const order = {};
+					 order.service = "mailhosting";
+					 order.domain = domain.name;
+					 order.plan = $(".businessEmail input:checked",container).val();
+					 order.user_id = $(".businessEmail input[name=user]",container).val();
+					 order.product_id = domain.id;
+					 order.domainRegistered = true;
+					 page.details.addEmail(order,function(){
+						 button.hide();
+						 alert("Votre business email est en attente de configuration");
+					 });
+			  	 });
+			});	
+		}
 	};
 	
 	page.initDomainSearch();
