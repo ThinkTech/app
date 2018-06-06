@@ -10,6 +10,9 @@ html, body{
    user-select : none;
    color : #180101;
 }
+input[readonly], input[disabled] {
+    background: #eee;
+}
 a {
   text-decoration: none;
 }

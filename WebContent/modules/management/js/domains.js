@@ -34,6 +34,8 @@ $(document).ready(function(){
 		if(domain.emailOn){
 			$(".businessEmail a.activate",container).hide();
 			$(".businessEmail input[type=radio]",container).val([domain.plan]).attr("disabled","disabled");
+			const input = $(".businessEmail input[name=email]",container).attr("disabled","disabled");
+			input.val(domain.email+"@"+domain.name);
 		}else{
 			$(".businessEmail a.activate",container).click(function(){
 				const button = $(this); 
@@ -42,12 +44,17 @@ $(document).ready(function(){
 					 order.service = "mailhosting";
 					 order.domain = domain.name;
 					 order.plan = $(".businessEmail input:checked",container).val();
-					 order.email = $(".businessEmail input[name=email]",container).val().trim();
+					 order.email = $(".businessEmail input[name=email]",container).val().trim().replace(/\s+/g, '');
 					 if(!order.email){
 						 alert("vous devez choisir votre business email",function(){
 							 $(".businessEmail input[name=email]",container).focus();
 						 });
 						 return false;
+					 }else if(order.email.indexOf("@")!=-1){
+						 alert("vous devez supprimer le caract&eacute;re @",function(){
+							 $(".businessEmail input[name=email]",container).focus();
+						 });
+						 return false
 					 }
 					 order.user_id = $(".businessEmail input[name=user]",container).val();
 					 order.product_id = domain.id;
@@ -56,6 +63,8 @@ $(document).ready(function(){
 						 const tr = $(".table tr[id="+order.product_id+"]");
 						 $(".fa-envelope",tr).show();
 						 button.hide();
+						 const input = $(".businessEmail input[name=email]",container).attr("disabled","disabled");
+						 input.val(order.email+"@"+order.domain);
 						 alert("Votre business email est en attente de configuration");
 					 });
 			  	 });
