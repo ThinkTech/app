@@ -204,6 +204,10 @@
 	text-align: center;
 }
 
+.search tr:nth-child(even) {
+    background: #feffc7;;
+}
+
 .search div.wizard-message {
    background: #f3f3f3;
 }
