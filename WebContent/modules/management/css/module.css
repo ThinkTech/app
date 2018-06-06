@@ -866,10 +866,11 @@ legend a i.fa {
 .businessEmail input[type=text] {
 	padding: 5px!important;
     width: 250px!important;
-    margin: 2px;
-    margin-left: 5px;
+    margin: 3px;
+    margin-left: 20px;
     margin-bottom: 6px;
     display: block;
+    font-size : 13px;
 }
 
 .businessEmail a {
