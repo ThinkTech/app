@@ -44,10 +44,10 @@ $(document).ready(function(){
 					 order.service = "mailhosting";
 					 order.domain = domain.name;
 					 order.plan = $(".businessEmail input:checked",container).val();
-					 order.email = $(".businessEmail input[name=email]",container).val().trim().replace(/\s+/g, '');
+					 order.email = $(".businessEmail input[name=email]",container).val().toLowerCase().replace(/\s+/g, '');
 					 if(!order.email){
 						 alert("vous devez choisir votre business email",function(){
-							 $(".businessEmail input[name=email]",container).focus();
+							 $(".businessEmail input[name=email]",container).val("").focus();
 						 });
 						 return false;
 					 }else if(order.email.indexOf("@")!=-1){

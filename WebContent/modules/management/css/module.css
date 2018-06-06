@@ -1159,7 +1159,7 @@ label.tree_label:before {
 	.window > div img {width : 50%}
 	.message {font-size : 60%}
 	.businessEmail {line-height: 1em;padding-bottom: 10px;}
-	.window > div h1 {font-size: 1.05em;}
+	.window > div h1 {font-size: 1em;}
 	.businessEmail h1 {font-size: 13px!important}
 	.search h3 {margin: 0;font-size :13px}
 	.search-wizard div {margin-top: 5px;width: 100%;}
@@ -1319,7 +1319,7 @@ label.tree_label:before {
 
 @media(max-width:360px){
 	.tld-domain-search-wrapper {
-    	text-align: left;
+    	text-align: center;
     	white-space: nowrap;
     	padding : 0;
     	margin-top: -10px;
