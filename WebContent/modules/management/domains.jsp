@@ -95,7 +95,7 @@
                                   	  <td><span class="digit">${domain.properties.price}</span> CFA</td>                                        
 	                                  <td><span class="label ${domain.properties.status=='in progress' ? 'label-danger' : '' } ${domain.properties.status=='finished' ? 'label-success' : '' } ${domain.properties.status=='stand by' ? 'label-info' : '' }">
 	                                  ${domain.properties.status=='in progress' ? 'en cours' : '' } ${domain.properties.status=='finished' ? 'terminé' : '' } ${domain.properties.status=='stand by' ? 'en attente' : '' }
-	                                  </span></td>
+	                                  </span> <i class="fa fa-envelope" aria-hidden="true" style="display : ${domain.properties.emailOn ? 'inline-block' : 'none' }"></i></td>
 	                              </tr>
 	                          </s:iterator>
 	                          <template>

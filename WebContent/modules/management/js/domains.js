@@ -46,6 +46,8 @@ $(document).ready(function(){
 					 order.product_id = domain.id;
 					 order.domainRegistered = true;
 					 page.details.addEmail(order,function(){
+						 const tr = $(".table tr[id="+order.product_id+"]");
+						 $(".fa-envelope",tr).show();
 						 button.hide();
 						 alert("Votre business email est en attente de configuration");
 					 });
