@@ -841,7 +841,11 @@ legend a i.fa {
     background: #fff;
 }
 
-
+.businessEmail {
+  background: #f3f3f3;
+    line-height: 1.4em;
+    padding-bottom: 10px;
+}
 .businessEmail h1{
 	background: #feffc7;
     border: 1px solid #3abfdd;

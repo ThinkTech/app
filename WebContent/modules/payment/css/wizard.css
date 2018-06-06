@@ -258,10 +258,11 @@
     display: inline-block;
     text-align: left;
     white-space: nowrap;
-    font-size: 14px;
     background: #feffc7;
     padding-left: 5px;
     padding-right: 5px;
+    font-weight: bold;
+    font-size: 80%;
 }
 
 
@@ -599,6 +600,8 @@
       vertical-align: top;
       margin-bottom: 10px;
       width: 100%;
+      font-weight: bold;
+      font-size: 80%;
 	}
 	.checkout-wizard-content {width: 360px}
 	.payment-hide {display:none}
