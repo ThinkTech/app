@@ -42,6 +42,13 @@ $(document).ready(function(){
 					 order.service = "mailhosting";
 					 order.domain = domain.name;
 					 order.plan = $(".businessEmail input:checked",container).val();
+					 order.email = $(".businessEmail input[name=email]",container).val().trim();
+					 if(!order.email){
+						 alert("vous devez choisir votre business email",function(){
+							 $(".businessEmail input[name=email]",container).focus();
+						 });
+						 return false;
+					 }
 					 order.user_id = $(".businessEmail input[name=user]",container).val();
 					 order.product_id = domain.id;
 					 order.domainRegistered = true;

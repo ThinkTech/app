@@ -863,6 +863,15 @@ legend a i.fa {
 	margin-left : 11px;
 }
 
+.businessEmail input[type=text] {
+	padding: 5px!important;
+    width: 250px!important;
+    margin: 2px;
+    margin-left: 5px;
+    margin-bottom: 6px;
+    display: block;
+}
+
 .businessEmail a {
 	display: block;
     font-weight: 600;
@@ -1148,6 +1157,7 @@ label.tree_label:before {
 	.window > div {width: 100%;border-radius: 0px;height: 100%;}
 	.window > div img {width : 50%}
 	.message {font-size : 60%}
+	.businessEmail {line-height: 1em;padding-bottom: 10px;}
 	.window > div h1 {font-size: 1.05em;}
 	.businessEmail h1 {font-size: 13px!important}
 	.search h3 {margin: 0;font-size :13px}
