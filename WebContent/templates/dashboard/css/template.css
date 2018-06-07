@@ -17,6 +17,7 @@ input[readonly], input[disabled] {
 }
 a {
   text-decoration: none;
+  color: #08ccf7;
 }
 a:hover {
   transition: 0.5s all;
