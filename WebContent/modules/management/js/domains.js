@@ -1,12 +1,9 @@
 $(document).ready(function(){
 	page.details.bind = function(container,domain) {
-		if(domain.status == "finished"){
-			$(".manage,.businessEmail",container).show();  
-		}else {
-			$(".manage,.businessEmail",container).hide();
-			
+		if(domain.status != "finished"){
+			$(".manage",container).hide();  
 		}
-		$(".submit",container).hide();  
+		$(".submit,.businessEmail",container).hide();  
 		if(domain.status == "stand by"){
 			const div = $(".submit",container).show();
 			$("input[type=submit]",div).click(function(event){
@@ -32,6 +29,7 @@ $(document).ready(function(){
 			$(".eppCode",container).hide();
 		}
 		if(domain.emailOn){
+			$(".businessEmail").show();
 			$(".businessEmail a.activate",container).hide();
 			$(".businessEmail input[type=radio]",container).val([domain.plan]).attr("disabled","disabled");
 			const input = $(".businessEmail input[name=email]",container).attr("disabled","disabled");
