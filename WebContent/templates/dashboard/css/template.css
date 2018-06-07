@@ -97,8 +97,8 @@ div.empty span{
 
 input, select, textarea {
 	border : 1px solid #3abfdd;
-	background: #ffffff;
 	font-size : 14px;
+	background: #feffc7;
 }
 
 select {
