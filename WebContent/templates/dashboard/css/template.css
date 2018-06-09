@@ -684,7 +684,7 @@ ul.dropdown-menu.drp-mnu li {
 }
 
 .info-update-block {
-    padding: 2em 2em;
+    padding: 1.5em 1.5em;
     background: #999;
 }
 
@@ -1178,14 +1178,14 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 }
 }
 @media (max-width:480px){
+fieldset > span {
+    border-radius: 0;
+}
 .table-responsive {
-    min-height: 160px;
+    min-height: 200px;
 }
 .info-updates {
     margin-bottom: -10px;
-}
-.table>tbody>tr>td {
-    padding: 5px;
 }
 .table tbody tr td:nth-child(2)  {
 	text-align: left;
