@@ -79,6 +79,7 @@
                                     <tr class="clr-block-6">
                                       <th></th>
                                       <th>Domaine</th>
+                                      <th>Auteur</th>
                                       <th>Date Création</th>  
                                       <th>Durée</th>
                                       <th>Montant</th>                                                          
@@ -90,6 +91,7 @@
 	                                <tr id="${domain.properties.id}" class="${domain.properties.status=='finished' ? 'paid' : ''}">
 	                                  <td><span class="number">${status.index+1}</span></td>
 	                                  <td>${domain.properties.name}</td>
+	                                  <td>${domain.properties.author}</td>
 	                                  <td><s:date name="properties.date" format="dd/MM/yyyy" /></td>
 	                                  <td>${domain.properties.year} an</td>
                                   	  <td><span class="digit">${domain.properties.price}</span> CFA</td>                                        
@@ -103,6 +105,7 @@
 							      <tr id="{id}">
 							            <td><span class="number"></span></td>
 							   	        <td>{domain}</td>
+							   	        <td>${user.name}</td>
 							   	        <td>{date}</td> 
 							   	        <td>{year} an</td>
 							   	        <td><span class="digit">{price}</span> CFA</td> 
@@ -168,6 +171,7 @@
 		 <h1><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i>Domaine</h1>
 		<fieldset>
 		    <span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Domaine </span> <span>{name}</span>
+		    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span> <span>{author}</span>
 			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création</span> <span>{date}</span>
 			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Durée </span> <span>{year} an</span>
 			<span class="text-right"><i class="fa fa-money" aria-hidden="true"></i> Montant </span> <span><b class="digit">{price}</b> CFA</span>

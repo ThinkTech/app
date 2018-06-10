@@ -5,7 +5,7 @@ class ModuleAction extends ActionSupport {
    def showDomains(){
        def connection = getConnection()
        def domains = []
-       connection.eachRow("select id,name,year,date,price,status,emailOn from domains where structure_id = ? order by date DESC",[user.structure.id], { row -> 
+       connection.eachRow("select d.id,d.name,d.year,d.date,d.price,d.status,d.emailOn,u.name as author from domains d, users u where d.structure_id = ? and d.user_id = u.id order by date DESC",[user.structure.id], { row -> 
           def domain = new Expando()
           domain.with {
             id = row.id
@@ -15,6 +15,7 @@ class ModuleAction extends ActionSupport {
             status = row.status
             date = row.date 
             emailOn = row.emailOn
+            author = row.author
           }
           domains << domain
        })
@@ -31,7 +32,7 @@ class ModuleAction extends ActionSupport {
     def getDomainInfo() {
 	   def id = getParameter("id")
 	   def connection = getConnection()
-	   def domain = connection.firstRow("select * from domains where id = ?", [id])
+	   def domain = connection.firstRow("select *,u.name as author from domains d, users u where d.id = ? and d.user_id = u.id", [id])
 	   domain.date = new SimpleDateFormat("dd/MM/yyyy").format(domain.date)
 	   domain.action = domain.action ? "Transfert" : "Achat"
 	   domain.eppCode = domain.eppCode ? domain.eppCode : "&nbsp;"
