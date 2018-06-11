@@ -796,7 +796,8 @@ h3.tlt {
     color: #180101;
     text-transform: uppercase;
    font-family: Tahoma;
-   text-shadow: 1px 0px #180101;
+   text-shadow: 1px 1px #180101;
+   margin-bottom : 7px;
 }
 
 h3 .fa {
@@ -1046,7 +1047,7 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 @media (max-width:768px){
 
 h3.tlt {
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 	
 .info-update-block img {
