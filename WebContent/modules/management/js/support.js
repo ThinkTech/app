@@ -52,31 +52,20 @@ $(document).ready(function(){
 		confirm("&ecirc;tes vous s&ucirc;r de vouloir cr&edot;&edot;r ce ticket?",function(){
 			page.form.hide();
 			page.wait({top : form.offset().top+200});
-			$.ajax({
-				  type: "POST",
-				  url: form.attr("action"),
-				  data: JSON.stringify(ticket),
-				  contentType : "application/json",
-				  success: function(response) {
-					  if(response.id){
-						  $("input[type=text]",form).val("");
-						  tinyMCE.activeEditor.setContent("");
-						  ticket.id = response.id;
-						  page.table.addRow(ticket,function(){
-							  page.release();
-							  alert("votre ticket a &edot;t&edot; bien cr&edot;&edot;");
-							  $.each($(".info-updates h3.total,.info-updates h3.unsolved"),function(i,node){
-								  const h3 = $(node);
-								  h3.html(parseInt(h3.text())+1);
-							  });
+			app.post(form.attr("action"),ticket,function(response){
+				if(response.id){
+					  $("input[type=text]",form).val("");
+					  tinyMCE.activeEditor.setContent("");
+					  ticket.id = response.id;
+					  page.table.addRow(ticket,function(){
+						  page.release();
+						  alert("votre ticket a &edot;t&edot; bien cr&edot;&edot;");
+						  $.each($(".info-updates h3.total,.info-updates h3.unsolved"),function(i,node){
+							  const h3 = $(node);
+							  h3.html(parseInt(h3.text())+1);
 						  });
-					  }
-				  },
-				  error : function(){
-					  page.release();
-					  alert("erreur lors de la connexion au serveur");
-				  },
-				  dataType: "json"
+					  });
+				 }
 			});
 		});
 	  };
@@ -95,26 +84,14 @@ $(document).ready(function(){
 		comment.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
 		comment.date+=" "+(date.getHours()<10 ? "0"+date.getHours() : date.getHours())+":"+(date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes())+":"+(date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds());
 		page.wait({top : form.offset().top});
-		$.ajax({
-			  type: "POST",
-			  url: form.attr("action"),
-			  data: JSON.stringify(comment),
-			  contentType : "application/json",
-			  success: function(response) {
+		app.post(form.attr("action"),comment,function(response){
+			if(response.status){
 				  page.release();
-				  if(response.status){
-					  page.release();
-					  tinyMCE.activeEditor.setContent("");
-					  form.find("input[type=button]").click();
-					  alert("votre message a &edot;t&edot; bien ajout&edot;");
-					  page.details.showComments([comment]);
-				  }
-			  },
-			  error : function(){
-				  page.release();
-				  alert("erreur lors de la connexion au serveur");
-			  },
-			  dataType: "json"
+				  tinyMCE.activeEditor.setContent("");
+				  form.find("input[type=button]").click();
+				  alert("votre message a &edot;t&edot; bien ajout&edot;");
+				  page.details.showComments([comment]);
+			 }
 		});
 	};
 	page.details.showComments = function(comments){
