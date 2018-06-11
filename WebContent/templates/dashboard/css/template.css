@@ -796,7 +796,7 @@ h3.tlt {
     color: #180101;
     text-transform: uppercase;
    font-family: Tahoma;
-   text-shadow: 1px 1px #180101;
+   text-shadow: 1px 0px #180101;
    margin-bottom : 7px;
 }
 
@@ -1183,6 +1183,9 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 }
 }
 @media (max-width:480px){
+div.empty span {
+    font-size: 10px;
+}
 fieldset > span {
     border-radius: 0;
     padding: 0;
