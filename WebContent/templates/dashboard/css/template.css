@@ -1190,6 +1190,7 @@ fieldset > span {
     border-radius: 0;
     padding: 0;
     padding-left: 2px;
+    font-size : 11px;
 }
 .table-responsive {
     min-height: 190px;
