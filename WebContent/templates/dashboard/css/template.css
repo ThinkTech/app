@@ -1249,10 +1249,7 @@ fieldset > span {
 }
 .profile_details li a i.fa.lnr {
     right: 15%;
-    top: 3px;
-}
-.copyrights p {
-    font-size: 0.9em;
+    top: 0px;
 }
 }
 @media (max-width:414px){
@@ -1264,7 +1261,7 @@ fieldset > span {
     left: 4%;
 }
  .profile_details li a i.fa.lnr {
-    top: 3px;
+    top: 0px;
 }
 .profile_details ul li ul.dropdown-menu.drp-mnu {
     min-width: 165px;
