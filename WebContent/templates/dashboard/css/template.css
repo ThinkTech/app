@@ -921,7 +921,7 @@ li.dropdown.head-dpdn a.dropdown-toggle {
     padding: 0em 2em 0 1em;
 }
 .info-update-block h4 {
-    font-size: 12px;
+    font-size: 11px;
 }
 .info-update-block {
     padding: 1.5em 1.5em;
@@ -1045,6 +1045,10 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 }
 @media (max-width:768px){
 
+h3.tlt {
+    font-size: 1.2em;
+}
+	
 .info-update-block img {
     left: 0%;
     width : 35%;
@@ -1267,6 +1271,9 @@ fieldset > span {
 }
 }
 @media (max-width:384px){
+.user-name p {
+    font-size: 12px;
+}
 .left-content {
     width: 91%;
 }
@@ -1274,7 +1281,7 @@ fieldset > span {
     padding: 1em 1em;	
 }
 .logo-name h1 {
-    font-size: 1.6em;
+    font-size: 1.4em;
     margin-top: -15px;
     margin-left: 13px;
 }
