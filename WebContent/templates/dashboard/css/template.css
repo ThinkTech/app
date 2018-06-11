@@ -1180,6 +1180,8 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 @media (max-width:480px){
 fieldset > span {
     border-radius: 0;
+    padding: 0;
+    padding-left: 2px;
 }
 .table-responsive {
     min-height: 200px;
