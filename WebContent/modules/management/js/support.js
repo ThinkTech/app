@@ -1,4 +1,4 @@
-$(document).ready(function(){
+app.ready(function(){
 	page.details.bind = function(container,ticket) {
 		$("[data-status='"+ticket.priority+"']",container).show();
 		if(ticket.status == "finished"){

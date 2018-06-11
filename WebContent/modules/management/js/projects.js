@@ -1,4 +1,4 @@
-$(document).ready(function(){
+app.ready(function(){
 	page.details.bind = function(container,project) {
 		$("[data-status='"+project.priority+"']",container).show();
 		if(project.plan == "plan social") $(".confirm p",container).html("Contrat").addClass("adjust");

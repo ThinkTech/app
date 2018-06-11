@@ -1,4 +1,4 @@
-$(document).ready(function(){
+app.ready(function(){
 	page.details.bind = function(container,bill) {
 		if(bill.status == "finished"){
 		   $(".submit",container).hide();

@@ -1,4 +1,4 @@
-$(document).ready(function(){
+app.ready(function(){
 	page.details.bind = function(container,domain) {
 		if(domain.status != "finished"){
 			$(".manage",container).hide();  
