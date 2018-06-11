@@ -58,10 +58,7 @@ class ModuleAction extends ActionSupport {
         user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
 	   	connection.executeUpdate 'update users set password = sha(?) where email = ?', [user.password,user.email]
 	   	connection.close()
-	   	def mailConfig = new MailConfig(getInitParameter("smtp.email"),getInitParameter("smtp.password"),getInitParameter("smtp.host"),getInitParameter("smtp.port"))
-	   	def mailSender = new MailSender(mailConfig)
-	   	def mail = new Mail("$user.name","$user.email","Changement de votre mot de passe",getPasswordTemplate(user))
-	   	mailSender.sendMail(mail)
+	   	sendMail("$user.name","$user.email","Changement de votre mot de passe",getPasswordTemplate(user))
 	   	json([status: 1])
 	   }else {
 	   	json([status: 0])
@@ -111,11 +108,8 @@ class ModuleAction extends ActionSupport {
           params = [user.activationCode,id]
        	  connection.executeInsert 'insert into accounts(activation_code,user_id) values (?, ?)', params
        	  def template = getCollaborationTemplate(user) 
-	      def mailConfig = new MailConfig(getInitParameter("smtp.email"),getInitParameter("smtp.password"),getInitParameter("smtp.host"),getInitParameter("smtp.port"))
-	   	  def mailSender = new MailSender(mailConfig)
-	   	  def mail = new Mail("$user.email","$user.email","Veuillez confirmer cette demande de collaboration",template)
-	   	  mailSender.sendMail(mail)
-          json([id : id])
+	      sendMail("$user.email","$user.email","Veuillez confirmer cette demande de collaboration",template)
+	   	  json([id : id])
  	   }
  	   connection.close()
 	}
@@ -129,11 +123,8 @@ class ModuleAction extends ActionSupport {
  		def params = [user.activationCode,user.id]
        	connection.executeUpdate 'update accounts set activated = false,activation_code = ? where user_id = ?', params 
  		connection.close() 
-	    def mailConfig = new MailConfig(getInitParameter("smtp.email"),getInitParameter("smtp.password"),getInitParameter("smtp.host"),getInitParameter("smtp.port"))
-	   	def mailSender = new MailSender(mailConfig)
-	   	def mail = new Mail("$user.email","$user.email","Veuillez confirmer cette demande de collaboration",getCollaborationTemplate(user))
-	   	mailSender.sendMail(mail)
-	    json([status : 1])
+	    sendMail("$user.email","$user.email","Veuillez confirmer cette demande de collaboration",getCollaborationTemplate(user))
+	   	json([status : 1])
 	}
 	
 	def removeCollaborator(){
