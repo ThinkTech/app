@@ -191,7 +191,9 @@
 	margin-right: 5px;
     width: 90px;
     font-size: 14px;
+    padding: 7px;
     padding-left: 2px;
+    width: 130px;
 }
 
 .payment > div input[type="button"] {
@@ -563,11 +565,11 @@
 	.shopping-payment .help {display:inline-block}
 	.shopping-payment{margin-top:-9px}
 	.checkout-wizard-content {width: 65%;padding:0px}
-	.payment > div input {font-size: 12px;padding-left : 2px}
+	.payment > div input {font-size: 12px;padding:6px;padding-left : 2px}
     .payment > div input[type="button"] {
-    	font-size: 9px;
+    	font-size: 11px;
    	    padding: 5px;
-        width: 65px;
+        width: 70px;
     }
 }
 @media (max-width: 600px){
