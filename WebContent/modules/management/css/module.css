@@ -754,6 +754,10 @@ legend a i.fa {
 	margin-top: -8px;
 }
 
+.window > div .document-list h6 {
+	margin-bottom: 10px!important;
+}
+
 .window > div .document-upload {
 	margin-top: -20px;
 	display : none;
