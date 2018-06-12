@@ -86,9 +86,6 @@ class ModuleAction extends ActionSupport {
          project.bill.user = user
 	  	 project.bill.date = new SimpleDateFormat("dd/MM/yyyy").format(project.bill.date)
        }
-       if(project.status == "finished"){
-         response.addHeader("Cache-control", "private, max-age=78840000")
-       }
 	   connection.close() 
 	   json([entity : project])
 	}
