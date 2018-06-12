@@ -35,13 +35,13 @@ class ModuleAction extends ActionSupport {
 	   def project = connection.firstRow("select p.*,u.name from projects p,users u where p.id = ? and p.user_id = u.id", [id])
 	   if(project.status == 'finished'){
 	      project.end = project.closedOn
-	      project.duration = connection.firstRow("select TIMESTAMPDIFF(MONTH,startedOn,closedOn) as duration from projects where id = ?", [id]).duration
+	      project.duration = connection.firstRow("select TIMESTAMPDIFF(MONTH,startedOn,closedOn) as duration from projects where id = ?", [project.id]).duration
 	   }
 	   else if(project.status == 'in progress'){ 
-	   	project.end = connection.firstRow("select date_add(startedOn,interval duration month) as end from projects where id = ?", [id]).end
+	   	project.end = connection.firstRow("select date_add(startedOn,interval duration month) as end from projects where id = ?", [project.id]).end
 	   }
 	   else{ 
-	   	project.end = connection.firstRow("select date_add(date,interval duration month) as end from projects where id = ?", [id]).end
+	   	project.end = connection.firstRow("select date_add(date,interval duration month) as end from projects where id = ?", [project.id]).end
 	   }
 	   if(project.subject.length()>40) project.subject = project.subject.substring(0,40)+"..."
 	   project.date = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(project.date)
@@ -82,7 +82,7 @@ class ModuleAction extends ActionSupport {
           project.tasks << task
        })
        if(project.status == "stand by" && project.plan != "plan social"  && project.plan != "plan custom") {
-         project.bill = connection.firstRow("select b.*,p.service from bills b, projects p where b.product_id = p.id and p.id = ?", [id])
+         project.bill = connection.firstRow("select b.*,p.service from bills b, projects p where b.product_id = p.id and p.id = ?", [project.id])
          project.bill.user = user
 	  	 project.bill.date = new SimpleDateFormat("dd/MM/yyyy").format(project.bill.date)
        }
