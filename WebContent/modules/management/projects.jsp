@@ -115,12 +115,7 @@
 		<span data-status="normal" class="status" style="display:none">normale</span>
 		<span data-status="medium" class="status" style="display:none">moyenne</span>
 		<span data-status="high" class="status" style="display:none">élevée</span> 
-		<span class="text-right"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Durée </span> <span>{duration} mois</span> <a class="duration"><i class="fa fa-info" aria-hidden="true"></i></a>
-		<div class="info-message">
-		   <p data-status="stand by">la durée maximale du projet est estimée à {duration} mois dans l'attente du paiement de la caution que vous devez effectuer</p>
-		   <p data-status="in progress">la durée maximale du projet est estimée à {duration} mois et dans les normes, il sera clôturé au plus tard le {end}</p>
-		   <p data-status="finished">la durée du projet fut de {duration} mois et il a été clôturé le {end}</p>
-		</div>
+		<span class="text-right"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Durée </span> <span>{duration} mois</span>
 		<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Traitement </span> 
 		<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span> <span class="label label-info">paiement caution</span> <span class="label label-success"><b class="digit">{bill.amount}</b> F</span> <a class="pay"><i class="fa fa-money"></i></a></span>
 		<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  
@@ -132,9 +127,7 @@
 		  </h1>
 		  <ol data-template="tasks">
 		  </ol>
-		</div>
-	</fieldset>
-	<div class="col-md-12">
+		  <div class="col-md-12">
 		  <div class="content-process">
 			<div class="content3">
 				<div class="shipment">
@@ -170,6 +163,8 @@
 			</div>
 		   </div>	
 	   </div>
+		</div>
+	</fieldset>
 	   <div class="clearfix"></div>
 	<fieldset>
 	   <legend>

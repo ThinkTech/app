@@ -781,7 +781,7 @@ legend a i.fa {
 
 .window > div h6 {
 	margin-top: -10px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
     font-size: 13px;
 }
 
@@ -1466,7 +1466,7 @@ p.text {
 }
 
 .content-process{
-	margin-top: -30px;
+	margin-top: 0px;
 	min-height: 90px;
 	background : #fff;
 	margin-left: 40px;
