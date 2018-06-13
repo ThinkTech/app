@@ -81,11 +81,6 @@ class ModuleAction extends ActionSupport {
           }
           project.tasks << task
        })
-       if(project.status == "stand by" && project.plan != "plan social"  && project.plan != "plan custom") {
-         project.bill = connection.firstRow("select b.*,p.service from bills b, projects p where b.product_id = p.id and p.id = ?", [project.id])
-         project.bill.user = user
-	  	 project.bill.date = new SimpleDateFormat("dd/MM/yyyy").format(project.bill.date)
-       }
 	   connection.close() 
 	   json([entity : project])
 	}
