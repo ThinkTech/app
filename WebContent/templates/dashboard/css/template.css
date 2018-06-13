@@ -391,6 +391,7 @@ fieldset > span.text-right.full {
     text-align: left;
     cursor : pointer;
     text-shadow: 1px 0px #ece5e5;
+    font-family: Tahoma;
 }
 #menu li a:hover {
   color:#fafafa;
