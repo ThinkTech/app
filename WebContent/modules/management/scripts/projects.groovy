@@ -32,7 +32,7 @@ class ModuleAction extends ActionSupport {
    def getProjectInfo() {
 	   def id = getParameter("id")
 	   def connection = getConnection()
-	   def project = connection.firstRow("select p.*,u.name from projects p,users u where p.id = ? and p.user_id = u.id", [id])
+	   def project = connection.firstRow("select p.*,u.name,d.name as domain from projects p,users u, domains d where p.id = ? and p.user_id = u.id and p.domain_id = d.id", [id])
 	   if(project.status == 'finished'){
 	      project.end = project.closedOn
 	      project.duration = connection.firstRow("select TIMESTAMPDIFF(MONTH,startedOn,closedOn) as duration from projects where id = ?", [project.id]).duration
