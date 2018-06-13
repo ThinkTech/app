@@ -597,8 +597,10 @@ ul.dropdown-menu {
 }
 .dropdown-menu > li > a {
     padding: 3px 15px;
-	font-size: 13px;
+	font-size: 12px;
     font-weight: 600;
+    color: #000;
+    font-family: Tahoma;
 }
 .profile_details {
     float: right;
@@ -637,8 +639,9 @@ ul.dropdown-menu {
     position: absolute;
     top: 34%;
     right: 8%;
-    color: #3abfdd;
-    font-size: 1.6em;
+    color: #000;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 .profile_details ul li ul.dropdown-menu.drp-mnu {
     padding: 1em;
