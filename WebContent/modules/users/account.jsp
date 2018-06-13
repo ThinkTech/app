@@ -111,8 +111,6 @@
    										<span id="structure" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;${user.structure.name}</span>
    										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;Activité Principale </span>
    										<span id="business" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;${user.structure.business}</span>
-   										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;Ninea </span>
-   										<span id="ninea" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;${user.structure.ninea}</span>
    								 </fieldset>
    								 <a class="text-center">[ modifier ]</a>
    								 <form action="${url}/profile/update">
@@ -129,8 +127,6 @@
    										<input name="structure" value="${user.structure.name}" type="text" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
    										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Activité Principale </span>
    										<input name="business" value="${user.structure.business}" type="text" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
-   										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Ninea </span>
-   										<input name="ninea" value="${user.structure.ninea}" type="text" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
    								    <div class="submit">
    								      <input type="button" value="Annuler">
    								      <input type="submit" value="Modifier">

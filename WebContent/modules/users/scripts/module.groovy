@@ -80,7 +80,7 @@ class ModuleAction extends ActionSupport {
 	   structure.id = session.getAttribute("user").structure.id
 	   user = connection.firstRow("select * from users where id = ?", [session.getAttribute("user").id])
 	   if(user.role == "administrateur"){
-	   	 connection.executeUpdate 'update structures set name = ?, business = ?, ninea = ? where id = ?', [structure.name,structure.business,structure.ninea,structure.id]
+	   	 connection.executeUpdate 'update structures set name = ?, business = ? where id = ?', [structure.name,structure.business,structure.id]
 	   }
 	   user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
        session.setAttribute("user",user) 
