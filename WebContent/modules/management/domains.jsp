@@ -211,10 +211,6 @@
 		    </fieldset>
 			</div>
 		</fieldset>
-		<div class="submit">
-		   <input type="submit" value="Payer">
-		   <input type="button" value="Annuler">
-		</div>
 		</template>
 		</section>
 	</div>
