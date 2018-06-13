@@ -1284,9 +1284,12 @@ fieldset > span {
     padding: 1em 1em;	
 }
 .logo-name h1 {
-    font-size: 1.4em;
+    font-size: 1.2em;
     margin-top: -15px;
     margin-left: 13px;
+}
+h3.tlt {
+    font-size: 1em;
 }
 .profile_details ul li ul.dropdown-menu.drp-mnu {
     min-width: 146px;
