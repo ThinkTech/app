@@ -334,10 +334,9 @@
 		</select>
 		<span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Domaine </span>
 	    <select name="domain">
-		  <option value="création site web">création site web</option>
-		  <option value="refonte site web">refonte site web</option>
-		  <option value="création application web">création application web</option>
-		  <option value="refonte application web">refonte application web</option>
+	      <s:iterator value="#request.domains" var="domain">
+	          <option value="${domain.properties.id}">${domain.properties.name}</option>
+	      </s:iterator>
 		</select>
 		<a class="search"><i class="fa fa-search" aria-hidden="true"></i></a>
 		<span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du projet</span>

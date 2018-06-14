@@ -21,11 +21,21 @@ class ModuleAction extends ActionSupport {
        })
        def active = connection.firstRow("select count(*) AS num from projects where status = 'in progress' and structure_id = "+user.structure.id).num
        def unactive = connection.firstRow("select count(*) AS num from projects where status = 'stand by' and structure_id = "+user.structure.id).num
-       connection.close() 
        request.setAttribute("projects",projects)  
        request.setAttribute("total",projects.size())
        request.setAttribute("active",active)
        request.setAttribute("unactive",unactive)
+       def domains = []
+       connection.eachRow("select id, name from domains order by name ASC", [], { row -> 
+          def domain = new Expando()
+          domain.with {
+           id = row.id
+           name =  row.name
+          }
+		  domains << domain
+       })
+       request.setAttribute("domains",domains)
+       connection.close() 
        SUCCESS
    }
 	
