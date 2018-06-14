@@ -1113,9 +1113,7 @@ label.tree_label:before {
       width: 100%;
       text-align: left;
      }
-     .window > div textarea {
-      margin-top: 2px;
-     }
+     .window > div textarea {margin-top: 2px;}
      .window > div .label {top: 0px;padding: 2px;margin-bottom: 1px;height:16px}
      .window > div .badge {top : 4px;}
      .window > div a.plan,.window > div a.duration {
