@@ -155,23 +155,16 @@ app.ready(function(){
 			return false;
 		}
 		page.wait({top : form.offset().top});
-		$.ajax({
-			  type: "POST",
-			  url: form.attr("action"),
-			  data: JSON.stringify(project),
-			  contentType : "application/json",
-			  success: function(response) {
-				  page.release();
-				  if(response.status){
-					  form.find("input[type=button]").click();
-					  const div = form.parent().parent();
-					  const list = $(".message-list",div);
-					  list.find("h6").hide();
-					  $("> div",list).html(project.description);
-					  alert("votre description a &edot;t&edot; bien modifi&edot;e");
-				  }
-			  },
-			  dataType: "json"
+		const url = form.attr("action");
+		app.post(url,project,function(response){
+			if(response.status){
+				  form.find("input[type=button]").click();
+				  const div = form.parent().parent();
+				  const list = $(".message-list",div);
+				  list.find("h6").hide();
+				  $("> div",list).html(project.description);
+				  alert("votre description a &edot;t&edot; bien modifi&edot;e");
+			  }
 		});
 	};
 	page.details.uploadDocuments = function(form){
@@ -367,35 +360,25 @@ app.ready(function(){
 		const date = new Date();
 		project.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
 		confirm("&ecirc;tes vous s&ucirc;r de vouloir cr&edot;&edot;r ce projet?",function(){
+			const url = "https://thinktech-platform.herokuapp.com/services/projects/create";
 			page.form.hide();
 			const top = form.offset().top+200;
 			page.wait({top : top});
-			$.ajax({
-				  type: "POST",
-				  url: form.attr("action"),
-				  data: JSON.stringify(project),
-				  contentType : "application/json",
-				  success: function(response) {
-					  if(response.id){
-						  tinyMCE.activeEditor.setContent("");
-						  project.id = response.id;
-						  page.table.addRow(project,function(){
-							  page.release();
-							  var h3 = $("h3.total");
-							  h3.html(parseInt(h3.text())+1);
-							  h3 = $("h3.unactive");
-							  h3.html(parseInt(h3.text())+1);
-							  alert("votre projet a &edot;t&edot; bien cr&edot;&edot;",function(){
-					    	      page.details.showProjectWizard(project);  
-							  });
+			app.post(url,project,function(response){
+				if(response.id){
+					  tinyMCE.activeEditor.setContent("");
+					  project.id = response.id;
+					  page.table.addRow(project,function(){
+						  page.release();
+						  var h3 = $("h3.total");
+						  h3.html(parseInt(h3.text())+1);
+						  h3 = $("h3.unactive");
+						  h3.html(parseInt(h3.text())+1);
+						  alert("votre projet a &edot;t&edot; bien cr&edot;&edot;",function(){
+				    	      page.details.showProjectWizard(project);  
 						  });
-					  }
-				  },
-				  error : function(){
-					  page.release();
-					  alert("erreur lors de la connexion au serveur");
-				  },
-				  dataType: "json"
+					  });
+				}
 			});
 		});
 	};
@@ -410,28 +393,22 @@ app.ready(function(){
 						const input = $("input[type=checkbox]",wizard);
 						if(input.is(":checked")){
 							page.wait({top : top});
-							$.ajax({
-								  type: "GET",
-								  url: url+"?id="+project.id,
-								  success: function(response) {
-									  const bill = response.entity;
-									  head.load("modules/payment/js/wizard.js",function() {
-										    payment.wizard.show(bill,top,function(){
-										    	const tr = $(".table tr[id="+project.id+"]");
-												$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
-												$(".badge",tr).html("10%");
-												var h3 = $("h3.unactive");
-												h3.html(parseInt(h3.text())-1);
-												h3 = $("h3.active");
-												h3.html(parseInt(h3.text())+1);
-												$("> div section:nth-child(1)",wizard).hide();
-												$("> div section:nth-child(2)",wizard).show();
-												wizard.fadeIn(100);
-										    });
-										    page.release();
-									 });
-								  },
-								  dataType: "json"
+							app.get(url+"?id="+project.id,function(response){
+								const bill = response.entity;
+								  head.load("modules/payment/js/wizard.js",function() {
+									    payment.wizard.show(bill,top,function(){
+									    	const tr = $(".table tr[id="+project.id+"]");
+											$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
+											$(".badge",tr).html("10%");
+											var h3 = $("h3.unactive");
+											h3.html(parseInt(h3.text())-1);
+											h3 = $("h3.active");
+											h3.html(parseInt(h3.text())+1);
+											$("> div section:nth-child(1)",wizard).hide();
+											$("> div section:nth-child(2)",wizard).show();
+											wizard.fadeIn(100);
+									    });
+								 });
 							});
 						}
 						wizard.hide();
@@ -459,24 +436,14 @@ app.ready(function(){
 		comment.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
 		comment.date+=" "+(date.getHours()<10 ? "0"+date.getHours() : date.getHours())+":"+(date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes())+":"+(date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds());
 		page.wait({top : form.offset().top});
-		$.ajax({
-			  type: "POST",
-			  url: form.attr("action"),
-			  data: JSON.stringify(comment),
-			  contentType : "application/json",
-			  success: function(response) {
-				  if(response.status){
-					  page.release();
-					  tinyMCE.get("textarea-message").setContent("");
-					  form.find("input[type=button]").click();
-					  page.details.showComments([comment]);
-				  }
-			  },
-			  error : function(){
+		const url = form.attr("action");
+		app.post(url,comment,function(response){
+			if(response.status){
 				  page.release();
-				  alert("erreur lors de la connexion au serveur");
-			  },
-			  dataType: "json"
+				  tinyMCE.get("textarea-message").setContent("");
+				  form.find("input[type=button]").click();
+				  page.details.showComments([comment]);
+			}
 		});
 	};
 	page.details.showComments = function(comments){

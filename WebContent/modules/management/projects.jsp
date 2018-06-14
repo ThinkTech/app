@@ -305,7 +305,7 @@
  <div>
    <span title="fermer" class="close">X</span>
 	<h1><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i>Nouveau Projet</h1>
-   <form action="https://thinktech-platform.herokuapp.com/services/projects/create">
+   <form>
 	<fieldset>
 	    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span>
 		<select name="service">
@@ -331,6 +331,13 @@
 		  <option value="normal">normale</option>
 		  <option value="medium">moyenne</option>
 		  <option value="high">élevée</option>
+		</select>
+		<span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Domaine </span>
+	    <select name="domain">
+		  <option value="création site web">création site web</option>
+		  <option value="refonte site web">refonte site web</option>
+		  <option value="création application web">création application web</option>
+		  <option value="refonte application web">refonte application web</option>
 		</select>
 		<span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du projet</span>
 		<textarea style="height:150px" name="description" placeholder="entrer votre description"></textarea>
