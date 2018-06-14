@@ -170,7 +170,7 @@
 		 <template>
 		 <h1><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i>Domaine</h1>
 		<fieldset>
-		    <span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Domaine </span> <span>{name}</span>
+		    <span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Nom </span> <span>{name}</span>
 		    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span> <span>{author}</span>
 			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Date Création</span> <span>{date}</span>
 			<span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Durée </span> <span>{year} an</span>

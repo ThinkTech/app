@@ -1312,7 +1312,7 @@ label.tree_label:before {
 	.window > div ul.tree li{padding-left: 21px;}
 	.window > div .message-list > div > div div.message {width : 97%;}
 	.window > div ol li span.question{width:20px;margin-left: 78%;position: relative; top: -2px;}
-	legend a i.fa {position: relative;top: -1px;}
+	legend a i.fa {position: relative;top: 1px;}
 	.service h3 {font-size: 11px;}
 	.search.search-wizard h4 {font-size: 12px;}
 }
