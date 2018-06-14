@@ -233,13 +233,7 @@ app.ready(function(){
 				  const upload = {};
 				  upload.id = project_id;
 				  upload.documents = files;
-				  $.ajax({
-					  type: "POST",
-					  url: url,
-					  data: JSON.stringify(upload),
-					  contentType : "application/json",
-					  dataType: "json"
-				 });
+				  app.post(url,upload);
 			  },
 			  error : function(){
 				  page.release();
