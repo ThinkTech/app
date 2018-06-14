@@ -343,6 +343,7 @@ app.ready(function(){
 		project.structure = form.find("input[name=structure]").val();
 		project.subject = form.find("select[name=subject]").val();
 		project.plan =  form.find("select[name=plan]").val();
+		project.domain =  form.find("select[name=domain]").val();
 		project.priority =  form.find("select[name=priority]").val();
 		project.description =  tinyMCE.activeEditor.getContent();
 		if(tinyMCE.activeEditor.getContent({format: 'text'}).trim() == ""){
