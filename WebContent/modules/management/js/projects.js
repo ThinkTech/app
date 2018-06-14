@@ -1,7 +1,7 @@
 app.ready(function(){
 	page.details.bind = function(container,project) {
 		$("[data-status='"+project.priority+"']",container).show();
-		if(project.plan == "plan social") $(".confirm p",container).html("Contrat").addClass("adjust");
+		if(project.plan == "social") $(".confirm p",container).html("Contrat").addClass("adjust");
 		if(project.status == "in progress") {
 			$(".confirm .imgcircle,.confirm .line,.process .imgcircle",container).addClass("active");
 			if(project.progression >= 70) {
@@ -370,6 +370,7 @@ app.ready(function(){
 				if(response.entity){
 					  tinyMCE.activeEditor.setContent("");
 					  project.id = response.entity.id;
+					  project.subject = response.entity.subject;
 					  page.table.addRow(project,function(){
 						  page.release();
 						  var h3 = $("h3.total");

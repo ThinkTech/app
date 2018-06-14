@@ -316,11 +316,11 @@
 		</select>
 		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span>
 		<select name="plan">
-		  <option value="plan business">plan business</option>
-		  <option value="plan corporate">plan corporate</option>
-		  <option value="plan personal">plan personal</option>
-		  <option value="plan social">plan social</option>
-		  <option value="plan custom">plan custom</option>
+		  <option value="business">plan business</option>
+		  <option value="corporate">plan corporate</option>
+		  <option value="personal">plan personal</option>
+		  <option value="social">plan social</option>
+		  <option value="custom">plan custom</option>
 		</select>
 		<span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Domaine </span>
 	    <select name="domain">
