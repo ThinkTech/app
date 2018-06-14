@@ -176,7 +176,7 @@ class ModuleAction extends ActionSupport {
     def confirm() {
         def activationCode = getParameter("activationCode")
         def connection = getConnection()
-        connection.executeUpdate 'update accounts set activated = true, activation_code = null where activation_code = ?', [activationCode]
+        connection.executeUpdate 'update accounts set activated = true, activation_code = null, activatedOn = Now() where activation_code = ?', [activationCode]
         connection.close()
     	response.sendRedirect(request.contextPath+"/")
     }
