@@ -570,6 +570,10 @@ legend {
 	font-size: 13px;
 }
 
+.window > div .description p {
+    margin-bottom: 10px;
+}
+
 .window > div .message-list > div > div i {
 	display : inline-block;
 	vertical-align : top;
@@ -1328,7 +1332,6 @@ label.tree_label:before {
 	.window > div ul a, .window > div ol a {font-size: 11px;}
 	.window > div input[type="submit"], .window > div input[type="button"] {font-size: 11px;width: 90px;}
 	.window > div .message-list > div > div i.fa-info {font-size: 11px;margin-right: 10px}
-	.window > div .description p {margin-bottom: 10px;}
 	.window p {font-size: 11px;}
 	.window > div .info-tasks ol li > span:first-of-type {font-size: 11px;}
 	.window > div .info-tasks h1 {font-size : 12px!important}
