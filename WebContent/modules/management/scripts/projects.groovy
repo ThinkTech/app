@@ -53,7 +53,6 @@ class ModuleAction extends ActionSupport {
 	   else{ 
 	   	project.end = connection.firstRow("select date_add(date,interval duration month) as end from projects where id = ?", [project.id]).end
 	   }
-	   if(project.subject.length()>40) project.subject = project.subject.substring(0,40)+"..."
 	   project.date = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(project.date)
 	   project.end = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(project.end)
 	   project.comments = []

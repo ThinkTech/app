@@ -290,6 +290,10 @@ fieldset {
 
 fieldset > span {
 	width : 59%;
+	max-width : 59%;
+	vertical-align : top;
+	overflow : hidden;
+	white-space: nowrap;
 	display : inline-block;
 	padding: 1px;
 	padding-left: 2px;
@@ -973,6 +977,7 @@ td a.pay i {
  fieldset > span {
     display: block;
     width : 100%;
+    max-width : 100%;
  }
  fieldset > span.text-right {
     width: 100%;
