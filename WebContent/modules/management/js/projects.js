@@ -342,8 +342,9 @@ app.ready(function(){
 		project.user_id = form.find("input[name=user]").val();
 		project.subject = form.find("select[name=subject]").val();
 		project.plan =  form.find("select[name=plan]").val();
-		project.domain =  form.find("select[name=domain]").val();
-		if(!project.domain.trim()){
+		project.domain_id =  form.find("select[name=domain]").val();
+		project.domain =  form.find("select[name=domain] option:selected").text();
+		if(!project.domain_id.trim()){
 			alert("vous devez choisir un domaine web",function(){
 				form.find("select[name=domain]").focus();
 			});
