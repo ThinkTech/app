@@ -433,7 +433,6 @@ app.ready(function(){
 	};
 	
 	$(".window.details").click(function(){
-		$(".plans").hide();
 		$(".modal").remove();
 	});
 	$(".window.form select[name=subject]").on("change",function(){
