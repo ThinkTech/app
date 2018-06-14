@@ -95,16 +95,6 @@ class ModuleAction extends ActionSupport {
 	   json([entity : project])
 	}
 	
-	def getProjectBill() {
-	   def id = getParameter("id")
-	   def connection = getConnection()
-       def bill = connection.firstRow("select b.*,p.service from bills b, projects p where b.product_id = p.id and p.id = ?", [id])
-	   bill.user = user
-	   bill.date = new SimpleDateFormat("dd/MM/yyyy").format(bill.date)
-	   json([entity : bill])
-	   connection.close()
-	}
-	
 	def addComment() {
 	   def comment = parse(request) 
 	   def user_id = user.id

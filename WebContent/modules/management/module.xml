@@ -5,7 +5,6 @@
   <actions>
     <action url="projects" page="projects" method="showProjects" script="projects.groovy"/>
     <action url="projects/info"  method="getProjectInfo" script="projects.groovy"/>
-    <action url="projects/bill"  method="getProjectBill" script="projects.groovy"/>
     <action url="projects/documents/save"  method="saveDocuments" script="projects.groovy"/>
     <action url="projects/documents/download"  method="downloadDocument" script="projects.groovy"/>
     <action url="projects/description/update"  method="updateProjectDescription" script="projects.groovy"/>

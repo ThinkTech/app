@@ -339,15 +339,20 @@ app.ready(function(){
 	page.details.createProject = function(form){
 		const project = {};
 		project.service = "webdev";
-		project.user = form.find("input[name=user]").val();
-		project.structure = form.find("input[name=structure]").val();
+		project.user_id = form.find("input[name=user]").val();
 		project.subject = form.find("select[name=subject]").val();
 		project.plan =  form.find("select[name=plan]").val();
 		project.domain =  form.find("select[name=domain]").val();
+		if(!project.domain.trim()){
+			alert("vous devez choisir un domaine web",function(){
+				form.find("select[name=domain]").focus();
+			});
+			return false;
+		}
 		project.domainCreated = true;
 		project.priority =  form.find("select[name=priority]").val();
 		project.description =  tinyMCE.activeEditor.getContent();
-		if(tinyMCE.activeEditor.getContent({format: 'text'}).trim() == ""){
+		if(!tinyMCE.activeEditor.getContent({format: 'text'}).trim()){
 			alert("vous devez entrer une description",function(){
 				tinyMCE.activeEditor.focus();
 			});
@@ -356,66 +361,25 @@ app.ready(function(){
 		const date = new Date();
 		project.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
 		confirm("&ecirc;tes vous s&ucirc;r de vouloir cr&edot;&edot;r ce projet?",function(){
-			const url = "https://thinktech-platform.herokuapp.com/services/projects/create";
+			const url = "https://thinktech-platform.herokuapp.com/services/order";
 			page.form.hide();
 			const top = form.offset().top+200;
 			page.wait({top : top});
 			app.post(url,project,function(response){
-				if(response.id){
+				if(response.entity){
 					  tinyMCE.activeEditor.setContent("");
-					  project.id = response.id;
+					  project.id = response.entity.id;
 					  page.table.addRow(project,function(){
 						  page.release();
 						  var h3 = $("h3.total");
 						  h3.html(parseInt(h3.text())+1);
 						  h3 = $("h3.unactive");
 						  h3.html(parseInt(h3.text())+1);
-						  alert("votre projet a &edot;t&edot; bien cr&edot;&edot;",function(){
-				    	      page.details.showProjectWizard(project);  
-						  });
+						  alert("votre projet a &edot;t&edot; bien cr&edot;&edot;");
 					  });
 				}
 			});
 		});
-	};
-	page.details.showProjectWizard = function(project){
-		 if(project.plan != "plan social"){
-			  const wizard = $(".project-wizard");
-			  const url = wizard.data("url");
-			  page.render(wizard, project, false, function() {
-				  $("> div section:nth-child(1)",wizard).show();
-				  wizard.fadeIn(100);
-				  $("> div section:nth-child(1) input[type=button]",wizard).click(function(event) {
-						const input = $("input[type=checkbox]",wizard);
-						if(input.is(":checked")){
-							page.wait({top : top});
-							app.get(url+"?id="+project.id,function(response){
-								const bill = response.entity;
-								  head.load("modules/payment/js/wizard.js",function() {
-									    payment.wizard.show(bill,top,function(){
-									    	const tr = $(".table tr[id="+project.id+"]");
-											$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
-											$(".badge",tr).html("10%");
-											var h3 = $("h3.unactive");
-											h3.html(parseInt(h3.text())-1);
-											h3 = $("h3.active");
-											h3.html(parseInt(h3.text())+1);
-											$("> div section:nth-child(1)",wizard).hide();
-											$("> div section:nth-child(2)",wizard).show();
-											wizard.fadeIn(100);
-									    });
-								 });
-							});
-						}
-						wizard.hide();
-				});
-				  
-				$("> div section:nth-child(2) input[type=button]",wizard).click(function(event) {
-					  wizard.hide();
-				});  
-				  
-			 });
-	     }
 	};
 	page.details.addComment = function(form){
 		const comment = {};
