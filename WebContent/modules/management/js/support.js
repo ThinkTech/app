@@ -52,7 +52,8 @@ app.ready(function(){
 		confirm("&ecirc;tes vous s&ucirc;r de vouloir cr&edot;&edot;r ce ticket?",function(){
 			page.form.hide();
 			page.wait({top : form.offset().top+200});
-			app.post(form.attr("action"),ticket,function(response){
+			const url = form.attr("action");
+			app.post(url,ticket,function(response){
 				if(response.id){
 					  $("input[type=text]",form).val("");
 					  tinyMCE.activeEditor.setContent("");
@@ -84,7 +85,8 @@ app.ready(function(){
 		comment.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
 		comment.date+=" "+(date.getHours()<10 ? "0"+date.getHours() : date.getHours())+":"+(date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes())+":"+(date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds());
 		page.wait({top : form.offset().top});
-		app.post(form.attr("action"),comment,function(response){
+		const url = form.attr("action");
+		app.post(url,comment,function(response){
 			if(response.status){
 				  page.release();
 				  tinyMCE.activeEditor.setContent("");
