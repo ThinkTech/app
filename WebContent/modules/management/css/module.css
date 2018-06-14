@@ -127,17 +127,18 @@
 }
 
 .window > div input[type="submit"],.window > div input[type="button"]{
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     color: #fff;
     cursor: pointer;
     outline: none;
     padding: 15px 15px;
-    width: 120px;
+    width: 110px;
     margin: auto;
     margin-right: 5px;
     display: inline-block;
     margin-top: 5px;
+    margin-bottom: 5px;
     background: #180101;
     border-radius: 0.3em;
     text-transform: uppercase;
@@ -1318,9 +1319,14 @@ label.tree_label:before {
 	.service {margin-right: 5%; width: 43%;margin-top: 0;}
 	.project-wizard p {text-align : center}
 	.window p {word-break : break-word;}
-	legend {width: 100.5%;}
+	legend {width: 100.5%;font-size : 12px}
 	.search-results, .search-wizard { max-height: 100%;overflow-y: auto;}
 	.window > div fieldset a {top: 0px;}
+	.window > div fieldset a.tasks {margin-left:2px}
+	.window > div fieldset a.refresh {margin-left : 6px}
+	.window > div h6 {font-size: 11px;}
+	.window > div ul a, .window > div ol a {font-size: 11px;}
+	.window > div input[type="submit"], .window > div input[type="button"] {font-size: 11px;width: 90px;}
 }
 
 @media(max-width:360px){
@@ -1750,7 +1756,7 @@ span.line {
 	.content-process {
     min-height: 670px;
     margin-left: -15px;
-    margin-top: -25px;
+    margin-top: -40px;
 	}
 	.content3 p {
 		margin-left: 10px;

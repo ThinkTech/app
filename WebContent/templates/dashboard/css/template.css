@@ -1187,6 +1187,9 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 }
 }
 @media (max-width:480px){
+egend {
+    font-size: 12px;
+}
 div.empty span {
     font-size: 10px;
 }
@@ -1326,7 +1329,6 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 }
 .profile_details li a i.fa.lnr {
     right: 1%;
-    top: 2px;
 }
 .chit-chat-heading {
     font-size: 1em;
