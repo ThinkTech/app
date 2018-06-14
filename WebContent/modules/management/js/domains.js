@@ -39,7 +39,7 @@ app.ready(function(){
 					 }
 					 order.user_id = $(".businessEmail input[name=user]",container).val();
 					 order.product_id = domain.id;
-					 order.domainRegistered = true;
+					 order.domainCreated = true;
 					 page.details.addEmail(order,function(){
 						 const tr = $(".table tr[id="+order.product_id+"]");
 						 $(".fa-envelope",tr).show();
