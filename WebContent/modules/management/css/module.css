@@ -35,6 +35,10 @@
 	 top: -1px;
 }
 
+.window > div .badge {
+	top : 2px;
+}
+
 .window > div h1 {
 	font-size: 1.1em;
     padding: 5px;
@@ -142,11 +146,6 @@
     background: #180101;
     border-radius: 0.3em;
     text-transform: uppercase;
-}
-
-.window > div input[type="submit"]:hover,.window > div input[type="button"]:hover{
-  background: #fff;
-  color: #180101;
 }
 
 .window > div fieldset input[type=file] {
@@ -1117,10 +1116,8 @@ label.tree_label:before {
      .window > div textarea {
       margin-top: 2px;
      }
-     .window > div .label, .window > div .badge {
-      top: 0px;
-      position: relative;
-     }
+     .window > div .label {top: 0px;padding: 2px;margin-bottom: 1px;height:16px}
+     .window > div .badge {top : 4px;}
      .window > div a.plan,.window > div a.duration {
        top: -21px;
       position: relative;
