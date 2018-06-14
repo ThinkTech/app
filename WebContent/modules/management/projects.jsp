@@ -307,10 +307,6 @@
 	<h1><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i>Nouveau Projet</h1>
    <form>
 	<fieldset>
-	    <span class="text-right"><i class="fa fa-ticket" aria-hidden="true"></i> Service </span>
-		<select name="service">
-		  <option value="webdev">webdev</option>
-		</select>
 	  	<span class="text-right"><i class="fa fa-file-code-o" aria-hidden="true"></i> Projet </span>
 	    <select name="subject">
 		  <option value="création site web">création site web</option>
@@ -326,17 +322,17 @@
 		  <option value="plan social">plan social</option>
 		  <option value="plan custom">plan custom</option>
 		</select>
-		<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span>
-		<select name="priority">
-		  <option value="normal">normale</option>
-		  <option value="medium">moyenne</option>
-		  <option value="high">élevée</option>
-		</select>
 		<span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Domaine </span>
 	    <select name="domain">
 	      <s:iterator value="#request.domains" var="domain">
 	          <option value="${domain.properties.id}">${domain.properties.name}</option>
 	      </s:iterator>
+		</select>
+		<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span>
+		<select name="priority">
+		  <option value="normal">normale</option>
+		  <option value="medium">moyenne</option>
+		  <option value="high">élevée</option>
 		</select>
 		<span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du projet</span>
 		<textarea style="height:150px" name="description" placeholder="entrer votre description"></textarea>

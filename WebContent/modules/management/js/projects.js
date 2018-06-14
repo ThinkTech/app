@@ -338,7 +338,7 @@ app.ready(function(){
 	};
 	page.details.createProject = function(form){
 		const project = {};
-		project.service = form.find("select[name=service]").val();
+		project.service = "webdev";
 		project.user = form.find("input[name=user]").val();
 		project.structure = form.find("input[name=structure]").val();
 		project.subject = form.find("select[name=subject]").val();
