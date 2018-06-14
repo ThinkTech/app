@@ -338,7 +338,6 @@
 	          <option value="${domain.properties.id}">${domain.properties.name}</option>
 	      </s:iterator>
 		</select>
-		<a class="search"><i class="fa fa-search" aria-hidden="true"></i></a>
 		<span class="text-right full"><i class="fa fa-file-text-o" aria-hidden="true"></i> Description du projet</span>
 		<textarea style="height:150px" name="description" placeholder="entrer votre description"></textarea>
 	    <input type="hidden" name="user" value="${user.id}">
