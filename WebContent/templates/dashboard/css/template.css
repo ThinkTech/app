@@ -462,6 +462,7 @@ fieldset > span.text-right.full {
     font-size: 2em;
     color: #171819;
     margin: 0em;
+    margin-left: 17px;
     top: -29px;
     position: relative;
     font-weight: bold;
@@ -1303,7 +1304,7 @@ fieldset > span {
 .logo-name h1 {
     font-size: 1.1em;
     margin-top: -15px;
-    margin-left: 3px;
+    margin-left: 47px;
 }
 h3.tlt {
     font-size: 1em;
@@ -1316,6 +1317,9 @@ ul.dropdown-menu {
 }
 }
 @media (max-width:320px){
+.logo-name h1 {
+    margin-left: 42px;
+}
 .left-content {
     width: 88%;
 }
