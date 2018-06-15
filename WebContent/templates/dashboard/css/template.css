@@ -695,6 +695,7 @@ ul.dropdown-menu.drp-mnu li {
 .info-update-block {
     padding: 1.5em 1.5em;
     background: #999;
+    border: 1px solid #c7b9b3;
 }
 
 .info-update-block img {
