@@ -844,6 +844,7 @@ h3 .fa-question-circle-o {
     padding: 0.5em 0.5em;
     background: #fff;
     min-height : 320px;
+    border: 1px solid #efebeb;
 }
 #confirm-dialog-container, #alert-dialog-container {
     font-family: Tahoma;

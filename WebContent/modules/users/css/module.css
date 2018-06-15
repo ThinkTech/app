@@ -377,6 +377,9 @@ legend a i.fa {
 	}
 }
 @media (max-width:480px){
+	legend {
+    	font-size: 1.2em;
+	}
 	.first-one {
 		width: 100%;
 		padding: 0;
