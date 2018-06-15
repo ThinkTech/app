@@ -1193,7 +1193,7 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 }
 }
 @media (max-width:480px){
-egend {
+legend {
     font-size: 12px;
 }
 div.empty span {
@@ -1206,7 +1206,10 @@ fieldset > span {
     font-size : 11px;
 }
 .table-responsive {
-    min-height: 190px;
+    min-height: 200px;
+}
+.work-progres {
+	min-height: 260px;
 }
 .info-updates {
     margin-bottom: -10px;
