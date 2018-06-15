@@ -747,6 +747,10 @@ ul.dropdown-menu.drp-mnu li {
     transition: 0.5s all;
 }
 
+.info-update-block.clr-block-4 {
+	background: #d9534f;
+}
+
 .info-update-right i.fa {
     font-size: 3em;
     color:#d9534f;

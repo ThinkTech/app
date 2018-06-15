@@ -18,7 +18,7 @@ class ModuleAction extends ActionSupport {
           }
           projects << project
        })
-       def projects_count = connection.firstRow("select count(*) AS num from projects where status = 'stand by' and structure_id = "+ user.structure.id).num
+       def projects_count = connection.firstRow("select count(*) AS num from projects where status = 'in progress' and structure_id = "+ user.structure.id).num
        def tickets_unsolved = connection.firstRow("select count(*) AS num from tickets where status != 'finished' and structure_id = "+ user.structure.id).num
        def bills_count = connection.firstRow("select count(*) AS num from bills where status = 'stand by' and structure_id = "+ user.structure.id).num
        connection.close() 

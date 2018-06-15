@@ -18,10 +18,10 @@
 				</div>
 			</div>
 			<div class="col-md-4 info-update-gd">
-				<div class="info-update-block clr-block-6">
+				<div class="info-update-block clr-block-4">
 					<div class="col-md-8 info-update-left">
-						<h3 class="solved">${solved}</h3>
-						<h4>tickets résolus</h4>
+						<h3 class="unsolved">${unsolved}</h3>
+						<h4>tickets non résolus</h4>
 					</div>
 					<div class="col-md-4 info-update-right">
 						<i class="fa fa-${activeItem.icon}"> </i>
@@ -30,10 +30,10 @@
 				</div>
 			</div>
 			<div class="col-md-4 info-update-gd">
-				<div class="info-update-block clr-block-3">
+				<div class="info-update-block clr-block-6">
 					<div class="col-md-8 info-update-left">
-						<h3 class="unsolved">${unsolved}</h3>
-						<h4>tickets non résolus</h4>
+						<h3 class="solved">${solved}</h3>
+						<h4>tickets résolus</h4>
 					</div>
 					<div class="col-md-4 info-update-right">
 						<i class="fa fa-${activeItem.icon}"> </i>
