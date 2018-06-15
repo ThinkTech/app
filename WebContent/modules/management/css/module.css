@@ -452,10 +452,8 @@
     margin-right: auto;
 }
 
-
-
 legend {
-	font-size: 15px;
+	font-size: 14px;
     color: #fff;
     font-weight: bold;
     padding: 3px;
@@ -464,7 +462,6 @@ legend {
     margin-bottom: 20px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
-
 
 .window > div legend a i.fa,.window > div h1 a i.fa {
 	color : #fff;
@@ -1557,7 +1554,7 @@ span.line {
 }
 
 .content3 p {
-	font-size: 13px;
+	font-size: 12px;
     font-weight: 600;
     text-align: left;
     background: transparent;
@@ -1772,11 +1769,11 @@ span.line {
 	}
     .content-process p {
       width: 50%;
-    margin: auto;
-    margin-left: 26%;
-    margin-top: 0px;
-    margin-bottom: 5px;
-    white-space: nowrap;
+      margin: auto;
+      margin-top: 0px;
+      margin-bottom: 5px;
+      white-space: nowrap;
+      font-size: 11px;
     }
     .content3 p.adjust {
      margin-left: 40%;
@@ -1848,20 +1845,17 @@ span.line {
 }
 
 @media (max-width: 375px){
-	.content-process p {
-		margin-left: 21%;
-	}
 	.content1 h2 {
-    font-size: 19px;
-}
+    	font-size: 19px;
+	}
 	span.line {
-   top: 98%;
-   left: 52.5%;
-    height: 64px;
-}
+   		top: 98%;
+   		left: 52.5%;
+    	height: 64px;
+	}
 	.shipment {
-    margin-left: 17%;
-}
+    	margin-left: 17%;
+	}
 }
 
 @media (max-width: 320px){
