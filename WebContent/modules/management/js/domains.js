@@ -75,29 +75,13 @@ page.details.addDomain = function(order){
 		 if(response.entity){
 			  page.release();
 			  order.id = response.entity.id;
-			  const bill = {};
-			  bill.product_id = order.id;
-			  bill.user = {};
-			  bill.user.id = order.user_id;
-			  bill.service = order.service;
-			  bill.fee = "h&eacute;bergement domaine : "+order.domain;
-			  bill.amount = order.price;
 			  const date = new Date();
-			  bill.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
-			  order.date = bill.date;
-			  bill.id = response.entity.bill_id;
+			  order.date = (date.getDate()>=10?date.getDate():("0"+date.getDate()))+"/"+(date.getMonth()>=10?(date.getMonth()+1):("0"+(date.getMonth()+1)))+"/"+date.getFullYear();
 			  page.table.addRow(order,function(){
 			    var h3 = $("h3.domainCount");
 			    h3.html(parseInt(h3.text())+1);
 			    h3 = $("h3.domainUnregistered");
-			    h3.html(parseInt(h3.text())+1);
-					page.wait({top : top});
- 				head.load("modules/payment/js/wizard.js",function() {
- 				    payment.wizard.show(bill,top,function(){
- 				    	const tr = $(".table tr[id="+order.id+"]");
- 				    	$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
- 				    });
- 				});  
+			    h3.html(parseInt(h3.text())+1); 
 			 });
 		  }
 	});
