@@ -882,10 +882,8 @@ h3 .fa-question-circle-o {
     height: 90px;
 }
 
-
-@media (max-width:1366px){
 #menu li a {
-    padding: 12px 20px;
+    padding: 10px 20px;
 }
 li.dropdown.head-dpdn a.dropdown-toggle {
     margin: 1em 1.8em;
@@ -894,7 +892,7 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 #menu .fa {
     margin-bottom: 3px;
 }
-}
+
 @media (max-width:1280px){
 .chit-chat-layer1-left .info-update-block h3 {
     font-size: 13px;
