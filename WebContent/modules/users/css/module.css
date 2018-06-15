@@ -157,6 +157,8 @@ td span {
 	padding: 2px;
 	width : 50%;
 	padding-left : 2px;
+	vertical-align: bottom;
+	border-radius: 3px;
 }
 
 .first-one .profile-edition input[type="submit"] {
