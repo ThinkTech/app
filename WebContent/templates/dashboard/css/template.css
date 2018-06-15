@@ -971,8 +971,8 @@ td a.pay i {
 .user-name {
     margin-right: 22px;
 }
-.table > thead > tr > th, .table > tbody > tr > td {
-    font-size: 11.5px;
+.table > thead > tr > th {
+    font-size: 11px!important;
     overflow : hidden;
 }
  fieldset > span {
