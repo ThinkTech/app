@@ -36,9 +36,6 @@
 <div class="chit-chat-layer1">
 	<div class="col-md-12 chit-chat-layer1-left">
                <div class="work-progres">
-                            <div class="chit-chat-heading">
-                                  <h3 class="tlt">Nos Services</h3>
-                            </div>
                             <div class="info-updates">
 	        <div class="col-md-12 services">
 	           <s:iterator value="#request.services" var="service">

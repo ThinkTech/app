@@ -70,9 +70,6 @@
 		 </div>
 		</div>
                <div class="work-progres">
-                            <div class="chit-chat-heading">
-                                  <h3 class="tlt">Vos Domaines</h3>
-                            </div>
                             <div class="table-responsive">
                                 <table data-url="${url}/domains/info" class="domains table table-hover">
                                   <thead>
