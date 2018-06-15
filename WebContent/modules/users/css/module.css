@@ -34,6 +34,7 @@
 
 .window > div input[type=email],.window.form > div fieldset > span {
     width: 100%;
+    max-width: 100%;
     text-align: left;
     padding : 10px;
     margin-top: 10px;

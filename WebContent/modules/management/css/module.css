@@ -776,6 +776,8 @@ legend a i.fa {
 	padding: 1px;
 	padding-left : 4px;
 	width : 50%;
+	vertical-align: bottom;
+	border-radius: 3px;
 }
 
 .window > div select {

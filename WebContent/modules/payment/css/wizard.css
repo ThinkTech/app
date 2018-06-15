@@ -229,6 +229,7 @@
    float: right;
     margin-right: 15px;
     white-space: nowrap;
+    width: 100%;
 }
 
 .shopping-amount > span {
