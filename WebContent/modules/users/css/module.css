@@ -378,7 +378,7 @@ legend a i.fa {
 }
 @media (max-width:480px){
 	legend {
-    	font-size: 1.2em;
+    	font-size: 1.1em;
 	}
 	.first-one {
 		width: 100%;
@@ -407,7 +407,7 @@ legend a i.fa {
     }
 	h3.tittle {
 		margin-bottom: 1em;
-		font-size: 1.2em;
+		font-size: 1.1em;
 	}
 }
 @media (max-width:320px){
