@@ -153,6 +153,7 @@
     font-weight: 600;
     color : #180101;
     border : none;
+    vertical-align: bottom;
 }
 
 .modal {
@@ -765,7 +766,7 @@ legend a i.fa {
 }
 
 .window > div .document-upload {
-	margin-top: -20px;
+	margin-top: -15px;
 	display : none;
 }
 
@@ -1328,7 +1329,7 @@ label.tree_label:before {
 	.window > div fieldset a.refresh {margin-left : 6px;top: -3px;}
 	.window > div h6 {font-size: 11px;}
 	.window > div ul a, .window > div ol a {font-size: 11px;}
-	.window > div input[type="submit"], .window > div input[type="button"] {font-size: 11px;width: 90px;}
+	.window > div input[type="submit"], .window > div input[type="button"] {font-size: 10px;width: 85px;}
 	.window > div .message-list > div > div i.fa-info {font-size: 11px;margin-right: 10px}
 	.window p {font-size: 11px;}
 	.window > div .info-tasks ol li > span:first-of-type {font-size: 11px;}

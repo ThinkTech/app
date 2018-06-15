@@ -1210,6 +1210,7 @@ fieldset > span {
 }
 .work-progres {
 	min-height: 260px;
+	padding: 2px;
 }
 .info-updates {
     margin-bottom: -10px;
@@ -1296,12 +1297,13 @@ fieldset > span {
     width: 91%;
 }
 .header-main {
-    padding: 1em 1em;	
+    padding: 1em 0em;	
+    margin-right: 2px;
 }
 .logo-name h1 {
-    font-size: 1.2em;
+    font-size: 1.1em;
     margin-top: -15px;
-    margin-left: 13px;
+    margin-left: 3px;
 }
 h3.tlt {
     font-size: 1em;
@@ -1314,12 +1316,8 @@ ul.dropdown-menu {
 }
 }
 @media (max-width:320px){
-.logo-name h1 {
-    font-size: 1.4em;
-    margin-left: 6px;
-}
 .left-content {
-    width: 89%;
+    width: 88%;
 }
 .header-main {
     padding: 1em 0.5em;	
