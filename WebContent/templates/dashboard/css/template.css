@@ -849,7 +849,7 @@ h3 .fa-question-circle-o {
 .work-progres {
     padding: 0.2em 0.2em;
     background: #fff;
-    min-height : 320px;
+    min-height : 300px;
 }
 #confirm-dialog-container, #alert-dialog-container {
     font-family: Tahoma;
