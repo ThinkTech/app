@@ -32,6 +32,11 @@
 	height: 220px;
 }
 
+fieldset > span {
+    width: 59%;
+    max-width: 59%;
+}
+
 .window > div input[type=email],.window.form > div fieldset > span {
     width: 100%;
     max-width: 100%;
