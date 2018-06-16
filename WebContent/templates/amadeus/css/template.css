@@ -277,6 +277,7 @@ a.w3-pass {
 
 #confirm-dialog-container a, #alert-dialog-container a{
 	height : 22px;
+	width : 60px;
 }
 
 #confirm-dialog-container a:hover, #alert-dialog-container a:hover,

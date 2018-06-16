@@ -66,6 +66,7 @@
 <script>
 <%@include file="/js/jquery-3.1.1.min.js"%>
 <%@include file="/js/metamorphosis.js"%>
+<%@include file="/js/app.js"%>
 <%@include file="/templates/amadeus/js/template.js"%>
 </script>
 </body>
