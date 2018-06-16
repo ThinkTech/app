@@ -78,20 +78,11 @@ page.details.show = function(entity) {
 
 page.details.refresh = function(callback){
 	page.wait({top : $(".window.details").offset().top});
-	const url = $(".table").data("url");
-	$.ajax({
-		  type: "GET",
-		  url: url+"?id="+page.details.entity.id+"&timestamp="+new Date().getTime(),
-		  success: function(response) {
-			  page.details.entity = response.entity;
-			  page.details.show(response.entity);
-			  if(callback) callback(response.entity);
-		  },
-		  error : function(){
-			  page.release();
-			  alert("erreur lors de la connexion au serveur");
-		  },
-		  dataType: "json"
+	const url = $(".table").data("url")+"?id="+page.details.entity.id+"&timestamp="+new Date().getTime();
+	app.get(url,function(response){
+		page.details.entity = response.entity;
+		page.details.show(response.entity);
+		if(callback) callback(response.entity);
 	});
 };
 
@@ -109,22 +100,13 @@ page.table.paginate = function() {
 	    var numPerPage = 5;
 	    const rows = $table.find('tbody tr').unbind("click").click(function(event) {
 	    	const id = $(this).attr("id");
-	    	const url = $table.data("url");
+	    	const url = $table.data("url")+"?id="+id;
 	    	if(url) {
 	    		page.wait({top : $table.offset().top});
-	    		$.ajax({
-					  type: "GET",
-					  url: url+"?id="+id,
-					  success: function(response) {
-						  page.details.entity = response.entity;
-						  page.details.show(response.entity);
-					  },
-					  error : function(){
-						  page.release();
-						  alert("erreur lors de la connexion au serveur");
-					  },
-					  dataType: "json"
-				});
+	    		app.get(url,function(response){
+	    		   page.details.entity = response.entity;
+				   page.details.show(response.entity);
+	    		});
 	    	}
 			rows.removeClass("active");
 			$(this).addClass("active");

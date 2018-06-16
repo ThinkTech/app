@@ -1,4 +1,4 @@
-$(document).ready(function(){
+app.ready(function(){
 	    const email = localStorage.getItem("user.email");
 	    if(email){
 	    	$('input[name=email]').val(email);
