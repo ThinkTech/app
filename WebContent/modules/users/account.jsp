@@ -129,7 +129,7 @@
    										<input name="business" value="${user.structure.business}" type="text" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
    								    <div class="submit">
    								      <input type="button" value="Annuler">
-   								      <input type="submit" value="Modifier">
+   								      <input type="submit" value="Confirmer">
    								    </div>
    								 </fieldset>
    								</form>
