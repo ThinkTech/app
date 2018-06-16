@@ -610,7 +610,7 @@ ul.dropdown-menu {
 }
 .profile_details {
     float: right;
-    margin-right: -23px;
+    margin-right: -45px;
     position: relative;
     top: -10px;
 }
@@ -688,6 +688,7 @@ ul.dropdown-menu.drp-mnu li {
     margin-top: -30px;
     padding : 0em 1em 1em 1em;
     padding-left: 0px;
+    padding-right: 0px;
 }
 
 .info-updates {
@@ -920,6 +921,12 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 }
 }
 @media (max-width:1024px){
+td {
+    font-size: 12px;
+}
+.inner-block {
+	padding-left : 10px;
+}
 td a.pay i {
 	top : 2px;
 }
@@ -936,7 +943,7 @@ li.dropdown.head-dpdn a.dropdown-toggle {
     padding: 0em 2em 0 1em;
 }
 .info-update-block h4 {
-    font-size: 11px;
+    font-size: 12px;
 }
 .info-update-block {
     padding: 1.5em 1.5em;
@@ -947,16 +954,13 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 .info-update-gd {
     padding: 0px;
     margin-right: 10px;
-    width : 30%;
+    width : 32.1%;
 }
 .chart-layer1-left {
     padding: 0em 0.5em 0em 0em;
 }
 .chart-layer1-right {
     padding: 0em 0em 0em 0.5em;
-}
-.table > thead > tr > th, .table > tbody > tr > td {
-    font-size: 0.86em;
 }
 .profile_details_left ul {
     padding: 0px;
@@ -965,6 +969,9 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 
 }
 @media (max-width:991px){
+.info-update-block h4 {
+    font-size: 12px;
+}
 td a.pay i {
 	top : 6px;
 }
@@ -990,9 +997,8 @@ td a.pay i {
     text-align: left;
  }
 .inner-block {
-    padding-top: 20px;
-    padding-right : 0px;
-    padding-left: 18px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 .left-content {
     width: 80%;
@@ -1000,12 +1006,6 @@ td a.pay i {
 .sidebar-menu{
 	width : 20%;
 }
-.info-update-gd {
-    float: left;
-    width: 30%;
-    text-align: center;
-}	
-
 .logo-name h1 {
     font-size: 1.7em;
 }
@@ -1021,7 +1021,7 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 }
 .info-update-gd {
     float: left;
-    width: 30%;
+    width: 32%;
     text-align: center;
     margin-right: 10px;
 }
@@ -1060,7 +1060,15 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 
 }
 @media (max-width:768px){
-
+.info-update-gd {
+    float: left;
+    width: 31%;
+    margin-left: 3px;
+}
+.inner-block {
+    padding-right: 0px;
+    padding-left: 5px;
+}
 h3.tlt {
     font-size: 1.1em;
 }
@@ -1134,6 +1142,10 @@ span.fa.fa-angle-right {
 
 }			
 @media (max-width:736px){
+	.inner-block {
+    padding-right: 0px;
+    padding-left: 10px;
+}
 }
 @media (max-width:667px){
 li.dropdown.head-dpdn a.dropdown-toggle {
@@ -1255,7 +1267,7 @@ fieldset > span {
 }
 .info-update-gd {
     float: none;
-    width: 70%;
+    width: 50%;
     height: 65px;
     overflow: hidden;
     margin-left : auto;
@@ -1263,7 +1275,7 @@ fieldset > span {
     margin-bottom: 6px;	
 }
 .left-content {
-    width: 85%;
+    width: 91%;
 }
 .chit-chat-layer1 {
     margin: 0.5em 0em;
@@ -1280,6 +1292,13 @@ fieldset > span {
 }
 }
 @media (max-width:414px){
+.info-update-gd {
+    width: 70%;
+}
+.inner-block {
+    padding-right: 0px;
+    padding-left: 20px;
+}
  .info-update-block img {
     left: -4%;
     width : 30%;
