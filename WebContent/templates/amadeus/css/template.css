@@ -262,11 +262,18 @@ a.w3-pass {
 	border: 1px solid #3abfdd;
 }
 
-#confirm-dialog-container span:nth-child(1), #alert-dialog-container span:nth-child(1)
-{
+#confirm-dialog-container span:nth-child(1), #alert-dialog-container span:nth-child(1) {
 	background: #3abfdd;
 	width : 96%;
 	height : 25px;
+}
+
+#alert-dialog-container span:nth-child(2), #confirm-dialog-container span:nth-child(2) {
+    display: block;
+    font-size: 75%;
+    padding: 15px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 #confirm-dialog-container a, #alert-dialog-container a,

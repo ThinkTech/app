@@ -869,6 +869,14 @@ h3 .fa-question-circle-o {
 	background-color : #3abfdd;
 }
 
+#alert-dialog-container span:nth-child(2), #confirm-dialog-container span:nth-child(2) {
+    display: block;
+    font-size: 75%;
+    padding: 15px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
 #confirm-dialog-container a:hover,#alert-dialog-container a:hover, #confirm-dialog-container a:focus,#alert-dialog-container a:focus {
     color: #3abfdd;
     background-color: #fff;

@@ -276,6 +276,7 @@ legend a i.fa {
 	}
 	.first-one .profile-edition input[type="submit"],.first-one .profile-edition input[type="button"] {
 		padding: 11px 15px;
+		width : 100px;
 	}
 	.first-one input[type="password"] {
 		width: 100%;
