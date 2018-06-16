@@ -194,12 +194,6 @@ body {
 	width: 77.5%;
 }
 
-.sub-main-w3 input[type="submit"]:hover {
-	background: #3abfdd;
-	color: #fff;
-	border: 1px solid #c8ccd0;
-}
-
 span.icon1, span.icon2 {
 	color: #fff;
 	font-size: 1em;
