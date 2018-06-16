@@ -139,7 +139,7 @@ td span {
     margin-right: auto;
 }
 .first-one input[type="submit"],.first-one input[type="button"]{
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     color: #fff;
     cursor: pointer;
@@ -163,14 +163,12 @@ td span {
 	border-radius: 3px;
 }
 
-.first-one .profile-edition input[type="submit"] {
+.first-one .profile-edition input[type="submit"],.first-one .profile-edition input[type="button"] {
 	margin-top : 5px;
+	background : #fff;
+	color : #000;
 }
 
-.first-one .profile-edition input[type="submit"]:hover {
-	background : #fff;
-	color : #180101;
-}
 
 .profile {
     text-align: center;
@@ -187,14 +185,14 @@ td span {
     cursor: pointer;
     font-size: 15px;
     font-weight: bold;
-    color: #fff;
+    color: #000;
     cursor: pointer;
     outline: none;
     padding: 10px 20px;
-    background: #180101;
+    background: #fff;
     border-radius: 0.3em;
     text-transform: uppercase;
-    border: 2px solid #efebeb;
+    border: 1px solid #337ab7;
     font-family: Tahoma;
 }
 
