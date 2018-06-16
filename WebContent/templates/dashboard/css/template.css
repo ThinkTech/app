@@ -111,7 +111,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 input[type=submit],input[type="button"] {
-	border: 2px solid #efebeb;;
+	border: 1px solid #337ab7;
 	font-family: Tahoma;
 }
 
