@@ -112,7 +112,7 @@
    										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;Activité Principale </span>
    										<span id="business" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;${user.structure.business}</span>
    								 </fieldset>
-   								 <a class="text-center">[ modifier ]</a>
+   								 <a class="text-center">modifier</a>
    								 <form action="${url}/profile/update">
    								 <fieldset class="profile-edition">
    								    	<span class="text-right">Prénom et Nom </span>

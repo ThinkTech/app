@@ -134,14 +134,14 @@ td span {
     margin-right: auto;
 }
 .first-one input[type="submit"],.first-one input[type="button"]{
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
     color: #fff;
     cursor: pointer;
     outline: none;
-    padding: 15px 15px;
-    width: 48%;
-    background: #180101;
+    padding: 16px 15px;
+    width: 47%;
+    background: #3abfdd;
     border-radius: 0.3em;
     text-transform: uppercase;
 }
@@ -178,10 +178,19 @@ td span {
 }
 .profile a {
 	position: relative;
-    top: 12px;
+    top: 16px;
+    cursor: pointer;
+    font-size: 15px;
     font-weight: bold;
     color: #fff;
-    cursor : pointer;
+    cursor: pointer;
+    outline: none;
+    padding: 10px 20px;
+    background: #180101;
+    border-radius: 0.3em;
+    text-transform: uppercase;
+    border: 2px solid #efebeb;
+    font-family: Tahoma;
 }
 
 .profile fieldset {
@@ -247,9 +256,7 @@ legend a i.fa {
 }
 @media (max-width:1280px){
 	.profile a {
-    	top: -10px;
     	font-size: 13px;
-    	left: 14%;
 	}
 	.first-one input[type="password"] {
        margin: 0.5em 0;
@@ -266,6 +273,10 @@ legend a i.fa {
 		padding: 11px 15px;
 		width: 56%;
 	}
+	.first-one .profile-edition input[type="submit"],.first-one .profile-edition input[type="button"] {
+		padding: 11px 15px;
+		width: 47%;
+	}
 	.first-one input[type="password"] {
 		width: 100%;
 		padding: 0.8em 4em 0.8em 1em;
@@ -275,8 +286,13 @@ legend a i.fa {
 	.window > div h1 {font-size: 1em}
 }
 @media (max-width:991px){
+	.profile-details {
+    	margin-bottom: 15px;
+	}
 	.profile a {
-    	left: 0%;
+    	font-size: 11px;
+   		padding: 6px;
+    	top: -14px;
 	}
 	fieldset > span.text-right {
     margin-bottom: 0px;
@@ -304,9 +320,9 @@ legend a i.fa {
 		font-size: 15px;
 	}
 	.first-one input[type="submit"],.first-one input[type="button"] {
-		font-size: 15px;
-		padding: 14px 15px;
-		width: 42%;
+		font-size: 12px;
+    	padding: 13px 9px;
+    	width: 22%;
 	}
 }
 @media (max-width:768px){
