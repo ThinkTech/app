@@ -1116,7 +1116,12 @@ label.tree_label:before {
       text-align: left;
      }
      .window > div textarea {margin-top: 2px;}
-     .window > div .label {top: 0px;padding: 2px;margin-bottom: 1px;height:16px}
+     .window > div .label {
+     	top: 0px;
+	    padding: 3px;
+	    padding-right: 5px;
+	    margin-bottom: 1px;
+     }
      .window > div a.plan,.window > div a.duration {
        top: -21px;
       position: relative;
