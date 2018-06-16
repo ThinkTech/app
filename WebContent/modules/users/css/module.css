@@ -108,7 +108,7 @@ h3.tittle {
 }
 
 .first-one .table-responsive {
-	min-height : 102px;
+	min-height : 104px;
 	background: #fff;
 }
 
@@ -134,7 +134,7 @@ td span {
   }
 .submit {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 10px;
     width: 94%;
     margin-left: auto;
     margin-right: auto;
@@ -164,13 +164,6 @@ td span {
 	border-radius: 3px;
 }
 
-.first-one .profile-edition input[type="submit"],.first-one .profile-edition input[type="button"] {
-	margin-top : 5px;
-	background : #fff;
-	color : #000;
-}
-
-
 .profile {
     text-align: center;
     vertical-align: top;
@@ -186,11 +179,10 @@ td span {
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
-    color: #000;
+    color: #fff;
     cursor: pointer;
     outline: none;
     padding: 13px 20px;
-    background: #fff;
     border-radius: 0.3em;
     text-transform: uppercase;
     border: 1px solid #337ab7;
@@ -279,7 +271,7 @@ legend a i.fa {
 	}
 	.first-one .profile-edition input[type="submit"],.first-one .profile-edition input[type="button"] {
 		padding: 11px 15px;
-		width: 47%;
+		width: 45%;
 	}
 	.first-one input[type="password"] {
 		width: 100%;
@@ -298,9 +290,11 @@ legend a i.fa {
     	margin-bottom: 15px;
 	}
 	.profile a {
-    	font-size: 11px;
-   		padding: 6px;
-    	top: -14px;
+       font-size: 11px;
+	   padding: 6px;
+	   padding-left: 13px;
+	   padding-right: 13px;
+	   top: -14px;
 	}
 	fieldset > span.text-right {
     margin-bottom: 0px;
@@ -424,7 +418,7 @@ legend a i.fa {
 		font-size: 15px;
 	}
 	.first-one input[type="submit"],.first-one input[type="button"] {
-		font-size: 12px;
+		font-size: 11px;
         padding: 10px 15px;
         padding-left: 11px;
         width: 47%;
