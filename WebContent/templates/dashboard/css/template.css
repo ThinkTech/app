@@ -1330,7 +1330,7 @@ fieldset > span {
 .logo-name h1 {
     font-size: 1.1em;
     margin-top: -15px;
-    margin-left: 47px;
+    margin-left: 5px;
 }
 h3.tlt {
     font-size: 1em;
@@ -1343,9 +1343,6 @@ ul.dropdown-menu {
 }
 }
 @media (max-width:320px){
-.logo-name h1 {
-    margin-left: 42px;
-}
 .left-content {
     width: 88%;
 }
