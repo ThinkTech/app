@@ -289,8 +289,8 @@ fieldset {
 }
 
 fieldset > span {
-	width : 59%;
-	max-width : 59%;
+	width: 59.4%;
+    max-width: 59.4%;
 	vertical-align : top;
 	overflow : hidden;
 	white-space: nowrap;
