@@ -13,6 +13,7 @@ app.ready(function(){
 			$(".businessEmail",container).show(); 
 		}
 		if(domain.emailOn){
+			$(".businessEmail",container).show();
 			$(".businessEmail a.activate",container).hide();
 			$(".businessEmail input[type=radio]",container).val([domain.plan]).attr("disabled","disabled");
 			const input = $(".businessEmail input[name=email]",container).attr("disabled","disabled");
