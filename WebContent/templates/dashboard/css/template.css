@@ -47,11 +47,11 @@ tr:nth-child(even) {
 }
 
 tr.active {
-	background : #feffc7;
+	background : #fdffa4;
 }
 
 .table-hover>tbody>tr.active:hover {
-	background : #feffc7;
+	background : #fdffa4;
 }
 
 thead tr:nth-child(odd) {
@@ -98,7 +98,7 @@ div.empty span{
 input, select, textarea {
 	border : 1px solid #3abfdd;
 	font-size : 14px;
-	background: #feffc7;
+	background: #fdffa4;
 }
 
 select {
@@ -264,7 +264,7 @@ td i.fa-user {
 
 .page-number {
 	padding-top: 1px;
-    background: #feffc7;
+    background: #fdffa4;
     color: #180101;
     height: 21px;
     width: 21px;
@@ -315,7 +315,7 @@ fieldset > span {
 
 fieldset > span.text-right {
 	width: 40%;
-    background: #feffc7;
+    background: #fdffa4;
     padding-right: 6px;
     text-align : right;
     text-transform: capitalize;

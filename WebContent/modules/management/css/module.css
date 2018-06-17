@@ -112,7 +112,7 @@
 	font-size: 14px;
     display: block;
     margin-top: 10px;
-    background : #feffc7;
+    background : #fdffa4;
     padding-left : 5px;
     padding-bottom : 5px;
     width : 200px;
@@ -201,12 +201,12 @@
 }
 
 .search div:first-of-type {
-	background: #feffc7;
+	background: #fdffa4;
 	text-align: center;
 }
 
 .search tr:nth-child(even) {
-    background: #feffc7;;
+    background: #fdffa4;;
 }
 
 .search div.wizard-message {
@@ -473,7 +473,7 @@ legend {
 }
 
 .window > div ul, .window > div ol {
-    background: #feffc7;
+    background: #fdffa4;
     margin-bottom: 0;
     font-size: 13px;
     list-style-position: outside;
@@ -860,7 +860,7 @@ legend a i.fa {
     padding-bottom: 10px;
 }
 .businessEmail h1{
-	background: #feffc7;
+	background: #fdffa4;
     border: 1px solid #3abfdd;
     margin-top: 4px;
     border-radius: 3px;
@@ -989,7 +989,7 @@ legend a i.fa {
     margin-top: 5px;
     height: 40px;
     overflow-y: hidden;
-    background: #feffc7;
+    background: #fdffa4;
     padding: 5px;
     padding-top: 5px;
 }
