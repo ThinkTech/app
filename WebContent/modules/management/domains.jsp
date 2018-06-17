@@ -165,7 +165,7 @@
 		<span title="fermer" class="close">X</span>
 		<section>
 		 <template>
-		 <h1><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i>Domaine</h1>
+		 <h1><i class="fa fa-${activeItem.icon}" aria-hidden="true"></i>Details Du Domaine</h1>
 		<fieldset>
 		    <span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Nom </span> <span>{name}</span>
 		    <span class="text-right"><i class="fa fa-user" aria-hidden="true"></i> Auteur </span> <span>{author}</span>
