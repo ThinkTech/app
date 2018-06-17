@@ -1336,7 +1336,10 @@ label.tree_label:before {
 	.window p {font-size: 11px;}
 	.window > div .info-tasks ol li > span:first-of-type {font-size: 11px;}
 	.window > div .info-tasks h1 {font-size : 12px!important}
-	.window > div .info-tasks ol li { margin-bottom: -30px!important;}
+	.window > div .info-tasks ol li { 
+		height: 60px;
+   	    padding-top: 7px;
+	}
 }
 
 @media(max-width:360px){
@@ -1767,7 +1770,7 @@ span.line {
 	.content-process {
     min-height: 670px;
     margin-left: -15px;
-    margin-top: -40px;
+    margin-top: -20px;
 	}
 	.content3 p {
 		margin-left: 10px;
