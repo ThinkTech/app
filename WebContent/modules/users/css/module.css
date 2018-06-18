@@ -139,6 +139,7 @@ td span {
     margin-left: auto;
     margin-right: auto;
 }
+
 .first-one input[type="submit"],.first-one input[type="button"]{
     font-size: 15px;
     font-weight: 600;
@@ -162,6 +163,10 @@ td span {
 	padding-left : 2px;
 	vertical-align: bottom;
 	border-radius: 3px;
+}
+
+.profile-edition .submit {
+	margin-top : 15px;
 }
 
 .first-one .profile-edition input[type="submit"],.first-one .profile-edition input[type="button"]{
@@ -275,8 +280,7 @@ legend a i.fa {
 		width: 56%;
 	}
 	.first-one .profile-edition input[type="submit"],.first-one .profile-edition input[type="button"] {
-		padding: 11px 15px;
-		width : 100px;
+		width : 120px;
 	}
 	.first-one input[type="password"] {
 		width: 100%;
@@ -287,6 +291,12 @@ legend a i.fa {
 	.window > div h1 {font-size: 1em}
 }
 @media (max-width:991px){
+	.first-one .profile-edition input[type="submit"],.first-one .profile-edition input[type="button"] {
+		width : 100px;
+	}
+	.profile-edition .submit {
+    	margin-top: 10px;
+	}
 	.first-one .profile-edition input[type="submit"],.first-one .profile-edition input[type="button"] {
 		font-size : 12px;
 	}
@@ -299,7 +309,7 @@ legend a i.fa {
 	}
 	.profile a {
        font-size: 11px;
-	   padding: 6px;
+	   padding: 10px;
 	   padding-left: 13px;
 	   padding-right: 13px;
 	   top: -14px;
