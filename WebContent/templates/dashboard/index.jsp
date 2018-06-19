@@ -88,5 +88,6 @@
 <%@include file="/templates/dashboard/js/template.js"%>
 <%@include file="/templates/dashboard/js/bootstrap.js"%>
 </script>
+<script src="https://code.tidio.co/yeqwsdzo1ldlc0yku5fmpmloj5awe3xu.js"></script>
 </body>
 </html>                     
