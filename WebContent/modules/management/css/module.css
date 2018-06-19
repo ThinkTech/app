@@ -911,7 +911,17 @@ legend a i.fa {
     font-family: Tahoma;
     position: relative;
     top: -2px;
-    cursor : pointer;
+    padding-left: 3px;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+.businessEmail label:nth-of-type(odd){
+	background : #fff;
+}
+
+.businessEmail label:nth-of-type(even) {
+   background : #fdffa4;
 }
 
 .project-wizard h2 {
