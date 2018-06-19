@@ -26,6 +26,7 @@ class ModuleAction extends ActionSupport {
        request.setAttribute("total",domains.size())
        request.setAttribute("registered",registered)
        request.setAttribute("unregistered",unregistered)
+       request.setAttribute("email",user.email.substring(0,user.email.indexOf("@")))
        SUCCESS
     }
     

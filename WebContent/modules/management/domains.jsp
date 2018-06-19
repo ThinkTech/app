@@ -202,7 +202,7 @@
 			    <input type="radio" id="enterprise"
 			     name="plan" value="enterprise">
 			    <label for="enterprise">Plan Enterprise</label>
-			    <input type="text" placeholder="super administrateur" name="email"/>
+			    <input type="text" placeholder="super administrateur" name="email" value="${email}"/>
 			    <input type="hidden" name="user" value="${user.id}">
 			    <a class="activate">Activer</a>
 		    </fieldset>
