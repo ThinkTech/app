@@ -307,9 +307,9 @@
 	<fieldset>
 	  	<span class="text-right"><i class="fa fa-file-code-o" aria-hidden="true"></i> Projet </span>
 	    <select name="subject">
-		  <option value="création site web">création site web</option>
+		  <option value="cr&eacute;ation site web">création site web</option>
 		  <option value="refonte site web">refonte site web</option>
-		  <option value="création application web">création application web</option>
+		  <option value="cr&eacute;ation application web">création application web</option>
 		  <option value="refonte application web">refonte application web</option>
 		</select>
 		<span class="text-right"><i class="fa fa-code" aria-hidden="true"></i> Plan </span>
