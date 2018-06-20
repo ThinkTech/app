@@ -334,12 +334,12 @@ fieldset > span.text-right.full {
 
 .left-content {
     float: right;
-    width: 84%;
+    width: 85%;
 }
 .sidebar-menu {
   position: absolute;
   float: left;
-  width: 16%;
+  width: 15%;
   top: 0px;
   left:0px;
   bottom: 0;
