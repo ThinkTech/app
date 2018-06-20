@@ -628,7 +628,7 @@ legend {
 	position : absolute; 
 	z-index : 999999;
 	display : none;
-	background : #fafafa;
+	background : #fff;
 	font-size : 12px;
 	padding : 10px;
 	max-width : 250px;
@@ -884,6 +884,7 @@ legend a i.fa {
 
 .businessEmail input{
 	margin-left : 11px;
+	border: 1px solid #676c6d;
 }
 
 .businessEmail input[type=text] {
