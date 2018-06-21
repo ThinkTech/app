@@ -124,7 +124,7 @@
 		   <span class="close">X</span>
 		   <h1><i class="fa fa-search" aria-hidden="true"></i> Résultats</h1>
 		   <div>
-		   	   <h3><i class="fa fa-check-circle-o" aria-hidden="true"></i> Le nom de domaine web <span class="domain-name"></span> est <span class="domain-availability"></span></h3>
+		   	   <h3><i class="fa fa-check-circle-o" aria-hidden="true"></i> le nom de domaine <span class="domain-name"></span> est <span class="domain-availability"></span></h3>
 		   </div>
 		   <div>
 		   <table class="table-sm table-striped">
