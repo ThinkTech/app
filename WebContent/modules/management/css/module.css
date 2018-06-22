@@ -251,12 +251,12 @@
     padding-left: 15px;
     padding-right: 15px;
     border: 1px solid #08ccf7;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     font-family: Tahoma;
     margin-right: 12px;
     cursor: pointer;
-    background: #180101;
+    background: #3abfdd;
     color: #fff;
 }
 
@@ -403,7 +403,7 @@
 }
 
 .search-results a{
-	background: #180101;
+	background: #3abfdd;
     padding: 5px;
     width: 90px;
     display: inline-block;
