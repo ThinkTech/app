@@ -124,7 +124,7 @@
 		   <span class="close">X</span>
 		   <h1><i class="fa fa-search" aria-hidden="true"></i> Résultats</h1>
 		   <div>
-		   	   <h3><i class="fa fa-check-circle-o" aria-hidden="true"></i> le nom de domaine <span class="domain-name"></span> est <span class="domain-availability"></span></h3>
+		   	   <h3><i class="fa fa-check-circle-o" aria-hidden="true"></i> <span class="domain-name"></span> est <span class="domain-availability"></span></h3>
 		   </div>
 		   <div>
 		   <table class="table-sm table-striped">
@@ -137,7 +137,7 @@
 		   <span class="close">X</span>
 		   <h1><i class="fa fa-shopping-cart" aria-hidden="true"></i> Achat Domaine Web</h1>
 		   <div>
-		   	   <h3 class="green"><i class="fa fa-check-circle-o green" aria-hidden="true"></i> domaine web : <span class="domain-name"></span></h3>
+		   	   <h3 class="green"><i class="fa fa-check-circle-o green" aria-hidden="true"></i> <span class="domain-name"></span></h3>
 		   	   <h4>Durée Choisie : <span class="domain-year"></span> an</h4> <h4 class="price">Montant : <span class="domain-amount"></span> CFA</h4> <span class="domain-edit"><a>[ modifier ]</a></span>
 		   </div>
 		   <div class="wizard-message">
