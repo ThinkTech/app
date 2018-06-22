@@ -67,7 +67,7 @@ class ModuleAction extends ActionSupport {
           project.comments << comment
        })
        project.documents = []
-	   connection.eachRow("select d.project_id, d.name, d.size, d.date, u.name as author from documents d, users u where d.createdBy = u.id and d.project_id = ? order by d.name ASC", [project.id],{ row -> 
+	   connection.eachRow("select d.project_id, d.name, d.size, d.date, u.name as author from documents d, users u where d.createdBy = u.id and d.project_id = ?", [project.id],{ row -> 
           def document = new Expando()
           document.with{
           	project_id = row.project_id
