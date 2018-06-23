@@ -95,7 +95,7 @@ app.ready(function() {
 		user.telephone = form.find("input[name=telephone]").val().trim();
 		user.profession = form.find("input[name=profession]").val().trim();
 		user.structure.name = form.find("input[name=structure]").val().trim();
-		user.structure.business = form.find("input[name=business]").val().trim();
+		user.structure.business = form.find("select[name=business]").val().trim();
 		const url = form.attr("action");
 		confirm("&ecirc;tes vous s&ucirc;r de vouloir modifier votre profil?",function(){
 		    page.wait({top : form.offset().top});

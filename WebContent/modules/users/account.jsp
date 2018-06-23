@@ -125,8 +125,29 @@
 										<input name="telephone" value="${user.telephone}" type="text">
 										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Structure </span>
    										<input name="structure" value="${user.structure.name}" type="text" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
-   										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Activité Principale </span>
-   										<input name="business" value="${user.structure.business}" type="text" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
+   										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Activité Principale</span>
+   										<select name="business"  style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
+											<option value="administrations publiques">Administrations publiques</option>
+											<option value="agrobusiness et autres">Agriculture, foresterie, pêche et chasse</option><option value="1324805540">Arts, spectacles et loisirs</option>
+											<option value="autres services">Autres services (sauf les administrations publiques)</option>
+											<option value="commerce de détail">Commerce de détail</option>
+											<option value="commerce de gros">Commerce de gros</option>
+											<option value="Construction">Construction</option>
+											<option value="extraction et exploitation">Extraction minière, exploitation en carrière, et extraction de pétrole et de gaz</option>
+											<option value="fabrication">Fabrication</option>
+											<option value="finance et assurances">Finance et assurances</option>
+											<option value="management">Gestion de sociétés et d'entreprises</option>
+											<option value="informatique">Services informatiques</option>
+											<option value="culture">Services culturelles</option>
+											<option value="assainissement<">Services d'assainissement</option>
+											<option value="enseignement">Services d'enseignement</option>
+											<option value="hébergement et restauration">Services d'hébergement et de restauration</option>
+											<option value="services immobiliers">Services immobiliers et services de location</option>
+											<option value="services professionnels">Services professionnels, scientifiques et techniques</option>
+											<option value="services publics">Services publics</option>
+											<option value="santé">Soins de santé et assistance sociale</option>
+											<option value="transport">Transport et entreposage</option>
+											</select>
    								    <div class="submit">
    								      <input type="button" value="Annuler">
    								      <input type="submit" value="Confirmer">

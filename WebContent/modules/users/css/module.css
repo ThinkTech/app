@@ -157,12 +157,16 @@ td span {
 	display : none;
 }
 
-.profile-edition input[type=text], .profile-edition input[type=email] {
+.profile-edition input[type=text], .profile-edition input[type=email], .profile-edition select {
 	padding: 3px;
 	width : 50%;
 	padding-left : 2px;
 	vertical-align: bottom;
 	border-radius: 3px;
+}
+
+.profile-edition select {
+	padding-left : 0px
 }
 
 .profile-edition .submit {
@@ -318,7 +322,7 @@ legend a i.fa {
     margin-bottom: 0px;
 }
 	.window{padding-top : 2%}
-	.profile-edition input[type=text], .profile-edition input[type=email] {
+	.profile-edition input[type=text], .profile-edition input[type=email], .profile-edition select {
       width: 100%;
       text-align: left;
       margin-bottom: 0px;
