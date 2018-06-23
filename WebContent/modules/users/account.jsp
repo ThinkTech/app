@@ -109,7 +109,7 @@
    										<span id="role">&nbsp;${user.role}</span>
    										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;Structure </span>
    										<span id="structure" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;${user.structure.name}</span>
-   										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;Activité Principale </span>
+   										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;Secteur Activité </span>
    										<span id="business" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;${user.structure.business}</span>
    								 </fieldset>
    								 <a class="text-center">modifier</a>
@@ -125,7 +125,7 @@
 										<input name="telephone" value="${user.telephone}" type="text">
 										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Structure </span>
    										<input name="structure" value="${user.structure.name}" type="text" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
-   										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Activité Principale</span>
+   										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Secteur Activité</span>
    										<select name="business"  style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
 											<option value="administrations publiques">Administrations publiques</option>
 											<option value="agrobusiness et autres">Agriculture, foresterie, pêche et chasse</option><option value="1324805540">Arts, spectacles et loisirs</option>
@@ -137,7 +137,7 @@
 											<option value="fabrication">Fabrication</option>
 											<option value="finance et assurances">Finance et assurances</option>
 											<option value="management">Gestion de sociétés et d'entreprises</option>
-											<option value="informatique">Services informatiques</option>
+											<option value="services informatiques">Services informatiques</option>
 											<option value="culture">Services culturelles</option>
 											<option value="assainissement<">Services d'assainissement</option>
 											<option value="enseignement">Services d'enseignement</option>

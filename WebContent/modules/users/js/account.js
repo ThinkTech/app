@@ -74,8 +74,10 @@ app.ready(function() {
 	});
 	
 	$(".user a").click(function(event){
-		$(".profile-details").hide();
-		$(".profile-edition").show();
+		var div = $(".profile-details").hide();
+		const val = div.find("#business").text().trim();
+		div = $(".profile-edition").show();
+		div.find("select[name=business]").val(val);
 		$(this).hide();
 		return false;
 	});
