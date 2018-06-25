@@ -32,8 +32,7 @@ class ModuleAction extends ActionSupport {
 	   bill.date = new SimpleDateFormat("dd/MM/yyyy").format(bill.date)
 	   if(bill.paidOn) {
 	     bill.paidOn = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(bill.paidOn)
-	     def user = connection.firstRow("select u.name from users u, bills b where u.id = b.paidBy and b.id = ?", [id])
-	     bill.paidBy = user.name 
+	     bill.paidBy = connection.firstRow("select u.name from users u, bills b where u.id = b.paidBy and b.id = ?", [id]).name
 	   }else{
 	   	 bill.user = user
 	   }
