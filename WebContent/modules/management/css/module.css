@@ -131,7 +131,7 @@
 }
 
 .window > div input[type="submit"],.window > div input[type="button"]{
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     color: #fff;
     cursor: pointer;
