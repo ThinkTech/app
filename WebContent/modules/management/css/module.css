@@ -1,3 +1,7 @@
+.success {
+    color: #5cb85c;
+}
+
 .window  {
 	position : absolute;
 	width: 100%;
