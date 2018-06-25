@@ -82,7 +82,8 @@ page.details.addDomain = function(order){
 			    var h3 = $("h3.domainCount");
 			    h3.html(parseInt(h3.text())+1);
 			    h3 = $("h3.domainUnregistered");
-			    h3.html(parseInt(h3.text())+1); 
+			    h3.html(parseInt(h3.text())+1);
+			    alert("votre domaine web est en attente d'enregistrement");
 			 });
 		  }
 	});
