@@ -93,7 +93,7 @@
 					    <div class="first-one-inner lost">
 						    <div class="user profile">
 								<div class="profile-bottom">
-									<i class="fa fa-${activeItem.icon}" aria-hidden="true"></i>
+									<i class="fa fa-user" aria-hidden="true"></i>
 								</div>
 								<div>
 								   <fieldset class="profile-details">
