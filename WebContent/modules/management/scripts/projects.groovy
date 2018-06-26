@@ -96,28 +96,21 @@ class ModuleAction extends ActionSupport {
 	
 	def addComment() {
 	   def comment = parse(request) 
-	   def user_id = user.id
-	   Thread.start { 
-	   	 def connection = getConnection()
-	     def params = [comment.message,comment.project,user_id]
-         connection.executeInsert 'insert into projects_comments(message,project_id,createdBy) values (?,?,?)', params
-	     connection.close()
-	   }
+	   def connection = getConnection()
+	   def params = [comment.message,comment.project,user.id]
+       connection.executeInsert 'insert into projects_comments(message,project_id,createdBy) values (?,?,?)', params
+	   connection.close()
 	   json([status: 1])
 	}
 	
 	def saveDocuments() {
 	   def upload = parse(request) 
-	   def id = upload.id
-	   def user_id = user.id
-	   Thread.start {
-	     def connection = getConnection()
-	     def query = 'insert into documents(name,size,project_id,createdBy) values (?,?,?,?)'
-         connection.withBatch(query){ ps ->
-           for(def document : upload.documents) ps.addBatch(document.name,document.size,id,user_id)
-         }
-	     connection.close()
-	   }
+	   def connection = getConnection()
+	   def query = 'insert into documents(name,size,project_id,createdBy) values (?,?,?,?)'
+       connection.withBatch(query){ ps ->
+          for(def document : upload.documents) ps.addBatch(document.name,document.size,upload.id,user.id)
+       }
+	   connection.close()
 	   json([status: 1])
 	}
 	
@@ -132,11 +125,9 @@ class ModuleAction extends ActionSupport {
 	
 	def updateProjectDescription() {
 	   def project = parse(request)
-	   Thread.start {
-	   	 def connection = getConnection()
-	     connection.executeUpdate "update projects set description = ? where id = ?", [project.description,project.id] 
-	     connection.close()
-	   }
+	   def connection = getConnection()
+	   connection.executeUpdate "update projects set description = ? where id = ?", [project.description,project.id] 
+	   connection.close()
 	   json([status: 1])
 	}
 	
