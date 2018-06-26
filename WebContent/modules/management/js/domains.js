@@ -90,7 +90,7 @@ page.details.addDomain = function(order){
 };
 
 page.details.addEmail = function(order,callback){
-	page.wait({top : top});
+	page.wait();
 	app.post("https://thinktech-platform.herokuapp.com/services/order",order,function(response){
 		 if(response.entity){
 			  page.release();
