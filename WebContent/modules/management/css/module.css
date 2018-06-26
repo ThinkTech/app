@@ -497,7 +497,8 @@ legend {
 }
 
 .window > div ul li, .window > div ol li {
-    padding-left : 5px;
+    padding-left: 5px;
+    padding-top: 5px;
 }
 
 .window > div ul.not-empty, .window > div ol.not-empty {
