@@ -41,11 +41,6 @@ class ModuleAction extends ActionSupport {
 	   if(domain.registeredOn) {
 	     domain.registeredOn = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(domain.registeredOn)
 	   }
-	   if(domain.status == "stand by") {
-         domain.bill = connection.firstRow("select b.* from bills b, domains d where b.product_id = d.id and d.id = ?", [id])
-         domain.bill.user = user
-	  	 domain.bill.date = new SimpleDateFormat("dd/MM/yyyy").format(domain.bill.date)
-       }
 	   connection.close()
 	   json([entity : domain])
 	}
