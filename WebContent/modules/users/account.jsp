@@ -128,7 +128,8 @@
    										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Secteur Activité</span>
    										<select name="business"  style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
 											<option value="administrations publiques">Administrations publiques</option>
-											<option value="agrobusiness et autres">Agriculture, foresterie, pêche et chasse</option><option value="1324805540">Arts, spectacles et loisirs</option>
+											<option value="agrobusiness et autres">Agriculture, foresterie, pêche et chasse</option>
+											<option value="arts et loisirs">Arts, spectacles et loisirs</option>
 											<option value="autres services">Autres services (sauf les administrations publiques)</option>
 											<option value="commerce de détail">Commerce de détail</option>
 											<option value="commerce de gros">Commerce de gros</option>
