@@ -27,7 +27,7 @@ class ModuleAction extends ActionSupport {
        request.setAttribute("active",active)
        request.setAttribute("unactive",unactive)
        def domains = []
-       connection.eachRow("select id, name from domains order by date DESC", [], { row -> 
+       connection.eachRow("select id, name from domains where status = 'finished' order by date DESC", [], { row -> 
           def domain = new Expando()
           domain.with {
            id = row.id

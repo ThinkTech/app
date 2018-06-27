@@ -377,7 +377,7 @@ app.ready(function(){
 						  h3.html(parseInt(h3.text())+1);
 						  h3 = $("h3.unactive");
 						  h3.html(parseInt(h3.text())+1);
-						  alert("votre projet a &edot;t&edot; bien cr&edot;&edot;");
+						  alert("votre projet est en attente de traitement");
 					  });
 				}
 			});
