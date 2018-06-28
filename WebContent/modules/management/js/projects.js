@@ -459,4 +459,163 @@ app.ready(function(){
 		$(this).hide().prev().hide().prev().hide().prev().hide();
 		$(".show-domain-search").show().prev().show().prev().show();
 	});
+	
+	 $(".domain-search").click(function(event){
+	    	$(".search").hide();
+	    	const button = $(this);
+	    	const top = button.offset().top;
+	    	const pricing = {};
+	    	pricing.com = 10000;
+	    	pricing.net = 10000;
+	    	pricing.org = 10000;
+	    	pricing.biz = 10000;
+	    	pricing.info = 10000;
+	    	pricing.tv = 20000;
+	    	pricing.press = 15000;
+	    	pricing.news = 15000;
+	    	pricing.tech = 10000;
+	    	const input = $(".window.form input[name=domain]");
+	    	const order = {};
+	  		order.extension = "com";
+	  		order.year = 1;
+	  		order.search = input.val().toLowerCase();
+	    	var domain = order.search.replace(/\s+/g, '');
+	    	if(domain){
+	    		const index = domain.indexOf(".");
+	    		if(domain.indexOf(".")!=-1) domain = domain.substring(0,index);
+	    		input.val(domain);
+	    		const url = "https://thinktech-platform.herokuapp.com/domains/search?domain="+domain;
+	    		page.wait({top : top-20});
+	    		app.get(url,function(response){
+	    		 	var result = response["1"].result;
+		  	    	if(result){
+		  	    		const search = $(".search-results").css("top",10).show();
+		  	    		search.parent().css("height",$('body').height()+"px").show();
+	    	  	    	const tbody = $("table tbody",search).empty();
+	    	  	    	var tr;
+	    	  	    	var i;
+	    	  	    	var extension;
+	    	  	    	const clone = {};
+	    	  	    	clone[order.extension] = result[order.extension];
+	    	  	    	for (extension in result) {
+	    	  	    	    if(result.hasOwnProperty(extension)) {
+	    	  	    	    	if(extension!=order.extension){
+	    	  	    	    		clone[extension] = result[extension];
+	    	  	    	    	}
+	    	  	    	    }
+	    	  	    	}
+	    	  	    	result = clone;
+	    	  	    	for (extension in result) {
+	    	  	    	    if(result.hasOwnProperty(extension)) {
+	    	  	    	    	if(!result[extension]){
+	    	  	    	          tr = $("<tr/>");
+	    	  	    	          if(order.extension == extension){
+	    	  	    	        	tr.addClass("selected").append("<td><i class='fa fa-check-circle-o' aria-hidden='true'></i> "+domain+"."+extension+"</td>");
+	    	  	    	          }else{
+	    	  	    	        	tr.append("<td>"+domain+"."+extension+"</td>");
+	    	  	    	          }
+	    	  	    	          var td = $("<td><span>"+pricing[extension].toLocaleString("fr-FR") +" CFA</span></td>");
+	    	  	    	          var select = $("<select></select>");
+	    	  	    	          for(i=0;i<10;i++){
+	    	  	    	        	select.append("<option value='"+(i+1)+"'"+">"+(i+1)+" an</option>");
+	    	  	    	          }
+	    	  	    	          select.on("change",{tr : tr,td : td, price : pricing[extension]},function(event){
+	    	  	    	        	  order.year = parseInt($(this).val());
+	    	  	    	        	  order.price = event.data.price * order.year;
+	    	  	    	        	  event.data.td.find("span").html(order.price.toLocaleString("fr-FR")+" CFA");
+	    	  	    	        	  $("tr",search).removeClass("selected");
+	    	  	    	        	  event.data.tr.addClass("selected");
+	    	  	    	          });
+	    	  	    	          td.append(select);
+	    	  	    	          td.append("<a class='buy'>Acheter</a>");
+	    	  	    	          tr.append(td);
+	    	  	    	          $("a",tr).on("click",{tr : tr,td : td,extension : extension},function(event){
+	    	  	    	        	 $("select",div).val(event.data.extension);
+	    	  	    	        	 $("tr",search).removeClass("selected");
+	    	  	    	        	 event.data.tr.addClass("selected");
+	    	  	    	        	 order.year = parseInt(event.data.td.find("select").val());
+	    	  	    	        	 order.price = order.year * pricing[event.data.extension];
+	    	  	    	        	 order.extension = event.data.extension;
+	    	  	    	        	 search.hide();
+	    	  	    	        	 const wizard = $(".search-wizard");
+	    	  	    	        	 wizard.css("top",10).show();
+	    	  	    	        	 order.domain = domain+"."+event.data.extension;
+	    	         	  	    	 localStorage.setItem("order",JSON.stringify(order));
+	    	  	    	        	 $(".domain-name").html(order.domain).val(order.domain);
+	    	  	    	        	 $(".domain-year").html(order.year).val(order.year);
+	    	  	    	        	 $(".domain-price").html(pricing[event.data.extension].toLocaleString("fr-FR")).val(pricing[event.data.extension].toLocaleString("fr-FR"));
+	    	  	    	        	 $(".domain-amount").html(order.price.toLocaleString("fr-FR")).val(order.price.toLocaleString("fr-FR"));
+	    	  	    	        	 $(".epp-code").hide();
+	    	  	    	          });
+	    	  	    	          tbody.append(tr);
+	    	  	    	    	}else {
+	    	  	    	    	 tr = $("<tr/>");
+		    	  	    	     if(order.extension == extension){
+		    	  	    	        tr.addClass("selected").append("<td><i class='fa fa-check-circle-o' aria-hidden='true'></i> "+domain+"."+extension+"</td>");
+		    	  	    	     }else{
+		    	  	    	        tr.append("<td>"+domain+"."+extension+"</td>");
+		    	  	    	      }
+		    	  	    	      var td = $("<td><span>"+pricing[extension].toLocaleString("fr-FR") +" CFA</span></td>");
+	    	  	    	          var select = $("<select></select>");
+	    	  	    	          for(i=0;i<10;i++){
+	    	  	    	        	select.append("<option value='"+(i+1)+"'"+">"+(i+1)+" an</option>");
+	    	  	    	          }
+	    	  	    	          select.on("change",{tr : tr,td : td, price : pricing[extension]},function(event){
+	    	  	    	        	  order.year = parseInt($(this).val());
+	    	  	    	        	  order.price = event.data.price * order.year;
+	    	  	    	        	  event.data.td.find("span").html(order.price.toLocaleString("fr-FR")+" CFA");
+	    	  	    	        	  $("tr",search).removeClass("selected");
+	    	  	    	        	  event.data.tr.addClass("selected");
+	    	  	    	          });
+	    	  	    	          td.append(select);
+	    	  	    	          td.append("<a class='buy'>Transf&eacute;rer</a>");
+	    	  	    	          tr.append(td);
+	    	  	    	          $("a",tr).on("click",{tr : tr,td : td,extension : extension},function(event){
+	    	  	    	        	 $("select",div).val(event.data.extension);
+	    	  	    	        	 $("tr",search).removeClass("selected");
+	    	  	    	        	 event.data.tr.addClass("selected");
+	    	  	    	        	 order.year = parseInt(event.data.td.find("select").val());
+	    	  	    	        	 order.price = order.year * pricing[event.data.extension];
+	    	  	    	        	 order.extension = event.data.extension;
+	    	  	    	        	 search.hide();
+	    	  	    	        	 const wizard = $(".search-wizard");
+	    	  	    	        	 wizard.css("top",10).show();
+	    	  	    	        	 order.action = "transfer";
+	    	  	    	        	 order.domain = domain+"."+event.data.extension;
+	    	         	  	    	 localStorage.setItem("order",JSON.stringify(order));
+	    	  	    	        	 $(".domain-name").html(order.domain).val(order.domain);
+	    	  	    	        	 $(".domain-year").html(order.year).val(order.year);
+	    	  	    	        	 $(".domain-price").html(pricing[event.data.extension].toLocaleString("fr-FR")).val(pricing[event.data.extension].toLocaleString("fr-FR"));
+	    	  	    	        	 $(".domain-amount").html(order.price.toLocaleString("fr-FR")).val(order.price.toLocaleString("fr-FR"));
+	    	  	    	        	 $(".epp-code").show();
+	    	  	    	          });
+	    	  	    	          tbody.append(tr);
+	       	  	    	          tr.addClass("unavailable");
+	       	  	    	          tbody.append(tr);
+	    	  	    	    	}
+	    	  	    	    }
+	    	  	    	}
+	    	  	    	$(".domain-name",search).html(domain+"."+order.extension);
+	    	  	    	if(result[order.extension]){
+	    	  	    		$(".domain-availability",search).removeClass("green").html("indisponible").addClass("red");
+	    	  	    		$(".fa-check-circle-o",search).removeClass("green");
+	    	  	    	}else{
+	    	  	    		$(".domain-availability",search).removeClass("red").html("disponible").addClass("green");
+	    	  	    		$(".fa-check-circle-o",search).addClass("green");
+	    	  	    	}
+		  	    	}else {
+		  	    		alert("le nom fourni est invalide");
+		  	    	}	
+	    		});
+	    	}else {
+	    		alert("vous devez choisir votre domaine web",function(){
+	    			button.prev().find("input").val("").focus();
+	    		});
+	    	}
+	    	return false;
+	    });
+	    
+	    $(".search .close").click(function(event){
+	  	   $(this).parent().parent().hide();
+		});
 });

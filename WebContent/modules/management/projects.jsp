@@ -327,8 +327,8 @@
 	      </s:iterator>
 		</select>
 		<a class="show-domain-search"><i class="fa fa-search" aria-hidden="true"></i></a>
-		<span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Rechercher un domaine </span>
-		<input type="text" placeholder="entrer un nom de domaine">
+		<span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Domaine </span>
+		<input name="domain" type="text" placeholder="entrer un nom de domaine">
 		<a class="domain-search"><i class="fa fa-search" aria-hidden="true"></i></a>
 		<a class="cancel-domain-search"><i class="fa fa-remove" aria-hidden="true"></i></a>
 		<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span>
@@ -348,6 +348,47 @@
 	</form>
 	</div>
 </div>
+<div class="modal modal-top">
+		<div class="search search-results">
+		   <span class="close">X</span>
+		   <h1><i class="fa fa-search" aria-hidden="true"></i> Résultats</h1>
+		   <div>
+		   	   <h3><i class="fa fa-check-circle-o" aria-hidden="true"></i> <span class="domain-name"></span> est <span class="domain-availability"></span></h3>
+		   </div>
+		   <div>
+		   <table class="table-sm table-striped">
+		 	<tbody>
+		 	</tbody>
+		 	</table>
+		   </div>
+		</div>
+		<div class="search search-wizard">
+		   <span class="close">X</span>
+		   <h1><i class="fa fa-shopping-cart" aria-hidden="true"></i> Achat Domaine Web</h1>
+		   <div>
+		   	   <h3 class="green"><i class="fa fa-check-circle-o green" aria-hidden="true"></i> <span class="domain-name"></span></h3>
+		   	   <h4>Durée Choisie : <span class="domain-year"></span> an</h4> <h4 class="price">Montant : <span class="domain-amount"></span> CFA</h4> <span class="domain-edit"><a>[ modifier ]</a></span>
+		   </div>
+		   <div class="wizard-message">
+		      <p>Selon l'action choisie, votre domaine web sera en attente d'enregistrement. Il sera en cours dès que vous aurez payé votre facture d'hébergement qui sera générée après votre confirmation d'achat ou de transfert. Cliquer sur le bouton Confirmer pour valider votre transaction.</p>
+		   </div>
+		   <div style="border:none;text-align:center">
+		    <fieldset>    
+		         <span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Domaine </span> <span class="domain-name"></span>
+		         <span class="text-right"><i class="fa fa-money" aria-hidden="true"></i> Prix (CFA) </span> <span class="domain-price"></span>
+		         <span class="text-right"><i class="fa fa-calendar" aria-hidden="true"></i> Durée Choisie</span> <span class="domain-year"></span>
+		         <span class="text-right"><i class="fa fa-money" aria-hidden="true"></i> Montant (CFA) </span> <span class="domain-amount"></span>
+		         <span class="text-right epp-code"><i class="fa fa-code" aria-hidden="true"></i> EPP Code </span> <span class="epp-code"><input name="eppCode"></input></span>
+		         <input type="hidden" name="user" value="${user.id}">
+		    </fieldset>
+		   </div>
+		   <div class="buttons">
+		      <a class="finish">Confirmer</a>
+		      <a class="cancel">Annuler</a>
+		   </div>
+		   <br>
+		</div>
+		</div>
 </div>
 <script src="${js}/projects.js" defer></script>
 <script src="js/tinymce/tinymce.min.js" defer></script> 
