@@ -609,7 +609,7 @@ app.ready(function(){
 	    		});
 	    	}else {
 	    		alert("vous devez choisir votre domaine web",function(){
-	    			button.prev().find("input").val("").focus();
+	    			button.prev().val("").focus();
 	    		});
 	    	}
 	    	return false;
