@@ -461,6 +461,7 @@ app.ready(function(){
 	});
 	
 	 $(".domain-search").click(function(event){
+		    const div = $(".window.form");
 	    	$(".search").hide();
 	    	const button = $(this);
 	    	const top = button.offset().top;
@@ -476,10 +477,11 @@ app.ready(function(){
 	    	pricing.tech = 10000;
 	    	const input = $(".window.form input[name=domain]");
 	    	const order = {};
-	  		order.extension = "com";
 	  		order.year = 1;
 	  		order.search = input.val().toLowerCase();
 	    	var domain = order.search.replace(/\s+/g, '');
+	    	order.extension = domain.indexOf(".")!=-1 ? domain.substring(domain.indexOf(".")+1,domain.length) : "com";
+	    	order.extension = pricing[order.extension] ? order.extension : "com";
 	    	if(domain){
 	    		const index = domain.indexOf(".");
 	    		if(domain.indexOf(".")!=-1) domain = domain.substring(0,index);
@@ -516,7 +518,7 @@ app.ready(function(){
 	    	  	    	          }
 	    	  	    	          var td = $("<td><span>"+pricing[extension].toLocaleString("fr-FR") +" CFA</span></td>");
 	    	  	    	          var select = $("<select></select>");
-	    	  	    	          for(i=0;i<10;i++){
+	    	  	    	          for(i=0;i<1;i++){
 	    	  	    	        	select.append("<option value='"+(i+1)+"'"+">"+(i+1)+" an</option>");
 	    	  	    	          }
 	    	  	    	          select.on("change",{tr : tr,td : td, price : pricing[extension]},function(event){
@@ -530,21 +532,15 @@ app.ready(function(){
 	    	  	    	          td.append("<a class='buy'>Acheter</a>");
 	    	  	    	          tr.append(td);
 	    	  	    	          $("a",tr).on("click",{tr : tr,td : td,extension : extension},function(event){
-	    	  	    	        	 $("select",div).val(event.data.extension);
 	    	  	    	        	 $("tr",search).removeClass("selected");
 	    	  	    	        	 event.data.tr.addClass("selected");
 	    	  	    	        	 order.year = parseInt(event.data.td.find("select").val());
 	    	  	    	        	 order.price = order.year * pricing[event.data.extension];
 	    	  	    	        	 order.extension = event.data.extension;
-	    	  	    	        	 search.hide();
-	    	  	    	        	 const wizard = $(".search-wizard");
-	    	  	    	        	 wizard.css("top",10).show();
+	    	  	    	        	 search.parent().hide();
 	    	  	    	        	 order.domain = domain+"."+event.data.extension;
 	    	         	  	    	 localStorage.setItem("order",JSON.stringify(order));
 	    	  	    	        	 $(".domain-name").html(order.domain).val(order.domain);
-	    	  	    	        	 $(".domain-year").html(order.year).val(order.year);
-	    	  	    	        	 $(".domain-price").html(pricing[event.data.extension].toLocaleString("fr-FR")).val(pricing[event.data.extension].toLocaleString("fr-FR"));
-	    	  	    	        	 $(".domain-amount").html(order.price.toLocaleString("fr-FR")).val(order.price.toLocaleString("fr-FR"));
 	    	  	    	        	 $(".epp-code").hide();
 	    	  	    	          });
 	    	  	    	          tbody.append(tr);
@@ -557,7 +553,7 @@ app.ready(function(){
 		    	  	    	      }
 		    	  	    	      var td = $("<td><span>"+pricing[extension].toLocaleString("fr-FR") +" CFA</span></td>");
 	    	  	    	          var select = $("<select></select>");
-	    	  	    	          for(i=0;i<10;i++){
+	    	  	    	          for(i=0;i<1;i++){
 	    	  	    	        	select.append("<option value='"+(i+1)+"'"+">"+(i+1)+" an</option>");
 	    	  	    	          }
 	    	  	    	          select.on("change",{tr : tr,td : td, price : pricing[extension]},function(event){
@@ -571,22 +567,16 @@ app.ready(function(){
 	    	  	    	          td.append("<a class='buy'>Transf&eacute;rer</a>");
 	    	  	    	          tr.append(td);
 	    	  	    	          $("a",tr).on("click",{tr : tr,td : td,extension : extension},function(event){
-	    	  	    	        	 $("select",div).val(event.data.extension);
 	    	  	    	        	 $("tr",search).removeClass("selected");
 	    	  	    	        	 event.data.tr.addClass("selected");
 	    	  	    	        	 order.year = parseInt(event.data.td.find("select").val());
 	    	  	    	        	 order.price = order.year * pricing[event.data.extension];
 	    	  	    	        	 order.extension = event.data.extension;
-	    	  	    	        	 search.hide();
-	    	  	    	        	 const wizard = $(".search-wizard");
-	    	  	    	        	 wizard.css("top",10).show();
+	    	  	    	        	 search.parent().hide()
 	    	  	    	        	 order.action = "transfer";
 	    	  	    	        	 order.domain = domain+"."+event.data.extension;
 	    	         	  	    	 localStorage.setItem("order",JSON.stringify(order));
 	    	  	    	        	 $(".domain-name").html(order.domain).val(order.domain);
-	    	  	    	        	 $(".domain-year").html(order.year).val(order.year);
-	    	  	    	        	 $(".domain-price").html(pricing[event.data.extension].toLocaleString("fr-FR")).val(pricing[event.data.extension].toLocaleString("fr-FR"));
-	    	  	    	        	 $(".domain-amount").html(order.price.toLocaleString("fr-FR")).val(order.price.toLocaleString("fr-FR"));
 	    	  	    	        	 $(".epp-code").show();
 	    	  	    	          });
 	    	  	    	          tbody.append(tr);
@@ -618,4 +608,6 @@ app.ready(function(){
 	    $(".search .close").click(function(event){
 	  	   $(this).parent().parent().hide();
 		});
+	    
+	    $(".epp-code").hide();
 });
