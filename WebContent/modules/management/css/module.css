@@ -180,6 +180,11 @@
 	z-index : 99999;
 }
 
+.domain-search,.show-domain-search,.cancel-domain-search {
+	position: relative;
+    top: 4px;
+}
+
 .search-results,.search-wizard {
 	position: absolute;
     width: 75%;

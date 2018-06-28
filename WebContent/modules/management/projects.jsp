@@ -326,6 +326,11 @@
 	          <option value="${domain.properties.id}">${domain.properties.name}</option>
 	      </s:iterator>
 		</select>
+		<a class="show-domain-search"><i class="fa fa-search" aria-hidden="true"></i></a>
+		<span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Rechercher un domaine </span>
+		<input type="text" placeholder="entrer un nom de domaine">
+		<a class="domain-search"><i class="fa fa-search" aria-hidden="true"></i></a>
+		<a class="cancel-domain-search"><i class="fa fa-remove" aria-hidden="true"></i></a>
 		<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span>
 		<select name="priority">
 		  <option value="normal">normale</option>

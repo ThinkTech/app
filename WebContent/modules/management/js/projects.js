@@ -344,7 +344,7 @@ app.ready(function(){
 		project.plan =  form.find("select[name=plan]").val();
 		project.domain_id =  form.find("select[name=domain]").val();
 		project.domain =  form.find("select[name=domain] option:selected").text();
-		if(!project.domain_id.trim()){
+		if(!project.domain_id){
 			alert("vous devez choisir un domaine web",function(){
 				form.find("select[name=domain]").focus();
 			});
@@ -446,5 +446,17 @@ app.ready(function(){
 			$("option:last",select).hide().attr('disabled','disabled');
 			$("option:first",select).prop('selected', true);
 		}
+	});
+	
+	$(".domain-search").hide().prev().hide().prev().hide();
+	$(".cancel-domain-search").hide();
+	$(".show-domain-search").click(function(){
+		$(this).hide().prev().hide().prev().hide();
+		$(this).next().show().next().show().next().show();
+		$(".cancel-domain-search").show();
+	});
+	$(".cancel-domain-search").click(function(){
+		$(this).hide().prev().hide().prev().hide().prev().hide();
+		$(".show-domain-search").show().prev().show().prev().show();
 	});
 });
