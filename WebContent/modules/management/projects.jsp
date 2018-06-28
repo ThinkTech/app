@@ -328,7 +328,7 @@
 		</select>
 		<a class="show-domain-search"><i class="fa fa-search" aria-hidden="true"></i></a>
 		<span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Domaine </span>
-		<input name="domain" class="domain-name" type="text" placeholder="entrer un nom de domaine">
+		<input name="domain" class="domain-name" type="text" placeholder="rechercher un nom de domaine">
 		<a class="domain-search"><i class="fa fa-search" aria-hidden="true"></i></a>
 		<a class="cancel-domain-search"><i class="fa fa-remove" aria-hidden="true"></i></a>
 		<span class="text-right epp-code"><i class="fa fa-code" aria-hidden="true"></i> EPP Code </span>
