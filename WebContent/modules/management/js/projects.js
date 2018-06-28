@@ -610,4 +610,13 @@ app.ready(function(){
 		});
 	    
 	    $(".epp-code").hide();
+	    
+	    $(".buttons a").click(function(event){
+		  	  const div = $(".window.form");
+		  	  if(!div.find("select[name=domain] option").length){
+		  		$(".show-domain-search").trigger("click");
+		  		$(".cancel-domain-search").hide();
+		  	  }
+	     });
+	    
 });
