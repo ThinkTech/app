@@ -355,7 +355,6 @@ app.ready(function(){
 			project.domainCreated = true;
 		}else {
 			const order = JSON.parse(localStorage.getItem('order'));
-			console.log(order);
 			if(!order){
 				alert("vous devez rechercher un domaine web",function(){
 					form.find("input[name=domain]").focus();
