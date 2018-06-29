@@ -20,8 +20,8 @@ class ModuleAction extends ActionSupport {
           }
           domains << domain
        })
-       def registered = connection.firstRow("select count(*) AS num from domains where status = 'finished' and structure_id = "+user.structure.id).num
-       def unregistered = connection.firstRow("select count(*) AS num from domains where status != 'finished' and structure_id = "+user.structure.id).num
+       def registered = connection.firstRow("select count(*) AS num from domains where status = 'finished' and structure_id = $user.structure.id").num
+       def unregistered = connection.firstRow("select count(*) AS num from domains where status != 'finished' and structure_id = $user.structure.id").num
        connection.close() 
        request.setAttribute("domains",domains)  
        request.setAttribute("total",domains.size())

@@ -20,8 +20,8 @@ class ModuleAction extends ActionSupport {
           }
 		  projects << project
        })
-       def active = connection.firstRow("select count(*) AS num from projects where status = 'in progress' and structure_id = "+user.structure.id).num
-       def unactive = connection.firstRow("select count(*) AS num from projects where status = 'stand by' and structure_id = "+user.structure.id).num
+       def active = connection.firstRow("select count(*) AS num from projects where status = 'in progress' and structure_id = $user.structure.id").num
+       def unactive = connection.firstRow("select count(*) AS num from projects where status = 'stand by' and structure_id = $user.structure.id").num
        request.setAttribute("projects",projects)  
        request.setAttribute("total",projects.size())
        request.setAttribute("active",active)

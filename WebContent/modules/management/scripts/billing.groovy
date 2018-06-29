@@ -17,7 +17,7 @@ class ModuleAction extends ActionSupport {
           }
           bills << bill
        })
-       def unpayed = connection.firstRow("select count(*) AS num from bills where status = 'stand by' and structure_id = "+user.structure.id).num
+       def unpayed = connection.firstRow("select count(*) AS num from bills where status = 'stand by' and structure_id = $user.structure.id").num
        connection.close() 
        request.setAttribute("bills",bills)  
        request.setAttribute("total",bills.size())
