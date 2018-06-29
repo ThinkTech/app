@@ -345,7 +345,7 @@ app.ready(function(){
 		project.domain_id =  form.find("select[name=domain]").val();
 		const select = form.find("select[name=domain]");
 		if(select.is(":visible")){
-		project.domain =  selectfind("option:selected").text();
+			project.domain =  select.find("option:selected").text();
 			if(!project.domain_id){
 				alert("vous devez choisir un domaine web",function(){
 					form.find("select[name=domain]").focus();
