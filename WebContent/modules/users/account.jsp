@@ -109,7 +109,7 @@
    										<span id="role">&nbsp;${user.role}</span>
    										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;Structure </span>
    										<span id="structure" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;${user.structure.name}</span>
-   										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;Secteur Activité </span>
+   										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;Activité Principale </span>
    										<span id="business" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">&nbsp;${user.structure.business}</span>
    								 </fieldset>
    								 <a class="text-center">modifier</a>
@@ -125,7 +125,7 @@
 										<input name="telephone" value="${user.telephone}" type="text">
 										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Structure </span>
    										<input name="structure" value="${user.structure.name}" type="text" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
-   										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Secteur Activité</span>
+   										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Activité Principale</span>
    										<select name="business"  style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
 											<option value="administrations publiques">Administrations publiques</option>
 											<option value="agrobusiness et autres">Agriculture, foresterie, pêche et chasse</option>
