@@ -162,6 +162,9 @@ page.initDomainSearch = function(){
   		order.search = input.val().toLowerCase();
     	var domain = order.search.replace(/\s+/g, '');
     	if(domain){
+    		order.extension = domain.indexOf(".")!=-1 ? domain.substring(domain.indexOf(".")+1,domain.length) : order.extension;
+    		order.extension = pricing[order.extension] ? order.extension : button.prev().find("select").val();
+    		$("select",div).val(order.extension);
     		const index = domain.indexOf(".");
     		if(domain.indexOf(".")!=-1) domain = domain.substring(0,index);
     		input.val(domain);
