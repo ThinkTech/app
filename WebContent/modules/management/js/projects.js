@@ -403,6 +403,7 @@ app.ready(function(){
 						  h3 = $("h3.unactive");
 						  h3.html(parseInt(h3.text())+1);
 						  alert("votre projet est en attente de traitement");
+						  if(project.domainCreated) select.find("option:selected").remove();
 					  });
 				}
 			});
