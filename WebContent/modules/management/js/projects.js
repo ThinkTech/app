@@ -343,14 +343,40 @@ app.ready(function(){
 		project.subject = form.find("select[name=subject]").val();
 		project.plan =  form.find("select[name=plan]").val();
 		project.domain_id =  form.find("select[name=domain]").val();
-		project.domain =  form.find("select[name=domain] option:selected").text();
-		if(!project.domain_id){
-			alert("vous devez choisir un domaine web",function(){
-				form.find("select[name=domain]").focus();
-			});
-			return false;
+		const select = form.find("select[name=domain]");
+		if(select.is(":visible")){
+		project.domain =  selectfind("option:selected").text();
+			if(!project.domain_id){
+				alert("vous devez choisir un domaine web",function(){
+					form.find("select[name=domain]").focus();
+				});
+				return false;
+			}
+			project.domainCreated = true;
+		}else {
+			const order = JSON.parse(localStorage.getItem('order'));
+			console.log(order);
+			if(!order){
+				alert("vous devez rechercher un domaine web",function(){
+					form.find("input[name=domain]").focus();
+				});
+				return false;
+			}
+			project.domain = order.domain;
+			project.price = order.price;
+			project.year = order.year;
+			project.extension = order.extension;
+			project.action = order.action;
+			if(project.action == 'transfer'){
+				project.eppCode = form.find("input[name=eppCode]").val();
+				if(!project.eppCode.trim()){
+					alert("vous devez entrer votre EPP code",function(){
+						form.find("input[name=eppCode]").focus();
+					});
+					return false;
+				}
+			}
 		}
-		project.domainCreated = true;
 		project.priority =  form.find("select[name=priority]").val();
 		project.description =  tinyMCE.activeEditor.getContent();
 		if(!tinyMCE.activeEditor.getContent({format: 'text'}).trim()){
@@ -617,6 +643,7 @@ app.ready(function(){
 		  		$(".show-domain-search").trigger("click");
 		  		$(".cancel-domain-search").hide();
 		  	  }
-	     });
+	    });
 	    
+	    localStorage.removeItem("order");
 });
