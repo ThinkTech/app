@@ -37,7 +37,7 @@ class ModuleAction extends ActionSupport {
        request.setAttribute("services",services)
        request.setAttribute("total",3)
        request.setAttribute("subscribed",3)
-       request.setAttribute("unsubscribed",3)
+       request.setAttribute("unsubscribed",0)
        SUCCESS
     }
 			
