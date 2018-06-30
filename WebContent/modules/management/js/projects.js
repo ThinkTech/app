@@ -498,9 +498,9 @@ app.ready(function(){
 	    	pricing.biz = 10000;
 	    	pricing.info = 10000;
 	    	pricing.tv = 20000;
-	    	pricing.press = 15000;
-	    	pricing.news = 15000;
-	    	pricing.tech = 10000;
+	    	pricing.press = 20000;
+	    	pricing.news = 20000;
+	    	pricing.tech = 25000;
 	    	const input = $(".window.form input[name=domain]");
 	    	const order = {};
 	  		order.year = 1;
