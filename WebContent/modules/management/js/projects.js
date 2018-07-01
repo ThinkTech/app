@@ -398,8 +398,6 @@ app.ready(function(){
 		const tr = $(".table tr[id="+project.id+"]");
 		if(project.status == "finished"){
 			$("span.label",tr).html("termin&edot;").removeClass().addClass("label label-success");
-			const h3 = $("h3.active");
-			h3.html(parseInt(h3.text())-1);
 		}else if(project.status == "in progress"){
 			$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
 		}
