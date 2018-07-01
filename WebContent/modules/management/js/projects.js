@@ -1,6 +1,7 @@
 app.ready(function(){
 	page.details.bind = function(container,project) {
 		$("[data-status='"+project.priority+"']",container).show();
+		page.details.updateProjectStatus(project);
 		if(project.plan == "social") $(".confirm p",container).html("Contrat").addClass("adjust");
 		if(project.status == "in progress") {
 			$(".confirm .imgcircle,.confirm .line,.process .imgcircle",container).addClass("active");
@@ -39,27 +40,11 @@ app.ready(function(){
 			if(visible){
 				page.details.refresh(function(project){
 					$(".info-tasks",container).show();
-					const tr = $(".table tr[id="+project.id+"]");
-					if(project.status == "finished"){
-						$("span.label",tr).html("termin&edot;").removeClass().addClass("label label-success");
-						const h3 = $("h3.active");
-						h3.html(parseInt(h3.text())-1);
-					}else if(project.status == "in progress"){
-						$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
-					}
-					$(".badge",tr).html(+project.progression+"%");
+					page.details.updateProjectStatus(project);
 				});
 			}else{
 				page.details.refresh(function(project){
-					const tr = $(".table tr[id="+project.id+"]");
-					if(project.status == "finished"){
-						$("span.label",tr).html("termin&edot;").removeClass().addClass("label label-success");
-						const h3 = $("h3.active");
-						h3.html(parseInt(h3.text())-1);
-					}else if(project.status == "in progress"){
-						$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
-					}
-					$(".badge",tr).html(+project.progression+"%");
+					page.details.updateProjectStatus(project);
 				});
 			}
 		});
@@ -408,6 +393,17 @@ app.ready(function(){
 				}
 			});
 		});
+	};
+	page.details.updateProjectStatus = function(project) {
+		const tr = $(".table tr[id="+project.id+"]");
+		if(project.status == "finished"){
+			$("span.label",tr).html("termin&edot;").removeClass().addClass("label label-success");
+			const h3 = $("h3.active");
+			h3.html(parseInt(h3.text())-1);
+		}else if(project.status == "in progress"){
+			$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
+		}
+		$(".badge",tr).html(+project.progression+"%");
 	};
 	page.details.addComment = function(form){
 		const comment = {};
