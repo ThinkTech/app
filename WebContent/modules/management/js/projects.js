@@ -1,7 +1,7 @@
 app.ready(function(){
 	page.details.bind = function(container,project) {
-		$("[data-status='"+project.priority+"']",container).show();
 		page.details.updateProjectStatus(project);
+		$("[data-status='"+project.priority+"']",container).show();
 		if(project.plan == "social") $(".confirm p",container).html("Contrat").addClass("adjust");
 		if(project.status == "in progress") {
 			$(".confirm .imgcircle,.confirm .line,.process .imgcircle",container).addClass("active");
