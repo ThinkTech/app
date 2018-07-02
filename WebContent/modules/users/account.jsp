@@ -10,8 +10,8 @@
 				  <div class="first-one-inner password-area">
 				     <h3 class="tittle"><i class="fa fa-key"></i> Mot de Passe</h3>
 					<form class="password-form" action="${url}/password/change">
-						<input type="password" name="password" class="text" required>
-						<input type="password" name="confirm" required>
+						<input type="password" name="password" class="text" required maxlength="100">
+						<input type="password" name="confirm" required maxlength="100">
 						<div class="submit"><input type="submit" value="Changer" ></div>
 					</form>
 				   </div>
@@ -59,7 +59,7 @@
 	 				<form action="${url}/collaborators/add">
 						<fieldset>
 	  						<span class="text-right"><i class="fa fa-envelope" aria-hidden="true"></i> Email </span>
-	  						<input type="email" name="email" required>
+	  						<input type="email" name="email" required maxlength="200">
 	  	                 </fieldset>
 	  	                 <div class="submit"><input type="submit" value="Ajouter"></div>
 	  	             </form>
@@ -116,15 +116,15 @@
    								 <form action="${url}/profile/update">
    								 <fieldset class="profile-edition">
    								    	<span class="text-right">Prénom et Nom </span>
-										<input type="text" name="name" value="${user.name}" required>
+										<input type="text" name="name" value="${user.name}" required maxlength="200">
 									    <span class="text-right">Email </span>
-										<input type="email" name="email" value="${user.email}" required>
+										<input type="email" name="email" value="${user.email}" required maxlength="100">
 										<span class="text-right">Profession </span>
-   										<input name="profession" type="text" value="${user.profession}">
+   										<input name="profession" type="text" value="${user.profession}" maxlength="100">
 										<span class="text-right">Téléphone </span>
-										<input name="telephone" value="${user.telephone}" type="text">
+										<input name="telephone" value="${user.telephone}" type="text" maxlength="20">
 										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Structure </span>
-   										<input name="structure" value="${user.structure.name}" type="text" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
+   										<input name="structure" value="${user.structure.name}" type="text" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}" maxlength="200">
    										<span class="text-right" style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">Activité Principale</span>
    										<select name="business"  style="display:${user.role == 'administrateur' ? 'inline-block' : 'none'}">
 											<option value="administrations publiques">Administrations publiques</option>
