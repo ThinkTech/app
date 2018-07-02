@@ -77,7 +77,9 @@ app.ready(function() {
 		var div = $(".profile-details").hide();
 		const val = div.find("#business").text().trim();
 		div = $(".profile-edition").show();
-		div.find("select[name=business]").val(val);
+		if(val.trim()) {
+			div.find("select[name=business]").val(val);
+		}
 		$(this).hide();
 		return false;
 	});
