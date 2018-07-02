@@ -328,11 +328,11 @@
 		</select>
 		<a class="show-domain-search"><i class="fa fa-search" aria-hidden="true"></i></a>
 		<span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Domaine </span>
-		<input name="domain" class="domain-name" type="text" placeholder="rechercher un domaine">
+		<input name="domain" class="domain-name" type="text" placeholder="rechercher un domaine" maxlength="200">
 		<a class="domain-search"><i class="fa fa-search" aria-hidden="true"></i></a>
 		<a class="cancel-domain-search"><i class="fa fa-remove" aria-hidden="true"></i></a>
 		<span class="text-right epp-code"><i class="fa fa-code" aria-hidden="true"></i> EPP Code </span>
-		<input name="eppCode" class="epp-code" type="text" placeholder="entrer votre epp code">
+		<input name="eppCode" class="epp-code" type="text" placeholder="entrer votre epp code" maxlength="250">
 		<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span>
 		<select name="priority">
 		  <option value="normal">normale</option>
