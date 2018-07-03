@@ -224,7 +224,7 @@ class ModuleAction extends ActionSupport {
 		      }
 		    }
 		    div(style : "width:90%;margin:auto;margin-top : 30px;margin-bottom:30px") {
-		      p("$author.name souhaite vous ajouter &agrave; la liste de ses collaborateurs. Cliquez sur le bouton en bas pour accepter.")
+		      p("$author.name souhaite vous ajouter &agrave; la liste de ses collaborateurs. cliquez sur le bouton en bas pour accepter cette demande.")
 		      p("votre mot de passe est : <b>$user.password</b>")
 		      p("vous pouvez le modifier en vous connectant &aacute; notre portail client")
 		       div(style : "text-align:center;margin-top:10px;margin-bottom:20px") {
