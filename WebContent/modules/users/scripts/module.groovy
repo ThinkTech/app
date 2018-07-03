@@ -228,7 +228,7 @@ class ModuleAction extends ActionSupport {
 		      p("votre mot de passe est : <b>$user.password</b>")
 		      p("vous pouvez le modifier en vous connectant &aacute; notre portail client")
 		       div(style : "text-align:center;margin-top:10px;margin-bottom:20px") {
-		       a(href : "$url/users/registration/confirm?activationCode=$user.activationCode",style : "font-size:130%;width:140px;margin:auto;text-decoration:none;background: #05d2ff;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
+		       a(href : "$url/users/registration/confirm?activationCode=$user.activationCode",style : "font-size:130%;width:140px;margin:auto;margin-top:20px;text-decoration:none;background: #05d2ff;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
 		         span("Accepter")
 		       }
 		     }
