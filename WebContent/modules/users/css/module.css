@@ -114,9 +114,22 @@ h3.tittle {
 }
 
 td span {
-	float: right;
+	float: left;
     position: relative;
     top: -2px;
+}
+
+.table tbody tr td:nth-child(2) span:first-of-type {
+    width: 85%;
+    float: left;
+}
+
+td span.number {
+	float : none;
+}
+
+.table tr td:first-of-type {
+    width: 20px;
 }
 
 .first-one input[type="password"]{

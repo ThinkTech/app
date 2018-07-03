@@ -25,7 +25,8 @@
                              	 <s:iterator value="#request.collaborators" var="collaborator" status="status">
 	                                <tr id="${collaborator.properties.id}">
 	                                   <td><span class="number">${status.index+1}</span></td>
-	                                   <td>${collaborator.properties.name}
+	                                   <td>
+	                                     <span>${collaborator.properties.name}</span>
 	                                     <span>
 	                                   	 <i class="fa fa-check" style="display:${collaborator.properties.active ? 'inline-block' : 'none'}"></i>
 	                                   	 <i class="fa fa-envelope" style="display:${collaborator.properties.active ? 'none' : 'inline-block'}"></i>
@@ -39,7 +40,8 @@
 							     {#.}
 							      <tr id="{id}">
 							            <td><span class="number"></span></td>
-							   	        <td>{email}
+							   	        <td>
+							   	            <span>{email}</span>
 								   	        <span>
 								   	        <i class="fa fa-envelope"></i>
 								   	        <a href="${url}/collaborators/remove?id={id}"><i class="fa fa-remove"></i></a>

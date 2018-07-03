@@ -225,10 +225,9 @@ class ModuleAction extends ActionSupport {
 		    }
 		    div(style : "width:90%;margin:auto;margin-top : 30px;margin-bottom:30px") {
 		      p("$author.name souhaite vous ajouter &agrave; la liste de ses collaborateurs. Cliquez sur le bouton en bas pour accepter.")
-		      p("Votre mot de passe est : <b>$user.password</b>")
-		      br()
-		      p("Vous pouvez le modifier en vous connectant &aacute; notre portail client")
-		       div(style : "text-align:center;margin-top:30px;margin-bottom:10px") {
+		      p("votre mot de passe est : <b>$user.password</b>")
+		      p("vous pouvez le modifier en vous connectant &aacute; notre portail client")
+		       div(style : "text-align:center;margin-top:10px;margin-bottom:20px") {
 		       a(href : "$url/users/registration/confirm?activationCode=$user.activationCode",style : "font-size:130%;width:140px;margin:auto;text-decoration:none;background: #05d2ff;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
 		         span("Accepter")
 		       }
