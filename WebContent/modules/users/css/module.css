@@ -55,6 +55,7 @@ fieldset > span {
 }
 .window.details > div fieldset > span,.window.details > div fieldset > span.text-right {
     width: 100%;
+    max-width: 100%;
     margin-right : 5px;
     text-align : left;
 }
@@ -420,6 +421,9 @@ legend a i.fa {
 	}
 }
 @media (max-width:480px){
+	.table tbody tr td:nth-child(2) {
+      white-space: normal;
+    }
 	legend {
     	font-size: 1.1em;
 	}

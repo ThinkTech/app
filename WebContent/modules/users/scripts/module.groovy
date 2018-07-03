@@ -1,7 +1,3 @@
-import groovy.text.markup.MarkupTemplateEngine
-import groovy.sql.Sql
-
-
 class ModuleAction extends ActionSupport {
 
     def String execute(){
@@ -226,30 +222,27 @@ class ModuleAction extends ActionSupport {
 		      h4(style : "font-size: 200%;color: #fff;margin: 3px") {
 		        span("Demande de collaboration")
 		      }
-		      p(style : "font-size:150%;color:#fff"){
-		         span("cliquer sur le bouton pour confirmer")
-		      }
 		    }
 		    div(style : "width:90%;margin:auto;margin-top : 30px;margin-bottom:30px") {
+		      p("$author.name souhaite vous ajouter &agrave; la liste de ses collaborateurs. Cliquez sur le bouton en bas pour accepter.")
+		      p("Votre mot de passe est : <b>$user.password</b>")
 		      br()
-		      p("Mot de passe : <b>$user.password</b>")
-		      br()
-		      p("Vous pouvez le modifier en vous connectant &aacute; votre compte")
+		      p("Vous pouvez le modifier en vous connectant &aacute; notre portail client")
 		       div(style : "text-align:center;margin-top:30px;margin-bottom:10px") {
 		       a(href : "$url/users/registration/confirm?activationCode=$user.activationCode",style : "font-size:130%;width:140px;margin:auto;text-decoration:none;background: #05d2ff;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
-		         span("Confirmer")
+		         span("Accepter")
 		       }
 		     }
 		    }
 		  }
 		  div(style :"margin: 10px;margin-top:10px;font-size : 11px;text-align:center") {
-		      p("Vous recevez cet email parce que $name ")
+		      p("Vous recevez cet email parce que $author.name ")
 		      p("a envoy&eacute; une demande de collaboration en utilisant cette adresse")
 		  }
 		  
 		 }
 		'''
-		def template = engine.createTemplate(text).make([user:user,url : baseUrl,name : session.getAttribute("user").name])
+		def template = engine.createTemplate(text).make([user:user,url : baseUrl,author : session.getAttribute("user")])
 		template.toString()
 	}
 	
