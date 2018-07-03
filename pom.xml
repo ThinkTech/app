@@ -77,11 +77,11 @@
 			<plugin>
 				<groupId>com.jelastic</groupId>
 				<artifactId>jelastic-maven-plugin</artifactId>
-				<version>1.8</version>
+				<version>1.9</version>
 				<configuration>
 					<email>dev@thinktech.sn</email>
 					<password>${mirhosting.password}</password>
-					<environment>thinktechapp</environment>
+					<environment>thinktech-app</environment>
 					<api_hoster>app.mircloud.host</api_hoster>
 				</configuration>
 			</plugin>
