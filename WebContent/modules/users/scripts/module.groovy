@@ -4,14 +4,9 @@ class ModuleAction extends ActionSupport {
        if(user){
          def connection = getConnection()
          def collaborators = []
-         def structure_id = user.structure.id
-         connection.eachRow("select u.id, u.name,a.activated,a.locked from users u, accounts a where u.structure_id = ? and u.owner = false and a.user_id = u.id", [structure_id], { row -> 
-           def collaborator = new Expando()
-           collaborator.id = row.id
-           collaborator.name = row.name
-           collaborator.active = row.activated
-           collaborator.locked = row.locked
-           collaborators << collaborator
+         connection.eachRow("select u.id, u.name,a.activated as active,a.locked from users u, accounts a where u.structure_id = ? and u.owner = false and a.user_id = u.id", [user.structure.id], { row -> 
+          collaborators << new Expando(row.toRowResult())
+          
          })
          connection.close()
          request.setAttribute("collaborators",collaborators)
@@ -125,12 +120,10 @@ class ModuleAction extends ActionSupport {
 	
 	def removeCollaborator(){
 	   def id = getParameter("id")
-	   Thread.start{
-	   	 def connection = getConnection()
-      	 connection.execute 'delete from users where id = ?',[id]
-         connection.execute 'delete from accounts where user_id = ?',[id]
-         connection.close()
-       } 
+	   def connection = getConnection()
+       connection.execute 'delete from users where id = ?',[id]
+       connection.execute 'delete from accounts where user_id = ?',[id]
+       connection.close() 
 	   json([id : id])
 	}
 	
@@ -147,20 +140,16 @@ class ModuleAction extends ActionSupport {
 	def lockAccount(){
 	    def user = parse(request)
 	    def connection = getConnection()
-	    Thread.start{
-	      connection.executeUpdate 'update accounts set locked = true  where user_id = ?', [user.id] 
-	      connection.close()
-	    }
+	    connection.executeUpdate 'update accounts set locked = true  where user_id = ?', [user.id] 
+	    connection.close()
 		json([status: 1])
 	}
 	
 	def unlockAccount(){
 	    def user = parse(request)
 	    def connection = getConnection()
-	    Thread.start{
-	      connection.executeUpdate 'update accounts set locked = false  where user_id = ?', [user.id] 
-	      connection.close()
-	    }
+	    connection.executeUpdate 'update accounts set locked = false  where user_id = ?', [user.id] 
+	    connection.close()
 		json([status: 1])
 	}
 	
