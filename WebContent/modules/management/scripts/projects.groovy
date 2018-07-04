@@ -43,7 +43,7 @@ class ModuleAction extends ActionSupport {
 	   project.comments = []
 	   connection.eachRow("select c.id, c.message, c.date, u.name as author from projects_comments c, users u where c.createdBy = u.id and c.project_id = ?", [project.id],{ row -> 
           def comment = new Expando(row.toRowResult())
-          comment.date = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(comment.date)
+          comment.date = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(row.date)
           project.comments << comment
        })
        project.documents = []
