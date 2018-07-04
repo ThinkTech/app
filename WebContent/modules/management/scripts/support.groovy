@@ -138,8 +138,4 @@ class ModuleAction extends ActionSupport {
 		template.toString()
 	}
 	
-	def getConnection()  {
-	   new Sql(dataSource)	
-	}
-	
 }

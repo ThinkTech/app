@@ -40,9 +40,5 @@ class ModuleAction extends ActionSupport {
        request.setAttribute("unsubscribed",0)
        SUCCESS
     }
-			
-	def getConnection()  {
-		new Sql(dataSource)
-	}
 	
 }

@@ -43,8 +43,4 @@ class ModuleAction extends ActionSupport {
 	   json([entity : domain])
 	}
 	
-	def getConnection()  {
-		new Sql(dataSource)
-	}
-	
 }
