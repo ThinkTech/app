@@ -64,16 +64,16 @@
                                   </tr>
                               </thead>
                               <tbody>
-                              <s:iterator value="#request.projects" var="project" status="status">
-	                                <tr id="${project.properties.id}">
-	                                  <td><span class="number">${status.index+1}</span></td>
-	                                  <td>${project.properties.subject}</td>
-	                                  <td>${project.properties.author}</td>
-	                                  <td><s:date name="properties.date" format="dd/MM/yyyy" /></td>                                        
-	                                  <td><span class="label ${project.properties.status=='in progress' ? 'label-danger' : '' } ${project.properties.status=='finished' ? 'label-success' : '' } ${project.properties.status=='stand by' ? 'label-info' : '' }">
-	                                  ${project.properties.status=='in progress' ? 'en cours' : '' } ${project.properties.status=='finished' ? 'terminé' : '' } ${project.properties.status=='stand by' ? 'en attente' : '' }
+                              <s:iterator value="#request.projects" var="project" status="counter">
+	                                <tr id="${project.id}">
+	                                  <td><span class="number">${counter.index+1}</span></td>
+	                                  <td>${project.subject}</td>
+	                                  <td>${project.author}</td>
+	                                  <td><s:date name="date" format="dd/MM/yyyy" /></td>                                        
+	                                  <td><span class="label ${project.status=='in progress' ? 'label-danger' : '' } ${project.status=='finished' ? 'label-success' : '' } ${project.status=='stand by' ? 'label-info' : '' }">
+	                                  ${project.status=='in progress' ? 'en cours' : '' } ${project.status=='finished' ? 'terminé' : '' } ${project.status=='stand by' ? 'en attente' : '' }
 	                                  </span></td>
-	                                  <td><span class="badge badge-info">${project.properties.progression}%</span></td>
+	                                  <td><span class="badge badge-info">${project.progression}%</span></td>
 	                              </tr>
 	                          </s:iterator>               
                               <template>
@@ -323,7 +323,7 @@
 		<span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Domaine </span>
 	    <select name="domain">
 	      <s:iterator value="#request.domains" var="domain">
-	          <option value="${domain.properties.id}">${domain.properties.name}</option>
+	          <option value="${domain.id}">${domain.name}</option>
 	      </s:iterator>
 		</select>
 		<a class="show-domain-search"><i class="fa fa-search" aria-hidden="true"></i></a>

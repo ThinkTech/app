@@ -54,8 +54,8 @@
 				<div class="service">
 				    <i class="fa fa-check" aria-hidden="true"></i>
 					<div>
-					    <img src="${images}/${service.properties['icon']}"/>
-						<h3>${service.properties['name']}</h3>
+					    <img src="${images}/${service.icon}"/>
+						<h3>${service.name}</h3>
 					</div>
 				  <div class="clearfix"> </div>
 				</div>
