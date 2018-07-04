@@ -6,19 +6,8 @@ class ModuleAction extends ActionSupport {
 	def showTickets(){
        def connection = getConnection()
        def tickets = []
-       connection.eachRow("select t.id,t.subject,t.message,t.date,t.service,t.status,t.progression, u.name from tickets t, users u where t.user_id = u.id and t.structure_id = ? order by t.date DESC", [user.structure.id], { row -> 
-          def ticket = new Expando()
-          ticket.with{
-            id = row.id
-            author =  row.name
-            subject = row.subject
-            message = row.message
-            date = row.date
-            service = row.service
-            status = row.status
-            progression = row.progression 
-          }
-          tickets << ticket
+       connection.eachRow("select t.id,t.subject,t.message,t.date,t.service,t.status,t.progression, u.name as author from tickets t, users u where t.user_id = u.id and t.structure_id = ? order by t.date DESC", [user.structure.id], { row -> 
+          tickets << new Expando(row.toRowResult())
        })
        def unsolved = connection.firstRow("select count(*) AS num from tickets where status != 'finished' and structure_id = $user.structure.id").num
        def solved = connection.firstRow("select count(*) AS num from tickets where status = 'finished' and structure_id = $user.structure.id").num
@@ -51,14 +40,9 @@ class ModuleAction extends ActionSupport {
 	    ticket.closedBy = user.name
 	   }
 	   ticket.comments = []
-	   connection.eachRow("select c.id, c.message, c.date, u.name from tickets_comments c, users u where c.createdBy = u.id and c.ticket_id = ?", [ticket.id],{ row -> 
-          def comment = new Expando()
-          comment.with{
-            id = row.id
-            author = row.name
-            date = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(row.date)
-            message = row.message  
-          }
+	   connection.eachRow("select c.id, c.message, c.date, u.name as author from tickets_comments c, users u where c.createdBy = u.id and c.ticket_id = ?", [ticket.id],{ row -> 
+          def comment = new Expando(row.toRowResult())
+          comment.date = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(comment.date)
           ticket.comments << comment
        })
 	   connection.close()

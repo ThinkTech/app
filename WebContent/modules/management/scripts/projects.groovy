@@ -5,17 +5,8 @@ class ModuleAction extends ActionSupport {
    def showProjects(){
        def connection = getConnection()
        def projects = []
-       connection.eachRow("select p.id,p.subject,p.date,p.status,p.progression,u.name from projects p, users u where p.user_id = u.id and p.structure_id = ? order by p.date DESC", [user.structure.id], { row -> 
-          def project = new Expando()
-          project.with {
-           id = row.id
-           author =  row.name
-           subject = row.subject
-           date = row.date
-           status = row.status
-           progression = row.progression   
-          }
-		  projects << project
+       connection.eachRow("select p.id,p.subject,p.date,p.status,p.progression,u.name as author from projects p, users u where p.user_id = u.id and p.structure_id = ? order by p.date DESC", [user.structure.id], { row -> 
+         projects << new Expando(row.toRowResult())
        })
        def active = connection.firstRow("select count(*) AS num from projects where status = 'in progress' and structure_id = $user.structure.id").num
        def unactive = connection.firstRow("select count(*) AS num from projects where status = 'stand by' and structure_id = $user.structure.id").num
@@ -25,12 +16,7 @@ class ModuleAction extends ActionSupport {
        request.setAttribute("unactive",unactive)
        def domains = []
        connection.eachRow("select d.id, d.name from domains d where d.status = 'finished' and not exists (select p.domain_id from projects p where d.id = p.domain_id) order by d.date DESC", [], { row -> 
-          def domain = new Expando()
-          domain.with {
-           id = row.id
-           name =  row.name
-          }
-		  domains << domain
+          domains << new Expando(row.toRowResult())
        })
        request.setAttribute("domains",domains)
        connection.close() 
@@ -55,38 +41,22 @@ class ModuleAction extends ActionSupport {
 	   project.date = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(project.date)
 	   project.end = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(project.end)
 	   project.comments = []
-	   connection.eachRow("select c.id, c.message, c.date, u.name from projects_comments c, users u where c.createdBy = u.id and c.project_id = ?", [project.id],{ row -> 
-          def comment = new Expando()
-          comment.id = row.id
-          comment.with{
-           author = row.name
-           date = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(row.date)
-           message = row.message  
-          }
+	   connection.eachRow("select c.id, c.message, c.date, u.name as author from projects_comments c, users u where c.createdBy = u.id and c.project_id = ?", [project.id],{ row -> 
+          def comment = new Expando(row.toRowResult())
+          comment.date = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(comment.date)
           project.comments << comment
        })
        project.documents = []
 	   connection.eachRow("select d.project_id, d.name, d.size, d.date, u.name as author from documents d, users u where d.createdBy = u.id and d.project_id = ?", [project.id],{ row -> 
-          def document = new Expando()
-          document.with{
-          	project_id = row.project_id
-            author = row.author
-            date = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(row.date)
-            name = row.name
-            size = byteCount(row.size as long) 
-          }
+          def document = new Expando(row.toRowResult())
+          document.date = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(document.date)
+          document.size = byteCount(document.size as long) 
           project.documents << document
        })
        project.tasks = []
 	   connection.eachRow("select name,description,info,status,progression from projects_tasks where project_id = ?", [project.id],{ row -> 
-          def task = new Expando()
-          task.with{
-            name = row.name
-            description = row.description
-            status = row.status
-            progression = row.progression
-            info = row.info ? row.info : "aucune information" 
-          }
+          def task = new Expando(row.toRowResult())
+          task.info = task.info ? task.info : "aucune information" 
           project.tasks << task
        })
 	   connection.close() 
