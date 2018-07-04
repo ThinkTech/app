@@ -97,8 +97,7 @@ class ModuleAction extends ActionSupport {
           def id = result[0][0]
           params = [user.activationCode,id]
        	  connection.executeInsert 'insert into accounts(activation_code,user_id) values (?, ?)', params
-       	  def template = getCollaborationTemplate(user) 
-	      sendMail("$user.email","$user.email","Veuillez confirmer cette demande de collaboration",template)
+	      sendMail("$user.email","$user.email","Veuillez confirmer cette demande de collaboration",getCollaborationTemplate(user))
 	   	  json([id : id])
  	   }
  	   connection.close()
