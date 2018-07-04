@@ -244,9 +244,4 @@ class ModuleAction extends ActionSupport {
 		def template = engine.createTemplate(text).make([user:user,url : baseUrl,author : session.getAttribute("user")])
 		template.toString()
 	}
-	
-	def getConnection() {
-		new Sql(dataSource)
-	}
-	
 }
