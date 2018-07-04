@@ -10,14 +10,14 @@ class ModuleAction extends ActionSupport {
        })
        def active = connection.firstRow("select count(*) AS num from projects where status = 'in progress' and structure_id = $user.structure.id").num
        def unactive = connection.firstRow("select count(*) AS num from projects where status = 'stand by' and structure_id = $user.structure.id").num
-       request.setAttribute("projects",projects)  
-       request.setAttribute("total",projects.size())
-       request.setAttribute("active",active)
-       request.setAttribute("unactive",unactive)
        def domains = []
        connection.eachRow("select d.id, d.name from domains d where d.status = 'finished' and not exists (select p.domain_id from projects p where d.id = p.domain_id) order by d.date DESC", [], { row -> 
           domains << new Expando(row.toRowResult())
        })
+       request.setAttribute("projects",projects)  
+       request.setAttribute("total",projects.size())
+       request.setAttribute("active",active)
+       request.setAttribute("unactive",unactive)
        request.setAttribute("domains",domains)
        connection.close() 
        SUCCESS
