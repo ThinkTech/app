@@ -6,7 +6,6 @@ class ModuleAction extends ActionSupport {
          def collaborators = []
          connection.eachRow("select u.id, u.name,a.activated as active,a.locked from users u, accounts a where u.structure_id = ? and u.owner = false and a.user_id = u.id", [user.structure.id], { row -> 
           collaborators << new Expando(row.toRowResult())
-          
          })
          connection.close()
          request.setAttribute("collaborators",collaborators)
