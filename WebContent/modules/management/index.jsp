@@ -54,6 +54,7 @@
                                     <tr>
                                       <th></th>
                                       <th>Projet</th>
+                                      <th>Plan</th>
                                       <th>Auteur</th>
                                       <th>Date Création</th>                                                             
                                       <th>Traitement</th>
@@ -65,6 +66,7 @@
 	                                <tr id="${project.id}">
 	                                  <td><span class="number">${counter.index+1}</span></td>
 	                                  <td>${project.subject}</td>
+	                                  <td>${project.plan}</td>
 	                                  <td>${project.author}</td>
 	                                  <td><s:date name="date" format="dd/MM/yyyy" /></td>                                        
 	                                  <td><span class="label ${project.status=='in progress' ? 'label-danger' : '' } ${project.status=='finished' ? 'label-success' : '' } ${project.status=='stand by' ? 'label-info' : '' }">
