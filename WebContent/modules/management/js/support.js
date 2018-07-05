@@ -34,6 +34,10 @@ app.ready(function(){
 			$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
 		}
 		$(".badge",tr).html(+ticket.progression+"%");
+		var h3 = $("h3.unsolved");
+		h3.html($(".table").find("span.label-danger,span.label-info").length);
+		h3 = $("h3.solved");
+		h3.html($(".table").find("span.label-success").length);
 	};
 	page.details.addTicket = function(form){
 		const ticket = {};

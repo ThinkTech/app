@@ -70,6 +70,10 @@ app.ready(function(){
 			}else if(domain.status == "in progress"){
 				$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
 			}
+			var h3 = $("h3.domainUnregistered");
+			h3.html($(".table").find("span.label-danger,span.label-info").length);
+			h3 = $("h3.domainRegistered");
+			h3.html($(".table").find("span.label-success").length);
 		};
 
 		page.details.addDomain = function(order){

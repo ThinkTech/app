@@ -406,6 +406,10 @@ app.ready(function(){
 			$("span.label",tr).html("en cours").removeClass().addClass("label label-danger");
 		}
 		$(".badge",tr).html(+project.progression+"%");
+		var h3 = $("h3.active");
+		h3.html($(".table").find("span.label-danger").length);
+		h3 = $("h3.unactive");
+		h3.html($(".table").find("span.label-info").length);
 	};
 	page.details.addComment = function(form){
 		const comment = {};
