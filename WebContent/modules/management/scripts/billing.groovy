@@ -4,7 +4,7 @@ class ModuleAction extends ActionSupport {
        def connection = getConnection()
        def bills = []
        connection.eachRow("select id,fee,amount,date,status,service from bills where structure_id = ? order by date DESC",[user.structure.id], { row -> 
-          bills << new Expando(row.toRowResult())
+          bills << row.toRowResult()
        })
        def payed = connection.firstRow("select count(*) AS num from bills where status = 'finished' and structure_id = $user.structure.id").num
        def unpayed = connection.firstRow("select count(*) AS num from bills where status = 'stand by' and structure_id = $user.structure.id").num

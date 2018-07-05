@@ -4,7 +4,7 @@ class ModuleAction extends ActionSupport {
        def connection = getConnection()
        def domains = []
        connection.eachRow("select d.id,d.name,d.year,d.date,d.price,d.status,d.emailOn,d.emailActivatedOn,u.name as author from domains d, users u where d.structure_id = ? and d.user_id = u.id order by date DESC",[user.structure.id], { row -> 
-          domains << new Expando(row.toRowResult())
+          domains << row.toRowResult()
        })
        def registered = connection.firstRow("select count(*) AS num from domains where status = 'finished' and structure_id = $user.structure.id").num
        def unregistered = connection.firstRow("select count(*) AS num from domains where status != 'finished' and structure_id = $user.structure.id").num
