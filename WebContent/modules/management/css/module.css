@@ -609,6 +609,11 @@ legend {
 	margin-left : 5px;
 }
 
+.window > div .message-list > div > div i.fa-address-book {
+	color : #d9534f!important;
+	margin-left : 5px!important;
+}
+
 .window > div .message-list > div > div span {
 	background : transparent;
 	display : inline-block;
@@ -621,6 +626,7 @@ legend {
 	position : relative;
 	text-align : right;
 	font-weight : normal;
+	float: right;
 }
 
 .window > div .message-list > div > div span a i {
@@ -1225,6 +1231,7 @@ label.tree_label:before {
 	.search fieldset > span {
     	font-size : 11px;
 	}
+	.window > div .message-list > div > div i.fa-info {top: -25px;}
 	.window > div .terms {top:0px;height: 100%;width: 100%;margin-left: 0px;margin-left: -8px;}
 	.window {padding-top: 0px;}
 	.window > div {width: 100%;border-radius: 0px;height: 100%;}
@@ -1391,7 +1398,7 @@ label.tree_label:before {
 	.search-results, .search-wizard { max-height: 100%;overflow-y: auto;}
 	.window > div fieldset a {top: 0px;font-size: 11px;}
 	.window > div fieldset a.tasks {margin-left:2px;top: -3px;}
-	.window > div fieldset a.refresh {margin-left : 6px;top: -3px;}
+	.window > div fieldset a.refresh {top: -3px;}
 	.window > div h6 {font-size: 11px;}
 	.window > div ul a, .window > div ol a {font-size: 11px;}
 	.window > div input[type="submit"], .window > div input[type="button"] {font-size: 10px;width: 85px;}
