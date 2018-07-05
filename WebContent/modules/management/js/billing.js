@@ -28,5 +28,13 @@ app.ready(function(){
 		$("input[type=button]",container).click(function(event) {
 			$(".window").hide();
 		});
+		const tr = $(".table tr[id="+bill.id+"]");
+		if(bill.status == "finished"){
+			$("span.label",tr).html("termin&edot;").removeClass().addClass("label label-success");
+		}
+		var h3 = $("h3.unpayed");
+		h3.html($(".table").find("span.label-info").length);
+		h3 = $("h3.payed");
+		h3.html($(".table").find("span.label-success").length);
 	};
  });
