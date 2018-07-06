@@ -16,12 +16,9 @@ class ModuleAction extends ActionSupport {
     
 	def showServices(){
 	   def services = []
-       def service = new Expando(name : 'domainhosting',icon : 'domain-service.png')
-       services << service
-       service = new Expando(name : 'mailhosting',icon : 'mail-service.png')
-       services << service
-       service = new Expando(name : 'webdev',icon : 'webdev-service.png')
-       services << service
+       services << new Expando(name : 'domainhosting',icon : 'domain-service.png')
+       services << new Expando(name : 'mailhosting',icon : 'mail-service.png')
+       services << new Expando(name : 'webdev',icon : 'webdev-service.png')
        request.setAttribute("services",services)
        request.setAttribute("total",3)
        request.setAttribute("subscribed",3)
