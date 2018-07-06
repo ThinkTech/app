@@ -13,6 +13,7 @@ app.ready(function(){
 		    }
 		}else if(project.status == "stand by") {
 			$(".plan-edit,.priority-edit",container).show();
+			$(".startedOn",container).hide().next().hide();
 		}else{
 			$("a.refresh",container).hide();
 			$("legend a",container).hide();

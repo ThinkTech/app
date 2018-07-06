@@ -143,7 +143,8 @@
 			<span class="text-right"><i class="fa fa-product-hunt" aria-hidden="true"></i> Priorité </span> 
 			<span data-status="normal" class="status" style="display:none">normale</span>
 		    <span data-status="medium" class="status" style="display:none">moyenne</span>
-		    <span data-status="high" class="status" style="display:none">élevée</span> 
+		    <span data-status="high" class="status" style="display:none">élevée</span>
+		    <span class="text-right startedOn"><i class="fa fa-calendar" aria-hidden="true"></i> Démarré le </span> <span>{startedOn}</span> 
 			<span class="text-right"><i class="fa fa-tasks" aria-hidden="true"></i> Traitement </span> 
 			<span data-status="stand by" style="display:none"><span class="label label-info">en attente</span></span>
 			<span data-status="in progress" style="display:none"><span class="label label-danger">en cours</span></span>  

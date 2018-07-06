@@ -7,6 +7,7 @@ app.ready(function(){
 			$("a.refresh",container).hide();
 		}else if(ticket.status == "stand by"){
 			$(".priority-edit,.service-edit",container).show();
+			$(".startedOn",container).hide().next().hide();
 		}
 		if(ticket.comments && ticket.comments.length) page.details.showComments(ticket.comments);
 		$(".messages form",container).submit(function(event){
