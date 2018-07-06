@@ -4,16 +4,10 @@ class ModuleAction extends ActionSupport {
 
    def showProjects(){
        def connection = getConnection()
-       def projects = []
-       connection.eachRow("select p.id,p.subject,p.plan,p.date,p.status,p.progression,u.name as author from projects p, users u where p.user_id = u.id and p.structure_id = ? order by p.date DESC", [user.structure.id], { row -> 
-         projects << row.toRowResult()
-       })
+       def projects = connection.rows("select p.id,p.subject,p.plan,p.date,p.status,p.progression,u.name as author from projects p, users u where p.user_id = u.id and p.structure_id = ? order by p.date DESC", [user.structure.id])
        def active = connection.firstRow("select count(*) AS num from projects where status = 'in progress' and structure_id = $user.structure.id").num
        def unactive = connection.firstRow("select count(*) AS num from projects where status = 'stand by' and structure_id = $user.structure.id").num
-       def domains = []
-       connection.eachRow("select d.id, d.name from domains d where d.status = 'finished' and not exists (select p.domain_id from projects p where d.id = p.domain_id) order by d.date DESC", [], { row -> 
-          domains << row.toRowResult()
-       })
+       def domains = connection.rows("select d.id, d.name from domains d where d.status = 'finished' and not exists (select p.domain_id from projects p where d.id = p.domain_id) order by d.date DESC", [])
        request.setAttribute("projects",projects)  
        request.setAttribute("total",projects.size())
        request.setAttribute("active",active)
