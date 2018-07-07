@@ -22,6 +22,10 @@ class ModuleAction extends ActionSupport {
 	   domain.action = domain.action ? "Transfert" : "Achat"
 	   domain.eppCode = domain.eppCode ? domain.eppCode : "&nbsp;"
 	   if(domain.registeredOn) domain.registeredOn = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(domain.registeredOn)
+	   if(domain.registeredOn && !domain.emailOn){
+	     def count = connection.firstRow("select count(*) AS count from domains where plan = 'free' and structure_id = $user.structure.id").count
+	     domain.disableFreePlan = count > 0 ? true : false;
+	   }
 	   connection.close()
 	   json([entity : domain])
 	}

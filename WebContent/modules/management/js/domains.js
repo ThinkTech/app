@@ -20,6 +20,10 @@ app.ready(function(){
 			const input = $(".businessEmail input[name=email]",container).attr("disabled","disabled");
 			input.val(domain.email+"@"+domain.name);
 		}else{
+			if(domain.disableFreePlan) {
+				$(".businessEmail input[type=radio][value=free]",container).attr("disabled","disabled");
+				$(".businessEmail input[type=radio]",container).val(["standard"]);
+			}
 			$(".businessEmail a.activate",container).click(function(){
 				const button = $(this); 
 				confirm("&ecirc;tes vous s&ucirc;r de vouloir activer cette offre email?",function(){
