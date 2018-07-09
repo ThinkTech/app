@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="theme-color" content="#3abfdd"> 
 <meta property="og:type" content="website">
-<meta name="description" content="Bienvenue sur le portail de ThinkTech"> 
+<meta name="description" content="Bienvenue sur le portail client de ThinkTech"> 
 <meta name="twitter:card" content="summary">
  <meta name="twitter:site" content="@thinktech">
  <meta name="twitter:domain" property="og:site_name" content="app.thinktech.sn">
