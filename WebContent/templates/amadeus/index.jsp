@@ -15,7 +15,7 @@
  <meta name="twitter:domain" property="og:site_name" content="app.thinktech.sn">
  <meta name="twitter:url" property="og:url" content="${baseUrl}">
  <meta name="twitter:title" property="og:title" content="ThinkTech - Portail"> 
- <meta name="twitter:description" property="og:description" content="Bienvenue sur le portail de ThinkTech"> 
+ <meta name="twitter:description" property="og:description" content="Bienvenue sur le portail client de ThinkTech"> 
  <meta name="twitter:image" property="og:image" content="${baseUrl}/images/banner.jpeg">
 <style type="text/css">
  <%@include file="/css/metamorphosis.css"%>
