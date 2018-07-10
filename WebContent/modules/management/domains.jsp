@@ -209,6 +209,7 @@
 			    </div>
 			    <a class="activate">Activer</a>
 			     <div>
+			      <span class="info info-config">votre business email est en instance de configuration.</span>
 			      <span class="info info-success">la configuration de votre business email est maintenant terminée.</span>
 			    </div> 
 		    </fieldset>

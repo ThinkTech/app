@@ -22,6 +22,8 @@ app.ready(function(){
 			input.val(domain.email+"@"+domain.name);
 			if(domain.emailActivatedOn){
 				$(".businessEmail .info-success",container).show();
+			}else{
+				$(".businessEmail .info-config",container).show();
 			}
 		}else{
 			if(domain.disableFreePlan) {
@@ -56,7 +58,8 @@ app.ready(function(){
 						 button.hide();
 						 const input = $(".businessEmail input[name=email]",container).attr("disabled","disabled");
 						 input.val(order.email+"@"+order.domain);
-						 alert("Votre business email est en attente de configuration");
+						 $(".businessEmail .info-config",container).show();
+						 alert("votre business email est en attente de configuration");
 					 });
 			  	 });
 			});	
