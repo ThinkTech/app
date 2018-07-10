@@ -937,7 +937,7 @@ legend a i.fa {
     width: 100px;
     text-align: center;
     margin-top: 4px;
-    margin-left: 20px;
+    margin-left: 25px;
     background: #3abfdd;
     border-radius: 0.3em;
     text-transform: uppercase;
@@ -1241,9 +1241,8 @@ label.tree_label:before {
 }
 
 @media(max-width:640px){
-	.search fieldset > span {
-    	font-size : 11px;
-	}
+	.search fieldset > span {font-size : 11px;}
+	.businessEmail a {margin-left: 20px;}
 	.window > div .message-list > div > div i.fa-info {top: -25px;}
 	.window > div .terms {top:0px;height: 100%;width: 100%;margin-left: 0px;margin-left: -8px;}
 	.window {padding-top: 0px;}
