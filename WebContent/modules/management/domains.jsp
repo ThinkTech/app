@@ -208,6 +208,9 @@
 			     <input type="hidden" name="user" value="${user.id}">
 			    </div>
 			    <a class="activate">Activer</a>
+			     <div>
+			      <span class="info info-success">la configuration de votre business email est maintenant terminée.</span>
+			    </div> 
 		    </fieldset>
 			</div>
 		</fieldset>

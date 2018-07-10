@@ -969,6 +969,18 @@ legend a i.fa {
    background : #fdffa4;
 }
 
+.businessEmail .info {
+	color : red;
+	font-size : 12.5px;
+	padding : 5px;
+	margin-top: 5px;
+    display: block;
+}
+
+.businessEmail .info-success {
+	color : green;
+}
+
 .project-wizard h2 {
 	margin-left : 10px;
 	margin-bottom : 10px;

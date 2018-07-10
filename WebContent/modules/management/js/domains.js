@@ -9,7 +9,8 @@ app.ready(function(){
 		}else{
 			$(".eppCode",container).hide();
 		}
-		$(".businessEmail",container).hide();  
+		$(".businessEmail",container).hide();
+		$(".businessEmail .info",container).hide();  
 		if(domain.status == "finished"){
 			$(".businessEmail",container).show(); 
 		}
@@ -19,6 +20,9 @@ app.ready(function(){
 			$(".businessEmail input[type=radio]",container).val([domain.plan]).attr("disabled","disabled");
 			const input = $(".businessEmail input[name=email]",container).attr("disabled","disabled");
 			input.val(domain.email+"@"+domain.name);
+			if(domain.emailActivatedOn){
+				$(".businessEmail .info-success",container).show();
+			}
 		}else{
 			if(domain.disableFreePlan) {
 				$(".businessEmail input[type=radio][value=free]",container).attr("disabled","disabled");
@@ -78,6 +82,9 @@ app.ready(function(){
 			h3.html($(".table").find("span.label-danger,span.label-info").length);
 			h3 = $("h3.domainRegistered");
 			h3.html($(".table").find("span.label-success").length);
+			if(domain.emailActivatedOn){
+				$(".table tr[id="+domain.id+"] .fa-envelope").removeClass("stand-by").addClass("success").show();
+			}
 		};
 
 		page.details.addDomain = function(order){
