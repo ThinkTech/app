@@ -89,7 +89,8 @@ class ModuleAction extends ActionSupport {
  		  def n = 15 
  		  user.password = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
  		  user.activationCode = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
-	      def params = [user.email,user.email,user.password,"collaborateur",false,structure_id]
+ 		  def name = user.email.substring(0,user.email.indexOf("@"))
+	      def params = [name,user.email,user.password,"collaborateur",false,structure_id]
           def result = connection.executeInsert 'insert into users(name,email,password,role,owner,structure_id) values (?,?,sha(?),?,?,?)', params
           def id = result[0][0]
           params = [user.activationCode,id]
