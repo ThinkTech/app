@@ -38,6 +38,10 @@ fieldset > span {
     padding : 3px;
 }
 
+.fa-check {
+  color : green;	
+}
+
 .window > div input[type=email],.window.form > div fieldset > span {
     width: 100%;
     max-width: 100%;
