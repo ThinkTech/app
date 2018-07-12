@@ -9,13 +9,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="theme-color" content="#3abfdd"> 
 <meta property="og:type" content="website">
-<meta name="description" content="Bienvenue sur le portail client de ThinkTech"> 
+<meta name="description" content="Bienvenue sur le portail client de ThinkTech. Une application d'administration compléte avec des outils pour souscrire à d'autres services, pour demander une assistance, créer de nouveaux projets, envoyer des documents, payer vos factures en ligne et plus encore."> 
 <meta name="twitter:card" content="summary">
  <meta name="twitter:site" content="@thinktech">
  <meta name="twitter:domain" property="og:site_name" content="app.thinktech.sn">
  <meta name="twitter:url" property="og:url" content="${baseUrl}">
  <meta name="twitter:title" property="og:title" content="ThinkTech - Portail"> 
- <meta name="twitter:description" property="og:description" content="Bienvenue sur le portail client de ThinkTech"> 
+ <meta name="twitter:description" property="og:description" content="Bienvenue sur le portail client de ThinkTech. Une application d'administration compléte avec des outils pour souscrire à d'autres services, pour demander une assistance, créer de nouveaux projets, envoyer des documents, payer vos factures en ligne et plus encore."> 
  <meta name="twitter:image" property="og:image" content="${baseUrl}/images/banner.jpeg">
 <style type="text/css">
  <%@include file="/css/metamorphosis.css"%>
