@@ -26,6 +26,7 @@ app.ready(function(){
 				$(".businessEmail .info-config",container).show();
 			}
 		}else{
+			$(".businessEmail .info-activation",container).show();
 			if(domain.disableFreePlan) {
 				$(".businessEmail input[type=radio][value=free]",container).attr("disabled","disabled");
 				$(".businessEmail input[type=radio]",container).val(["standard"]);
@@ -58,6 +59,7 @@ app.ready(function(){
 						 button.hide();
 						 const input = $(".businessEmail input[name=email]",container).attr("disabled","disabled");
 						 input.val(order.email+"@"+order.domain);
+						 $(".businessEmail .info",container).hide();
 						 $(".businessEmail .info-config",container).show();
 						 alert("votre business email est en attente de configuration");
 					 });
