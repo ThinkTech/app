@@ -57,7 +57,7 @@
                                       <th>Service</th>
                                       <th>Date</th>  
                                       <th>Montant</th>                                                           
-                                      <th>Paiement</th>
+                                      <th style="width:62px">Paiement</th>
                                   </tr>
                               </thead>
                               <tbody>

@@ -80,7 +80,7 @@
                                       <th>Date Création</th>  
                                       <th>Durée</th>
                                       <th>Montant</th>                                                          
-                                      <th>Enregistrement</th>
+                                      <th style="width:95px">Enregistrement</th>
                                   </tr>
                               </thead>
                               <tbody>
