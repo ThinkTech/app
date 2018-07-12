@@ -73,13 +73,12 @@ app.ready(function(){
 						$("a",li).click(function(event){
 							 showMessage($(this));
 							 return false;
-						});
-						$("a",li).on("mouseover",function(event){
+						}).on("mouseover",function(event){
 							 showMessage($(this));
-						});
-						$("a",li).on("mouseout",function(event){
+						}).on("mouseout",function(event){
 							$(".info-message").hide();
 						});
+						if(project.tasks[i].status !="finished") $(".info-message",li).next().hide();
 					}
 				}
 			});
