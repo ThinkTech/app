@@ -78,7 +78,6 @@ app.ready(function(){
 						}).on("mouseout",function(event){
 							$(".info-message").hide();
 						});
-						if(project.tasks[i].status !="finished") $(".info-message",li).next().hide();
 					}
 				}
 			});
