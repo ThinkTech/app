@@ -130,6 +130,7 @@
 					<encoding>ISO-8859-1</encoding>
 					<fileExt>
 						<fileext>jsp</fileext>
+						<fileext>html</fileext>
 					</fileExt>
 				</configuration>
 			</plugin>
