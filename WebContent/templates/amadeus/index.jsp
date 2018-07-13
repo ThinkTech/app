@@ -19,9 +19,9 @@
  <meta name="twitter:image" property="og:image" content="${baseUrl}/images/banner.jpeg">
 <style type="text/css">
  <%@include file="/css/metamorphosis.css"%>
- <%@include file="/templates/amadeus/css/font-awesome.css"%>
  <%@include file="/templates/amadeus/css/template.css"%>
 </style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" media="all">
 <link rel="icon" href="images/favicon.png" sizes="32x32">
 <link rel="manifest" href="manifest.json">
 </head>
