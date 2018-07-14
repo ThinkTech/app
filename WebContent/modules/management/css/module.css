@@ -267,10 +267,11 @@
     font-size: 14px;
     font-weight: bold;
     font-family: Tahoma;
-    margin-right: 12px;
+    margin-right: 14px;
     cursor: pointer;
     background: #3abfdd;
     color: #fff;
+    border-radius: 5px;
 }
 
 .search-wizard .buttons a:first-of-type { 
