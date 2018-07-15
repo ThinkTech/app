@@ -330,7 +330,7 @@
 	          <option value="${domain.id}">${domain.name}</option>
 	      </s:iterator>
 		</select>
-		<a class="show-domain-search"><i class="fa fa-search" aria-hidden="true"></i></a>
+		<a class="show-domain-search"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
 		<span class="text-right"><i class="fa fa-globe" aria-hidden="true"></i> Domaine </span>
 		<input name="domain" class="domain-name" type="text" placeholder="rechercher un domaine" maxlength="200">
 		<a class="domain-search"><i class="fa fa-search" aria-hidden="true"></i></a>
