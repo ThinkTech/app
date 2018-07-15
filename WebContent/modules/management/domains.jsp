@@ -65,7 +65,7 @@
 				</select>
 			</div>
 			<a  rel="nofollow" class="tld-search-button">
-			  <i class="fa fa-search" aria-hidden="true"></i>
+			  <i class="fa fa-search-plus" aria-hidden="true"></i>
 			</a>
 		 </div>
 		</div>
