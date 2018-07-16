@@ -1325,8 +1325,8 @@ label.tree_label:before {
 	.search-results {
 	  padding : 10px;
 	}
-	.search-results a {
-        margin-left: 15px;
+	.search-results select, .search-results a {
+        margin-left: 10px;
 	}
 	table > tbody > tr > td:first-of-type {
    	 	font-size: 13px;
@@ -1449,6 +1449,15 @@ label.tree_label:before {
 	.tld-domain-search .input-container input {
     	width: 110px;
 	}
+	.search-results table {
+       margin-left: -6px;
+	}
+	.search div:first-of-type {
+     background: #fdffa4;
+     text-align: center;
+     width: 103.5%;
+     margin-left: -5px;
+   }
 }
 
 /*-- pricing --*/
