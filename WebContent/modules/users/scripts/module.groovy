@@ -195,7 +195,7 @@ class ModuleAction extends ActionSupport {
 		   
 		 }
 		'''
-		def template = engine.createTemplate(text).make([user:user,url : baseUrl])
+		def template = engine.createTemplate(text).make([user:user,url : "https://app.thinktech.sn"])
 		template.toString()
 	}
 	
