@@ -1443,6 +1443,13 @@ label.tree_label:before {
 	.tld-domain-search .input-container select {
 	   font-size : 10px;
 	}
+	.window > div input[type=text], .window > div select {
+     padding-left: 0px!important;
+     text-indent : 0;
+   }
+   fieldset > span {
+    padding-left: 4px;
+   }
 }
 
 @media(max-width:320px){
