@@ -177,11 +177,8 @@ class ModuleAction extends ActionSupport {
 		      }
 		    }
 		    div(style : "width:90%;margin:auto;margin-top : 30px;margin-bottom:30px") {
-		      p("Votre mot de passe a &eacute;t&eacute; bien r&eacute;initialis&eacute;")
-		      br()
+		      p("Votre mot de passe a &eacute;t&eacute; bien r&eacute;initialis&eacute;. Vous pouvez le modifier en vous connectant &aacute; votre compte client")
 		      p("Mot de passe : <b>$user.password</b>")
-		      br()
-		      p("Vous pouvez le modifier en vous connectant &aacute; votre compte")
 		    }
 		  }
 		  
