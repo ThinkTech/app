@@ -124,4 +124,5 @@ app.ready(function(){
 			});
 	   });
 	};
+	head.load("js/tinymce/tinymce.min.js");
 });

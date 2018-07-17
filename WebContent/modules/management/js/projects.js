@@ -648,4 +648,5 @@ app.ready(function(){
 	    });
 	    
 	    localStorage.removeItem("order");
+	    head.load("js/tinymce/tinymce.min.js");
 });

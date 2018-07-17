@@ -204,4 +204,3 @@
 </div>
 </div>
 <script src="${js}/support.js" defer></script>
-<script src="js/tinymce/tinymce.min.js" defer></script> 
