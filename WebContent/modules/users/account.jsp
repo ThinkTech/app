@@ -165,4 +165,6 @@
 				   <!--//third-one-->
 			    </div>
 </div>
-<script src="${js}/account.js" defer></script>
+<script>
+ <%@include file="/modules/users/js/account.js"%>
+</script>

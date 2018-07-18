@@ -203,4 +203,6 @@
 	</div>
 </div>
 </div>
-<script src="${js}/support.js" defer></script>
+<script>
+ <%@include file="/modules/management/js/support.js"%>
+</script>

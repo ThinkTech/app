@@ -1,4 +1,4 @@
-app.ready(function(){
+document.addEventListener("DOMContentLoaded", function(event) {
 	page.details.bind = function(container,domain) {
 		page.details.updateDomainStatus(domain);
 		if(domain.status != "finished"){

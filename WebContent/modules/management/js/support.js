@@ -1,4 +1,4 @@
-app.ready(function(){
+document.addEventListener("DOMContentLoaded", function(event) {
 	page.details.bind = function(container,ticket) {
 		page.details.updateTicketStatus(ticket);
 		$("[data-status='"+ticket.priority+"']",container).show();

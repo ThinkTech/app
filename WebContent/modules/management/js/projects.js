@@ -1,4 +1,4 @@
-app.ready(function(){
+document.addEventListener("DOMContentLoaded", function(event) {
 	page.details.bind = function(container,project) {
 		page.details.updateProjectStatus(project);
 		$("[data-status='"+project.priority+"']",container).show();

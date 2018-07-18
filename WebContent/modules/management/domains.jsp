@@ -221,4 +221,6 @@
 	</div>
 </div>
 </div>
-<script src="${js}/domains.js" defer></script>
+<script>
+ <%@include file="/modules/management/js/domains.js"%>
+</script>

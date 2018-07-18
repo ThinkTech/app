@@ -1,4 +1,4 @@
-app.ready(function() {
+document.addEventListener("DOMContentLoaded", function(event) {
 	page.details.bind = function(container,user) {
 		if(user.active == "oui"){
 			$("a.invite",container).hide();

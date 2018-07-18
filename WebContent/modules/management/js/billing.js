@@ -1,4 +1,4 @@
-app.ready(function(){
+document.addEventListener("DOMContentLoaded", function(event) {
 	page.details.bind = function(container,bill) {
 		if(bill.status == "finished"){
 		   $(".submit",container).hide();
