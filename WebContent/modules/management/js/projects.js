@@ -471,7 +471,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			$("option:last",select).show().removeAttr('disabled').prop('selected', true);
 		}else{
 			$("option",select).show().removeAttr('disabled');
-			$("option:last",select).hide().attr('disabled','disabled');
 			$("option:first",select).prop('selected', true);
 		}
 	});
