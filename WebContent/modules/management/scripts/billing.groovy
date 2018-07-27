@@ -25,7 +25,7 @@ class ModuleAction extends ActionSupport {
 	   	 bill.user = user
 	   }
 	   connection.close()
-	   json([entity : bill])
+	   json(bill)
 	}
 	
 }

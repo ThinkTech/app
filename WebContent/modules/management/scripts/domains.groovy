@@ -27,7 +27,7 @@ class ModuleAction extends ActionSupport {
 	     domain.disableFreePlan = count > 0 ? true : false;
 	   }
 	   connection.close()
-	   json([entity : domain])
+	   json(domain)
 	}
 	
 }
