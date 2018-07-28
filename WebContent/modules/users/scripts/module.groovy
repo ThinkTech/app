@@ -168,7 +168,7 @@ class ModuleAction extends ActionSupport {
 		div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
 		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
 		    img(src : "https://www.thinktech.sn/images/logo.png", style : "display:block;margin : 0 auto")
-		    div(style : "margin-top:10px;padding-bottom:2%;padding-top:2%;text-align:center;background:#05d2ff") {
+		    div(style : "margin-top:10px;padding-bottom:2%;padding-top:2%;text-align:center;background:#3abfdd") {
 		      h4(style : "font-size: 120%;color: #fff;margin: 3px") {
 		        span("R&eacute;initialisation de votre mot de passe")
 		      }
@@ -181,7 +181,7 @@ class ModuleAction extends ActionSupport {
 		      p("Mot de passe : <b>$user.password</b>")
 		    }
 		    div(style : "text-align:center;margin-top:10px;margin-bottom:20px") {
-		       a(href : "$url",style : "font-size:130%;width:140px;margin:auto;margin-top:20px;text-decoration:none;background: #05d2ff;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
+		       a(href : "$url",style : "font-size:130%;width:140px;margin:auto;margin-top:20px;text-decoration:none;background: #3abfdd;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
 		         span("Connecter")
 		       }
 		     }
@@ -205,7 +205,7 @@ class ModuleAction extends ActionSupport {
 		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
 		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
 		    img(src : "https://www.thinktech.sn/images/logo.png", style : "display:block;margin : 0 auto")
-		    div(style : "margin-top:10px;padding-bottom:2%;padding-top:2%;text-align:center;background:#05d2ff") {
+		    div(style : "margin-top:10px;padding-bottom:2%;padding-top:2%;text-align:center;background:#3abfdd") {
 		      h4(style : "font-size: 120%;color: #fff;margin: 3px") {
 		        span("Demande de collaboration")
 		      }
@@ -215,7 +215,7 @@ class ModuleAction extends ActionSupport {
 		      p("votre mot de passe est : <b>$user.password</b>")
 		      p("vous pouvez le modifier en vous connectant &aacute; notre portail client")
 		       div(style : "text-align:center;margin-top:10px;margin-bottom:20px") {
-		       a(href : "$url/users/registration/confirm?activationCode=$user.activationCode",style : "font-size:130%;width:140px;margin:auto;margin-top:20px;text-decoration:none;background: #05d2ff;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
+		       a(href : "$url/users/registration/confirm?activationCode=$user.activationCode",style : "font-size:130%;width:140px;margin:auto;margin-top:20px;text-decoration:none;background: #3abfdd;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
 		         span("Accepter")
 		       }
 		     }
