@@ -110,7 +110,7 @@ class ModuleAction extends ActionSupport {
 		        span("Nouveau commentaire ajout&eacute;")
 		      }
 		    }
-		    div(style : "width:90%;margin:auto;margin-top : 30px;margin-bottom:30px") {
+		    div(style : "width:90%;margin:auto;margin-top : 20px;margin-bottom:30px") {
 		     h5(style : "font-size: 90%;color: rgb(0, 0, 0);margin-top:5px;margin-bottom: 0px") {
 		         span("Auteur : $user.name")
 		     }
