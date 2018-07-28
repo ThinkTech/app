@@ -130,7 +130,7 @@ class ModuleAction extends ActionSupport {
 	   user.active = user.activated ? "oui" : "non"
 	   user.locked = user.locked ? "oui" : "non"
 	   connection.close()
-	   json([entity : user])
+	   json(user)
 	}
 	
 	def lockAccount(){
