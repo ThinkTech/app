@@ -133,30 +133,33 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	});
 	
 	$(".window form").submit(function(event){
-		const window = $(".window.form").hide();
+		const window = $(".window.form");
 		const form = $(this);
 		const user = {};
 		user.email = form.find("input[name=email]").val().trim();
 		const url = form.attr("action");
-		page.wait({top : form.offset().top});
-		app.post(url,user,function(response){
-			if(response.id){
-				  form.find("input[type=password]").val("");
-				  user.id = response.id;
-				  page.table.addRow(user,function(row){
-					  page.release();
-					  alert("votre collaborateur a &edot;t&edot; bien ajout&edot;");
-					  $("a",row).click(function(event){
-							page.details.removeCollaborator($(this).attr("href"));
-							return false;
+		confirm("&ecirc;tes vous s&ucirc;r de vouloir ajouter ce collaborateur?",function(){
+			window.hide();
+			page.wait({top : form.offset().top});
+			app.post(url,user,function(response){
+				if(response.id){
+					  form.find("input[type=password]").val("");
+					  user.id = response.id;
+					  page.table.addRow(user,function(row){
+						  page.release();
+						  alert("votre collaborateur a &edot;t&edot; bien ajout&edot;");
+						  $("a",row).click(function(event){
+								page.details.removeCollaborator($(this).attr("href"));
+								return false;
+						  });
 					  });
-				  });
-			  }else{
-				  alert("cet email est d&edot;ja utilis&edot; par un autre utilisateur",function(){
-					  window.show();
-					  form.find("input[name=email]").select().focus();
-				  });
-			  }
+				  }else{
+					  alert("cet email est d&edot;ja utilis&edot; par un autre utilisateur",function(){
+						  window.show();
+						  form.find("input[name=email]").select().focus();
+					  });
+				  }
+			});	
 		});
 		return false;
 	});
