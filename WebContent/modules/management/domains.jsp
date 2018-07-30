@@ -206,8 +206,9 @@
 			    <div>
 			     <i class="fa fa-user" aria-hidden="true"></i> <input type="text" placeholder="super administrateur" name="email" value="${email}" maxlength="200"/>
 			     <input type="hidden" name="user" value="${user.id}">
+			      <a class="activate">Activer</a>
+			      <a class="domain-manage" href="https://mailadmin.zoho.com/cpanel/index.do" target="_blank">Manage</a>
 			    </div>
-			    <a class="activate">Activer</a>
 			     <div>
 			      <span class="info info-activation">vous pouvez activer notre offre business email pour ce domaine en choissisant un de nos plans.</span>
 			      <span class="info info-config">votre business email est en instance de configuration.</span>

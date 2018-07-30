@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		if(domain.status == "finished"){
 			$(".businessEmail",container).show(); 
 		}
+		$(".businessEmail .domain-manage",container).hide();
 		if(domain.emailOn){
 			$(".businessEmail",container).show();
 			$(".businessEmail a.activate",container).hide();
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			input.val(domain.email+"@"+domain.name);
 			if(domain.emailActivatedOn){
 				$(".businessEmail .info-success",container).show();
+				$(".businessEmail .domain-manage",container).show();
 			}else{
 				$(".businessEmail .info-config",container).show();
 			}
