@@ -912,16 +912,18 @@ legend a i.fa {
     width: 250px!important;
     margin: 3px;
     margin-left: 10px;
-    margin-top: 10px;
+    position : relative;
+    top: -2px;
     display: inline-block;
     font-size: 13px;
     vertical-align: top!important;
 }
 
 .businessEmail .fa-user {
-	position : relative;
-	left : 10px;
-	top : 2px;
+	position: relative;
+    left: 10px;
+    top: 5px;
+    vertical-align: super;
 }
 
 
@@ -934,7 +936,8 @@ legend a i.fa {
     padding: 7px;
     width: 100px;
     text-align: center;
-    margin-top: 4px;
+    position: relative;
+    top: -3px;
     margin-left: 10px;
     background: #3abfdd;
     border-radius: 0.3em;
