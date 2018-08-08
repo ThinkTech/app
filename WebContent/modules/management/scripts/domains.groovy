@@ -26,7 +26,11 @@ class ModuleAction extends ActionSupport {
 	     def count = connection.firstRow("select count(*) AS count from domains where plan = 'free' and structure_id = $user.structure.id").count
 	     domain.disableFreePlan = count > 0 ? true : false
 	     count = connection.firstRow("select count(*) AS count from domains where plan != 'free' and emailActivatedOn != null and structure_id = $user.structure.id").count
-	     domain.enableEmail = count > 0 ? true : false
+	     if(!domain.disableFreePlan){
+	       domain.enableEmail = true  
+	     }else{
+	       domain.enableEmail = count > 0 ? true : false  
+	     }
 	   }
 	   connection.close()
 	   json(domain)
