@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		}
 		$(".businessEmail",container).hide();
 		$(".businessEmail .info",container).hide();  
-		if(domain.status == "finished"){
+		if(domain.status == "finished" && domain.enableEmail){
 			$(".businessEmail",container).show(); 
 		}
 		$(".businessEmail .domain-manage",container).hide();
