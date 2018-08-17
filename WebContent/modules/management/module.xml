@@ -2,7 +2,7 @@
   <name>dashboard</name>
   <url>dashboard</url>
   <type>back-end</type>
-  <actions>
+  <actions>  
     <action url="projects" page="projects" method="showProjects" script="projects.groovy"/>
     <action url="projects/info"  method="getProjectInfo" script="projects.groovy"/>
     <action url="projects/documents/save"  method="saveDocuments" script="projects.groovy"/>
@@ -19,7 +19,6 @@
     <action url="billing/info"  method="getBillInfo" script="billing.groovy"/>
     <action url="services" page="services" method="showServices"/>
   </actions>
-  
   <menus>
 	<menu name="main">
 		<menuItem label="Dashboard" icon="television"/>
@@ -30,6 +29,4 @@
 		<menuItem label="Nos Services" url="services" icon="cog"/>
 	</menu>
   </menus>
-  
-  
 </module>
