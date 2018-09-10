@@ -3,14 +3,12 @@ class ModuleAction extends ActionSupport {
    def showDomains(){
        def connection = getConnection()
        def domains = connection.rows("select d.id,d.name,d.year,d.date,d.price,d.status,d.emailOn,d.emailActivatedOn,u.name as author from domains d, users u where d.structure_id = ? and d.user_id = u.id order by date DESC",[user.structure.id])
-       def registered = connection.firstRow("select count(*) AS num from domains where status = 'finished' and structure_id = $user.structure.id").num
-       def unregistered = connection.firstRow("select count(*) AS num from domains where status != 'finished' and structure_id = $user.structure.id").num
-       connection.close() 
        request.setAttribute("domains",domains)  
        request.setAttribute("total",domains.size())
-       request.setAttribute("registered",registered)
-       request.setAttribute("unregistered",unregistered)
+       request.setAttribute("registered",connection.firstRow("select count(*) AS num from domains where status = 'finished' and structure_id = $user.structure.id").num)
+       request.setAttribute("unregistered",connection.firstRow("select count(*) AS num from domains where status != 'finished' and structure_id = $user.structure.id").num)
        request.setAttribute("email",user.email.substring(0,user.email.indexOf("@")))
+       connection.close()
        SUCCESS
     }
     

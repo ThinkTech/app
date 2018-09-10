@@ -3,13 +3,11 @@ class ModuleAction extends ActionSupport {
    def showBills(){
        def connection = getConnection()
        def bills = connection.rows("select id,fee,amount,date,status,service from bills where structure_id = ? order by date DESC",[user.structure.id])
-       def payed = connection.firstRow("select count(*) AS num from bills where status = 'finished' and structure_id = $user.structure.id").num
-       def unpayed = connection.firstRow("select count(*) AS num from bills where status = 'stand by' and structure_id = $user.structure.id").num
-       connection.close() 
        request.setAttribute("bills",bills)  
        request.setAttribute("total",bills.size())
-       request.setAttribute("payed",payed)
-       request.setAttribute("unpayed",unpayed)
+       request.setAttribute("payed",connection.firstRow("select count(*) AS num from bills where status = 'finished' and structure_id = $user.structure.id").num)
+       request.setAttribute("unpayed",connection.firstRow("select count(*) AS num from bills where status = 'stand by' and structure_id = $user.structure.id").num)
+       connection.close()
        SUCCESS
     }
     
