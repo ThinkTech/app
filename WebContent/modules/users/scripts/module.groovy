@@ -14,13 +14,18 @@ class ModuleAction extends ActionSupport {
 	def login() {
 	   def info = parse(request) 
 	   def connection = getConnection()
-	   def user = connection.firstRow("select u.* from users u, accounts a where u.email = ? and u.password = sha(?) and u.type = 'customer' and a.activated = true and a.locked = false and a.user_id = u.id", [info.email,info.password])
+	   def user = connection.firstRow("select u.*, a.activated from users u, accounts a where u.email = ? and u.password = sha(?) and u.type = 'customer' and a.locked = false and a.user_id = u.id", [info.email,info.password])
 	   if(user) {
 	    user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
-        session.setAttribute("user",user)
-	   	json([url: request.contextPath+"/dashboard"])
+        if(user.activated){
+           session.setAttribute("user",user)
+          json([url: request.contextPath+"/dashboard"])   
+        }
+	   	else {
+	   	 json([status : 1])
+	   	}
 	   }else{
-	    json([status : 1])
+	    json([status : 0])
 	   }
 	   connection.close()
 	}
