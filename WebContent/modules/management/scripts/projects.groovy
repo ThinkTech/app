@@ -63,7 +63,7 @@ class ModuleAction extends ActionSupport {
 	   def params = [comment.message,comment.project,user.id]
        connection.executeInsert 'insert into projects_comments(message,project_id,createdBy) values (?,?,?)', params
        def subject = connection.firstRow("select subject from projects  where id = ?", [comment.project]).subject
-       sendMail("ThinkTech Support","support@thinktech.sn","Projet : ${subject}",getCommentTemplate(user,comment))
+       sendSupportMail("Projet : ${subject}",getCommentTemplate(user,comment))
 	   connection.close()
 	   json([status: 1])
 	}
