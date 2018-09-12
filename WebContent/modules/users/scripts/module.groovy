@@ -3,9 +3,8 @@ class ModuleAction extends ActionSupport {
     def String execute(){
        if(user){
          def connection = getConnection()
-         def collaborators = connection.rows("select u.id, u.name,a.activated as active,a.locked from users u, accounts a where u.structure_id = ? and u.owner = false and a.user_id = u.id", [user.structure.id])
+         request.setAttribute("collaborators",connection.rows("select u.id, u.name,a.activated as active,a.locked from users u, accounts a where u.structure_id = ? and u.owner = false and a.user_id = u.id", [user.structure.id]))
          connection.close()
-         request.setAttribute("collaborators",collaborators)
          SUCCESS
        }else{
          ERROR
