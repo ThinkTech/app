@@ -57,7 +57,6 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def getTicketTemplate(user,ticket) {
-		MarkupTemplateEngine engine = new MarkupTemplateEngine()
 		def text = '''\
 		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
 		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
@@ -75,7 +74,6 @@ class ModuleAction extends ActionSupport {
 		         span("Structure : $user.structure.name")
 		     }
 		     p("$ticket.message")
-
 		    }
 		    div(style : "text-align:center;margin-top:30px;margin-bottom:10px") {
 			    a(href : "$url/dashboard/support",style : "font-size:130%;width:140px;margin:auto;text-decoration:none;background: #05d2ff;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
@@ -86,12 +84,12 @@ class ModuleAction extends ActionSupport {
 		  
 		 }
 		'''
+		MarkupTemplateEngine engine = new MarkupTemplateEngine()
 		def template = engine.createTemplate(text).make([ticket:ticket,user:user,url : "https://thinktech-crm.herokuapp.com"])
 		template.toString()
 	}
 	
 	def getCommentTemplate(user,comment) {
-		MarkupTemplateEngine engine = new MarkupTemplateEngine()
 		def text = '''\
 		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
 		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
@@ -109,7 +107,6 @@ class ModuleAction extends ActionSupport {
 		         span("Structure : $user.structure.name")
 		     }
 		     p("$comment.message")
-
 		    }
 		    div(style : "text-align:center;margin-top:30px;margin-bottom:10px") {
 			    a(href : "$url/dashboard/support",style : "font-size:130%;width:140px;margin:auto;text-decoration:none;background: #05d2ff;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
@@ -120,6 +117,7 @@ class ModuleAction extends ActionSupport {
 		  
 		 }
 		'''
+		MarkupTemplateEngine engine = new MarkupTemplateEngine()
 		def template = engine.createTemplate(text).make([comment:comment,user:user,url : "https://thinktech-crm.herokuapp.com"])
 		template.toString()
 	}
