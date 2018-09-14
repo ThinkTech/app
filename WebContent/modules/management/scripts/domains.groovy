@@ -12,7 +12,7 @@ class ModuleAction extends ActionSupport {
        SUCCESS
     }
     
-    def getDomainInfo() {
+    def getDomainInfo(){
 	   def id = getParameter("id")
 	   def connection = getConnection()
 	   def domain = connection.firstRow("select d.*,u.name as author from domains d, users u where d.id = ? and d.user_id = u.id", [id])

@@ -11,7 +11,7 @@ class ModuleAction extends ActionSupport {
        SUCCESS
     }
 	
-	def createTicket() {
+	def createTicket(){
 	   def ticket = parse(request) 
 	   def connection = getConnection()
 	   def params = [ticket.subject,ticket.service,ticket.message,ticket.priority,user.id,user.structure.id]
@@ -21,7 +21,7 @@ class ModuleAction extends ActionSupport {
 	   connection.close()
 	}
 	
-	def getTicketInfo() {
+	def getTicketInfo(){
 	   def id = getParameter("id")
 	   def connection = getConnection()
 	   def ticket = connection.firstRow("select t.*, u.name from tickets t,users u where t.id = ? and t.user_id = u.id", [id])
@@ -29,7 +29,7 @@ class ModuleAction extends ActionSupport {
 	   if(ticket.status == "in progress" || ticket.status == "finished"){
 	     	ticket.startedOn = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(ticket.startedOn)                                                      
 	   }
-	   if(ticket.closedOn) {
+	   if(ticket.closedOn){
 	   	ticket.closedOn = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(ticket.closedOn)
 	   	def user = connection.firstRow("select u.name from users u, tickets t where u.id = t.closedBy and t.id = ?", [id])
 	    ticket.closedBy = user.name
@@ -45,7 +45,7 @@ class ModuleAction extends ActionSupport {
 	   json(ticket)
 	}
 	
-	def addTicketComment() {
+	def addTicketComment(){
 	   def comment = parse(request)
 	   def connection = getConnection()
 	   def params = [comment.message,comment.ticket,user.id]
@@ -56,7 +56,7 @@ class ModuleAction extends ActionSupport {
 	   json([status: 1])
 	}
 	
-	def getTicketTemplate(user,ticket) {
+	def getTicketTemplate(user,ticket){
 		def text = '''\
 		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
 		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
@@ -89,7 +89,7 @@ class ModuleAction extends ActionSupport {
 		template.toString()
 	}
 	
-	def getCommentTemplate(user,comment) {
+	def getCommentTemplate(user,comment){
 		def text = '''\
 		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
 		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
