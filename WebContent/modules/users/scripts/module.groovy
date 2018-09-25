@@ -19,7 +19,7 @@ class ModuleAction extends ActionSupport {
 	    user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
         if(user.activated){
            session.setAttribute("user",user)
-          json([url: request.contextPath+"/dashboard"])   
+           json([url: request.contextPath+"/"+moduleManager.getMainModule("back-end").url])   
         }
 	   	else {
 	   	 json([status : 1])

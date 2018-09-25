@@ -2,6 +2,7 @@
   <name>dashboard</name>
   <url>dashboard</url>
   <type>back-end</type>
+  <main>true</main>
   <actions>  
     <action url="projects" page="projects" method="showProjects" script="projects.groovy"/>
     <action url="projects/info"  method="getProjectInfo" script="projects.groovy"/>
