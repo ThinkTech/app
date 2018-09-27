@@ -19,9 +19,7 @@ public class ActionSupport extends org.metamorphosis.core.ActionSupport {
 	
 	@SuppressWarnings("rawtypes")
 	public String parseTemplate(String template, Map map) throws Exception {
-		MarkupTemplateEngine engine = new MarkupTemplateEngine();
-		Writable writable = engine.createTemplate(readFile("templates/"+template)).make(map);
-		return writable.toString();
+		return new MarkupTemplateEngine().createTemplate(readFile("templates/"+template+".groovy")).make(map).toString();
 	}
 
 }
