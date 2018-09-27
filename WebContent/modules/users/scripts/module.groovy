@@ -49,7 +49,7 @@ class ModuleAction extends ActionSupport {
         user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
 	   	connection.executeUpdate 'update users set password = sha(?) where email = ?', [user.password,user.email]
 	   	connection.close()
-	   	sendMail(user.name,user.email,"Changement de votre mot de passe",getPasswordTemplate(user))
+	   	sendMail(user.name,user.email,"Changement de votre mot de passe",parseTemplate("password.groovy",[user:user,url : "https://app.thinktech.sn"]))
 	   	json([status: 1])
 	   }else {
 	   	json([status: 0])
@@ -99,7 +99,7 @@ class ModuleAction extends ActionSupport {
           def id = result[0][0]
           params = [user.activationCode,id]
        	  connection.executeInsert 'insert into accounts(activation_code,user_id) values (?, ?)', params
-	      sendMail(user.email,user.email,"Veuillez confirmer cette demande de collaboration",getCollaborationTemplate(user))
+	      sendMail(user.email,user.email,"Veuillez confirmer cette demande de collaboration",parseTemplate("collaboration.groovy",[user:user,url : "https://app.thinktech.sn",author : session.getAttribute("user")]))
 	   	  json([id : id])
  	   }
  	   connection.close()
@@ -114,7 +114,7 @@ class ModuleAction extends ActionSupport {
  		def params = [user.activationCode,user.id]
        	connection.executeUpdate 'update accounts set activated = false,activation_code = ? where user_id = ?', params 
  		connection.close() 
-	    sendMail(user.email,user.email,"Veuillez confirmer cette demande de collaboration",getCollaborationTemplate(user))
+	    sendMail(user.email,user.email,"Veuillez confirmer cette demande de collaboration",parseTemplate("collaboration.groovy",[user:user,url : "https://app.thinktech.sn",author : session.getAttribute("user")]))
 	   	json([status : 1])
 	}
 	
@@ -166,69 +166,4 @@ class ModuleAction extends ActionSupport {
     	response.sendRedirect(request.contextPath+"/")
     }
     
-	def getPasswordTemplate(user) {
-	    def text = '''\
-		div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
-		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
-		    img(src : "https://www.thinktech.sn/images/logo.png", style : "display:block;margin : 0 auto")
-		    div(style : "margin-top:10px;padding-bottom:2%;padding-top:2%;text-align:center;background:#3abfdd") {
-		      h4(style : "font-size: 120%;color: #fff;margin: 3px") {
-		        span("R&eacute;initialisation de votre mot de passe")
-		      }
-		      p(style : "font-size:150%;color:#fff"){
-		         span("r&eacute;initialisation reussie")
-		      }
-		    }
-		    div(style : "width:90%;margin:auto;margin-top : 30px;margin-bottom:30px") {
-		      p("Votre mot de passe a &eacute;t&eacute; bien r&eacute;initialis&eacute; et vous pourrez le modifier en vous connectant &aacute; votre compte client")
-		      p("Mot de passe : <b>$user.password</b>")
-		    }
-		    div(style : "text-align:center;margin-top:10px;margin-bottom:20px") {
-		       a(href : "$url",style : "font-size:130%;width:140px;margin:auto;margin-top:20px;text-decoration:none;background: #3abfdd;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
-		         span("Connecter")
-		       }
-		     }
-		  }
-		  div(style :"margin: 10px;margin-top:10px;font-size : 11px;text-align:center") {
-		      p("Vous recevez cet email parce que vous (ou quelqu\'un utilisant cet email)")
-		      p("a envoy&eacute; une demande de modification de mot de passe en utilisant cette adresse")
-		  }
-		 }
-		'''
-		MarkupTemplateEngine engine = new MarkupTemplateEngine()
-		def template = engine.createTemplate(text).make([user:user,url : "https://app.thinktech.sn"])
-		template.toString()
-	}
-	
-	def getCollaborationTemplate(user) {
-		def text = '''\
-		 div(style : "font-family:Tahoma;background:#fafafa;padding-bottom:16px;padding-top: 25px"){
-		 div(style : "padding-bottom:12px;margin-left:auto;margin-right:auto;width:80%;background:#fff") {
-		    img(src : "https://www.thinktech.sn/images/logo.png", style : "display:block;margin : 0 auto")
-		    div(style : "margin-top:10px;padding-bottom:2%;padding-top:2%;text-align:center;background:#3abfdd") {
-		      h4(style : "font-size: 120%;color: #fff;margin: 3px") {
-		        span("Demande de collaboration")
-		      }
-		    }
-		    div(style : "width:90%;margin:auto;margin-top : 30px;margin-bottom:30px") {
-		      p("$author.name souhaite vous ajouter &agrave; la liste de ses collaborateurs. cliquez sur le bouton en bas pour accepter cette demande.")
-		      p("votre mot de passe est : <b>$user.password</b>")
-		      p("vous pouvez le modifier en vous connectant &aacute; notre portail client")
-		       div(style : "text-align:center;margin-top:10px;margin-bottom:20px") {
-		       a(href : "$url/users/registration/confirm?activationCode=$user.activationCode",style : "font-size:130%;width:140px;margin:auto;margin-top:20px;text-decoration:none;background: #3abfdd;display:block;padding:10px;border-radius:2px;border:1px solid #eee;color:#fff;") {
-		         span("Accepter")
-		       }
-		     }
-		    }
-		  }
-		  div(style :"margin: 10px;margin-top:10px;font-size : 11px;text-align:center") {
-		      p("Vous recevez cet email parce que $author.name ")
-		      p("a envoy&eacute; une demande de collaboration en utilisant cette adresse")
-		  }
-		 }
-		'''
-		MarkupTemplateEngine engine = new MarkupTemplateEngine()
-		def template = engine.createTemplate(text).make([user:user,url : "https://app.thinktech.sn",author : session.getAttribute("user")])
-		template.toString()
-	}
 }
