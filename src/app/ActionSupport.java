@@ -2,7 +2,6 @@ package app;
 
 import java.util.Map;
 import javax.sql.DataSource;
-import groovy.lang.Writable;
 import groovy.sql.Sql;
 import groovy.text.markup.MarkupTemplateEngine;
 
