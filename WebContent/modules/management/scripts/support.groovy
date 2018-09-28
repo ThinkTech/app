@@ -16,7 +16,7 @@ class ModuleAction extends ActionSupport {
 	   def connection = getConnection()
 	   def params = [ticket.subject,ticket.service,ticket.message,ticket.priority,user.id,user.structure.id]
        def result = connection.executeInsert 'insert into tickets(subject,service,message,priority,user_id,structure_id) values (?, ?, ?, ?,?,?)', params
-	   sendSupportMail("Nouveau Ticket : ${ticket.subject}",parseTemplate("ticket",[ticket:ticket,user:user,url : "https://thinktech-crm.herokuapp.com"]))
+	   sendSupportMail("Nouveau Ticket : ${ticket.subject}",parseTemplate("ticket",[ticket:ticket,user:user,url : crmURL]))
 	   json([id: result[0][0]])
 	   connection.close()
 	}
@@ -51,7 +51,7 @@ class ModuleAction extends ActionSupport {
 	   def params = [comment.message,comment.ticket,user.id]
        connection.executeInsert 'insert into tickets_comments(message,ticket_id,createdBy) values (?,?,?)', params
        def subject = connection.firstRow("select subject from tickets  where id = ?", [comment.ticket]).subject
-       sendSupportMail("Ticket : ${subject}",parseTemplate("ticket_comment",[comment:comment,user:user,url : "https://thinktech-crm.herokuapp.com"]))
+       sendSupportMail("Ticket : ${subject}",parseTemplate("ticket_comment",[comment:comment,user:user,url:crmURL]))
 	   connection.close()
 	   json([status: 1])
 	}
