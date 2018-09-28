@@ -22,7 +22,7 @@ public class ActionSupport extends org.metamorphosis.core.ActionSupport {
 	}
 	
 	public String getAppURL() {
-		return "https://app.thinktech.sn";
+		return getBaseUrl();
 	}
 	
 	public String getCrmURL() {
