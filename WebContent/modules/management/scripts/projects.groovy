@@ -80,12 +80,12 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def downloadDocument(){
-	   def dir = "structure_"+user.structure.id+"/"+"project_"+getParameter("project_id")
+	   def folder = "structure_"+user.structure.id+"/"+"project_"+getParameter("project_id")
 	   def name = getParameter("name")
 	   response.contentType = context.getMimeType(name)
 	   response.addHeader("Content-disposition","attachment; filename=$name")
 	   def fileManager = new FileManager()
-	   fileManager.download(dir+"/"+name,response.outputStream)
+	   fileManager.download(folder+"/"+name,response.outputStream)
 	}
 	
 	def updateProjectDescription(){
