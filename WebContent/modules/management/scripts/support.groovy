@@ -14,7 +14,7 @@ class ModuleAction extends ActionSupport {
 	   def ticket = parse(request) 
 	   def params = [ticket.subject,ticket.service,ticket.message,ticket.priority,user.id,user.structure.id]
        def result = connection.executeInsert 'insert into tickets(subject,service,message,priority,user_id,structure_id) values (?, ?, ?, ?,?,?)', params
-	   sendSupportMail("Nouveau Ticket : ${ticket.subject}",parseTemplate("ticket",[ticket:ticket,user:user,url : crmURL]))
+	   sendSupportMail("Nouveau Ticket : ${ticket.subject}",parseTemplate("ticket",[ticket:ticket,user:user,url:crmURL]))
 	   json([id: result[0][0]])
 	   connection.close()
 	}
