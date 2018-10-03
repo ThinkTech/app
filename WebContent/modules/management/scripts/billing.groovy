@@ -1,7 +1,6 @@
 class ModuleAction extends ActionSupport {
 
    def showBills(){
-       def connection = getConnection()
        def bills = connection.rows("select id,fee,amount,date,status,service from bills where structure_id = ? order by date DESC",[user.structure.id])
        request.setAttribute("bills",bills)  
        request.setAttribute("total",bills.size())
@@ -13,7 +12,6 @@ class ModuleAction extends ActionSupport {
     
     def getBillInfo(){
 	   def id = getParameter("id")
-	   def connection = getConnection()
 	   def bill = connection.firstRow("select * from bills where id = ?", [id])
 	   bill.date = new SimpleDateFormat("dd/MM/yyyy").format(bill.date)
 	   if(bill.paidOn) {

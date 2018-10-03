@@ -3,7 +3,6 @@ import static org.apache.commons.io.FileUtils.byteCountToDisplaySize as byteCoun
 class ModuleAction extends ActionSupport {
 
    def showProjects(){
-       def connection = getConnection()
        def projects = connection.rows("select p.id,p.subject,p.plan,p.date,p.status,p.progression,u.name as author from projects p, users u where p.user_id = u.id and p.structure_id = ? order by p.date DESC", [user.structure.id])
        request.setAttribute("projects",projects)  
        request.setAttribute("total",projects.size())
@@ -16,7 +15,6 @@ class ModuleAction extends ActionSupport {
 	
    def getProjectInfo(){
 	   def id = getParameter("id")
-	   def connection = getConnection()
 	   def project = connection.firstRow("select p.*,u.name,d.name as domain from projects p,users u, domains d where p.id = ? and p.user_id = u.id and p.domain_id = d.id", [id])
 	   if(project.status == 'finished'){
 	      project.startedOn = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(project.startedOn)
@@ -59,7 +57,6 @@ class ModuleAction extends ActionSupport {
 	
 	def addComment(){
 	   def comment = parse(request) 
-	   def connection = getConnection()
 	   def params = [comment.message,comment.project,user.id]
        connection.executeInsert 'insert into projects_comments(message,project_id,createdBy) values (?,?,?)', params
        def subject = connection.firstRow("select subject from projects  where id = ?", [comment.project]).subject
@@ -70,7 +67,6 @@ class ModuleAction extends ActionSupport {
 	
 	def saveDocuments(){
 	   def upload = parse(request) 
-	   def connection = getConnection()
 	   def query = 'insert into documents(name,size,project_id,createdBy) values (?,?,?,?)'
        connection.withBatch(query){ ps ->
           for(def document : upload.documents) ps.addBatch(document.name,document.size,upload.id,user.id)
@@ -90,7 +86,6 @@ class ModuleAction extends ActionSupport {
 	
 	def updateProjectDescription(){
 	   def project = parse(request)
-	   def connection = getConnection()
 	   connection.executeUpdate "update projects set description = ? where id = ?", [project.description,project.id] 
 	   connection.close()
 	   json([status: 1])

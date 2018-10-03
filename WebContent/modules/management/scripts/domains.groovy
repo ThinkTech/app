@@ -1,7 +1,6 @@
 class ModuleAction extends ActionSupport {
 
    def showDomains(){
-       def connection = getConnection()
        def domains = connection.rows("select d.id,d.name,d.year,d.date,d.price,d.status,d.emailOn,d.emailActivatedOn,u.name as author from domains d, users u where d.structure_id = ? and d.user_id = u.id order by date DESC",[user.structure.id])
        request.setAttribute("domains",domains)  
        request.setAttribute("total",domains.size())
@@ -14,7 +13,6 @@ class ModuleAction extends ActionSupport {
     
     def getDomainInfo(){
 	   def id = getParameter("id")
-	   def connection = getConnection()
 	   def domain = connection.firstRow("select d.*,u.name as author from domains d, users u where d.id = ? and d.user_id = u.id", [id])
 	   domain.date = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(domain.date)
 	   domain.action = domain.action ? "Transfert" : "Achat"

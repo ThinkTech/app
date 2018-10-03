@@ -1,7 +1,6 @@
 class ModuleAction extends ActionSupport {
 	
 	def showTickets(){
-       def connection = getConnection()
        def tickets = connection.rows("select t.id,t.subject,t.message,t.date,t.service,t.status,t.progression, u.name as author from tickets t, users u where t.user_id = u.id and t.structure_id = ? order by t.date DESC", [user.structure.id])
        request.setAttribute("tickets",tickets)  
        request.setAttribute("total",tickets.size())
@@ -13,7 +12,6 @@ class ModuleAction extends ActionSupport {
 	
 	def createTicket(){
 	   def ticket = parse(request) 
-	   def connection = getConnection()
 	   def params = [ticket.subject,ticket.service,ticket.message,ticket.priority,user.id,user.structure.id]
        def result = connection.executeInsert 'insert into tickets(subject,service,message,priority,user_id,structure_id) values (?, ?, ?, ?,?,?)', params
 	   sendSupportMail("Nouveau Ticket : ${ticket.subject}",parseTemplate("ticket",[ticket:ticket,user:user,url : crmURL]))
@@ -23,7 +21,6 @@ class ModuleAction extends ActionSupport {
 	
 	def getTicketInfo(){
 	   def id = getParameter("id")
-	   def connection = getConnection()
 	   def ticket = connection.firstRow("select t.*, u.name from tickets t,users u where t.id = ? and t.user_id = u.id", [id])
 	   ticket.date = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(ticket.date)
 	   if(ticket.status == "in progress" || ticket.status == "finished"){
@@ -47,7 +44,6 @@ class ModuleAction extends ActionSupport {
 	
 	def addTicketComment(){
 	   def comment = parse(request)
-	   def connection = getConnection()
 	   def params = [comment.message,comment.ticket,user.id]
        connection.executeInsert 'insert into tickets_comments(message,ticket_id,createdBy) values (?,?,?)', params
        def subject = connection.firstRow("select subject from tickets  where id = ?", [comment.ticket]).subject
@@ -55,6 +51,5 @@ class ModuleAction extends ActionSupport {
 	   connection.close()
 	   json([status: 1])
 	}
-	
 	
 }

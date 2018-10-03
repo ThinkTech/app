@@ -1,6 +1,9 @@
 package app;
 
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
 import groovy.sql.Sql;
 import groovy.text.markup.MarkupTemplateEngine;
 
@@ -8,7 +11,13 @@ import groovy.text.markup.MarkupTemplateEngine;
 public class ActionSupport extends org.metamorphosis.core.ActionSupport {
 	
 	public Sql getConnection()  {
-		 return new Sql(getDataSource());	
+		 HttpServletRequest request = getRequest();
+		 Sql connection = (Sql) request.getAttribute("connection");
+		 if(connection == null) {
+			 connection = new Sql(getDataSource());
+			 request.setAttribute("connection",connection);
+		 }
+		 return connection;	
     }
 	
 	public void sendSupportMail(String object,String content){
