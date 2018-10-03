@@ -22,7 +22,7 @@
  <%@include file="/templates/dashboard/css/bootstrap.css"%>
  <%@include file="/css/metamorphosis.min.css"%>
  <%@include file="/templates/dashboard/css/template.css"%>
- <jsp:include page="/${css}/module.css"/>
+ <jsp:include page="${css}/module.css"/>
 </style>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" media="all">
 <link rel="icon" href="images/favicon.png" sizes="32x32">
