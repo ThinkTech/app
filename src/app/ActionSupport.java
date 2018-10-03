@@ -1,9 +1,6 @@
 package app;
 
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
 import groovy.sql.Sql;
 import groovy.text.markup.MarkupTemplateEngine;
 
