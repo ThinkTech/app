@@ -7,7 +7,6 @@ class ModuleAction extends ActionSupport {
        request.setAttribute("registered",connection.firstRow("select count(*) AS num from domains where status = 'finished' and structure_id = $user.structure.id").num)
        request.setAttribute("unregistered",connection.firstRow("select count(*) AS num from domains where status != 'finished' and structure_id = $user.structure.id").num)
        request.setAttribute("email",user.email.substring(0,user.email.indexOf("@")))
-       connection.close()
        SUCCESS
     }
     
@@ -29,7 +28,6 @@ class ModuleAction extends ActionSupport {
 	       domain.enableEmail = count > 0 ? true : false  
 	     }
 	   }
-	   connection.close()
 	   json(domain)
 	}
 	

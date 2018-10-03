@@ -2,9 +2,7 @@ class ModuleAction extends ActionSupport {
 
     def String execute(){
        if(user){
-         def connection = getConnection()
          request.setAttribute("collaborators",connection.rows("select u.id, u.name,a.activated as active,a.locked from users u, accounts a where u.structure_id = ? and u.owner = false and a.user_id = u.id", [user.structure.id]))
-         connection.close()
          SUCCESS
        }else{
          ERROR
@@ -13,7 +11,6 @@ class ModuleAction extends ActionSupport {
     
 	def login() {
 	   def info = parse(request) 
-	   def connection = getConnection()
 	   def user = connection.firstRow("select u.*, a.activated from users u, accounts a where u.email = ? and u.password = sha(?) and u.type = 'customer' and a.locked = false and a.user_id = u.id", [info.email,info.password])
 	   if(user) {
 	    user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
@@ -27,20 +24,16 @@ class ModuleAction extends ActionSupport {
 	   }else{
 	    json([status : 0])
 	   }
-	   connection.close()
 	}
 	
 	def changePassword() {
 	   def user = parse(request)
-	   def connection = getConnection()
 	   connection.executeUpdate 'update users set password = sha(?) where id = ?', [user.password,session.getAttribute("user").id] 
-	   connection.close()
 	   json([status: 1])
 	}
 	
 	def recoverPassword() {
 	   def user = parse(request)
-	   def connection = getConnection()
 	   user = connection.firstRow("select * from users where email = ?", [user.email])
 	   if(user){
 	    def alphabet = (('A'..'N')+('P'..'Z')+('a'..'k')+('m'..'z')+('2'..'9')).join()  
@@ -48,7 +41,6 @@ class ModuleAction extends ActionSupport {
  		user.password = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
         user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
 	   	connection.executeUpdate 'update users set password = sha(?) where email = ?', [user.password,user.email]
-	   	connection.close()
 	   	sendMail(user.name,user.email,"Changement de votre mot de passe",parseTemplate("password",[user:user,url:appURL]))
 	   	json([status: 1])
 	   }else {
@@ -58,7 +50,6 @@ class ModuleAction extends ActionSupport {
 	
 	def updateProfil() {
 	   def user = parse(request)
-	   def connection = getConnection()
 	   def email = session.getAttribute("user").email
 	   if(user.email != email){
 	    if(connection.firstRow("select id from users where email = ?", [user.email])){
@@ -75,13 +66,11 @@ class ModuleAction extends ActionSupport {
 	   }
 	   user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
        session.setAttribute("user",user) 
-	   connection.close() 
 	   json([status: 1])
 	}
 	
 	def addCollaborator(){
 	   def user = parse(request)
-	   def connection = getConnection()
 	   if(user.email == session.getAttribute("user").email){
 	     json([status : 0])
 	   }
@@ -102,7 +91,6 @@ class ModuleAction extends ActionSupport {
 	      sendMail(user.email,user.email,"Veuillez confirmer cette demande de collaboration",parseTemplate("collaboration",[user:user,url:appURL,author:session.getAttribute("user")]))
 	   	  json([id : id])
  	   }
- 	   connection.close()
 	}
 	
 	def inviteCollaborator(){
@@ -110,46 +98,36 @@ class ModuleAction extends ActionSupport {
 	    def alphabet = (('A'..'N')+('P'..'Z')+('a'..'k')+('m'..'z')+('2'..'9')).join()
 	    def n = 15
 	    user.activationCode = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
- 		def connection = getConnection()
  		def params = [user.activationCode,user.id]
        	connection.executeUpdate 'update accounts set activated = false,activation_code = ? where user_id = ?', params 
- 		connection.close() 
 	    sendMail(user.email,user.email,"Veuillez confirmer cette demande de collaboration",parseTemplate("collaboration",[user:user,url:appURL,author:session.getAttribute("user")]))
 	   	json([status : 1])
 	}
 	
 	def removeCollaborator(){
 	   def id = getParameter("id")
-	   def connection = getConnection()
        connection.execute 'delete from users where id = ?',[id]
        connection.execute 'delete from accounts where user_id = ?',[id]
-       connection.close() 
 	   json([id : id])
 	}
 	
 	def getCollaboratorInfo(){
 	   def id = getParameter("id")
-	   def connection = getConnection()
 	   def user = connection.firstRow("select u.*, a.activated, a.locked from users u, accounts a where u.id = ? and u.id = a.user_id", [id])
 	   user.active = user.activated ? "oui" : "non"
 	   user.locked = user.locked ? "oui" : "non"
-	   connection.close()
 	   json(user)
 	}
 	
 	def lockAccount(){
 	    def user = parse(request)
-	    def connection = getConnection()
-	    connection.executeUpdate 'update accounts set locked = true  where user_id = ?', [user.id] 
-	    connection.close()
+	    connection.executeUpdate 'update accounts set locked = true  where user_id = ?', [user.id]
 		json([status: 1])
 	}
 	
 	def unlockAccount(){
 	    def user = parse(request)
-	    def connection = getConnection()
-	    connection.executeUpdate 'update accounts set locked = false  where user_id = ?', [user.id] 
-	    connection.close()
+	    connection.executeUpdate 'update accounts set locked = false  where user_id = ?', [user.id]
 		json([status: 1])
 	}
 	
@@ -160,9 +138,7 @@ class ModuleAction extends ActionSupport {
 	
     def confirm() {
         def activationCode = getParameter("activationCode")
-        def connection = getConnection()
         connection.executeUpdate 'update accounts set activated = true, activation_code = null, activatedOn = Now() where activation_code = ?', [activationCode]
-        connection.close()
     	response.sendRedirect(request.contextPath+"/")
     }
     

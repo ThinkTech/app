@@ -9,7 +9,6 @@ class ModuleAction extends ActionSupport {
        request.setAttribute("active",connection.firstRow("select count(*) AS num from projects where status = 'in progress' and structure_id = $user.structure.id").num)
        request.setAttribute("unactive",connection.firstRow("select count(*) AS num from projects where status = 'stand by' and structure_id = $user.structure.id").num)
        request.setAttribute("domains",connection.rows("select d.id, d.name from domains d where d.status = 'finished' and d.structure_id = $user.structure.id and not exists (select p.domain_id from projects p where d.id = p.domain_id) order by d.date DESC", []))
-       connection.close() 
        SUCCESS
    }
 	
@@ -51,7 +50,6 @@ class ModuleAction extends ActionSupport {
           task.info = task.info ? task.info : "aucune information" 
           project.tasks << task
        })
-	   connection.close() 
 	   json(project)
 	}
 	
@@ -61,7 +59,6 @@ class ModuleAction extends ActionSupport {
        connection.executeInsert 'insert into projects_comments(message,project_id,createdBy) values (?,?,?)', params
        def subject = connection.firstRow("select subject from projects  where id = ?", [comment.project]).subject
        sendSupportMail("Projet : ${subject}",parseTemplate("project_comment",[comment:comment,user:user,url:crmURL]))
-	   connection.close()
 	   json([status: 1])
 	}
 	
@@ -71,7 +68,6 @@ class ModuleAction extends ActionSupport {
        connection.withBatch(query){ ps ->
           for(def document : upload.documents) ps.addBatch(document.name,document.size,upload.id,user.id)
        }
-	   connection.close()
 	   json([status: 1])
 	}
 	
@@ -87,7 +83,6 @@ class ModuleAction extends ActionSupport {
 	def updateProjectDescription(){
 	   def project = parse(request)
 	   connection.executeUpdate "update projects set description = ? where id = ?", [project.description,project.id] 
-	   connection.close()
 	   json([status: 1])
 	}
 	

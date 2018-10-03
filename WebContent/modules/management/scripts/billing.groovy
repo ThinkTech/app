@@ -6,7 +6,6 @@ class ModuleAction extends ActionSupport {
        request.setAttribute("total",bills.size())
        request.setAttribute("payed",connection.firstRow("select count(*) AS num from bills where status = 'finished' and structure_id = $user.structure.id").num)
        request.setAttribute("unpayed",connection.firstRow("select count(*) AS num from bills where status = 'stand by' and structure_id = $user.structure.id").num)
-       connection.close()
        SUCCESS
     }
     
@@ -20,7 +19,6 @@ class ModuleAction extends ActionSupport {
 	   }else{
 	   	 bill.user = user
 	   }
-	   connection.close()
 	   json(bill)
 	}
 	

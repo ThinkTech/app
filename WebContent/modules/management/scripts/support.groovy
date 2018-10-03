@@ -6,7 +6,6 @@ class ModuleAction extends ActionSupport {
        request.setAttribute("total",tickets.size())
        request.setAttribute("solved",connection.firstRow("select count(*) AS num from tickets where status = 'finished' and structure_id = $user.structure.id").num)
        request.setAttribute("unsolved",connection.firstRow("select count(*) AS num from tickets where status != 'finished' and structure_id = $user.structure.id").num)
-       connection.close()
        SUCCESS
     }
 	
@@ -16,7 +15,6 @@ class ModuleAction extends ActionSupport {
        def result = connection.executeInsert 'insert into tickets(subject,service,message,priority,user_id,structure_id) values (?, ?, ?, ?,?,?)', params
 	   sendSupportMail("Nouveau Ticket : ${ticket.subject}",parseTemplate("ticket",[ticket:ticket,user:user,url:crmURL]))
 	   json([id: result[0][0]])
-	   connection.close()
 	}
 	
 	def getTicketInfo(){
@@ -38,7 +36,6 @@ class ModuleAction extends ActionSupport {
           comment.icon = comment.type == 'customer' ? 'user' : 'address-book'
           ticket.comments << comment
        })
-	   connection.close()
 	   json(ticket)
 	}
 	
@@ -48,7 +45,6 @@ class ModuleAction extends ActionSupport {
        connection.executeInsert 'insert into tickets_comments(message,ticket_id,createdBy) values (?,?,?)', params
        def subject = connection.firstRow("select subject from tickets  where id = ?", [comment.ticket]).subject
        sendSupportMail("Ticket : ${subject}",parseTemplate("ticket_comment",[comment:comment,user:user,url:crmURL]))
-	   connection.close()
 	   json([status: 1])
 	}
 	
