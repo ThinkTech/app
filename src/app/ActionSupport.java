@@ -11,13 +11,7 @@ import groovy.text.markup.MarkupTemplateEngine;
 public class ActionSupport extends org.metamorphosis.core.ActionSupport {
 	
 	public Sql getConnection()  {
-		 HttpServletRequest request = getRequest();
-		 Sql connection = (Sql) request.getAttribute("connection");
-		 if(connection == null) {
-			 connection = new Sql(getDataSource());
-			 request.setAttribute("connection",connection);
-		 }
-		 return connection;	
+		 return (Sql) getRequest().getAttribute("connection");
     }
 	
 	public void sendSupportMail(String object,String content){
