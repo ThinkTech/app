@@ -68,7 +68,7 @@
 	                                  <td>${project.subject}</td>
 	                                  <td>${project.plan}</td>
 	                                  <td>${project.author}</td>
-	                                  <td><s:date name="date" format="dd/MM/yyyy" /></td>                                        
+	                                  <td>${project.date}</td>                                        
 	                                  <td><span class="label ${project.status=='in progress' ? 'label-danger' : '' } ${project.status=='finished' ? 'label-success' : '' } ${project.status=='stand by' ? 'label-info' : '' }">
 	                                  ${project.status=='in progress' ? 'en cours' : '' } ${project.status=='finished' ? 'terminé' : '' } ${project.status=='stand by' ? 'en attente' : '' }
 	                                  </span></td>

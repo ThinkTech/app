@@ -71,7 +71,7 @@
 	                                  <td>${ticket.subject}</td>
 	                                  <td>${ticket.service}</td>
                                       <td>${ticket.author}</td>
-                                      <td><s:date name="date" format="dd/MM/yyyy" /></td>                                       
+                                      <td>${ticket.date}</td>                                       
 	                                  <td><span class="label ${ticket.status=='in progress' ? 'label-danger' : '' } ${ticket.status=='finished' ? 'label-success' : '' } ${ticket.status=='stand by' ? 'label-info' : '' }">
 	                                  ${ticket.status=='in progress' ? 'en cours' : '' } ${ticket.status=='finished' ? 'terminé' : '' } ${ticket.status=='stand by' ? 'en attente' : '' }
 	                                  </span></td>

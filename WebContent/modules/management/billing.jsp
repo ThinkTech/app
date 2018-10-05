@@ -66,7 +66,7 @@
 	                                  <td><span class="number">${counter.index+1}</span></td>
 	                                  <td>${bill.fee}</td>
 	                                  <td>${bill.service}</td>
-                                  	  <td><s:date name="date" format="dd/MM/yyyy" /></td>
+                                  	  <td>${bill.date}</td>
                                   	  <td><span class="digit">${bill.amount}</span> CFA</td>                                        
 	                                  <td><span class="label ${bill.status=='in progress' ? 'label-danger' : '' } ${bill.status=='finished' ? 'label-success' : '' } ${bill.status=='stand by' ? 'label-info' : '' }">
 	                                  ${bill.status=='in progress' ? 'en cours' : '' } ${bill.status=='finished' ? 'terminé' : '' } ${bill.status=='stand by' ? 'en attente' : '' }

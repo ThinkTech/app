@@ -1,7 +1,7 @@
 class ModuleAction extends ActionSupport {
 	
 	def showTickets() {
-       request.tickets = connection.rows("select t.id,t.subject,t.message,t.date,t.service,t.status,t.progression, u.name as author from tickets t, users u where t.user_id = u.id and t.structure_id = ? order by t.date DESC", [user.structure.id])
+       request.tickets = connection.rows("select t.id,t.subject,t.message,date_format(t.date,'%d/%m/%Y') as date,t.service,t.status,t.progression, u.name as author from tickets t, users u where t.user_id = u.id and t.structure_id = ? order by t.date DESC", [user.structure.id])
        request.total = request.tickets.size()
        request.solved = connection.firstRow("select count(*) AS num from tickets where status = 'finished' and structure_id = $user.structure.id").num
        request.unsolved = connection.firstRow("select count(*) AS num from tickets where status != 'finished' and structure_id = $user.structure.id").num
