@@ -1,16 +1,15 @@
 class ModuleAction extends ActionSupport {
 
-   def showBills(){
-       def bills = connection.rows("select id,fee,amount,date,status,service from bills where structure_id = ? order by date DESC",[user.structure.id])
-       request.setAttribute("bills",bills)  
-       request.setAttribute("total",bills.size())
-       request.setAttribute("payed",connection.firstRow("select count(*) AS num from bills where status = 'finished' and structure_id = $user.structure.id").num)
-       request.setAttribute("unpayed",connection.firstRow("select count(*) AS num from bills where status = 'stand by' and structure_id = $user.structure.id").num)
+   def showBills() {
+       request.bills = connection.rows("select id,fee,amount,date,status,service from bills where structure_id = ? order by date DESC",[user.structure.id])
+       request.total = request.bills.size()
+       request.payed = connection.firstRow("select count(*) AS num from bills where status = 'finished' and structure_id = $user.structure.id").num
+       request.unpayed = connection.firstRow("select count(*) AS num from bills where status = 'stand by' and structure_id = $user.structure.id").num
        SUCCESS
     }
     
-    def getBillInfo(){
-	   def id = getParameter("id")
+    def getBillInfo() {
+	   def id = request.id
 	   def bill = connection.firstRow("select * from bills where id = ?", [id])
 	   bill.date = new SimpleDateFormat("dd/MM/yyyy").format(bill.date)
 	   if(bill.paidOn) {

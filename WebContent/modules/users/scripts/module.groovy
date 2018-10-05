@@ -2,7 +2,7 @@ class ModuleAction extends ActionSupport {
 
     def String execute(){
        if(user){
-         request.setAttribute("collaborators",connection.rows("select u.id, u.name,a.activated as active,a.locked from users u, accounts a where u.structure_id = ? and u.owner = false and a.user_id = u.id", [user.structure.id]))
+         request.collaborators = connection.rows("select u.id, u.name,a.activated as active,a.locked from users u, accounts a where u.structure_id = ? and u.owner = false and a.user_id = u.id", [user.structure.id])
          SUCCESS
        }else{
          ERROR
@@ -104,28 +104,27 @@ class ModuleAction extends ActionSupport {
 	   	json([status : 1])
 	}
 	
-	def removeCollaborator(){
-	   def id = getParameter("id")
+	def removeCollaborator() {
+	   def id = request.id
        connection.execute 'delete from users where id = ?',[id]
        connection.execute 'delete from accounts where user_id = ?',[id]
 	   json([id : id])
 	}
 	
-	def getCollaboratorInfo(){
-	   def id = getParameter("id")
-	   def user = connection.firstRow("select u.*, a.activated, a.locked from users u, accounts a where u.id = ? and u.id = a.user_id", [id])
+	def getCollaboratorInfo() {
+	   def user = connection.firstRow("select u.*, a.activated, a.locked from users u, accounts a where u.id = ? and u.id = a.user_id", [request.id])
 	   user.active = user.activated ? "oui" : "non"
 	   user.locked = user.locked ? "oui" : "non"
 	   json(user)
 	}
 	
-	def lockAccount(){
+	def lockAccount() {
 	    def user = parse(request)
 	    connection.executeUpdate 'update accounts set locked = true  where user_id = ?', [user.id]
 		json([status: 1])
 	}
 	
-	def unlockAccount(){
+	def unlockAccount() {
 	    def user = parse(request)
 	    connection.executeUpdate 'update accounts set locked = false  where user_id = ?', [user.id]
 		json([status: 1])
@@ -137,7 +136,7 @@ class ModuleAction extends ActionSupport {
 	}
 	
     def confirm() {
-        def activationCode = getParameter("activationCode")
+        def activationCode = request.activationCode
         connection.executeUpdate 'update accounts set activated = true, activation_code = null, activatedOn = Now() where activation_code = ?', [activationCode]
     	response.sendRedirect(request.contextPath+"/")
     }

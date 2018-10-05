@@ -2,19 +2,17 @@ import static org.apache.commons.io.FileUtils.byteCountToDisplaySize as byteCoun
 
 class ModuleAction extends ActionSupport {
 
-   def showProjects(){
-       def projects = connection.rows("select p.id,p.subject,p.plan,p.date,p.status,p.progression,u.name as author from projects p, users u where p.user_id = u.id and p.structure_id = ? order by p.date DESC", [user.structure.id])
-       request.setAttribute("projects",projects)  
-       request.setAttribute("total",projects.size())
-       request.setAttribute("active",connection.firstRow("select count(*) AS num from projects where status = 'in progress' and structure_id = $user.structure.id").num)
-       request.setAttribute("unactive",connection.firstRow("select count(*) AS num from projects where status = 'stand by' and structure_id = $user.structure.id").num)
-       request.setAttribute("domains",connection.rows("select d.id, d.name from domains d where d.status = 'finished' and d.structure_id = $user.structure.id and not exists (select p.domain_id from projects p where d.id = p.domain_id) order by d.date DESC", []))
+   def showProjects() {
+       request.projects = connection.rows("select p.id,p.subject,p.plan,p.date,p.status,p.progression,u.name as author from projects p, users u where p.user_id = u.id and p.structure_id = ? order by p.date DESC", [user.structure.id])
+       request.total = request.projects.size()
+       request.active = connection.firstRow("select count(*) AS num from projects where status = 'in progress' and structure_id = $user.structure.id").num
+       request.unactive = connection.firstRow("select count(*) AS num from projects where status = 'stand by' and structure_id = $user.structure.id").num
+       request.domains = connection.rows("select d.id, d.name from domains d where d.status = 'finished' and d.structure_id = $user.structure.id and not exists (select p.domain_id from projects p where d.id = p.domain_id) order by d.date DESC", [])
        SUCCESS
    }
 	
-   def getProjectInfo(){
-	   def id = getParameter("id")
-	   def project = connection.firstRow("select p.*,u.name,d.name as domain from projects p,users u, domains d where p.id = ? and p.user_id = u.id and p.domain_id = d.id", [id])
+   def getProjectInfo() {
+	   def project = connection.firstRow("select p.*,u.name,d.name as domain from projects p,users u, domains d where p.id = ? and p.user_id = u.id and p.domain_id = d.id", [request.id])
 	   if(project.status == 'finished'){
 	      project.startedOn = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(project.startedOn)
 	      project.end = project.closedOn
@@ -53,7 +51,7 @@ class ModuleAction extends ActionSupport {
 	   json(project)
 	}
 	
-	def addComment(){
+	def addComment() {
 	   def comment = parse(request) 
 	   def params = [comment.message,comment.project,user.id]
        connection.executeInsert 'insert into projects_comments(message,project_id,createdBy) values (?,?,?)', params
@@ -62,7 +60,7 @@ class ModuleAction extends ActionSupport {
 	   json([status: 1])
 	}
 	
-	def saveDocuments(){
+	def saveDocuments() {
 	   def upload = parse(request) 
 	   def query = 'insert into documents(name,size,project_id,createdBy) values (?,?,?,?)'
        connection.withBatch(query){ ps ->
@@ -71,16 +69,16 @@ class ModuleAction extends ActionSupport {
 	   json([status: 1])
 	}
 	
-	def downloadDocument(){
-	   def folder = "structure_"+user.structure.id+"/"+"project_"+getParameter("project_id")
-	   def name = getParameter("name")
+	def downloadDocument() {
+	   def folder = "structure_"+user.structure.id+"/"+"project_"+request.project_id
+	   def name = request.name
 	   response.contentType = context.getMimeType(name)
 	   response.addHeader("Content-disposition","attachment; filename=$name")
 	   def fileManager = new FileManager()
 	   fileManager.download(folder+"/"+name,response.outputStream)
 	}
 	
-	def updateProjectDescription(){
+	def updateProjectDescription() {
 	   def project = parse(request)
 	   connection.executeUpdate "update projects set description = ? where id = ?", [project.description,project.id] 
 	   json([status: 1])

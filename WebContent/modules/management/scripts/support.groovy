@@ -1,15 +1,14 @@
 class ModuleAction extends ActionSupport {
 	
-	def showTickets(){
-       def tickets = connection.rows("select t.id,t.subject,t.message,t.date,t.service,t.status,t.progression, u.name as author from tickets t, users u where t.user_id = u.id and t.structure_id = ? order by t.date DESC", [user.structure.id])
-       request.setAttribute("tickets",tickets)  
-       request.setAttribute("total",tickets.size())
-       request.setAttribute("solved",connection.firstRow("select count(*) AS num from tickets where status = 'finished' and structure_id = $user.structure.id").num)
-       request.setAttribute("unsolved",connection.firstRow("select count(*) AS num from tickets where status != 'finished' and structure_id = $user.structure.id").num)
+	def showTickets() {
+       request.tickets = connection.rows("select t.id,t.subject,t.message,t.date,t.service,t.status,t.progression, u.name as author from tickets t, users u where t.user_id = u.id and t.structure_id = ? order by t.date DESC", [user.structure.id])
+       request.total = request.tickets.size()
+       request.solved = connection.firstRow("select count(*) AS num from tickets where status = 'finished' and structure_id = $user.structure.id").num
+       request.unsolved = connection.firstRow("select count(*) AS num from tickets where status != 'finished' and structure_id = $user.structure.id").num
        SUCCESS
     }
 	
-	def createTicket(){
+	def createTicket() {
 	   def ticket = parse(request) 
 	   def params = [ticket.subject,ticket.service,ticket.message,ticket.priority,user.id,user.structure.id]
        def result = connection.executeInsert 'insert into tickets(subject,service,message,priority,user_id,structure_id) values (?, ?, ?, ?,?,?)', params
@@ -17,8 +16,8 @@ class ModuleAction extends ActionSupport {
 	   json([id: result[0][0]])
 	}
 	
-	def getTicketInfo(){
-	   def id = getParameter("id")
+	def getTicketInfo() {
+	   def id = request.id
 	   def ticket = connection.firstRow("select t.*, u.name from tickets t,users u where t.id = ? and t.user_id = u.id", [id])
 	   ticket.date = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss").format(ticket.date)
 	   if(ticket.status == "in progress" || ticket.status == "finished"){
@@ -39,7 +38,7 @@ class ModuleAction extends ActionSupport {
 	   json(ticket)
 	}
 	
-	def addTicketComment(){
+	def addTicketComment() {
 	   def comment = parse(request)
 	   def params = [comment.message,comment.ticket,user.id]
        connection.executeInsert 'insert into tickets_comments(message,ticket_id,createdBy) values (?,?,?)', params
