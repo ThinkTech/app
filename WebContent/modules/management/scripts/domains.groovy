@@ -1,7 +1,7 @@
 class ModuleAction extends ActionSupport {
 
    def showDomains() {
-       request.domains = connection.rows("select d.id,d.name,d.year,d.date,d.price,d.status,d.emailOn,d.emailActivatedOn,u.name as author from domains d, users u where d.structure_id = ? and d.user_id = u.id order by date DESC",[user.structure.id])
+       request.domains = connection.rows("select d.id,d.name,d.year,date_format(d.date,'%d/%m/%Y') as date,d.price,d.status,d.emailOn,d.emailActivatedOn,u.name as author from domains d, users u where d.structure_id = ? and d.user_id = u.id order by date DESC",[user.structure.id])
        request.total = request.domains.size()
        request.registered = connection.firstRow("select count(*) AS num from domains where status = 'finished' and structure_id = $user.structure.id").num
        request.unregistered = connection.firstRow("select count(*) AS num from domains where status != 'finished' and structure_id = $user.structure.id").num

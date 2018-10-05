@@ -89,7 +89,7 @@
 	                                  <td><span class="number">${counter.index+1}</span></td>
 	                                  <td>${domain.name}</td>
 	                                  <td>${domain.author}</td>
-	                                  <td><s:date name="date" format="dd/MM/yyyy" /></td>
+	                                  <td>${domain.date}</td>
 	                                  <td>${domain.year} an</td>
                                   	  <td><span class="digit">${domain.price}</span> CFA</td>                                        
 	                                  <td><span class="label ${domain.status=='in progress' ? 'label-danger' : '' } ${domain.status=='finished' ? 'label-success' : '' } ${domain.status=='stand by' ? 'label-info' : '' }">
