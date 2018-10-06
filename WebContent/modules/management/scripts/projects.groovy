@@ -52,7 +52,7 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def addComment() {
-	   def comment = parse(request) 
+	   def comment = request.body 
 	   def params = [comment.message,comment.project,user.id]
        connection.executeInsert 'insert into projects_comments(message,project_id,createdBy) values (?,?,?)', params
        def subject = connection.firstRow("select subject from projects  where id = ?", [comment.project]).subject
@@ -61,7 +61,7 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def saveDocuments() {
-	   def upload = parse(request) 
+	   def upload = request.body 
 	   def query = 'insert into documents(name,size,project_id,createdBy) values (?,?,?,?)'
        connection.withBatch(query){ ps ->
           for(def document : upload.documents) ps.addBatch(document.name,document.size,upload.id,user.id)
@@ -79,7 +79,7 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def updateProjectDescription() {
-	   def project = parse(request)
+	   def project = request.body
 	   connection.executeUpdate "update projects set description = ? where id = ?", [project.description,project.id] 
 	   json([status: 1])
 	}

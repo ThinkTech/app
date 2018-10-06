@@ -10,7 +10,7 @@ class ModuleAction extends ActionSupport {
     }
     
 	def login() {
-	   def info = parse(request) 
+	   def info = request.body
 	   def user = connection.firstRow("select u.*, a.activated from users u, accounts a where u.email = ? and u.password = sha(?) and u.type = 'customer' and a.locked = false and a.user_id = u.id", [info.email,info.password])
 	   if(user) {
 	    user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
@@ -27,13 +27,13 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def changePassword() {
-	   def user = parse(request)
+	   def user = request.body
 	   connection.executeUpdate 'update users set password = sha(?) where id = ?', [user.password,session.getAttribute("user").id] 
 	   json([status: 1])
 	}
 	
 	def recoverPassword() {
-	   def user = parse(request)
+	   def user = request.body
 	   user = connection.firstRow("select * from users where email = ?", [user.email])
 	   if(user){
 	    def alphabet = (('A'..'N')+('P'..'Z')+('a'..'k')+('m'..'z')+('2'..'9')).join()  
@@ -49,7 +49,7 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def updateProfil() {
-	   def user = parse(request)
+	   def user = request.body
 	   def email = session.getAttribute("user").email
 	   if(user.email != email){
 	    if(connection.firstRow("select id from users where email = ?", [user.email])){
@@ -70,7 +70,7 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def addCollaborator(){
-	   def user = parse(request)
+	   def user = request.body
 	   if(user.email == session.getAttribute("user").email){
 	     json([status : 0])
 	   }
@@ -94,7 +94,7 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def inviteCollaborator(){
-	    def user = parse(request)
+	    def user = request.body
 	    def alphabet = (('A'..'N')+('P'..'Z')+('a'..'k')+('m'..'z')+('2'..'9')).join()
 	    def n = 15
 	    user.activationCode = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
@@ -119,13 +119,13 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def lockAccount() {
-	    def user = parse(request)
+	    def user = request.body
 	    connection.executeUpdate 'update accounts set locked = true  where user_id = ?', [user.id]
 		json([status: 1])
 	}
 	
 	def unlockAccount() {
-	    def user = parse(request)
+	    def user = request.body
 	    connection.executeUpdate 'update accounts set locked = false  where user_id = ?', [user.id]
 		json([status: 1])
 	}

@@ -9,7 +9,7 @@ class ModuleAction extends ActionSupport {
     }
 	
 	def createTicket() {
-	   def ticket = parse(request) 
+	   def ticket = request.body 
 	   def params = [ticket.subject,ticket.service,ticket.message,ticket.priority,user.id,user.structure.id]
        def result = connection.executeInsert 'insert into tickets(subject,service,message,priority,user_id,structure_id) values (?, ?, ?, ?,?,?)', params
 	   sendSupportMail("Nouveau Ticket : ${ticket.subject}",parseTemplate("ticket",[ticket:ticket,user:user,url:crmURL]))
@@ -39,7 +39,7 @@ class ModuleAction extends ActionSupport {
 	}
 	
 	def addTicketComment() {
-	   def comment = parse(request)
+	   def comment = request.body
 	   def params = [comment.message,comment.ticket,user.id]
        connection.executeInsert 'insert into tickets_comments(message,ticket_id,createdBy) values (?,?,?)', params
        def subject = connection.firstRow("select subject from tickets  where id = ?", [comment.ticket]).subject
