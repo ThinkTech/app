@@ -1,14 +1,15 @@
 package app;
 
 import java.util.Map;
+import org.apache.struts2.ServletActionContext;
 import groovy.sql.Sql;
 import groovy.text.markup.MarkupTemplateEngine;
 
 @SuppressWarnings("serial")
 public class ActionSupport extends org.metamorphosis.core.ActionSupport {
 	
-	public Sql getConnection()  {
-		 return (Sql) getRequest().getAttribute("connection");
+	public Sql getConnection() {
+		 return (Sql) ServletActionContext.getRequest().getAttribute("connection");
     }
 	
 	public void sendSupportMail(String object,String content){
