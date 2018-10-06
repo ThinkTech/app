@@ -132,13 +132,12 @@ class ModuleAction extends ActionSupport {
 	
 	def logout() {
 	    session.invalidate()
-		response.sendRedirect(request.contextPath+"/")
+		redirect(request.contextPath+"/")
 	}
 	
     def confirm() {
-        def activationCode = request.activationCode
-        connection.executeUpdate 'update accounts set activated = true, activation_code = null, activatedOn = Now() where activation_code = ?', [activationCode]
-    	response.sendRedirect(request.contextPath+"/")
+        connection.executeUpdate 'update accounts set activated = true, activation_code = null, activatedOn = Now() where activation_code = ?', [request.activationCode]
+    	redirect(request.contextPath+"/")
     }
     
 }
