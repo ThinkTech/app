@@ -16,7 +16,7 @@ class ModuleAction extends ActionSupport {
 	    user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
         if(user.activated){
            session.setAttribute("user",user)
-           json([url: request.contextPath+"/"+moduleManager.getMainModule("back-end").url])   
+           json([url: contextPath+"/"+moduleManager.getMainModule("back-end").url])   
         }
 	   	else {
 	   	 json([status : 1])
@@ -132,12 +132,12 @@ class ModuleAction extends ActionSupport {
 	
 	def logout() {
 	    session.invalidate()
-		redirect(request.contextPath+"/")
+		redirect(contextPath)
 	}
 	
     def confirm() {
         connection.executeUpdate 'update accounts set activated = true, activation_code = null, activatedOn = Now() where activation_code = ?', [request.activationCode]
-    	redirect(request.contextPath+"/")
+    	redirect(contextPath)
     }
     
 }
