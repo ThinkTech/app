@@ -15,7 +15,7 @@ class ModuleAction extends ActionSupport {
 	   if(user) {
 	    user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
         if(user.activated){
-           session.setAttribute("user",user)
+           session.user = user
            json([url: contextPath+"/"+moduleManager.getMainModule("back-end").url])   
         }
 	   	else {
@@ -28,7 +28,7 @@ class ModuleAction extends ActionSupport {
 	
 	def changePassword() {
 	   def user = request.body
-	   connection.executeUpdate 'update users set password = sha(?) where id = ?', [user.password,session.getAttribute("user").id] 
+	   connection.executeUpdate 'update users set password = sha(?) where id = ?', [user.password,session.user.id] 
 	   json([status: 1])
 	}
 	
@@ -50,34 +50,34 @@ class ModuleAction extends ActionSupport {
 	
 	def updateProfil() {
 	   def user = request.body
-	   def email = session.getAttribute("user").email
+	   def email = session.user.email
 	   if(user.email != email){
 	    if(connection.firstRow("select id from users where email = ?", [user.email])){
 	   	    json([status: 0])
 	   	    return
 	   	 }
 	   }
-	   connection.executeUpdate 'update users set name = ?, email = ?, profession = ?, telephone = ?  where id = ?', [user.name,user.email,user.profession,user.telephone,session.getAttribute("user").id]
+	   connection.executeUpdate 'update users set name = ?, email = ?, profession = ?, telephone = ?  where id = ?', [user.name,user.email,user.profession,user.telephone,session.user.id]
 	   def structure = user.structure
-	   structure.id = session.getAttribute("user").structure.id
-	   user = connection.firstRow("select * from users where id = ?", [session.getAttribute("user").id])
+	   structure.id = session.user.structure.id
+	   user = connection.firstRow("select * from users where id = ?", [session.user.id])
 	   if(user.role == "administrateur"){
 	   	 connection.executeUpdate 'update structures set name = ?, business = ? where id = ?', [structure.name,structure.business,structure.id]
 	   }
 	   user.structure = connection.firstRow("select * from structures where id = ?", [user.structure_id])
-       session.setAttribute("user",user) 
+       session.user = user 
 	   json([status: 1])
 	}
 	
 	def addCollaborator(){
 	   def user = request.body
-	   if(user.email == session.getAttribute("user").email){
+	   if(user.email == session.user.email){
 	     json([status : 0])
 	   }
 	   else if(connection.firstRow("select id from users where email = ?", [user.email])) {
 		 json([status : 0])
 	   }else{
-	      def structure_id = session.getAttribute("user").structure.id
+	      def structure_id = session.user.structure.id
 	      def alphabet = (('A'..'N')+('P'..'Z')+('a'..'k')+('m'..'z')+('2'..'9')).join()  
  		  def n = 15 
  		  user.password = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
@@ -88,7 +88,7 @@ class ModuleAction extends ActionSupport {
           def id = result[0][0]
           params = [user.activationCode,id]
        	  connection.executeInsert 'insert into accounts(activation_code,user_id) values (?, ?)', params
-	      sendMail(user.email,user.email,"Veuillez confirmer cette demande de collaboration",parseTemplate("collaboration",[user:user,url:appURL,author:session.getAttribute("user")]))
+	      sendMail(user.email,user.email,"Veuillez confirmer cette demande de collaboration",parseTemplate("collaboration",[user:user,url:appURL,author:session.user]))
 	   	  json([id : id])
  	   }
 	}
@@ -100,7 +100,7 @@ class ModuleAction extends ActionSupport {
 	    user.activationCode = new Random().with { (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join() }
  		def params = [user.activationCode,user.id]
        	connection.executeUpdate 'update accounts set activated = false,activation_code = ? where user_id = ?', params 
-	    sendMail(user.email,user.email,"Veuillez confirmer cette demande de collaboration",parseTemplate("collaboration",[user:user,url:appURL,author:session.getAttribute("user")]))
+	    sendMail(user.email,user.email,"Veuillez confirmer cette demande de collaboration",parseTemplate("collaboration",[user:user,url:appURL,author:session.user]))
 	   	json([status : 1])
 	}
 	
