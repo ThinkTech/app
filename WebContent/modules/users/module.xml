@@ -1,5 +1,6 @@
 <module>
 	<name>users</name>
+	<url>users</url>
 	<type>back-end</type>
 	<actions>
 	    <action  url="registration/confirm" method="confirm"/>
