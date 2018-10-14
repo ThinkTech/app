@@ -3,6 +3,16 @@
   <url>dashboard</url>
   <type>back-end</type>
   <main>true</main>
+  <menus>
+	<menu name="main">
+		<menuItem label="Dashboard" icon="television"/>
+		<menuItem label="Vos Domaines" url="domains" icon="globe"/>
+		<menuItem label="Vos Projets" url="projects" icon="briefcase"/>
+		<menuItem label="Assistance" url="support" icon="question-circle-o"/>
+		<menuItem label="Facturation" url="billing" icon="money"/>
+		<menuItem label="Nos Services" url="services" icon="cog"/>
+	</menu>
+  </menus>
   <actions>
     <action url="projects" page="projects" method="showProjects" script="projects"/>
     <action url="projects/info"  method="getProjectInfo" script="projects"/>
@@ -20,14 +30,4 @@
     <action url="billing/info"  method="getBillInfo" script="billing"/>
     <action url="services" page="services" method="showServices"/>
   </actions>
-  <menus>
-	<menu name="main">
-		<menuItem label="Dashboard" icon="television"/>
-		<menuItem label="Vos Domaines" url="domains" icon="globe"/>
-		<menuItem label="Vos Projets" url="projects" icon="briefcase"/>
-		<menuItem label="Assistance" url="support" icon="question-circle-o"/>
-		<menuItem label="Facturation" url="billing" icon="money"/>
-		<menuItem label="Nos Services" url="services" icon="cog"/>
-	</menu>
-  </menus>
 </module>
