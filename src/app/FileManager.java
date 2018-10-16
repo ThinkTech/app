@@ -11,7 +11,7 @@ public class FileManager {
 	private static final String ACCESS_TOKEN = "pQXsY7k7n6AAAAAAAAAAPWBEAjxZy5Xcgtsd8kyz9VsKOIrEzorICsW29BV4bspM";
     private final DbxClientV2 client;
     
-    public FileManager(){
+    public FileManager() {
     	client = new DbxClientV2(new DbxRequestConfig("dropbox/thinktech-app"), ACCESS_TOKEN);
     }
     
