@@ -48,7 +48,7 @@ class ModuleAction extends ActionSupport {
 	   }
 	}
 	
-	def updateProfil() {
+	def updateProfile() {
 	   def user = request.body
 	   def email = session.user.email
 	   if(user.email != email){

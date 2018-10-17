@@ -10,7 +10,7 @@
 		<action  url="account/unlock" method="unlockAccount"/>
 		<action  url="password/change"  method="changePassword"/>
 		<action  url="password/recover"  method="recoverPassword"/>
-		<action  url="profile/update"  method="updateProfil"/>
+		<action  url="profile/update"  method="updateProfile"/>
 		<action  url="collaborators/add"  method="addCollaborator"/>
 		<action  url="collaborators/invite"  method="inviteCollaborator"/>
 		<action  url="collaborators/remove"  method="removeCollaborator"/>
