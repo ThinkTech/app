@@ -192,17 +192,17 @@
 			     name="plan" value="free">
 			    <label for="free">Plan Free</label>
 			    <br>
+			    <input type="radio" id="lite"
+			     name="plan" value="lite">
+			    <label for="lite">Plan Lite</label>
+			    <br>
 			    <input type="radio" id="standard"
 			     name="plan" value="standard">
-			    <label for="standard">Plan Standard</label>
+			    <label for="pro">Plan Standard</label>
 			    <br>
-			    <input type="radio" id="pro"
-			     name="plan" value="pro">
-			    <label for="pro">Plan Pro</label>
-			    <br>
-			    <input type="radio" id="enterprise"
-			     name="plan" value="enterprise">
-			    <label for="enterprise">Plan Enterprise</label>
+			    <input type="radio" id="professional"
+			     name="plan" value="professional">
+			    <label for="professional">Plan Professional</label>
 			    <div>
 			     <i class="fa fa-user" aria-hidden="true"></i> <input type="text" placeholder="super administrateur" name="email" value="${email}" maxlength="200"/>
 			     <input type="hidden" name="user" value="${user.id}">
