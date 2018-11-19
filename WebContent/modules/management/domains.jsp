@@ -198,7 +198,7 @@
 			    <br>
 			    <input type="radio" id="standard"
 			     name="plan" value="standard">
-			    <label for="pro">Plan Standard</label>
+			    <label for="standard">Plan Standard</label>
 			    <br>
 			    <input type="radio" id="professional"
 			     name="plan" value="professional">
