@@ -6,8 +6,8 @@ import groovy.text.markup.MarkupTemplateEngine;
 @SuppressWarnings("serial")
 public class ActionSupport extends org.metamorphosis.core.ActionSupport {
 	
-	public void sendSupportMail(String object,String content){
-		sendMail("ThinkTech Support","support@thinktech.sn",object,content);
+	public void sendSupportMail(String object,String content) throws Exception{
+		sendMail("ThinkTech Support <support@thinktech.sn>",object,content);
 	}
 	
 	@SuppressWarnings("rawtypes")
