@@ -44,7 +44,7 @@ tr:nth-child(even) {
 }
 
 .table-hover>tbody>tr:nth-child(even):hover {
-	background : #efebeb;
+	background : #fafafa;
 }
 
 tr.active {
@@ -306,7 +306,7 @@ fieldset > span {
 	padding-left: 3px;
 	text-align : left;
 	font-weight: bold;
-	background: #efebeb;
+	background: #fafafa;
 	font-size: 12px;
 	border: 1px solid #03b2d5;
 	font-family : Tahoma;
@@ -706,7 +706,7 @@ ul.dropdown-menu.drp-mnu li {
 .info-update-block {
     padding: 1.5em 1.5em;
     background: #999;
-    border: 1px solid #efebeb;
+    border: 1px solid #fafafa;
 }
 
 .info-update-block img {
