@@ -56,7 +56,7 @@ tr.active {
 }
 
 thead tr:nth-child(odd) {
-	background : #3abfdd;
+	background : #03b2d5;
 }
 
 th {
@@ -100,7 +100,7 @@ div.empty span{
 }
 
 input, select, textarea {
-	border : 1px solid #3abfdd;
+	border : 1px solid #03b2d5;
 	font-size : 13px;
 	background: #fdffa4;
 }
@@ -111,7 +111,7 @@ select {
 }
 
 input:focus, select:focus, textarea:focus {
-    border: 1px solid #3abfdd;
+    border: 1px solid #03b2d5;
 }
 
 input[type=submit],input[type="button"] {
@@ -124,7 +124,7 @@ input[readonly]{
 }
 
 legend {
-	border-bottom : 1px solid #3abfdd;
+	border-bottom : 1px solid #03b2d5;
 }
 
 legend a {
@@ -141,7 +141,7 @@ legend a {
 }
 
 .number {
-	background: #3abfdd;
+	background: #03b2d5;
     color: #fff;
     padding: 0px;
     padding-top: 3px;
@@ -241,7 +241,7 @@ td i.fa-user {
 }
 
 .buttons a {
-	color : #3abfdd;
+	color : #03b2d5;
 	font-size : 1.5em;
 	cursor : pointer;
 }
@@ -286,7 +286,7 @@ td i.fa-user {
 }
 
 .page-number.active {
-	background: #3abfdd;
+	background: #03b2d5;
 }
 
 fieldset {
@@ -308,7 +308,7 @@ fieldset > span {
 	font-weight: bold;
 	background: #efebeb;
 	font-size: 12px;
-	border: 1px solid #3abfdd;
+	border: 1px solid #03b2d5;
 	font-family : Tahoma;
 	margin-top : 4px;
 	box-shadow : 0 0px 0px 0 rgba(0, 0, 0, 0.05), 0 0px 8px 0 rgba(0, 0, 0, 0.04);
@@ -329,7 +329,7 @@ fieldset > span.text-right {
 }
 
 fieldset > span.text-right i{
-	color : #3abfdd;
+	color : #03b2d5;
 }
 
 fieldset > span.text-right.full {
@@ -350,7 +350,7 @@ fieldset > span.text-right.full {
   top: 0px;
   left:0px;
   bottom: 0;
-  background-color:#3abfdd;
+  background-color:#03b2d5;
   color: #fff;
   z-index: 999;
   overflow: hidden;
@@ -484,7 +484,7 @@ fieldset > span.text-right.full {
 	margin-right: 3px;
     position: relative;
     top: 1px;
-    color: #3abfdd;
+    color: #03b2d5;
     text-shadow: none;
     font-weight: bold;
 }
@@ -522,11 +522,11 @@ ul.dropdown-menu li {
 	background: #fff;
 }
 .header-right i.fa.fa-envelope{
-	color:#3abfdd;
+	color:#03b2d5;
 }
 /***** Messages *************/
 .notification_header{
-	background-color:#3abfdd;
+	background-color:#03b2d5;
 	padding: 10px 15px;
 	border-bottom:1px solid rgba(0, 0, 0, 0.05);
 	margin-bottom: 8px;
@@ -579,7 +579,7 @@ ul.dropdown-menu li {
     font-size: 10px;
     font-weight: bold;
     color: #FFF;
-    background:#3abfdd;
+    background:#03b2d5;
     line-height: 10px;
     width: 15px;
     height: 15px;
@@ -600,7 +600,7 @@ ul.dropdown-menu li {
 /********* profile details **********/
 ul.dropdown-menu.drp-mnu i.fa {
     margin-right: 0.5em;
-    color: #3abfdd;
+    color: #03b2d5;
 }
 ul.dropdown-menu {
     padding: 0;
@@ -742,23 +742,16 @@ ul.dropdown-menu.drp-mnu li {
 }
 .info-update-block.clr-block-1 {
     background: #585050;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    transition: 0.5s all;
 }
 .info-update-block.clr-block-2 {
-    background:#3abfdd;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    transition: 0.5s all;
+    background:#03b2d5;
 }
 .info-update-block.clr-block-3 {
-    background:#3abfdd;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    transition: 0.5s all;
+    background:#03b2d5;
 }
 
 .info-update-block.clr-block-4 {
 	background: #d9534f;
-	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 .info-update-right i.fa {
@@ -779,16 +772,14 @@ ul.dropdown-menu.drp-mnu li {
 
 .info-update-block.clr-block-6 {
     background:#5cb85c;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    transition: 0.5s all;
 }
 
 .info-update-right i.fa-envelope-o, .info-update-right i.fa-ticket {
-	color : #3abfdd;
+	color : #03b2d5;
 }
 
 .chit-chat-layer1-left .info-update-block.clr-block-1 {
-	background : #3abfdd;
+	background : #03b2d5;
 }
 
 .chit-chat-layer1-left .info-update-gd {
@@ -868,16 +859,16 @@ h3 .fa-question-circle-o {
 }
 
 #confirm-dialog-container > div, #alert-dialog-container > div {
-	border : 1px solid #3abfdd;
+	border : 1px solid #03b2d5;
 }
 
 #confirm-dialog-container span:nth-child(1), #alert-dialog-container span:nth-child(1) {
-	background:#3abfdd;
+	background:#03b2d5;
 }
 
 #confirm-dialog-container a, #alert-dialog-container a,#alert-dialog-container span:nth-child(1) {
-	background : #3abfdd;
-	background-color : #3abfdd;
+	background : #03b2d5;
+	background-color : #03b2d5;
 }
 
 #alert-dialog-container span:nth-child(2), #confirm-dialog-container span:nth-child(2) {
@@ -889,7 +880,7 @@ h3 .fa-question-circle-o {
 }
 
 #confirm-dialog-container a:hover,#alert-dialog-container a:hover, #confirm-dialog-container a:focus,#alert-dialog-container a:focus {
-    color: #3abfdd;
+    color: #03b2d5;
     background-color: #fff;
     border: 1px solid;
     text-decoration : none;
@@ -902,7 +893,7 @@ h3 .fa-question-circle-o {
 
 #loader {
 	border: 16px solid #eee;
-    border-top: 16px solid #3abfdd;
+    border-top: 16px solid #03b2d5;
     width: 90px;
     height: 90px;
 }

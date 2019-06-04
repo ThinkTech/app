@@ -101,10 +101,11 @@ body {
 }
 
 .header-w3l h1 span {
-	color: #3abfdd;
+	color: #03b2d5;
 	display: inline-block;
 	border: 13px solid;
-	padding: 0 .2em;
+	padding: 0 .21em;
+    padding-right: 0.15em;
 	text-shadow: none;
 	box-shadow: 0 2px 5px 0 #388696, 0 2px 10px 0 rgba(0,0,0,.12);
 }
@@ -132,7 +133,7 @@ body {
 }
 
 .wthree-pro {
-	background: #3abfdd;
+	background: #03b2d5;
 	border: 1px solid #999;
 	background-size: cover;
 }
@@ -166,7 +167,7 @@ body {
 	outline: none;
 	font-size: 15px;
 	border: none;
-	border: 1px solid #3abfdd;
+	border: 1px solid #03b2d5;
 	background: none;
 	width: 75%;
 	color: #fff;
@@ -183,7 +184,7 @@ body {
 .sub-main-w3 input[type="submit"] {
 	color: #180101;
 	background: #fff;
-	border: 1px solid #3abfdd;
+	border: 1px solid #03b2d5;
 	margin-bottom: 10px;
 	padding: .7em 3em;
 	outline: none;
@@ -259,11 +260,11 @@ a.w3-pass {
 }
 
 #confirm-dialog-container>div, #alert-dialog-container>div {
-	border: 1px solid #3abfdd;
+	border: 1px solid #03b2d5;
 }
 
 #confirm-dialog-container span:nth-child(1), #alert-dialog-container span:nth-child(1) {
-	background: #3abfdd;
+	background: #03b2d5;
 	width : 96%;
 	height : 25px;
 }
@@ -278,8 +279,8 @@ a.w3-pass {
 
 #confirm-dialog-container a, #alert-dialog-container a,
 	#alert-dialog-container span:nth-child(1) {
-	background: #3abfdd;
-	background-color: #3abfdd;
+	background: #03b2d5;
+	background-color: #03b2d5;
 }
 
 #confirm-dialog-container a, #alert-dialog-container a{
@@ -289,7 +290,7 @@ a.w3-pass {
 
 #confirm-dialog-container a:hover, #alert-dialog-container a:hover,
 	#confirm-dialog-container a:focus, #alert-dialog-container a:focus {
-	color: #3abfdd;
+	color: #03b2d5;
 	background-color: #fff;
 	border: 1px solid;
 	text-decoration: none;
@@ -303,7 +304,7 @@ a.w3-pass {
 
 #loader {
 	border: 16px solid #eee;
-	border-top: 16px solid #3abfdd;
+	border-top: 16px solid #03b2d5;
 }
 
 /*--//main--*/
@@ -322,7 +323,7 @@ a.w3-pass {
 }
 
 .footer p a {
-	color: #3abfdd;
+	color: #03b2d5;
 }
 
 .footer p a:hover {
