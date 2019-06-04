@@ -40,7 +40,7 @@ a:focus {
 }
 
 tr:nth-child(even) {
-	background : #efebeb;
+	background : #fafafa;
 }
 
 .table-hover>tbody>tr:nth-child(even):hover {
