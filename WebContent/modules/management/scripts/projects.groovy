@@ -1,7 +1,9 @@
 import static org.apache.commons.io.FileUtils.byteCountToDisplaySize as byteCount
 
+@Controller
 class ModuleAction extends ActionSupport {
 
+   @GET(url="projects",page="projects")
    def showProjects() {
        request.projects = connection.rows("select p.id,p.subject,p.plan,date_format(p.date,'%d/%m/%Y') as date,p.status,p.progression,u.name as author from projects p, users u where p.user_id = u.id and p.structure_id = ? order by p.date DESC", [user.structure.id])
        request.total = request.projects.size()
@@ -10,7 +12,8 @@ class ModuleAction extends ActionSupport {
        request.domains = connection.rows("select d.id, d.name from domains d where d.status = 'finished' and d.structure_id = $user.structure.id and not exists (select p.domain_id from projects p where d.id = p.domain_id) order by d.date DESC", [])
        SUCCESS
    }
-	
+
+   @GET("projects/info")
    def getProjectInfo() {
 	   def project = connection.firstRow("select p.*,u.name,d.name as domain from projects p,users u, domains d where p.id = ? and p.user_id = u.id and p.domain_id = d.id", [request.id])
 	   if(project.status == 'finished'){

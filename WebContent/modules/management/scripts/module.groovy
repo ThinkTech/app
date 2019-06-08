@@ -8,7 +8,7 @@ class ModuleAction extends ActionSupport {
    	   SUCCESS
    }
     
-	def showServices() {
+   def showServices() {
 	   def services = []
        services << new Expando(name : 'domainhosting',icon : 'domain-service.png')
        services << new Expando(name : 'mailhosting',icon : 'mail-service.png')

@@ -14,8 +14,6 @@
 	</menu>
   </menus>
   <actions>
-    <action url="projects" page="projects" method="showProjects" script="projects"/>
-    <action url="projects/info"  method="getProjectInfo" script="projects"/>
     <action url="projects/documents/save"  method="saveDocuments" script="projects"/>
     <action url="projects/documents/download"  method="downloadDocument" script="projects"/>
     <action url="projects/description/update"  method="updateProjectDescription" script="projects"/>
